@@ -1,0 +1,8 @@
+F.CLEZ16
+F.CLEZ16
+F.CLEZ16
+F.CLEZ16
+RealtimeSpreadMonitor.OptionSpreadManager System.ArgumentNullException: Value cannot be null.
+Parameter name: key
+   at System.Collections.Concurrent.ConcurrentDictionary`2.ContainsKey(TKey key)
+   at RealtimeSpreadMonitor.OptionSpreadManager.fillADMExpressionOptionList() in D:\RealtimeSpreadWithPythonModel\RealtimeSpreadMonitor\RealtimeSpreadMonitor\OptionSpreadManager.cs:line 995

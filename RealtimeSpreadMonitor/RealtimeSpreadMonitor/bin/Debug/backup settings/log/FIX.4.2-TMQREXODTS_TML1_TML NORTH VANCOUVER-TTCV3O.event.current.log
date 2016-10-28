@@ -1,0 +1,35 @@
+20150204-15:59:02.819 : Created session
+20150204-15:59:02.824 : Connecting to 208.184.251.214 on port 11190
+20150204-15:59:02.933 : Connection succeeded
+20150204-15:59:02.941 : Session reset: ResetOnLogon
+20150204-15:59:02.967 : Session reset: ResetSeqNumFlag
+20150204-15:59:02.967 : Initiated logon request
+20150204-15:59:03.861 : Received logon
+20150204-16:18:14.877 : Created session
+20150204-16:18:14.881 : Connecting to 208.184.251.214 on port 11190
+20150204-16:18:14.988 : Connection succeeded
+20150204-16:18:15.012 : Session reset: ResetOnLogon
+20150204-16:18:15.029 : Session reset: ResetSeqNumFlag
+20150204-16:18:15.031 : Initiated logon request
+20150204-16:18:15.242 : Received logon
+20150204-17:18:36.092 : Created session
+20150204-17:18:36.096 : Connecting to 208.184.251.214 on port 11190
+20150204-17:18:36.202 : Connection succeeded
+20150204-17:18:36.254 : Session reset: ResetOnLogon
+20150204-17:18:36.279 : Session reset: ResetSeqNumFlag
+20150204-17:18:36.280 : Initiated logon request
+20150204-17:18:36.459 : Received logon
+20150204-17:28:12.902 : Created session
+20150204-17:28:12.906 : Connecting to 208.184.251.214 on port 11190
+20150204-17:28:13.016 : Connection succeeded
+20150204-17:28:13.050 : Session reset: ResetOnLogon
+20150204-17:28:13.090 : Session reset: ResetSeqNumFlag
+20150204-17:28:13.092 : Initiated logon request
+20150204-17:28:13.304 : Received logon
+20150204-17:34:24.836 : Created session
+20150204-17:34:24.840 : Connecting to 208.184.251.214 on port 11190
+20150204-17:34:24.949 : Connection succeeded
+20150204-17:34:24.963 : Session reset: ResetOnLogon
+20150204-17:34:24.995 : Session reset: ResetSeqNumFlag
+20150204-17:34:24.997 : Initiated logon request
+20150204-17:34:26.310 : Received logon

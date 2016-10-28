@@ -1,0 +1,1587 @@
+20150826-18:56:49.925 : Created session
+20150826-18:56:49.929 : Connecting to 208.184.251.226 on port 11980
+20150826-18:56:50.081 : Connection succeeded
+20150826-18:56:50.122 : Session reset: ResetOnLogon
+20150826-18:56:50.174 : Session reset: ResetSeqNumFlag
+20150826-18:56:50.177 : Initiated logon request
+20150826-18:56:50.343 : Received logon
+20150826-19:15:25.887 : Created session
+20150826-19:15:25.892 : Connecting to 208.184.251.226 on port 11980
+20150826-19:15:25.999 : Connection succeeded
+20150826-19:15:26.011 : Session reset: ResetOnLogon
+20150826-19:15:26.166 : Session reset: ResetSeqNumFlag
+20150826-19:15:26.168 : Initiated logon request
+20150826-19:15:26.320 : Received logon
+20150826-21:57:53.802 : Created session
+20150826-21:57:53.806 : Connecting to 208.184.251.226 on port 11980
+20150826-21:57:53.919 : Connection succeeded
+20150826-21:57:53.943 : Session reset: ResetOnLogon
+20150826-21:57:53.956 : Session reset: ResetSeqNumFlag
+20150826-21:57:53.957 : Initiated logon request
+20150826-21:57:54.110 : Received logon
+20150826-21:58:32.782 : Message 4 Rejected: Tag not defined for this message type (Field=18)
+20150826-21:59:10.735 : Message 7 Rejected: Tag not defined for this message type (Field=18)
+20150826-22:01:20.910 : Initiated logout request
+20150826-22:01:21.017 : Received logout response
+20150826-22:01:21.018 : Session FIX.4.2:TMQREXOMB/TML1/TML NORTH VANCOUVER->MBO:12345678 disconnecting: Received logout response
+20150826-22:01:21.038 : Session reset: ResetOnDisconnect
+20150826-22:02:44.641 : Created session
+20150826-22:02:44.646 : Connecting to 208.184.251.226 on port 11980
+20150826-22:02:44.756 : Connection succeeded
+20150826-22:02:44.770 : Session reset: ResetOnLogon
+20150826-22:02:44.797 : Session reset: ResetSeqNumFlag
+20150826-22:02:44.799 : Initiated logon request
+20150826-22:02:44.970 : Received logon
+20150826-22:06:27.892 : Created session
+20150826-22:06:27.896 : Connecting to 208.184.251.226 on port 11980
+20150826-22:06:28.008 : Connection succeeded
+20150826-22:06:28.028 : Session reset: ResetOnLogon
+20150826-22:06:28.088 : Session reset: ResetSeqNumFlag
+20150826-22:06:28.090 : Initiated logon request
+20150826-22:06:28.228 : Received logon
+20150828-15:18:57.506 : Session FIX.4.2:TMQREXOMB/TML1/TML NORTH VANCOUVER->MBO:12345678 already disconnected: Resetting...
+20150828-15:18:57.518 : Session reset: New session
+20150828-15:18:57.519 : Created session
+20150828-15:18:57.524 : Connecting to 208.184.251.226 on port 11980
+20150828-15:18:57.641 : Connection succeeded
+20150828-15:18:57.679 : Session reset: ResetOnLogon
+20150828-15:18:57.706 : Session reset: ResetSeqNumFlag
+20150828-15:18:57.717 : Initiated logon request
+20150828-15:18:57.860 : Received logon
+20150828-15:21:12.431 : Created session
+20150828-15:21:12.435 : Connecting to 208.184.251.226 on port 11980
+20150828-15:21:12.536 : Connection succeeded
+20150828-15:21:12.558 : Session reset: ResetOnLogon
+20150828-15:21:12.598 : Session reset: ResetSeqNumFlag
+20150828-15:21:12.600 : Initiated logon request
+20150828-15:21:12.742 : Received logon
+20150828-15:41:50.986 : Created session
+20150828-15:41:50.992 : Connecting to 208.184.251.226 on port 11980
+20150828-15:41:51.097 : Connection succeeded
+20150828-15:41:51.109 : Session reset: ResetOnLogon
+20150828-15:41:51.122 : Session reset: ResetSeqNumFlag
+20150828-15:41:51.124 : Initiated logon request
+20150828-15:41:51.260 : Received logon
+20150828-16:42:53.861 : Initiated logout request
+20150828-16:42:54.029 : Received logout response
+20150828-16:42:54.030 : Session FIX.4.2:TMQREXOMB/TML1/TML NORTH VANCOUVER->MBO:12345678 disconnecting: Received logout response
+20150828-16:42:54.060 : Session reset: ResetOnDisconnect
+20150909-22:57:59.494 : Session FIX.4.2:TMQREXOMB/TML1/TML NORTH VANCOUVER->MBO:12345678 already disconnected: Resetting...
+20150909-22:57:59.520 : Session reset: New session
+20150909-22:57:59.520 : Created session
+20150909-22:57:59.525 : Connecting to 208.184.251.226 on port 11980
+20150909-22:57:59.630 : Connection succeeded
+20150909-22:57:59.720 : Session reset: ResetOnLogon
+20150909-22:57:59.770 : Session reset: ResetSeqNumFlag
+20150909-22:57:59.798 : Initiated logon request
+20150909-22:57:59.973 : Received logon
+20150910-00:00:00.401 : Session reset: New session (detected in Next())
+20150910-00:00:28.577 : Session FIX.4.2:TMQREXOMB/TML1/TML NORTH VANCOUVER->MBO:12345678 disconnecting: System.Net.Sockets.SocketException (0x80004005): An existing connection was forcibly closed by the remote host
+   at QuickFix.SocketInitiatorThread.ReadSome(Byte[] buffer, Int32 timeoutMilliseconds)
+   at QuickFix.SocketInitiatorThread.Read()
+20150910-00:00:28.606 : Session reset: ResetOnDisconnect
+20150910-00:00:29.600 : Connecting to 208.184.251.226 on port 11980
+20150910-00:00:29.706 : Connection succeeded
+20150910-00:00:29.715 : Session reset: ResetOnLogon
+20150910-00:00:29.724 : Session reset: ResetSeqNumFlag
+20150910-00:00:29.725 : Initiated logon request
+20150910-00:00:29.854 : Received logon
+20150910-04:49:57.487 : Session FIX.4.2:TMQREXOMB/TML1/TML NORTH VANCOUVER->MBO:12345678 disconnecting: System.Net.Sockets.SocketException (0x80004005): An existing connection was forcibly closed by the remote host
+   at QuickFix.SocketInitiatorThread.ReadSome(Byte[] buffer, Int32 timeoutMilliseconds)
+   at QuickFix.SocketInitiatorThread.Read()
+20150910-04:49:57.520 : Session reset: ResetOnDisconnect
+20150910-04:49:58.982 : Connecting to 208.184.251.226 on port 11980
+20150910-04:49:59.089 : Connection succeeded
+20150910-04:49:59.095 : Session reset: ResetOnLogon
+20150910-04:49:59.100 : Session reset: ResetSeqNumFlag
+20150910-04:49:59.100 : Initiated logon request
+20150910-04:50:02.559 : Session FIX.4.2:TMQREXOMB/TML1/TML NORTH VANCOUVER->MBO:12345678 disconnecting: System.Net.Sockets.SocketException (0x80004005): An existing connection was forcibly closed by the remote host
+   at QuickFix.SocketInitiatorThread.ReadSome(Byte[] buffer, Int32 timeoutMilliseconds)
+   at QuickFix.SocketInitiatorThread.Read()
+20150910-04:50:02.583 : Session reset: ResetOnDisconnect
+20150910-04:50:02.985 : Connecting to 208.184.251.226 on port 11980
+20150910-04:50:04.313 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-04:50:10.992 : Connecting to 208.184.251.226 on port 11980
+20150910-04:50:12.309 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-04:50:18.997 : Connecting to 208.184.251.226 on port 11980
+20150910-04:50:20.317 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-04:50:27.002 : Connecting to 208.184.251.226 on port 11980
+20150910-04:50:28.320 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-04:50:35.007 : Connecting to 208.184.251.226 on port 11980
+20150910-04:50:36.323 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-04:50:43.011 : Connecting to 208.184.251.226 on port 11980
+20150910-04:50:44.334 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-04:50:51.017 : Connecting to 208.184.251.226 on port 11980
+20150910-04:50:52.339 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-04:50:59.024 : Connecting to 208.184.251.226 on port 11980
+20150910-04:51:00.347 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-04:51:07.030 : Connecting to 208.184.251.226 on port 11980
+20150910-04:51:08.345 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-04:51:15.034 : Connecting to 208.184.251.226 on port 11980
+20150910-04:51:16.354 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-04:51:23.038 : Connecting to 208.184.251.226 on port 11980
+20150910-04:51:24.362 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-04:51:31.042 : Connecting to 208.184.251.226 on port 11980
+20150910-04:51:32.360 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-04:51:39.048 : Connecting to 208.184.251.226 on port 11980
+20150910-04:51:40.359 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-04:51:47.052 : Connecting to 208.184.251.226 on port 11980
+20150910-04:51:48.371 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-04:51:55.057 : Connecting to 208.184.251.226 on port 11980
+20150910-04:51:56.390 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-04:52:03.063 : Connecting to 208.184.251.226 on port 11980
+20150910-04:52:04.382 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-04:52:11.068 : Connecting to 208.184.251.226 on port 11980
+20150910-04:52:12.388 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-04:52:19.075 : Connecting to 208.184.251.226 on port 11980
+20150910-04:52:20.396 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-04:52:27.080 : Connecting to 208.184.251.226 on port 11980
+20150910-04:52:28.416 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-04:52:35.086 : Connecting to 208.184.251.226 on port 11980
+20150910-04:52:36.399 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-04:52:43.091 : Connecting to 208.184.251.226 on port 11980
+20150910-04:52:49.808 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-04:52:55.098 : Connecting to 208.184.251.226 on port 11980
+20150910-04:52:56.417 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-04:53:03.105 : Connecting to 208.184.251.226 on port 11980
+20150910-04:53:04.425 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-04:53:11.111 : Connecting to 208.184.251.226 on port 11980
+20150910-04:53:12.432 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-04:53:19.115 : Connecting to 208.184.251.226 on port 11980
+20150910-04:53:20.444 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-04:53:27.120 : Connecting to 208.184.251.226 on port 11980
+20150910-04:53:28.438 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-04:53:35.126 : Connecting to 208.184.251.226 on port 11980
+20150910-04:53:36.443 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-04:53:43.130 : Connecting to 208.184.251.226 on port 11980
+20150910-04:53:49.850 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-04:53:55.138 : Connecting to 208.184.251.226 on port 11980
+20150910-04:53:56.454 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-04:54:03.145 : Connecting to 208.184.251.226 on port 11980
+20150910-04:54:04.464 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-04:54:11.152 : Connecting to 208.184.251.226 on port 11980
+20150910-04:54:12.472 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-04:54:19.160 : Connecting to 208.184.251.226 on port 11980
+20150910-04:54:20.483 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-04:54:27.167 : Connecting to 208.184.251.226 on port 11980
+20150910-04:54:28.489 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-04:54:35.173 : Connecting to 208.184.251.226 on port 11980
+20150910-04:54:36.494 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-04:54:43.179 : Connecting to 208.184.251.226 on port 11980
+20150910-04:54:44.507 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-04:54:51.186 : Connecting to 208.184.251.226 on port 11980
+20150910-04:54:52.507 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-04:54:59.191 : Connecting to 208.184.251.226 on port 11980
+20150910-04:55:00.503 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-04:55:07.195 : Connecting to 208.184.251.226 on port 11980
+20150910-04:55:08.520 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-04:55:15.199 : Connecting to 208.184.251.226 on port 11980
+20150910-04:55:16.526 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-04:55:23.204 : Connecting to 208.184.251.226 on port 11980
+20150910-04:55:24.522 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-04:55:31.210 : Connecting to 208.184.251.226 on port 11980
+20150910-04:55:32.525 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-04:55:39.214 : Connecting to 208.184.251.226 on port 11980
+20150910-04:55:40.538 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-04:55:47.220 : Connecting to 208.184.251.226 on port 11980
+20150910-04:55:48.544 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-04:55:55.225 : Connecting to 208.184.251.226 on port 11980
+20150910-04:55:56.546 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-04:56:03.232 : Connecting to 208.184.251.226 on port 11980
+20150910-04:56:04.560 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-04:56:11.240 : Connecting to 208.184.251.226 on port 11980
+20150910-04:56:12.557 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-04:56:19.246 : Connecting to 208.184.251.226 on port 11980
+20150910-04:56:20.558 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-04:56:27.251 : Connecting to 208.184.251.226 on port 11980
+20150910-04:56:28.589 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-04:56:35.257 : Connecting to 208.184.251.226 on port 11980
+20150910-04:56:36.572 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-04:56:43.264 : Connecting to 208.184.251.226 on port 11980
+20150910-04:56:44.582 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-04:56:51.269 : Connecting to 208.184.251.226 on port 11980
+20150910-04:56:52.590 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-04:56:59.275 : Connecting to 208.184.251.226 on port 11980
+20150910-04:57:00.598 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-04:57:07.281 : Connecting to 208.184.251.226 on port 11980
+20150910-04:57:08.600 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-04:57:15.286 : Connecting to 208.184.251.226 on port 11980
+20150910-04:57:28.507 : Connection failed: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond 208.184.251.226:11980
+20150910-04:57:35.298 : Connecting to 208.184.251.226 on port 11980
+20150910-04:57:36.626 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-04:57:43.304 : Connecting to 208.184.251.226 on port 11980
+20150910-04:57:44.619 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-04:57:51.309 : Connecting to 208.184.251.226 on port 11980
+20150910-04:57:52.629 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-04:57:59.315 : Connecting to 208.184.251.226 on port 11980
+20150910-04:58:00.638 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-04:58:07.319 : Connecting to 208.184.251.226 on port 11980
+20150910-04:58:08.635 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-04:58:15.324 : Connecting to 208.184.251.226 on port 11980
+20150910-04:58:16.653 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-04:58:23.328 : Connecting to 208.184.251.226 on port 11980
+20150910-04:58:24.646 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-04:58:31.333 : Connecting to 208.184.251.226 on port 11980
+20150910-04:58:32.643 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-04:58:39.339 : Connecting to 208.184.251.226 on port 11980
+20150910-04:58:40.654 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-04:58:47.343 : Connecting to 208.184.251.226 on port 11980
+20150910-04:58:48.661 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-04:58:55.349 : Connecting to 208.184.251.226 on port 11980
+20150910-04:58:56.672 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-04:59:03.356 : Connecting to 208.184.251.226 on port 11980
+20150910-04:59:04.671 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-04:59:11.362 : Connecting to 208.184.251.226 on port 11980
+20150910-04:59:12.683 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-04:59:19.367 : Connecting to 208.184.251.226 on port 11980
+20150910-04:59:20.694 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-04:59:27.371 : Connecting to 208.184.251.226 on port 11980
+20150910-04:59:28.690 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-04:59:35.376 : Connecting to 208.184.251.226 on port 11980
+20150910-04:59:36.694 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-04:59:43.381 : Connecting to 208.184.251.226 on port 11980
+20150910-04:59:44.695 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-04:59:51.387 : Connecting to 208.184.251.226 on port 11980
+20150910-04:59:52.709 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-04:59:59.393 : Connecting to 208.184.251.226 on port 11980
+20150910-05:00:00.713 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-05:00:07.397 : Connecting to 208.184.251.226 on port 11980
+20150910-05:00:08.719 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-05:00:15.402 : Connecting to 208.184.251.226 on port 11980
+20150910-05:00:16.721 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-05:00:23.406 : Connecting to 208.184.251.226 on port 11980
+20150910-05:00:24.729 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-05:00:31.410 : Connecting to 208.184.251.226 on port 11980
+20150910-05:00:32.729 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-05:00:39.414 : Connecting to 208.184.251.226 on port 11980
+20150910-05:00:40.738 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-05:00:47.419 : Connecting to 208.184.251.226 on port 11980
+20150910-05:00:48.740 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-05:00:55.427 : Connecting to 208.184.251.226 on port 11980
+20150910-05:00:56.747 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-05:01:03.431 : Connecting to 208.184.251.226 on port 11980
+20150910-05:01:04.749 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-05:01:11.439 : Connecting to 208.184.251.226 on port 11980
+20150910-05:01:12.760 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-05:01:19.445 : Connecting to 208.184.251.226 on port 11980
+20150910-05:01:20.768 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-05:01:27.451 : Connecting to 208.184.251.226 on port 11980
+20150910-05:01:28.768 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-05:01:35.456 : Connecting to 208.184.251.226 on port 11980
+20150910-05:01:36.775 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-05:01:43.464 : Connecting to 208.184.251.226 on port 11980
+20150910-05:01:44.784 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-05:01:51.469 : Connecting to 208.184.251.226 on port 11980
+20150910-05:01:52.791 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-05:01:59.474 : Connecting to 208.184.251.226 on port 11980
+20150910-05:02:00.787 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-05:02:07.479 : Connecting to 208.184.251.226 on port 11980
+20150910-05:02:08.798 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-05:02:15.487 : Connecting to 208.184.251.226 on port 11980
+20150910-05:02:16.809 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-05:02:23.493 : Connecting to 208.184.251.226 on port 11980
+20150910-05:02:24.817 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-05:02:31.500 : Connecting to 208.184.251.226 on port 11980
+20150910-05:02:32.824 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-05:02:39.506 : Connecting to 208.184.251.226 on port 11980
+20150910-05:02:40.825 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-05:02:47.512 : Connecting to 208.184.251.226 on port 11980
+20150910-05:02:48.831 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-05:02:55.516 : Connecting to 208.184.251.226 on port 11980
+20150910-05:02:56.839 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-05:03:03.520 : Connecting to 208.184.251.226 on port 11980
+20150910-05:03:04.842 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-05:03:11.526 : Connecting to 208.184.251.226 on port 11980
+20150910-05:03:12.848 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-05:03:19.532 : Connecting to 208.184.251.226 on port 11980
+20150910-05:03:20.852 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-05:03:27.537 : Connecting to 208.184.251.226 on port 11980
+20150910-05:03:28.854 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-05:03:35.541 : Connecting to 208.184.251.226 on port 11980
+20150910-05:03:36.858 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-05:03:43.546 : Connecting to 208.184.251.226 on port 11980
+20150910-05:03:44.881 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-05:03:51.553 : Connecting to 208.184.251.226 on port 11980
+20150910-05:03:52.873 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-05:03:59.560 : Connecting to 208.184.251.226 on port 11980
+20150910-05:04:00.883 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-05:04:07.566 : Connecting to 208.184.251.226 on port 11980
+20150910-05:04:08.889 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-05:04:15.573 : Connecting to 208.184.251.226 on port 11980
+20150910-05:04:16.895 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-05:04:23.579 : Connecting to 208.184.251.226 on port 11980
+20150910-05:04:24.899 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-05:04:31.582 : Connecting to 208.184.251.226 on port 11980
+20150910-05:04:44.800 : Connection failed: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond 208.184.251.226:11980
+20150910-05:04:51.591 : Connecting to 208.184.251.226 on port 11980
+20150910-05:04:52.912 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-05:04:59.595 : Connecting to 208.184.251.226 on port 11980
+20150910-05:05:00.906 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-05:05:07.601 : Connecting to 208.184.251.226 on port 11980
+20150910-05:05:08.922 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-05:05:15.607 : Connecting to 208.184.251.226 on port 11980
+20150910-05:05:22.325 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-05:05:27.612 : Connecting to 208.184.251.226 on port 11980
+20150910-05:05:28.931 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-05:05:35.617 : Connecting to 208.184.251.226 on port 11980
+20150910-05:05:36.936 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-05:05:43.623 : Connecting to 208.184.251.226 on port 11980
+20150910-05:05:44.957 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-05:05:51.629 : Connecting to 208.184.251.226 on port 11980
+20150910-05:05:52.954 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-05:05:59.635 : Connecting to 208.184.251.226 on port 11980
+20150910-05:06:00.947 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-05:06:07.642 : Connecting to 208.184.251.226 on port 11980
+20150910-05:06:08.960 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-05:06:15.647 : Connecting to 208.184.251.226 on port 11980
+20150910-05:06:16.970 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-05:06:23.651 : Connecting to 208.184.251.226 on port 11980
+20150910-05:06:24.971 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-05:06:31.656 : Connecting to 208.184.251.226 on port 11980
+20150910-05:06:32.979 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-05:06:39.661 : Connecting to 208.184.251.226 on port 11980
+20150910-05:06:43.380 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-05:06:49.670 : Connecting to 208.184.251.226 on port 11980
+20150910-05:06:50.992 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-05:06:57.674 : Connecting to 208.184.251.226 on port 11980
+20150910-05:06:58.998 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-05:07:05.680 : Connecting to 208.184.251.226 on port 11980
+20150910-05:07:06.995 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-05:07:13.685 : Connecting to 208.184.251.226 on port 11980
+20150910-05:07:15.007 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-05:07:21.690 : Connecting to 208.184.251.226 on port 11980
+20150910-05:07:23.007 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-05:07:29.695 : Connecting to 208.184.251.226 on port 11980
+20150910-05:07:31.013 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-05:07:37.700 : Connecting to 208.184.251.226 on port 11980
+20150910-05:07:39.016 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-05:07:45.705 : Connecting to 208.184.251.226 on port 11980
+20150910-05:07:47.024 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-05:07:53.711 : Connecting to 208.184.251.226 on port 11980
+20150910-05:07:55.030 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-05:08:01.718 : Connecting to 208.184.251.226 on port 11980
+20150910-05:08:03.042 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-05:08:09.723 : Connecting to 208.184.251.226 on port 11980
+20150910-05:08:11.033 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-05:08:17.728 : Connecting to 208.184.251.226 on port 11980
+20150910-05:08:19.051 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-05:08:25.733 : Connecting to 208.184.251.226 on port 11980
+20150910-05:08:27.052 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-05:08:33.739 : Connecting to 208.184.251.226 on port 11980
+20150910-05:08:35.051 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-05:08:41.745 : Connecting to 208.184.251.226 on port 11980
+20150910-05:08:43.064 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-05:08:49.750 : Connecting to 208.184.251.226 on port 11980
+20150910-05:08:51.077 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-05:08:57.755 : Connecting to 208.184.251.226 on port 11980
+20150910-05:08:59.069 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-05:09:05.763 : Connecting to 208.184.251.226 on port 11980
+20150910-05:09:07.085 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-05:09:13.768 : Connecting to 208.184.251.226 on port 11980
+20150910-05:09:15.088 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-05:09:21.773 : Connecting to 208.184.251.226 on port 11980
+20150910-05:09:23.085 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-05:09:29.780 : Connecting to 208.184.251.226 on port 11980
+20150910-05:09:31.098 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-05:09:37.785 : Connecting to 208.184.251.226 on port 11980
+20150910-05:09:39.100 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-05:09:45.789 : Connecting to 208.184.251.226 on port 11980
+20150910-05:09:47.113 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-05:09:53.796 : Connecting to 208.184.251.226 on port 11980
+20150910-05:09:55.120 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-05:10:01.803 : Connecting to 208.184.251.226 on port 11980
+20150910-05:10:03.126 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-05:10:09.808 : Connecting to 208.184.251.226 on port 11980
+20150910-05:10:11.124 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-05:10:17.815 : Connecting to 208.184.251.226 on port 11980
+20150910-05:10:19.133 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-05:10:25.820 : Connecting to 208.184.251.226 on port 11980
+20150910-05:10:27.143 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-05:10:33.824 : Connecting to 208.184.251.226 on port 11980
+20150910-05:10:35.148 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-05:10:41.831 : Connecting to 208.184.251.226 on port 11980
+20150910-05:10:43.150 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-05:10:49.837 : Connecting to 208.184.251.226 on port 11980
+20150910-05:10:51.152 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-05:10:57.842 : Connecting to 208.184.251.226 on port 11980
+20150910-05:10:59.162 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-05:11:05.848 : Connecting to 208.184.251.226 on port 11980
+20150910-05:11:07.164 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-05:11:13.852 : Connecting to 208.184.251.226 on port 11980
+20150910-05:11:15.174 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-05:11:21.856 : Connecting to 208.184.251.226 on port 11980
+20150910-05:11:23.179 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-05:11:29.864 : Connecting to 208.184.251.226 on port 11980
+20150910-05:11:31.198 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-05:11:37.870 : Connecting to 208.184.251.226 on port 11980
+20150910-05:11:39.188 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-05:11:45.874 : Connecting to 208.184.251.226 on port 11980
+20150910-05:11:47.206 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-05:11:53.881 : Connecting to 208.184.251.226 on port 11980
+20150910-05:11:55.202 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-05:12:01.888 : Connecting to 208.184.251.226 on port 11980
+20150910-05:12:03.207 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-05:12:09.893 : Connecting to 208.184.251.226 on port 11980
+20150910-05:12:11.213 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-05:12:17.899 : Connecting to 208.184.251.226 on port 11980
+20150910-05:12:19.220 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-05:12:25.904 : Connecting to 208.184.251.226 on port 11980
+20150910-05:12:27.227 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-05:12:33.910 : Connecting to 208.184.251.226 on port 11980
+20150910-05:12:35.238 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-05:12:41.918 : Connecting to 208.184.251.226 on port 11980
+20150910-05:12:43.241 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-05:12:49.922 : Connecting to 208.184.251.226 on port 11980
+20150910-05:12:51.241 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-05:12:57.928 : Connecting to 208.184.251.226 on port 11980
+20150910-05:12:59.248 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-05:13:05.933 : Connecting to 208.184.251.226 on port 11980
+20150910-05:13:07.254 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-05:13:13.940 : Connecting to 208.184.251.226 on port 11980
+20150910-05:13:15.258 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-05:13:21.945 : Connecting to 208.184.251.226 on port 11980
+20150910-05:13:23.269 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-05:13:29.951 : Connecting to 208.184.251.226 on port 11980
+20150910-05:13:31.270 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-05:13:37.955 : Connecting to 208.184.251.226 on port 11980
+20150910-05:13:39.267 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-05:13:45.960 : Connecting to 208.184.251.226 on port 11980
+20150910-05:13:47.281 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-05:13:53.965 : Connecting to 208.184.251.226 on port 11980
+20150910-05:13:55.285 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-05:14:01.970 : Connecting to 208.184.251.226 on port 11980
+20150910-05:14:03.291 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-05:14:09.978 : Connecting to 208.184.251.226 on port 11980
+20150910-05:14:11.298 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-05:14:17.982 : Connecting to 208.184.251.226 on port 11980
+20150910-05:14:19.302 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-05:14:25.988 : Connecting to 208.184.251.226 on port 11980
+20150910-05:14:27.306 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-05:14:33.997 : Connecting to 208.184.251.226 on port 11980
+20150910-05:14:35.319 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-05:14:42.004 : Connecting to 208.184.251.226 on port 11980
+20150910-05:14:43.338 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-05:14:50.011 : Connecting to 208.184.251.226 on port 11980
+20150910-05:14:51.328 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-05:14:58.017 : Connecting to 208.184.251.226 on port 11980
+20150910-05:14:59.340 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-05:15:06.022 : Connecting to 208.184.251.226 on port 11980
+20150910-05:15:06.128 : Connection succeeded
+20150910-05:15:06.138 : Session reset: ResetOnLogon
+20150910-05:15:06.147 : Session reset: ResetSeqNumFlag
+20150910-05:15:06.147 : Initiated logon request
+20150910-05:15:07.588 : Received logon
+20150910-11:15:44.946 : Session FIX.4.2:TMQREXOMB/TML1/TML NORTH VANCOUVER->MBO:12345678 disconnecting: System.Net.Sockets.SocketException (0x80004005): An existing connection was forcibly closed by the remote host
+   at QuickFix.SocketInitiatorThread.ReadSome(Byte[] buffer, Int32 timeoutMilliseconds)
+   at QuickFix.SocketInitiatorThread.Read()
+20150910-11:15:44.994 : Session reset: ResetOnDisconnect
+20150910-11:15:45.561 : Connecting to 208.184.251.226 on port 11980
+20150910-11:15:45.665 : Connection succeeded
+20150910-11:15:45.669 : Session reset: ResetOnLogon
+20150910-11:15:45.673 : Session reset: ResetSeqNumFlag
+20150910-11:15:45.673 : Initiated logon request
+20150910-11:15:50.273 : Session FIX.4.2:TMQREXOMB/TML1/TML NORTH VANCOUVER->MBO:12345678 disconnecting: System.Net.Sockets.SocketException (0x80004005): An existing connection was forcibly closed by the remote host
+   at QuickFix.SocketInitiatorThread.ReadSome(Byte[] buffer, Int32 timeoutMilliseconds)
+   at QuickFix.SocketInitiatorThread.Read()
+20150910-11:15:50.299 : Session reset: ResetOnDisconnect
+20150910-11:15:51.565 : Connecting to 208.184.251.226 on port 11980
+20150910-11:15:52.877 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-11:15:59.571 : Connecting to 208.184.251.226 on port 11980
+20150910-11:16:00.889 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-11:16:07.575 : Connecting to 208.184.251.226 on port 11980
+20150910-11:16:08.895 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-11:16:15.580 : Connecting to 208.184.251.226 on port 11980
+20150910-11:16:16.902 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-11:16:23.586 : Connecting to 208.184.251.226 on port 11980
+20150910-11:16:41.324 : Connection failed: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond 208.184.251.226:11980
+20150910-11:16:47.598 : Connecting to 208.184.251.226 on port 11980
+20150910-11:16:48.915 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-11:16:55.602 : Connecting to 208.184.251.226 on port 11980
+20150910-11:16:56.921 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-11:17:03.609 : Connecting to 208.184.251.226 on port 11980
+20150910-11:17:04.921 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-11:17:11.614 : Connecting to 208.184.251.226 on port 11980
+20150910-11:17:12.927 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-11:17:19.622 : Connecting to 208.184.251.226 on port 11980
+20150910-11:17:20.942 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-11:17:27.627 : Connecting to 208.184.251.226 on port 11980
+20150910-11:17:28.941 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-11:17:35.631 : Connecting to 208.184.251.226 on port 11980
+20150910-11:17:36.955 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-11:17:43.635 : Connecting to 208.184.251.226 on port 11980
+20150910-11:17:44.952 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-11:17:51.641 : Connecting to 208.184.251.226 on port 11980
+20150910-11:17:52.953 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.226:11980
+20150910-11:17:59.646 : Connecting to 208.184.251.226 on port 11980
+20150910-11:17:59.753 : Connection succeeded
+20150910-11:17:59.762 : Session reset: ResetOnLogon
+20150910-11:17:59.771 : Session reset: ResetSeqNumFlag
+20150910-11:17:59.772 : Initiated logon request
+20150910-11:18:00.157 : Received logon
+20151001-21:00:05.972 : Session FIX.4.2:TMQREXOMB/TML1/TML NORTH VANCOUVER->MBO:12345678 already disconnected: Resetting...
+20151001-21:00:05.987 : Session reset: New session
+20151001-21:00:05.988 : Created session
+20151001-21:00:12.434 : Connecting to 208.184.251.226 on port 11980
+20151001-21:00:12.591 : Connection succeeded
+20151001-21:00:12.654 : Session reset: ResetOnLogon
+20151001-21:00:12.695 : Session reset: ResetSeqNumFlag
+20151001-21:00:12.719 : Initiated logon request
+20151001-21:00:12.915 : Received logon
+20151001-21:08:04.599 : Created session
+20151001-21:08:07.279 : Connecting to 208.184.251.226 on port 11980
+20151001-21:08:07.484 : Connection succeeded
+20151001-21:08:07.517 : Session reset: ResetOnLogon
+20151001-21:08:07.541 : Session reset: ResetSeqNumFlag
+20151001-21:08:07.542 : Initiated logon request
+20151001-21:08:07.783 : Received logon
+20151001-21:08:33.798 : Initiated logout request
+20151001-21:08:33.959 : Received logout response
+20151001-21:08:33.960 : Session FIX.4.2:TMQREXOMB/TML1/TML NORTH VANCOUVER->MBO:12345678 disconnecting: Received logout response
+20151001-21:08:34.072 : Session reset: ResetOnDisconnect
+20151001-21:08:37.156 : Created session
+20151001-21:08:37.158 : Connecting to 208.184.251.226 on port 11980
+20151001-21:08:39.105 : Connection succeeded
+20151001-21:08:39.115 : Session reset: ResetOnLogon
+20151001-21:08:39.142 : Session reset: ResetSeqNumFlag
+20151001-21:08:39.143 : Initiated logon request
+20151001-21:08:39.333 : Received logon
+20151001-21:08:40.106 : Connecting to 208.184.251.226 on port 11980
+20151001-21:08:40.273 : Connection succeeded
+20151001-21:28:00.705 : Created session
+20151001-21:28:03.917 : Connecting to 208.184.251.226 on port 11980
+20151001-21:28:04.055 : Connection succeeded
+20151001-21:28:04.065 : Session reset: ResetOnLogon
+20151001-21:28:04.077 : Session reset: ResetSeqNumFlag
+20151001-21:28:04.078 : Initiated logon request
+20151001-21:28:04.306 : Received logon
+20151001-21:28:54.239 : Created session
+20151001-21:28:56.833 : Connecting to 208.184.251.226 on port 11980
+20151001-21:28:56.960 : Connection succeeded
+20151001-21:28:56.974 : Session reset: ResetOnLogon
+20151001-21:28:56.988 : Session reset: ResetSeqNumFlag
+20151001-21:28:56.989 : Initiated logon request
+20151001-21:28:57.161 : Received logon
+20151001-21:29:13.178 : Initiated logout request
+20151001-21:29:13.301 : Received logout response
+20151001-21:29:13.303 : Session FIX.4.2:TMQREXOMB/TML1/TML NORTH VANCOUVER->MBO:12345678 disconnecting: Received logout response
+20151001-21:29:13.335 : Session reset: ResetOnDisconnect
+20151001-21:29:16.541 : Created session
+20151001-21:29:16.543 : Connecting to 208.184.251.226 on port 11980
+20151001-21:29:18.348 : Connection succeeded
+20151001-21:29:18.361 : Session reset: ResetOnLogon
+20151001-21:29:18.372 : Session reset: ResetSeqNumFlag
+20151001-21:29:18.373 : Initiated logon request
+20151001-21:29:18.534 : Received logon
+20151001-21:29:19.349 : Connecting to 208.184.251.226 on port 11980
+20151001-21:29:19.487 : Connection succeeded
+20151001-21:29:49.635 : Session FIX.4.2:TMQREXOMB/TML1/TML NORTH VANCOUVER->MBO:12345678 disconnecting: System.Net.Sockets.SocketException (0x80004005): An existing connection was forcibly closed by the remote host
+   at QuickFix.SocketInitiatorThread.ReadSome(Byte[] buffer, Int32 timeoutMilliseconds)
+   at QuickFix.SocketInitiatorThread.Read()
+20151001-21:29:49.663 : Session reset: ResetOnDisconnect
+20151001-21:29:51.368 : Connecting to 208.184.251.226 on port 11980
+20151001-21:29:51.517 : Connection succeeded
+20151001-21:29:51.539 : Session reset: ResetOnLogon
+20151001-21:29:51.544 : Session reset: ResetOnLogon
+20151001-21:29:51.549 : Session reset: ResetSeqNumFlag
+20151001-21:29:51.549 : Initiated logon request
+20151001-21:29:51.562 : Session reset: ResetSeqNumFlag
+20151001-21:29:51.562 : Initiated logon request
+20151001-21:29:51.773 : Session FIX.4.2:TMQREXOMB/TML1/TML NORTH VANCOUVER->MBO:12345678 disconnecting: System.Net.Sockets.SocketException (0x80004005): An existing connection was forcibly closed by the remote host
+   at QuickFix.SocketInitiatorThread.ReadSome(Byte[] buffer, Int32 timeoutMilliseconds)
+   at QuickFix.SocketInitiatorThread.Read()
+20151001-21:29:51.784 : Session reset: ResetOnDisconnect
+20151001-21:29:53.371 : Connecting to 208.184.251.226 on port 11980
+20151001-21:29:53.515 : Connection succeeded
+20151001-21:29:53.524 : Session reset: ResetOnLogon
+20151001-21:29:53.533 : Session reset: ResetSeqNumFlag
+20151001-21:29:53.534 : Initiated logon request
+20151001-21:29:53.706 : Session FIX.4.2:TMQREXOMB/TML1/TML NORTH VANCOUVER->MBO:12345678 disconnecting: System.Net.Sockets.SocketException (0x80004005): An existing connection was forcibly closed by the remote host
+   at QuickFix.SocketInitiatorThread.ReadSome(Byte[] buffer, Int32 timeoutMilliseconds)
+   at QuickFix.SocketInitiatorThread.Read()
+20151001-21:29:53.730 : Session reset: ResetOnDisconnect
+20151001-21:29:55.373 : Connecting to 208.184.251.226 on port 11980
+20151001-21:29:55.497 : Connection succeeded
+20151001-21:29:55.506 : Session reset: ResetOnLogon
+20151001-21:29:55.514 : Session reset: ResetSeqNumFlag
+20151001-21:29:55.515 : Initiated logon request
+20151001-21:29:55.666 : Session FIX.4.2:TMQREXOMB/TML1/TML NORTH VANCOUVER->MBO:12345678 disconnecting: System.Net.Sockets.SocketException (0x80004005): An existing connection was forcibly closed by the remote host
+   at QuickFix.SocketInitiatorThread.ReadSome(Byte[] buffer, Int32 timeoutMilliseconds)
+   at QuickFix.SocketInitiatorThread.Read()
+20151001-21:29:55.685 : Session reset: ResetOnDisconnect
+20151001-21:29:57.375 : Connecting to 208.184.251.226 on port 11980
+20151001-21:29:57.503 : Connection succeeded
+20151001-21:29:57.506 : Session reset: ResetOnLogon
+20151001-21:29:57.509 : Session reset: ResetSeqNumFlag
+20151001-21:29:57.509 : Initiated logon request
+20151001-21:29:57.665 : Session FIX.4.2:TMQREXOMB/TML1/TML NORTH VANCOUVER->MBO:12345678 disconnecting: System.Net.Sockets.SocketException (0x80004005): An existing connection was forcibly closed by the remote host
+   at QuickFix.SocketInitiatorThread.ReadSome(Byte[] buffer, Int32 timeoutMilliseconds)
+   at QuickFix.SocketInitiatorThread.Read()
+20151001-21:29:57.685 : Session reset: ResetOnDisconnect
+20151001-21:29:58.530 : MsgSeqNum too high, expecting 1 but received 3
+20151001-21:29:58.534 : Error sending ResendRequest (1 ,0)
+20151001-21:29:59.378 : Connecting to 208.184.251.226 on port 11980
+20151001-21:29:59.499 : Connection succeeded
+20151001-21:29:59.550 : Session reset: ResetOnLogon
+20151001-21:29:59.555 : Session reset: ResetSeqNumFlag
+20151001-21:29:59.555 : Initiated logon request
+20151001-21:29:59.699 : Session FIX.4.2:TMQREXOMB/TML1/TML NORTH VANCOUVER->MBO:12345678 disconnecting: System.Net.Sockets.SocketException (0x80004005): An existing connection was forcibly closed by the remote host
+   at QuickFix.SocketInitiatorThread.ReadSome(Byte[] buffer, Int32 timeoutMilliseconds)
+   at QuickFix.SocketInitiatorThread.Read()
+20151001-21:29:59.704 : Session reset: ResetOnDisconnect
+20151001-21:30:01.379 : Connecting to 208.184.251.226 on port 11980
+20151001-21:30:01.502 : Connection succeeded
+20151001-21:30:01.511 : Session reset: ResetOnLogon
+20151001-21:30:01.520 : Session reset: ResetSeqNumFlag
+20151001-21:30:01.521 : Initiated logon request
+20151001-21:30:01.674 : Session FIX.4.2:TMQREXOMB/TML1/TML NORTH VANCOUVER->MBO:12345678 disconnecting: System.Net.Sockets.SocketException (0x80004005): An existing connection was forcibly closed by the remote host
+   at QuickFix.SocketInitiatorThread.ReadSome(Byte[] buffer, Int32 timeoutMilliseconds)
+   at QuickFix.SocketInitiatorThread.Read()
+20151001-21:30:01.693 : Session reset: ResetOnDisconnect
+20151001-21:30:03.381 : Connecting to 208.184.251.226 on port 11980
+20151001-21:30:03.507 : Connection succeeded
+20151001-21:30:03.516 : Session reset: ResetOnLogon
+20151001-21:30:03.525 : Session reset: ResetSeqNumFlag
+20151001-21:30:03.525 : Initiated logon request
+20151001-21:30:03.678 : Session FIX.4.2:TMQREXOMB/TML1/TML NORTH VANCOUVER->MBO:12345678 disconnecting: System.Net.Sockets.SocketException (0x80004005): An existing connection was forcibly closed by the remote host
+   at QuickFix.SocketInitiatorThread.ReadSome(Byte[] buffer, Int32 timeoutMilliseconds)
+   at QuickFix.SocketInitiatorThread.Read()
+20151001-21:30:03.697 : Session reset: ResetOnDisconnect
+20151001-21:30:05.384 : Connecting to 208.184.251.226 on port 11980
+20151001-21:30:05.530 : Connection succeeded
+20151001-21:30:05.535 : Session reset: ResetOnLogon
+20151001-21:30:05.543 : Session reset: ResetSeqNumFlag
+20151001-21:30:05.543 : Initiated logon request
+20151001-21:30:05.723 : Session FIX.4.2:TMQREXOMB/TML1/TML NORTH VANCOUVER->MBO:12345678 disconnecting: System.Net.Sockets.SocketException (0x80004005): An existing connection was forcibly closed by the remote host
+   at QuickFix.SocketInitiatorThread.ReadSome(Byte[] buffer, Int32 timeoutMilliseconds)
+   at QuickFix.SocketInitiatorThread.Read()
+20151001-21:30:05.742 : Session reset: ResetOnDisconnect
+20151001-21:30:07.386 : Connecting to 208.184.251.226 on port 11980
+20151001-21:30:07.524 : Connection succeeded
+20151001-21:30:07.533 : Session reset: ResetOnLogon
+20151001-21:30:07.560 : Session reset: ResetSeqNumFlag
+20151001-21:30:07.561 : Initiated logon request
+20151001-21:30:07.731 : Session FIX.4.2:TMQREXOMB/TML1/TML NORTH VANCOUVER->MBO:12345678 disconnecting: System.Net.Sockets.SocketException (0x80004005): An existing connection was forcibly closed by the remote host
+   at QuickFix.SocketInitiatorThread.ReadSome(Byte[] buffer, Int32 timeoutMilliseconds)
+   at QuickFix.SocketInitiatorThread.Read()
+20151001-21:30:07.743 : Session reset: ResetOnDisconnect
+20151001-21:30:09.387 : Connecting to 208.184.251.226 on port 11980
+20151001-21:30:09.524 : Connection succeeded
+20151001-21:30:09.532 : Session reset: ResetOnLogon
+20151001-21:30:09.542 : Session reset: ResetSeqNumFlag
+20151001-21:30:09.542 : Initiated logon request
+20151001-21:30:09.712 : Session FIX.4.2:TMQREXOMB/TML1/TML NORTH VANCOUVER->MBO:12345678 disconnecting: System.Net.Sockets.SocketException (0x80004005): An existing connection was forcibly closed by the remote host
+   at QuickFix.SocketInitiatorThread.ReadSome(Byte[] buffer, Int32 timeoutMilliseconds)
+   at QuickFix.SocketInitiatorThread.Read()
+20151001-21:30:09.731 : Session reset: ResetOnDisconnect
+20151001-21:30:11.389 : Connecting to 208.184.251.226 on port 11980
+20151001-21:30:11.545 : Connection succeeded
+20151001-21:30:11.548 : Session reset: ResetOnLogon
+20151001-21:30:11.571 : Session reset: ResetSeqNumFlag
+20151001-21:30:11.571 : Initiated logon request
+20151001-21:30:11.755 : Session FIX.4.2:TMQREXOMB/TML1/TML NORTH VANCOUVER->MBO:12345678 disconnecting: System.Net.Sockets.SocketException (0x80004005): An existing connection was forcibly closed by the remote host
+   at QuickFix.SocketInitiatorThread.ReadSome(Byte[] buffer, Int32 timeoutMilliseconds)
+   at QuickFix.SocketInitiatorThread.Read()
+20151001-21:30:11.774 : Session reset: ResetOnDisconnect
+20151001-21:30:13.391 : Connecting to 208.184.251.226 on port 11980
+20151001-21:30:13.554 : Connection succeeded
+20151001-21:30:13.564 : Session reset: ResetOnLogon
+20151001-21:30:13.573 : Session reset: ResetSeqNumFlag
+20151001-21:30:13.574 : Initiated logon request
+20151001-21:30:13.733 : Session FIX.4.2:TMQREXOMB/TML1/TML NORTH VANCOUVER->MBO:12345678 disconnecting: System.Net.Sockets.SocketException (0x80004005): An existing connection was forcibly closed by the remote host
+   at QuickFix.SocketInitiatorThread.ReadSome(Byte[] buffer, Int32 timeoutMilliseconds)
+   at QuickFix.SocketInitiatorThread.Read()
+20151001-21:30:13.745 : Session reset: ResetOnDisconnect
+20151001-21:30:15.392 : Connecting to 208.184.251.226 on port 11980
+20151001-21:30:15.536 : Connection succeeded
+20151001-21:30:15.546 : Session reset: ResetOnLogon
+20151001-21:30:15.555 : Session reset: ResetSeqNumFlag
+20151001-21:30:15.556 : Initiated logon request
+20151001-21:30:15.723 : Session FIX.4.2:TMQREXOMB/TML1/TML NORTH VANCOUVER->MBO:12345678 disconnecting: System.Net.Sockets.SocketException (0x80004005): An existing connection was forcibly closed by the remote host
+   at QuickFix.SocketInitiatorThread.ReadSome(Byte[] buffer, Int32 timeoutMilliseconds)
+   at QuickFix.SocketInitiatorThread.Read()
+20151001-21:30:15.765 : Session reset: ResetOnDisconnect
+20151001-21:30:17.394 : Connecting to 208.184.251.226 on port 11980
+20151001-21:30:17.534 : Connection succeeded
+20151001-21:30:17.542 : Session reset: ResetOnLogon
+20151001-21:30:17.551 : Session reset: ResetSeqNumFlag
+20151001-21:30:17.551 : Initiated logon request
+20151001-21:30:17.724 : Session FIX.4.2:TMQREXOMB/TML1/TML NORTH VANCOUVER->MBO:12345678 disconnecting: System.Net.Sockets.SocketException (0x80004005): An existing connection was forcibly closed by the remote host
+   at QuickFix.SocketInitiatorThread.ReadSome(Byte[] buffer, Int32 timeoutMilliseconds)
+   at QuickFix.SocketInitiatorThread.Read()
+20151001-21:30:17.811 : Session reset: ResetOnDisconnect
+20151001-21:30:19.395 : Connecting to 208.184.251.226 on port 11980
+20151001-21:30:19.533 : Connection succeeded
+20151001-21:30:19.542 : Session reset: ResetOnLogon
+20151001-21:30:19.550 : Session reset: ResetSeqNumFlag
+20151001-21:30:19.551 : Initiated logon request
+20151001-21:30:19.719 : Session FIX.4.2:TMQREXOMB/TML1/TML NORTH VANCOUVER->MBO:12345678 disconnecting: System.Net.Sockets.SocketException (0x80004005): An existing connection was forcibly closed by the remote host
+   at QuickFix.SocketInitiatorThread.ReadSome(Byte[] buffer, Int32 timeoutMilliseconds)
+   at QuickFix.SocketInitiatorThread.Read()
+20151001-21:30:19.731 : Session reset: ResetOnDisconnect
+20151001-21:30:21.398 : Connecting to 208.184.251.226 on port 11980
+20151001-21:30:21.536 : Connection succeeded
+20151001-21:30:21.545 : Session reset: ResetOnLogon
+20151001-21:30:21.554 : Session reset: ResetSeqNumFlag
+20151001-21:30:21.554 : Initiated logon request
+20151001-21:30:21.729 : Session FIX.4.2:TMQREXOMB/TML1/TML NORTH VANCOUVER->MBO:12345678 disconnecting: System.Net.Sockets.SocketException (0x80004005): An existing connection was forcibly closed by the remote host
+   at QuickFix.SocketInitiatorThread.ReadSome(Byte[] buffer, Int32 timeoutMilliseconds)
+   at QuickFix.SocketInitiatorThread.Read()
+20151001-21:30:21.749 : Session reset: ResetOnDisconnect
+20151001-21:30:23.400 : Connecting to 208.184.251.226 on port 11980
+20151001-21:30:23.523 : Connection succeeded
+20151001-21:30:23.532 : Session reset: ResetOnLogon
+20151001-21:30:23.542 : Session reset: ResetSeqNumFlag
+20151001-21:30:23.543 : Initiated logon request
+20151001-21:30:23.703 : Session FIX.4.2:TMQREXOMB/TML1/TML NORTH VANCOUVER->MBO:12345678 disconnecting: System.Net.Sockets.SocketException (0x80004005): An existing connection was forcibly closed by the remote host
+   at QuickFix.SocketInitiatorThread.ReadSome(Byte[] buffer, Int32 timeoutMilliseconds)
+   at QuickFix.SocketInitiatorThread.Read()
+20151001-21:30:23.723 : Session reset: ResetOnDisconnect
+20151001-21:30:25.402 : Connecting to 208.184.251.226 on port 11980
+20151001-21:30:25.534 : Connection succeeded
+20151001-21:30:25.542 : Session reset: ResetOnLogon
+20151001-21:30:25.551 : Session reset: ResetSeqNumFlag
+20151001-21:30:25.551 : Initiated logon request
+20151001-21:30:25.708 : Session FIX.4.2:TMQREXOMB/TML1/TML NORTH VANCOUVER->MBO:12345678 disconnecting: System.Net.Sockets.SocketException (0x80004005): An existing connection was forcibly closed by the remote host
+   at QuickFix.SocketInitiatorThread.ReadSome(Byte[] buffer, Int32 timeoutMilliseconds)
+   at QuickFix.SocketInitiatorThread.Read()
+20151001-21:30:25.729 : Session reset: ResetOnDisconnect
+20151001-21:30:27.404 : Connecting to 208.184.251.226 on port 11980
+20151001-21:30:27.525 : Connection succeeded
+20151001-21:30:27.534 : Session reset: ResetOnLogon
+20151001-21:30:27.542 : Session reset: ResetSeqNumFlag
+20151001-21:30:27.543 : Initiated logon request
+20151001-21:30:27.697 : Session FIX.4.2:TMQREXOMB/TML1/TML NORTH VANCOUVER->MBO:12345678 disconnecting: System.Net.Sockets.SocketException (0x80004005): An existing connection was forcibly closed by the remote host
+   at QuickFix.SocketInitiatorThread.ReadSome(Byte[] buffer, Int32 timeoutMilliseconds)
+   at QuickFix.SocketInitiatorThread.Read()
+20151001-21:30:27.741 : Session reset: ResetOnDisconnect
+20151001-21:30:28.527 : MsgSeqNum too high, expecting 1 but received 4
+20151001-21:30:28.527 : Error sending ResendRequest (1 ,0)
+20151001-21:30:29.406 : Connecting to 208.184.251.226 on port 11980
+20151001-21:30:29.561 : Connection succeeded
+20151001-21:30:29.580 : Session reset: ResetOnLogon
+20151001-21:30:29.590 : Session reset: ResetSeqNumFlag
+20151001-21:30:29.590 : Initiated logon request
+20151001-21:30:31.750 : Session FIX.4.2:TMQREXOMB/TML1/TML NORTH VANCOUVER->MBO:12345678 disconnecting: System.Net.Sockets.SocketException (0x80004005): An existing connection was forcibly closed by the remote host
+   at QuickFix.SocketInitiatorThread.ReadSome(Byte[] buffer, Int32 timeoutMilliseconds)
+   at QuickFix.SocketInitiatorThread.Read()
+20151001-21:30:31.757 : Session reset: ResetOnDisconnect
+20151001-21:30:33.409 : Connecting to 208.184.251.226 on port 11980
+20151001-21:30:33.539 : Connection succeeded
+20151001-21:30:33.544 : Session reset: ResetOnLogon
+20151001-21:30:33.546 : Session reset: ResetSeqNumFlag
+20151001-21:30:33.546 : Initiated logon request
+20151001-21:30:33.694 : Session FIX.4.2:TMQREXOMB/TML1/TML NORTH VANCOUVER->MBO:12345678 disconnecting: System.Net.Sockets.SocketException (0x80004005): An existing connection was forcibly closed by the remote host
+   at QuickFix.SocketInitiatorThread.ReadSome(Byte[] buffer, Int32 timeoutMilliseconds)
+   at QuickFix.SocketInitiatorThread.Read()
+20151001-21:30:33.705 : Session reset: ResetOnDisconnect
+20151001-21:30:35.412 : Connecting to 208.184.251.226 on port 11980
+20151001-21:30:35.554 : Connection succeeded
+20151001-21:30:35.557 : Session reset: ResetOnLogon
+20151001-21:30:35.559 : Session reset: ResetSeqNumFlag
+20151001-21:30:35.560 : Initiated logon request
+20151001-21:30:35.726 : Session FIX.4.2:TMQREXOMB/TML1/TML NORTH VANCOUVER->MBO:12345678 disconnecting: System.Net.Sockets.SocketException (0x80004005): An existing connection was forcibly closed by the remote host
+   at QuickFix.SocketInitiatorThread.ReadSome(Byte[] buffer, Int32 timeoutMilliseconds)
+   at QuickFix.SocketInitiatorThread.Read()
+20151001-21:30:35.747 : Session reset: ResetOnDisconnect
+20151001-21:30:37.413 : Connecting to 208.184.251.226 on port 11980
+20151001-21:30:37.532 : Connection succeeded
+20151001-21:30:37.540 : Session reset: ResetOnLogon
+20151001-21:30:37.545 : Session reset: ResetSeqNumFlag
+20151001-21:30:37.548 : Initiated logon request
+20151001-21:30:37.694 : Session FIX.4.2:TMQREXOMB/TML1/TML NORTH VANCOUVER->MBO:12345678 disconnecting: System.Net.Sockets.SocketException (0x80004005): An existing connection was forcibly closed by the remote host
+   at QuickFix.SocketInitiatorThread.ReadSome(Byte[] buffer, Int32 timeoutMilliseconds)
+   at QuickFix.SocketInitiatorThread.Read()
+20151001-21:30:37.716 : Session reset: ResetOnDisconnect
+20151001-21:30:38.527 : Received logout request
+20151001-21:30:38.529 : Sending logout response
+20151001-21:30:38.529 : Session FIX.4.2:TMQREXOMB/TML1/TML NORTH VANCOUVER->MBO:12345678 already disconnected: Received logout request
+20151001-21:30:38.551 : Session reset: ResetOnDisconnect
+20151001-21:30:38.563 : Session FIX.4.2:TMQREXOMB/TML1/TML NORTH VANCOUVER->MBO:12345678 already disconnected: System.Net.Sockets.SocketException (0x80004005): An existing connection was forcibly closed by the remote host
+   at QuickFix.SocketInitiatorThread.ReadSome(Byte[] buffer, Int32 timeoutMilliseconds)
+   at QuickFix.SocketInitiatorThread.Read()
+20151001-21:30:38.572 : Session reset: ResetOnDisconnect
+20151001-21:30:39.414 : Connecting to 208.184.251.226 on port 11980
+20151001-21:30:39.545 : Connection succeeded
+20151001-21:30:39.554 : Session reset: ResetOnLogon
+20151001-21:30:39.563 : Session reset: ResetSeqNumFlag
+20151001-21:30:39.564 : Initiated logon request
+20151001-21:30:39.717 : Received logon
+20151001-21:34:14.960 : Created session
+20151001-21:34:18.759 : Connecting to 208.184.251.226 on port 11980
+20151001-21:34:18.903 : Connection succeeded
+20151001-21:34:18.913 : Session reset: ResetOnLogon
+20151001-21:34:18.934 : Session reset: ResetSeqNumFlag
+20151001-21:34:18.935 : Initiated logon request
+20151001-21:34:19.103 : Received logon
+20151001-21:34:41.117 : Initiated logout request
+20151001-21:34:41.258 : Received logout response
+20151001-21:34:41.259 : Session FIX.4.2:TMQREXOMB/TML1/TML NORTH VANCOUVER->MBO:12345678 disconnecting: Received logout response
+20151001-21:36:27.524 : Created session
+20151001-21:36:27.538 : Connecting to 208.184.251.226 on port 11980
+20151001-21:36:27.674 : Connection succeeded
+20151001-21:36:27.701 : Session reset: ResetOnLogon
+20151001-21:36:27.720 : Session reset: ResetSeqNumFlag
+20151001-21:36:27.722 : Initiated logon request
+20151001-21:36:27.913 : Received logon
+20151001-21:36:42.887 : Initiated logout request
+20151001-21:36:43.025 : Received logout response
+20151001-21:36:43.026 : Session FIX.4.2:TMQREXOMB/TML1/TML NORTH VANCOUVER->MBO:12345678 disconnecting: Received logout response
+20151001-21:37:42.090 : Created session
+20151001-21:37:42.093 : Connecting to 208.184.251.226 on port 11980
+20151001-21:37:42.239 : Connection succeeded
+20151001-21:37:42.275 : Session reset: ResetOnLogon
+20151001-21:37:42.294 : Session reset: ResetSeqNumFlag
+20151001-21:37:42.296 : Initiated logon request
+20151001-21:37:42.485 : Received logon
+20151001-21:37:46.489 : Initiated logout request
+20151001-21:37:46.630 : Received logout response
+20151001-21:37:46.632 : Session FIX.4.2:TMQREXOMB/TML1/TML NORTH VANCOUVER->MBO:12345678 disconnecting: Received logout response
+20151001-21:37:46.649 : Session reset: ResetOnDisconnect
+20151001-21:37:48.974 : Created session
+20151001-21:37:48.975 : Connecting to 208.184.251.226 on port 11980
+20151001-21:37:51.666 : Connection succeeded
+20151001-21:37:51.676 : Session reset: ResetOnLogon
+20151001-21:37:51.684 : Session reset: ResetSeqNumFlag
+20151001-21:37:51.684 : Initiated logon request
+20151001-21:37:51.828 : Received logon
+20151001-21:37:52.667 : Connecting to 208.184.251.226 on port 11980
+20151001-21:37:52.807 : Connection succeeded
+20151001-21:37:53.829 : Initiated logout request
+20151001-21:37:58.830 : Session FIX.4.2:TMQREXOMB/TML1/TML NORTH VANCOUVER->MBO:12345678 disconnecting: Timed out waiting for logout response
+20151001-21:37:58.855 : Session reset: ResetOnDisconnect
+20151001-21:38:02.653 : Created session
+20151001-21:38:02.654 : Connecting to 208.184.251.226 on port 11980
+20151001-21:38:02.782 : Connection succeeded
+20151001-21:38:02.787 : Session reset: ResetOnLogon
+20151001-21:38:02.792 : Session reset: ResetSeqNumFlag
+20151001-21:38:02.792 : Initiated logon request
+20151001-21:38:02.955 : Session FIX.4.2:TMQREXOMB/TML1/TML NORTH VANCOUVER->MBO:12345678 disconnecting: System.Net.Sockets.SocketException (0x80004005): An existing connection was forcibly closed by the remote host
+   at QuickFix.SocketInitiatorThread.ReadSome(Byte[] buffer, Int32 timeoutMilliseconds)
+   at QuickFix.SocketInitiatorThread.Read()
+20151001-21:38:02.972 : Session reset: ResetOnDisconnect
+20151001-21:38:04.656 : Connecting to 208.184.251.226 on port 11980
+20151001-21:38:04.791 : Connection succeeded
+20151001-21:38:04.800 : Session reset: ResetOnLogon
+20151001-21:38:04.808 : Session reset: ResetSeqNumFlag
+20151001-21:38:04.809 : Initiated logon request
+20151001-21:38:04.975 : Session FIX.4.2:TMQREXOMB/TML1/TML NORTH VANCOUVER->MBO:12345678 disconnecting: System.Net.Sockets.SocketException (0x80004005): An existing connection was forcibly closed by the remote host
+   at QuickFix.SocketInitiatorThread.ReadSome(Byte[] buffer, Int32 timeoutMilliseconds)
+   at QuickFix.SocketInitiatorThread.Read()
+20151001-21:38:04.991 : Session reset: ResetOnDisconnect
+20151001-21:38:06.657 : Connecting to 208.184.251.226 on port 11980
+20151001-21:38:06.796 : Connection succeeded
+20151001-21:38:06.805 : Session reset: ResetOnLogon
+20151001-21:38:06.813 : Session reset: ResetSeqNumFlag
+20151001-21:38:06.814 : Initiated logon request
+20151001-21:38:06.982 : Session FIX.4.2:TMQREXOMB/TML1/TML NORTH VANCOUVER->MBO:12345678 disconnecting: System.Net.Sockets.SocketException (0x80004005): An existing connection was forcibly closed by the remote host
+   at QuickFix.SocketInitiatorThread.ReadSome(Byte[] buffer, Int32 timeoutMilliseconds)
+   at QuickFix.SocketInitiatorThread.Read()
+20151001-21:38:06.998 : Session reset: ResetOnDisconnect
+20151001-21:38:08.659 : Connecting to 208.184.251.226 on port 11980
+20151001-21:38:08.797 : Connection succeeded
+20151001-21:38:08.805 : Session reset: ResetOnLogon
+20151001-21:38:08.813 : Session reset: ResetSeqNumFlag
+20151001-21:38:08.814 : Initiated logon request
+20151001-21:38:08.989 : Session FIX.4.2:TMQREXOMB/TML1/TML NORTH VANCOUVER->MBO:12345678 disconnecting: System.Net.Sockets.SocketException (0x80004005): An existing connection was forcibly closed by the remote host
+   at QuickFix.SocketInitiatorThread.ReadSome(Byte[] buffer, Int32 timeoutMilliseconds)
+   at QuickFix.SocketInitiatorThread.Read()
+20151001-21:38:09.038 : Session reset: ResetOnDisconnect
+20151001-21:38:10.661 : Connecting to 208.184.251.226 on port 11980
+20151001-21:38:10.808 : Connection succeeded
+20151001-21:38:10.811 : Session reset: ResetOnLogon
+20151001-21:38:10.815 : Session reset: ResetSeqNumFlag
+20151001-21:38:10.815 : Initiated logon request
+20151001-21:38:10.990 : Session FIX.4.2:TMQREXOMB/TML1/TML NORTH VANCOUVER->MBO:12345678 disconnecting: System.Net.Sockets.SocketException (0x80004005): An existing connection was forcibly closed by the remote host
+   at QuickFix.SocketInitiatorThread.ReadSome(Byte[] buffer, Int32 timeoutMilliseconds)
+   at QuickFix.SocketInitiatorThread.Read()
+20151001-21:38:11.006 : Session reset: ResetOnDisconnect
+20151001-21:38:12.663 : Connecting to 208.184.251.226 on port 11980
+20151001-21:38:12.789 : Connection succeeded
+20151001-21:38:12.797 : Session reset: ResetOnLogon
+20151001-21:38:12.806 : Session reset: ResetSeqNumFlag
+20151001-21:38:12.806 : Initiated logon request
+20151001-21:38:12.961 : Session FIX.4.2:TMQREXOMB/TML1/TML NORTH VANCOUVER->MBO:12345678 disconnecting: System.Net.Sockets.SocketException (0x80004005): An existing connection was forcibly closed by the remote host
+   at QuickFix.SocketInitiatorThread.ReadSome(Byte[] buffer, Int32 timeoutMilliseconds)
+   at QuickFix.SocketInitiatorThread.Read()
+20151001-21:38:12.977 : Session reset: ResetOnDisconnect
+20151001-21:38:14.666 : Connecting to 208.184.251.226 on port 11980
+20151001-21:38:14.800 : Connection succeeded
+20151001-21:38:14.805 : Session reset: ResetOnLogon
+20151001-21:38:14.835 : Session reset: ResetSeqNumFlag
+20151001-21:38:14.835 : Initiated logon request
+20151001-21:38:15.005 : Session FIX.4.2:TMQREXOMB/TML1/TML NORTH VANCOUVER->MBO:12345678 disconnecting: System.Net.Sockets.SocketException (0x80004005): An existing connection was forcibly closed by the remote host
+   at QuickFix.SocketInitiatorThread.ReadSome(Byte[] buffer, Int32 timeoutMilliseconds)
+   at QuickFix.SocketInitiatorThread.Read()
+20151001-21:38:15.020 : Session reset: ResetOnDisconnect
+20151001-21:38:16.668 : Connecting to 208.184.251.226 on port 11980
+20151001-21:38:16.802 : Connection succeeded
+20151001-21:38:16.811 : Session reset: ResetOnLogon
+20151001-21:38:16.819 : Session reset: ResetSeqNumFlag
+20151001-21:38:16.820 : Initiated logon request
+20151001-21:38:16.985 : Session FIX.4.2:TMQREXOMB/TML1/TML NORTH VANCOUVER->MBO:12345678 disconnecting: System.Net.Sockets.SocketException (0x80004005): An existing connection was forcibly closed by the remote host
+   at QuickFix.SocketInitiatorThread.ReadSome(Byte[] buffer, Int32 timeoutMilliseconds)
+   at QuickFix.SocketInitiatorThread.Read()
+20151001-21:38:17.003 : Session reset: ResetOnDisconnect
+20151001-21:38:18.669 : Connecting to 208.184.251.226 on port 11980
+20151001-21:38:18.790 : Connection succeeded
+20151001-21:38:18.799 : Session reset: ResetOnLogon
+20151001-21:38:18.807 : Session reset: ResetSeqNumFlag
+20151001-21:38:18.807 : Initiated logon request
+20151001-21:38:18.962 : Session FIX.4.2:TMQREXOMB/TML1/TML NORTH VANCOUVER->MBO:12345678 disconnecting: System.Net.Sockets.SocketException (0x80004005): An existing connection was forcibly closed by the remote host
+   at QuickFix.SocketInitiatorThread.ReadSome(Byte[] buffer, Int32 timeoutMilliseconds)
+   at QuickFix.SocketInitiatorThread.Read()
+20151001-21:38:18.978 : Session reset: ResetOnDisconnect
+20151001-21:38:20.670 : Connecting to 208.184.251.226 on port 11980
+20151001-21:38:20.807 : Connection succeeded
+20151001-21:38:20.815 : Session reset: ResetOnLogon
+20151001-21:38:20.823 : Session reset: ResetSeqNumFlag
+20151001-21:38:20.824 : Initiated logon request
+20151001-21:38:20.981 : Session FIX.4.2:TMQREXOMB/TML1/TML NORTH VANCOUVER->MBO:12345678 disconnecting: System.Net.Sockets.SocketException (0x80004005): An existing connection was forcibly closed by the remote host
+   at QuickFix.SocketInitiatorThread.ReadSome(Byte[] buffer, Int32 timeoutMilliseconds)
+   at QuickFix.SocketInitiatorThread.Read()
+20151001-21:38:20.986 : Session reset: ResetOnDisconnect
+20151001-21:40:10.540 : Created session
+20151001-21:40:10.544 : Connecting to 208.184.251.226 on port 11980
+20151001-21:40:10.667 : Connection succeeded
+20151001-21:40:10.687 : Session reset: ResetOnLogon
+20151001-21:40:10.712 : Session reset: ResetSeqNumFlag
+20151001-21:40:10.713 : Initiated logon request
+20151001-21:40:10.886 : Received logon
+20151001-21:40:15.642 : Initiated logout request
+20151001-21:40:15.768 : Received logout response
+20151001-21:40:15.770 : Session FIX.4.2:TMQREXOMB/TML1/TML NORTH VANCOUVER->MBO:12345678 disconnecting: Received logout response
+20151001-21:46:54.771 : Created session
+20151001-21:46:54.775 : Connecting to 208.184.251.226 on port 11980
+20151001-21:46:54.901 : Connection succeeded
+20151001-21:46:54.934 : Session reset: ResetOnLogon
+20151001-21:46:54.960 : Session reset: ResetSeqNumFlag
+20151001-21:46:54.963 : Initiated logon request
+20151001-21:46:55.126 : Received logon
+20151001-21:47:00.020 : Initiated logout request
+20151001-21:47:00.151 : Received logout response
+20151001-21:47:00.153 : Session FIX.4.2:TMQREXOMB/TML1/TML NORTH VANCOUVER->MBO:12345678 disconnecting: Received logout response
+20151001-21:48:53.917 : Created session
+20151001-21:48:53.921 : Connecting to 208.184.251.226 on port 11980
+20151001-21:48:54.057 : Connection succeeded
+20151001-21:48:54.093 : Session reset: ResetOnLogon
+20151001-21:48:54.115 : Session reset: ResetSeqNumFlag
+20151001-21:48:54.118 : Initiated logon request
+20151001-21:48:54.314 : Received logon
+20151001-21:48:59.272 : Initiated logout request
+20151001-21:48:59.408 : Received logout response
+20151001-21:48:59.409 : Session FIX.4.2:TMQREXOMB/TML1/TML NORTH VANCOUVER->MBO:12345678 disconnecting: Received logout response
+20151001-21:49:01.384 : Session reset: ResetOnDisconnect
+20151001-21:49:10.069 : Created session
+20151001-21:49:10.071 : Connecting to 208.184.251.226 on port 11980
+20151001-21:49:10.208 : Connection succeeded
+20151001-21:49:10.217 : Session reset: ResetOnLogon
+20151001-21:49:10.225 : Session reset: ResetSeqNumFlag
+20151001-21:49:10.226 : Initiated logon request
+20151001-21:49:10.385 : Received logon
+20151001-21:49:13.391 : Initiated logout request
+20151001-21:49:13.530 : Received logout response
+20151001-21:49:13.530 : Session FIX.4.2:TMQREXOMB/TML1/TML NORTH VANCOUVER->MBO:12345678 disconnecting: Received logout response
+20151001-21:49:13.549 : Session reset: ResetOnDisconnect
+20151001-21:49:16.845 : Created session
+20151001-21:49:16.846 : Connecting to 208.184.251.226 on port 11980
+20151001-21:49:16.966 : Connection succeeded
+20151001-21:49:16.975 : Session reset: ResetOnLogon
+20151001-21:49:16.984 : Session reset: ResetSeqNumFlag
+20151001-21:49:16.985 : Initiated logon request
+20151001-21:49:17.129 : Received logon
+20151001-21:49:20.134 : Initiated logout request
+20151001-21:49:20.254 : Received logout response
+20151001-21:49:20.254 : Session FIX.4.2:TMQREXOMB/TML1/TML NORTH VANCOUVER->MBO:12345678 disconnecting: Received logout response
+20151001-21:49:20.278 : Session reset: ResetOnDisconnect
+20151001-21:49:21.894 : Created session
+20151001-21:49:22.898 : Connecting to 208.184.251.226 on port 11980
+20151001-21:49:23.034 : Connection succeeded
+20151001-21:49:23.043 : Session reset: ResetOnLogon
+20151001-21:49:23.052 : Session reset: ResetSeqNumFlag
+20151001-21:49:23.052 : Initiated logon request
+20151001-21:49:23.208 : Received logon
+20151001-21:49:25.211 : Initiated logout request
+20151001-21:49:25.347 : Received logout response
+20151001-21:49:25.347 : Session FIX.4.2:TMQREXOMB/TML1/TML NORTH VANCOUVER->MBO:12345678 disconnecting: Received logout response
+20151001-21:49:25.371 : Session reset: ResetOnDisconnect
+20151001-21:49:36.454 : Created session
+20151001-21:49:36.455 : Connecting to 208.184.251.226 on port 11980
+20151001-21:49:36.594 : Connection succeeded
+20151001-21:49:36.597 : Session reset: ResetOnLogon
+20151001-21:49:36.599 : Session reset: ResetSeqNumFlag
+20151001-21:49:36.600 : Initiated logon request
+20151001-21:49:36.757 : Received logon
+20151001-21:49:38.758 : Initiated logout request
+20151001-21:49:38.896 : Received logout response
+20151001-21:49:38.896 : Session FIX.4.2:TMQREXOMB/TML1/TML NORTH VANCOUVER->MBO:12345678 disconnecting: Received logout response
+20151001-21:49:38.915 : Session reset: ResetOnDisconnect
+20151001-21:49:48.125 : Created session
+20151001-21:49:48.127 : Connecting to 208.184.251.226 on port 11980
+20151001-21:49:48.266 : Connection succeeded
+20151001-21:49:48.289 : Session reset: ResetOnLogon
+20151001-21:49:48.298 : Session reset: ResetSeqNumFlag
+20151001-21:49:48.298 : Initiated logon request
+20151001-21:49:48.456 : Received logon
+20151001-21:49:49.458 : Initiated logout request
+20151001-21:49:49.599 : Received logout response
+20151001-21:49:49.599 : Session FIX.4.2:TMQREXOMB/TML1/TML NORTH VANCOUVER->MBO:12345678 disconnecting: Received logout response
+20151001-21:49:49.618 : Session reset: ResetOnDisconnect
+20151001-21:49:50.170 : Created session
+20151001-21:49:50.174 : Connecting to 208.184.251.226 on port 11980
+20151001-21:49:50.313 : Connection succeeded
+20151001-21:49:50.322 : Session reset: ResetOnLogon
+20151001-21:49:50.330 : Session reset: ResetSeqNumFlag
+20151001-21:49:50.331 : Initiated logon request
+20151001-21:49:50.492 : Received logon
+20151001-21:49:50.493 : Initiated logout request
+20151001-21:49:50.635 : Received logout response
+20151001-21:49:50.635 : Session FIX.4.2:TMQREXOMB/TML1/TML NORTH VANCOUVER->MBO:12345678 disconnecting: Received logout response
+20151001-21:49:50.654 : Session reset: ResetOnDisconnect
+20151001-21:49:51.503 : Created session
+20151001-21:49:52.506 : Connecting to 208.184.251.226 on port 11980
+20151001-21:49:55.674 : Connection succeeded
+20151001-21:49:58.565 : Created session
+20151001-21:49:58.567 : Connecting to 208.184.251.226 on port 11980
+20151001-21:49:58.701 : Connection succeeded
+20151001-21:49:58.710 : Session reset: ResetOnLogon
+20151001-21:49:58.719 : Session reset: ResetSeqNumFlag
+20151001-21:49:58.719 : Initiated logon request
+20151001-21:49:58.877 : Received logon
+20151001-21:50:04.883 : Initiated logout request
+20151001-21:50:05.020 : Received logout response
+20151001-21:50:05.020 : Session FIX.4.2:TMQREXOMB/TML1/TML NORTH VANCOUVER->MBO:12345678 disconnecting: Received logout response
+20151001-21:50:05.038 : Session reset: ResetOnDisconnect
+20151001-21:50:07.470 : Created session
+20151001-21:50:07.471 : Connecting to 208.184.251.226 on port 11980
+20151001-21:50:07.604 : Connection succeeded
+20151001-21:50:07.613 : Session reset: ResetOnLogon
+20151001-21:50:07.650 : Session reset: ResetSeqNumFlag
+20151001-21:50:07.650 : Initiated logon request
+20151001-21:50:07.821 : Received logon
+20151001-21:53:48.033 : Session FIX.4.2:TMQREXOMB/TML1/TML NORTH VANCOUVER->MBO:12345678 disconnecting: Timed out waiting for heartbeat
+20151001-21:55:57.512 : Created session
+20151001-21:55:57.516 : Connecting to 208.184.251.226 on port 11980
+20151001-21:55:57.650 : Connection succeeded
+20151001-21:55:57.660 : Session reset: ResetOnLogon
+20151001-21:55:57.673 : Session reset: ResetSeqNumFlag
+20151001-21:55:57.674 : Initiated logon request
+20151001-21:55:57.865 : Received logon
+20151001-21:56:04.873 : Initiated logout request
+20151001-21:56:05.009 : Received logout response
+20151001-21:56:05.009 : Session FIX.4.2:TMQREXOMB/TML1/TML NORTH VANCOUVER->MBO:12345678 disconnecting: Received logout response
+20151001-21:56:05.015 : Session reset: ResetOnDisconnect
+20151001-21:56:07.366 : Created session
+20151001-21:56:08.368 : Connecting to 208.184.251.226 on port 11980
+20151001-21:56:08.494 : Connection succeeded
+20151001-21:56:08.503 : Session reset: ResetOnLogon
+20151001-21:56:08.511 : Session reset: ResetSeqNumFlag
+20151001-21:56:08.512 : Initiated logon request
+20151001-21:56:08.665 : Received logon
+20151001-21:56:11.666 : Initiated logout request
+20151001-21:56:11.802 : Received logout response
+20151001-21:56:11.802 : Session FIX.4.2:TMQREXOMB/TML1/TML NORTH VANCOUVER->MBO:12345678 disconnecting: Received logout response
+20151001-21:56:11.817 : Session reset: ResetOnDisconnect
+20151001-21:56:13.198 : Created session
+20151001-21:56:13.199 : Connecting to 208.184.251.226 on port 11980
+20151001-21:56:13.331 : Connection succeeded
+20151001-21:56:13.341 : Session reset: ResetOnLogon
+20151001-21:56:13.348 : Session reset: ResetSeqNumFlag
+20151001-21:56:13.350 : Initiated logon request
+20151001-21:56:13.510 : Received logon
+20151001-21:56:17.512 : Initiated logout request
+20151001-21:56:17.649 : Received logout response
+20151001-21:56:17.649 : Session FIX.4.2:TMQREXOMB/TML1/TML NORTH VANCOUVER->MBO:12345678 disconnecting: Received logout response
+20151001-21:56:17.665 : Session reset: ResetOnDisconnect
+20151001-21:56:20.043 : Created session
+20151001-21:56:20.044 : Connecting to 208.184.251.226 on port 11980
+20151001-21:56:20.167 : Connection succeeded
+20151001-21:56:20.175 : Session reset: ResetOnLogon
+20151001-21:56:20.184 : Session reset: ResetSeqNumFlag
+20151001-21:56:20.184 : Initiated logon request
+20151001-21:56:20.327 : Received logon
+20151001-21:56:23.330 : Initiated logout request
+20151001-21:56:23.452 : Received logout response
+20151001-21:56:23.452 : Session FIX.4.2:TMQREXOMB/TML1/TML NORTH VANCOUVER->MBO:12345678 disconnecting: Received logout response
+20151001-21:56:23.468 : Session reset: ResetOnDisconnect
+20151001-21:56:26.389 : Created session
+20151001-21:56:26.390 : Connecting to 208.184.251.226 on port 11980
+20151001-21:56:26.525 : Connection succeeded
+20151001-21:56:26.528 : Session reset: ResetOnLogon
+20151001-21:56:26.531 : Session reset: ResetSeqNumFlag
+20151001-21:56:26.531 : Initiated logon request
+20151001-21:56:26.691 : Received logon
+20151001-21:56:30.693 : Initiated logout request
+20151001-21:56:30.829 : Received logout response
+20151001-21:56:30.829 : Session FIX.4.2:TMQREXOMB/TML1/TML NORTH VANCOUVER->MBO:12345678 disconnecting: Received logout response
+20151001-21:56:30.845 : Session reset: ResetOnDisconnect
+20151001-21:56:32.974 : Created session
+20151001-21:56:32.976 : Connecting to 208.184.251.226 on port 11980
+20151001-21:56:33.108 : Connection succeeded
+20151001-21:56:33.116 : Session reset: ResetOnLogon
+20151001-21:56:33.124 : Session reset: ResetSeqNumFlag
+20151001-21:56:33.125 : Initiated logon request
+20151001-21:56:33.284 : Received logon
+20151001-21:56:36.285 : Initiated logout request
+20151001-21:56:36.418 : Received logout response
+20151001-21:56:36.418 : Session FIX.4.2:TMQREXOMB/TML1/TML NORTH VANCOUVER->MBO:12345678 disconnecting: Received logout response
+20151001-21:56:36.427 : Session reset: ResetOnDisconnect
+20151001-21:56:38.351 : Created session
+20151001-21:56:38.363 : Connecting to 208.184.251.226 on port 11980
+20151001-21:56:38.499 : Connection succeeded
+20151001-21:56:38.615 : Session reset: ResetOnLogon
+20151001-21:56:38.623 : Session reset: ResetSeqNumFlag
+20151001-21:56:38.624 : Initiated logon request
+20151001-21:56:38.782 : Received logon
+20151001-21:56:42.784 : Initiated logout request
+20151001-21:56:42.921 : Received logout response
+20151001-21:56:42.921 : Session FIX.4.2:TMQREXOMB/TML1/TML NORTH VANCOUVER->MBO:12345678 disconnecting: Received logout response
+20151001-21:56:42.953 : Session reset: ResetOnDisconnect
+20151001-21:56:44.977 : Created session
+20151001-21:56:44.979 : Connecting to 208.184.251.226 on port 11980
+20151001-21:56:45.113 : Connection succeeded
+20151001-21:56:45.116 : Session reset: ResetOnLogon
+20151001-21:56:45.119 : Session reset: ResetSeqNumFlag
+20151001-21:56:45.120 : Initiated logon request
+20151001-21:56:45.275 : Received logon
+20151001-21:56:49.276 : Initiated logout request
+20151001-21:56:49.412 : Received logout response
+20151001-21:56:49.412 : Session FIX.4.2:TMQREXOMB/TML1/TML NORTH VANCOUVER->MBO:12345678 disconnecting: Received logout response
+20151001-21:56:49.421 : Session reset: ResetOnDisconnect
+20151001-21:56:51.430 : Created session
+20151001-21:56:51.432 : Connecting to 208.184.251.226 on port 11980
+20151001-21:56:51.564 : Connection succeeded
+20151001-21:56:51.573 : Session reset: ResetOnLogon
+20151001-21:56:51.581 : Session reset: ResetSeqNumFlag
+20151001-21:56:51.581 : Initiated logon request
+20151001-21:56:51.740 : Received logon
+20151001-21:56:56.745 : Initiated logout request
+20151001-21:56:56.878 : Received logout response
+20151001-21:56:56.878 : Session FIX.4.2:TMQREXOMB/TML1/TML NORTH VANCOUVER->MBO:12345678 disconnecting: Received logout response
+20151001-21:56:56.893 : Session reset: ResetOnDisconnect
+20151001-21:57:41.435 : Created session
+20151001-21:57:41.439 : Connecting to 208.184.251.226 on port 11980
+20151001-21:57:41.576 : Connection succeeded
+20151001-21:57:41.611 : Session reset: ResetOnLogon
+20151001-21:57:41.655 : Session reset: ResetSeqNumFlag
+20151001-21:57:41.658 : Initiated logon request
+20151001-21:57:41.862 : Received logon
+20151001-21:57:57.874 : Initiated logout request
+20151001-21:57:58.011 : Received logout response
+20151001-21:57:58.012 : Session FIX.4.2:TMQREXOMB/TML1/TML NORTH VANCOUVER->MBO:12345678 disconnecting: Received logout response
+20151001-21:57:58.032 : Session reset: ResetOnDisconnect
+20151001-21:58:00.942 : Created session
+20151001-21:58:00.944 : Connecting to 208.184.251.226 on port 11980
+20151001-21:58:01.079 : Connection succeeded
+20151001-21:58:01.087 : Session reset: ResetOnLogon
+20151001-21:58:01.098 : Session reset: ResetSeqNumFlag
+20151001-21:58:01.098 : Initiated logon request
+20151001-21:58:01.279 : Received logon
+20151001-21:58:04.284 : Initiated logout request
+20151001-21:58:04.417 : Received logout response
+20151001-21:58:04.417 : Session FIX.4.2:TMQREXOMB/TML1/TML NORTH VANCOUVER->MBO:12345678 disconnecting: Received logout response
+20151001-21:58:04.436 : Session reset: ResetOnDisconnect
+20151001-21:58:06.135 : Created session
+20151001-21:58:06.157 : Connecting to 208.184.251.226 on port 11980
+20151001-21:58:06.291 : Connection succeeded
+20151001-21:58:06.300 : Session reset: ResetOnLogon
+20151001-21:58:06.308 : Session reset: ResetSeqNumFlag
+20151001-21:58:06.309 : Initiated logon request
+20151001-21:58:06.465 : Received logon
+20151001-21:58:10.471 : Initiated logout request
+20151001-21:58:10.604 : Received logout response
+20151001-21:58:10.604 : Session FIX.4.2:TMQREXOMB/TML1/TML NORTH VANCOUVER->MBO:12345678 disconnecting: Received logout response
+20151001-21:58:10.622 : Session reset: ResetOnDisconnect
+20151001-21:58:12.518 : Created session
+20151001-21:58:12.520 : Connecting to 208.184.251.226 on port 11980
+20151001-21:58:12.656 : Connection succeeded
+20151001-21:58:12.665 : Session reset: ResetOnLogon
+20151001-21:58:12.704 : Session reset: ResetSeqNumFlag
+20151001-21:58:12.705 : Initiated logon request
+20151001-21:58:12.862 : Received logon
+20151001-21:58:16.866 : Initiated logout request
+20151001-21:58:17.004 : Received logout response
+20151001-21:58:17.004 : Session FIX.4.2:TMQREXOMB/TML1/TML NORTH VANCOUVER->MBO:12345678 disconnecting: Received logout response
+20151001-21:58:17.022 : Session reset: ResetOnDisconnect
+20151001-21:58:19.110 : Created session
+20151001-21:58:19.111 : Connecting to 208.184.251.226 on port 11980
+20151001-21:58:19.245 : Connection succeeded
+20151001-21:58:19.253 : Session reset: ResetOnLogon
+20151001-21:58:19.261 : Session reset: ResetSeqNumFlag
+20151001-21:58:19.262 : Initiated logon request
+20151001-21:58:19.428 : Received logon
+20151001-21:58:22.432 : Initiated logout request
+20151001-21:58:22.564 : Received logout response
+20151001-21:58:22.564 : Session FIX.4.2:TMQREXOMB/TML1/TML NORTH VANCOUVER->MBO:12345678 disconnecting: Received logout response
+20151001-21:58:22.582 : Session reset: ResetOnDisconnect
+20151001-21:58:26.366 : Created session
+20151001-21:58:26.367 : Connecting to 208.184.251.226 on port 11980
+20151001-21:58:26.502 : Connection succeeded
+20151001-21:58:26.511 : Session reset: ResetOnLogon
+20151001-21:58:26.519 : Session reset: ResetSeqNumFlag
+20151001-21:58:26.519 : Initiated logon request
+20151001-21:58:26.676 : Received logon
+20151001-21:58:30.681 : Initiated logout request
+20151001-21:58:30.819 : Received logout response
+20151001-21:58:30.819 : Session FIX.4.2:TMQREXOMB/TML1/TML NORTH VANCOUVER->MBO:12345678 disconnecting: Received logout response
+20151001-21:58:30.837 : Session reset: ResetOnDisconnect
+20151001-21:59:51.677 : Created session
+20151001-21:59:51.679 : Connecting to 208.184.251.226 on port 11980
+20151001-21:59:51.801 : Connection succeeded
+20151001-21:59:51.812 : Session reset: ResetOnLogon
+20151001-21:59:51.821 : Session reset: ResetSeqNumFlag
+20151001-21:59:51.822 : Initiated logon request
+20151001-21:59:51.968 : Received logon
+20151001-22:01:02.968 : Initiated logout request
+20151001-22:01:03.093 : Received logout response
+20151001-22:01:03.093 : Session FIX.4.2:TMQREXOMB/TML1/TML NORTH VANCOUVER->MBO:12345678 disconnecting: Received logout response
+20151001-22:01:03.120 : Session reset: ResetOnDisconnect
+20151001-22:01:05.286 : Created session
+20151001-22:01:05.288 : Connecting to 208.184.251.226 on port 11980
+20151001-22:01:05.403 : Connection succeeded
+20151001-22:01:05.412 : Session reset: ResetOnLogon
+20151001-22:01:05.420 : Session reset: ResetSeqNumFlag
+20151001-22:01:05.421 : Initiated logon request
+20151001-22:01:05.563 : Received logon
+20151001-22:14:35.043 : Created session
+20151001-22:14:35.048 : Connecting to 208.184.251.226 on port 11980
+20151001-22:14:35.184 : Connection succeeded
+20151001-22:14:35.205 : Session reset: ResetOnLogon
+20151001-22:14:35.225 : Session reset: ResetSeqNumFlag
+20151001-22:14:35.227 : Initiated logon request
+20151001-22:14:35.428 : Received logon
+20151001-22:14:38.438 : Initiated logout request
+20151001-22:14:38.578 : Received logout response
+20151001-22:14:38.579 : Session FIX.4.2:TMQREXOMB/TML1/TML NORTH VANCOUVER->MBO:12345678 disconnecting: Received logout response
+20151001-22:16:13.310 : Created session
+20151001-22:16:13.314 : Connecting to 208.184.251.226 on port 11980
+20151001-22:16:13.461 : Connection succeeded
+20151001-22:16:13.483 : Session reset: ResetOnLogon
+20151001-22:16:13.500 : Session reset: ResetSeqNumFlag
+20151001-22:16:13.502 : Initiated logon request
+20151001-22:16:13.707 : Received logon
+20151001-22:17:37.210 : Created session
+20151001-22:17:37.214 : Connecting to 208.184.251.226 on port 11980
+20151001-22:17:37.336 : Connection succeeded
+20151001-22:17:37.346 : Session reset: ResetOnLogon
+20151001-22:17:37.360 : Session reset: ResetSeqNumFlag
+20151001-22:17:37.361 : Initiated logon request
+20151001-22:17:37.542 : Received logon
+20151001-22:17:39.548 : Initiated logout request
+20151001-22:17:39.682 : Received logout response
+20151001-22:17:39.685 : Session FIX.4.2:TMQREXOMB/TML1/TML NORTH VANCOUVER->MBO:12345678 disconnecting: Received logout response
+20151001-22:19:54.572 : Created session
+20151001-22:19:54.576 : Connecting to 208.184.251.226 on port 11980
+20151001-22:19:54.713 : Connection succeeded
+20151001-22:19:54.737 : Session reset: ResetOnLogon
+20151001-22:19:54.759 : Session reset: ResetSeqNumFlag
+20151001-22:19:54.761 : Initiated logon request
+20151001-22:19:54.952 : Received logon
+20151001-22:19:56.962 : Initiated logout request
+20151001-22:19:57.101 : Received logout response
+20151001-22:19:57.103 : Session FIX.4.2:TMQREXOMB/TML1/TML NORTH VANCOUVER->MBO:12345678 disconnecting: Received logout response
+20151001-22:19:57.124 : Session reset: ResetOnDisconnect
+20151001-22:20:00.502 : Created session
+20151001-22:20:00.504 : Connecting to 208.184.251.226 on port 11980
+20151001-22:20:00.622 : Connection succeeded
+20151001-22:20:00.631 : Session reset: ResetOnLogon
+20151001-22:20:00.639 : Session reset: ResetSeqNumFlag
+20151001-22:20:00.640 : Initiated logon request
+20151001-22:20:00.781 : Received logon
+20151001-22:20:04.786 : Initiated logout request
+20151001-22:20:04.909 : Received logout response
+20151001-22:20:04.910 : Session FIX.4.2:TMQREXOMB/TML1/TML NORTH VANCOUVER->MBO:12345678 disconnecting: Received logout response
+20151001-22:20:04.952 : Session reset: ResetOnDisconnect
+20151001-22:20:06.895 : Created session
+20151001-22:20:06.896 : Connecting to 208.184.251.226 on port 11980
+20151001-22:20:07.016 : Connection succeeded
+20151001-22:20:07.131 : Session reset: ResetOnLogon
+20151001-22:20:07.140 : Session reset: ResetSeqNumFlag
+20151001-22:20:07.140 : Initiated logon request
+20151001-22:20:07.282 : Received logon
+20151001-22:20:10.286 : Initiated logout request
+20151001-22:20:10.411 : Received logout response
+20151001-22:20:10.411 : Session FIX.4.2:TMQREXOMB/TML1/TML NORTH VANCOUVER->MBO:12345678 disconnecting: Received logout response
+20151001-22:20:10.428 : Session reset: ResetOnDisconnect
+20151001-22:23:07.973 : Created session
+20151001-22:23:07.977 : Connecting to 208.184.251.226 on port 11980
+20151001-22:23:08.115 : Connection succeeded
+20151001-22:23:08.134 : Session reset: ResetOnLogon
+20151001-22:23:08.151 : Session reset: ResetSeqNumFlag
+20151001-22:23:08.153 : Initiated logon request
+20151001-22:23:10.275 : Received logon
+20151001-22:24:54.299 : Created session
+20151001-22:24:54.303 : Connecting to 208.184.251.226 on port 11980
+20151001-22:24:54.425 : Connection succeeded
+20151001-22:24:54.438 : Session reset: ResetOnLogon
+20151001-22:24:54.451 : Session reset: ResetSeqNumFlag
+20151001-22:24:54.452 : Initiated logon request
+20151001-22:24:54.616 : Received logon
+20151001-22:24:56.618 : Initiated logout request
+20151001-22:24:56.739 : Received logout response
+20151001-22:24:56.740 : Session FIX.4.2:TMQREXOMB/TML1/TML NORTH VANCOUVER->MBO:12345678 disconnecting: Received logout response
+20151001-22:24:56.760 : Session reset: ResetOnDisconnect
+20151001-22:25:00.222 : Created session
+20151001-22:25:00.223 : Connecting to 208.184.251.226 on port 11980
+20151001-22:25:00.362 : Connection succeeded
+20151001-22:25:00.369 : Session reset: ResetOnLogon
+20151001-22:25:00.374 : Session reset: ResetSeqNumFlag
+20151001-22:25:00.374 : Initiated logon request
+20151001-22:25:00.533 : Received logon
+20151001-22:25:04.534 : Initiated logout request
+20151001-22:25:04.670 : Received logout response
+20151001-22:25:04.670 : Session FIX.4.2:TMQREXOMB/TML1/TML NORTH VANCOUVER->MBO:12345678 disconnecting: Received logout response
+20151001-22:25:04.686 : Session reset: ResetOnDisconnect
+20151001-22:25:09.678 : Created session
+20151001-22:25:09.680 : Connecting to 208.184.251.226 on port 11980
+20151001-22:25:09.801 : Connection succeeded
+20151001-22:25:09.807 : Session reset: ResetOnLogon
+20151001-22:25:09.812 : Session reset: ResetSeqNumFlag
+20151001-22:25:09.812 : Initiated logon request
+20151001-22:25:09.961 : Received logon
+20151001-22:25:14.965 : Initiated logout request
+20151001-22:25:15.088 : Received logout response
+20151001-22:25:15.088 : Session FIX.4.2:TMQREXOMB/TML1/TML NORTH VANCOUVER->MBO:12345678 disconnecting: Received logout response
+20151001-22:25:15.103 : Session reset: ResetOnDisconnect
+20151001-22:25:19.279 : Created session
+20151001-22:25:19.280 : Connecting to 208.184.251.226 on port 11980
+20151001-22:25:19.400 : Connection succeeded
+20151001-22:25:19.405 : Session reset: ResetOnLogon
+20151001-22:25:19.410 : Session reset: ResetSeqNumFlag
+20151001-22:25:19.410 : Initiated logon request
+20151001-22:25:19.559 : Received logon
+20151001-22:25:24.561 : Initiated logout request
+20151001-22:25:24.684 : Received logout response
+20151001-22:25:24.684 : Session FIX.4.2:TMQREXOMB/TML1/TML NORTH VANCOUVER->MBO:12345678 disconnecting: Received logout response
+20151001-22:25:24.701 : Session reset: ResetOnDisconnect
+20151001-22:28:44.921 : Created session
+20151001-22:28:44.926 : Connecting to 208.184.251.226 on port 11980
+20151001-22:28:45.060 : Connection succeeded
+20151001-22:28:45.075 : Session reset: ResetOnLogon
+20151001-22:28:45.109 : Session reset: ResetSeqNumFlag
+20151001-22:28:45.111 : Initiated logon request
+20151001-22:28:45.310 : Received logon
+20151001-22:31:14.192 : Created session
+20151001-22:31:14.196 : Connecting to 208.184.251.226 on port 11980
+20151001-22:31:14.318 : Connection succeeded
+20151001-22:31:14.329 : Session reset: ResetOnLogon
+20151001-22:31:14.435 : Session reset: ResetSeqNumFlag
+20151001-22:31:14.436 : Initiated logon request
+20151001-22:31:14.588 : Received logon
+20151001-22:31:31.599 : Initiated logout request
+20151001-22:31:31.722 : Received logout response
+20151001-22:31:31.723 : Session FIX.4.2:TMQREXOMB/TML1/TML NORTH VANCOUVER->MBO:12345678 disconnecting: Received logout response
+20151001-22:31:31.728 : Session reset: ResetOnDisconnect
+20151001-22:31:37.358 : Created session
+20151001-22:31:37.360 : Connecting to 208.184.251.226 on port 11980
+20151001-22:31:37.493 : Connection succeeded
+20151001-22:31:37.497 : Session reset: ResetOnLogon
+20151001-22:31:37.499 : Session reset: ResetSeqNumFlag
+20151001-22:31:37.499 : Initiated logon request
+20151001-22:31:37.671 : Received logon
+20151001-22:31:41.672 : Initiated logout request
+20151001-22:31:41.803 : Received logout response
+20151001-22:31:41.803 : Session FIX.4.2:TMQREXOMB/TML1/TML NORTH VANCOUVER->MBO:12345678 disconnecting: Received logout response
+20151001-22:31:41.813 : Session reset: ResetOnDisconnect
+20151001-22:32:01.520 : Created session
+20151001-22:32:01.521 : Connecting to 208.184.251.226 on port 11980
+20151001-22:32:01.655 : Connection succeeded
+20151001-22:32:01.659 : Session reset: ResetOnLogon
+20151001-22:32:01.661 : Session reset: ResetSeqNumFlag
+20151001-22:32:01.661 : Initiated logon request
+20151001-22:32:01.825 : Received logon
+20151001-22:32:11.406 : Session FIX.4.2:TMQREXOMB/TML1/TML NORTH VANCOUVER->MBO:12345678 disconnecting: System.Net.Sockets.SocketException (0x80004005): An established connection was aborted by the software in your host machine
+   at QuickFix.SocketInitiatorThread.ReadSome(Byte[] buffer, Int32 timeoutMilliseconds)
+   at QuickFix.SocketInitiatorThread.Read()
+20151001-22:32:11.415 : Session reset: ResetOnDisconnect
+20151001-22:32:11.526 : Connecting to 208.184.251.226 on port 11980
+20151001-22:32:11.930 : Connection failed: A socket operation was attempted to an unreachable network 208.184.251.226:11980
+20151001-22:32:17.534 : Connecting to 208.184.251.226 on port 11980
+20151001-22:32:17.538 : Connection failed: A socket operation was attempted to an unreachable network 208.184.251.226:11980
+20151001-22:32:23.538 : Connecting to 208.184.251.226 on port 11980
+20151001-22:32:23.673 : Connection succeeded
+20151001-22:32:23.676 : Session reset: ResetOnLogon
+20151001-22:32:23.679 : Session reset: ResetSeqNumFlag
+20151001-22:32:23.679 : Initiated logon request
+20151001-22:32:23.855 : Session FIX.4.2:TMQREXOMB/TML1/TML NORTH VANCOUVER->MBO:12345678 disconnecting: System.Net.Sockets.SocketException (0x80004005): An existing connection was forcibly closed by the remote host
+   at QuickFix.SocketInitiatorThread.ReadSome(Byte[] buffer, Int32 timeoutMilliseconds)
+   at QuickFix.SocketInitiatorThread.Read()
+20151001-22:32:23.873 : Session reset: ResetOnDisconnect
+20151001-22:32:25.539 : Connecting to 208.184.251.226 on port 11980
+20151001-22:32:25.662 : Connection succeeded
+20151001-22:32:25.671 : Session reset: ResetOnLogon
+20151001-22:32:25.680 : Session reset: ResetSeqNumFlag
+20151001-22:32:25.681 : Initiated logon request
+20151001-22:32:25.829 : Session FIX.4.2:TMQREXOMB/TML1/TML NORTH VANCOUVER->MBO:12345678 disconnecting: System.Net.Sockets.SocketException (0x80004005): An existing connection was forcibly closed by the remote host
+   at QuickFix.SocketInitiatorThread.ReadSome(Byte[] buffer, Int32 timeoutMilliseconds)
+   at QuickFix.SocketInitiatorThread.Read()
+20151001-22:32:25.838 : Session reset: ResetOnDisconnect
+20151001-22:32:27.541 : Connecting to 208.184.251.226 on port 11980
+20151001-22:32:27.680 : Connection succeeded
+20151001-22:32:27.683 : Session reset: ResetOnLogon
+20151001-22:32:27.685 : Session reset: ResetSeqNumFlag
+20151001-22:32:27.685 : Initiated logon request
+20151001-22:32:27.856 : Session FIX.4.2:TMQREXOMB/TML1/TML NORTH VANCOUVER->MBO:12345678 disconnecting: System.Net.Sockets.SocketException (0x80004005): An existing connection was forcibly closed by the remote host
+   at QuickFix.SocketInitiatorThread.ReadSome(Byte[] buffer, Int32 timeoutMilliseconds)
+   at QuickFix.SocketInitiatorThread.Read()
+20151001-22:32:27.871 : Session reset: ResetOnDisconnect
+20151001-22:32:29.542 : Connecting to 208.184.251.226 on port 11980
+20151001-22:32:29.665 : Connection succeeded
+20151001-22:32:29.669 : Session reset: ResetOnLogon
+20151001-22:32:29.672 : Session reset: ResetSeqNumFlag
+20151001-22:32:29.672 : Initiated logon request
+20151001-22:32:29.822 : Session FIX.4.2:TMQREXOMB/TML1/TML NORTH VANCOUVER->MBO:12345678 disconnecting: System.Net.Sockets.SocketException (0x80004005): An existing connection was forcibly closed by the remote host
+   at QuickFix.SocketInitiatorThread.ReadSome(Byte[] buffer, Int32 timeoutMilliseconds)
+   at QuickFix.SocketInitiatorThread.Read()
+20151001-22:32:29.831 : Session reset: ResetOnDisconnect
+20151001-22:32:31.544 : Connecting to 208.184.251.226 on port 11980
+20151001-22:32:31.677 : Connection succeeded
+20151001-22:32:31.682 : Session reset: ResetOnLogon
+20151001-22:32:31.686 : Session reset: ResetSeqNumFlag
+20151001-22:32:31.686 : Initiated logon request
+20151001-22:32:31.845 : Session FIX.4.2:TMQREXOMB/TML1/TML NORTH VANCOUVER->MBO:12345678 disconnecting: System.Net.Sockets.SocketException (0x80004005): An existing connection was forcibly closed by the remote host
+   at QuickFix.SocketInitiatorThread.ReadSome(Byte[] buffer, Int32 timeoutMilliseconds)
+   at QuickFix.SocketInitiatorThread.Read()
+20151001-22:32:31.850 : Session reset: ResetOnDisconnect
+20151001-22:32:33.546 : Connecting to 208.184.251.226 on port 11980
+20151001-22:32:33.684 : Connection succeeded
+20151001-22:32:33.687 : Session reset: ResetOnLogon
+20151001-22:32:33.691 : Session reset: ResetSeqNumFlag
+20151001-22:32:33.692 : Initiated logon request
+20151001-22:32:33.855 : Session FIX.4.2:TMQREXOMB/TML1/TML NORTH VANCOUVER->MBO:12345678 disconnecting: System.Net.Sockets.SocketException (0x80004005): An existing connection was forcibly closed by the remote host
+   at QuickFix.SocketInitiatorThread.ReadSome(Byte[] buffer, Int32 timeoutMilliseconds)
+   at QuickFix.SocketInitiatorThread.Read()
+20151001-22:32:33.860 : Session reset: ResetOnDisconnect
+20151001-22:32:35.547 : Connecting to 208.184.251.226 on port 11980
+20151001-22:32:35.674 : Connection succeeded
+20151001-22:32:35.680 : Session reset: ResetOnLogon
+20151001-22:32:35.713 : Session reset: ResetSeqNumFlag
+20151001-22:32:35.713 : Initiated logon request
+20151001-22:32:35.865 : Session FIX.4.2:TMQREXOMB/TML1/TML NORTH VANCOUVER->MBO:12345678 disconnecting: System.Net.Sockets.SocketException (0x80004005): An existing connection was forcibly closed by the remote host
+   at QuickFix.SocketInitiatorThread.ReadSome(Byte[] buffer, Int32 timeoutMilliseconds)
+   at QuickFix.SocketInitiatorThread.Read()
+20151001-22:32:35.875 : Session reset: ResetOnDisconnect
+20151001-22:32:37.549 : Connecting to 208.184.251.226 on port 11980
+20151001-22:32:37.687 : Connection succeeded
+20151001-22:32:37.696 : Session reset: ResetOnLogon
+20151001-22:32:37.702 : Session reset: ResetSeqNumFlag
+20151001-22:32:37.702 : Initiated logon request
+20151001-22:32:37.861 : Session FIX.4.2:TMQREXOMB/TML1/TML NORTH VANCOUVER->MBO:12345678 disconnecting: System.Net.Sockets.SocketException (0x80004005): An existing connection was forcibly closed by the remote host
+   at QuickFix.SocketInitiatorThread.ReadSome(Byte[] buffer, Int32 timeoutMilliseconds)
+   at QuickFix.SocketInitiatorThread.Read()
+20151001-22:32:37.866 : Session reset: ResetOnDisconnect
+20151001-22:32:39.551 : Connecting to 208.184.251.226 on port 11980
+20151001-22:32:39.677 : Connection succeeded
+20151001-22:32:39.682 : Session reset: ResetOnLogon
+20151001-22:32:39.688 : Session reset: ResetSeqNumFlag
+20151001-22:32:39.688 : Initiated logon request
+20151001-22:32:39.837 : Session FIX.4.2:TMQREXOMB/TML1/TML NORTH VANCOUVER->MBO:12345678 disconnecting: System.Net.Sockets.SocketException (0x80004005): An existing connection was forcibly closed by the remote host
+   at QuickFix.SocketInitiatorThread.ReadSome(Byte[] buffer, Int32 timeoutMilliseconds)
+   at QuickFix.SocketInitiatorThread.Read()
+20151001-22:32:39.842 : Session reset: ResetOnDisconnect
+20151001-22:32:41.553 : Connecting to 208.184.251.226 on port 11980
+20151001-22:32:41.692 : Connection succeeded
+20151001-22:32:41.694 : Session reset: ResetOnLogon
+20151001-22:32:41.697 : Session reset: ResetSeqNumFlag
+20151001-22:32:41.697 : Initiated logon request
+20151001-22:32:41.858 : Session FIX.4.2:TMQREXOMB/TML1/TML NORTH VANCOUVER->MBO:12345678 disconnecting: System.Net.Sockets.SocketException (0x80004005): An existing connection was forcibly closed by the remote host
+   at QuickFix.SocketInitiatorThread.ReadSome(Byte[] buffer, Int32 timeoutMilliseconds)
+   at QuickFix.SocketInitiatorThread.Read()
+20151001-22:32:41.863 : Session reset: ResetOnDisconnect
+20151001-22:32:43.555 : Connecting to 208.184.251.226 on port 11980
+20151001-22:32:43.695 : Connection succeeded
+20151001-22:32:43.700 : Session reset: ResetOnLogon
+20151001-22:32:43.707 : Session reset: ResetSeqNumFlag
+20151001-22:32:43.707 : Initiated logon request
+20151001-22:32:43.886 : Session FIX.4.2:TMQREXOMB/TML1/TML NORTH VANCOUVER->MBO:12345678 disconnecting: System.Net.Sockets.SocketException (0x80004005): An existing connection was forcibly closed by the remote host
+   at QuickFix.SocketInitiatorThread.ReadSome(Byte[] buffer, Int32 timeoutMilliseconds)
+   at QuickFix.SocketInitiatorThread.Read()
+20151001-22:32:43.903 : Session reset: ResetOnDisconnect
+20151001-22:32:45.557 : Connecting to 208.184.251.226 on port 11980
+20151001-22:32:45.683 : Connection succeeded
+20151001-22:32:45.689 : Session reset: ResetOnLogon
+20151001-22:32:45.694 : Session reset: ResetSeqNumFlag
+20151001-22:32:45.695 : Initiated logon request
+20151001-22:32:45.851 : Session FIX.4.2:TMQREXOMB/TML1/TML NORTH VANCOUVER->MBO:12345678 disconnecting: System.Net.Sockets.SocketException (0x80004005): An existing connection was forcibly closed by the remote host
+   at QuickFix.SocketInitiatorThread.ReadSome(Byte[] buffer, Int32 timeoutMilliseconds)
+   at QuickFix.SocketInitiatorThread.Read()
+20151001-22:32:45.866 : Session reset: ResetOnDisconnect
+20151001-22:32:47.559 : Connecting to 208.184.251.226 on port 11980
+20151001-22:32:47.684 : Connection succeeded
+20151001-22:32:47.691 : Session reset: ResetOnLogon
+20151001-22:32:47.696 : Session reset: ResetSeqNumFlag
+20151001-22:32:47.697 : Initiated logon request
+20151001-22:32:47.846 : Session FIX.4.2:TMQREXOMB/TML1/TML NORTH VANCOUVER->MBO:12345678 disconnecting: System.Net.Sockets.SocketException (0x80004005): An existing connection was forcibly closed by the remote host
+   at QuickFix.SocketInitiatorThread.ReadSome(Byte[] buffer, Int32 timeoutMilliseconds)
+   at QuickFix.SocketInitiatorThread.Read()
+20151001-22:32:47.856 : Session reset: ResetOnDisconnect
+20151001-22:32:49.560 : Connecting to 208.184.251.226 on port 11980
+20151001-22:32:49.696 : Connection succeeded
+20151001-22:32:49.705 : Session reset: ResetOnLogon
+20151001-22:32:49.714 : Session reset: ResetSeqNumFlag
+20151001-22:32:49.714 : Initiated logon request
+20151001-22:32:49.877 : Session FIX.4.2:TMQREXOMB/TML1/TML NORTH VANCOUVER->MBO:12345678 disconnecting: System.Net.Sockets.SocketException (0x80004005): An existing connection was forcibly closed by the remote host
+   at QuickFix.SocketInitiatorThread.ReadSome(Byte[] buffer, Int32 timeoutMilliseconds)
+   at QuickFix.SocketInitiatorThread.Read()
+20151001-22:32:49.899 : Session reset: ResetOnDisconnect
+20151001-22:32:51.562 : Connecting to 208.184.251.226 on port 11980
+20151001-22:32:51.708 : Connection succeeded
+20151001-22:32:51.718 : Session reset: ResetOnLogon
+20151001-22:32:51.727 : Session reset: ResetSeqNumFlag
+20151001-22:32:51.728 : Initiated logon request
+20151001-22:32:51.888 : Session FIX.4.2:TMQREXOMB/TML1/TML NORTH VANCOUVER->MBO:12345678 disconnecting: System.Net.Sockets.SocketException (0x80004005): An existing connection was forcibly closed by the remote host
+   at QuickFix.SocketInitiatorThread.ReadSome(Byte[] buffer, Int32 timeoutMilliseconds)
+   at QuickFix.SocketInitiatorThread.Read()
+20151001-22:32:51.898 : Session reset: ResetOnDisconnect
+20151001-22:32:53.564 : Connecting to 208.184.251.226 on port 11980
+20151001-22:32:53.687 : Connection succeeded
+20151001-22:32:53.696 : Session reset: ResetOnLogon
+20151001-22:32:53.728 : Session reset: ResetSeqNumFlag
+20151001-22:32:53.728 : Initiated logon request
+20151001-22:32:53.873 : Session FIX.4.2:TMQREXOMB/TML1/TML NORTH VANCOUVER->MBO:12345678 disconnecting: System.Net.Sockets.SocketException (0x80004005): An existing connection was forcibly closed by the remote host
+   at QuickFix.SocketInitiatorThread.ReadSome(Byte[] buffer, Int32 timeoutMilliseconds)
+   at QuickFix.SocketInitiatorThread.Read()
+20151001-22:32:53.884 : Session reset: ResetOnDisconnect
+20151001-22:32:55.566 : Connecting to 208.184.251.226 on port 11980
+20151001-22:32:55.701 : Connection succeeded
+20151001-22:32:55.744 : Session reset: ResetOnLogon
+20151001-22:32:55.747 : Session reset: ResetSeqNumFlag
+20151001-22:32:55.747 : Initiated logon request
+20151001-22:32:55.912 : Session FIX.4.2:TMQREXOMB/TML1/TML NORTH VANCOUVER->MBO:12345678 disconnecting: System.Net.Sockets.SocketException (0x80004005): An existing connection was forcibly closed by the remote host
+   at QuickFix.SocketInitiatorThread.ReadSome(Byte[] buffer, Int32 timeoutMilliseconds)
+   at QuickFix.SocketInitiatorThread.Read()
+20151001-22:32:55.924 : Session reset: ResetOnDisconnect
+20151001-22:32:57.567 : Connecting to 208.184.251.226 on port 11980
+20151001-22:32:57.704 : Connection succeeded
+20151001-22:32:57.715 : Session reset: ResetOnLogon
+20151001-22:32:57.725 : Session reset: ResetSeqNumFlag
+20151001-22:32:57.725 : Initiated logon request
+20151001-22:32:57.895 : Session FIX.4.2:TMQREXOMB/TML1/TML NORTH VANCOUVER->MBO:12345678 disconnecting: System.Net.Sockets.SocketException (0x80004005): An existing connection was forcibly closed by the remote host
+   at QuickFix.SocketInitiatorThread.ReadSome(Byte[] buffer, Int32 timeoutMilliseconds)
+   at QuickFix.SocketInitiatorThread.Read()
+20151001-22:32:57.988 : Session reset: ResetOnDisconnect
+20151001-22:32:59.569 : Connecting to 208.184.251.226 on port 11980
+20151001-22:32:59.708 : Connection succeeded
+20151001-22:32:59.715 : Session reset: ResetOnLogon
+20151001-22:32:59.719 : Session reset: ResetSeqNumFlag
+20151001-22:32:59.720 : Initiated logon request
+20151001-22:32:59.881 : Session FIX.4.2:TMQREXOMB/TML1/TML NORTH VANCOUVER->MBO:12345678 disconnecting: System.Net.Sockets.SocketException (0x80004005): An existing connection was forcibly closed by the remote host
+   at QuickFix.SocketInitiatorThread.ReadSome(Byte[] buffer, Int32 timeoutMilliseconds)
+   at QuickFix.SocketInitiatorThread.Read()
+20151001-22:32:59.887 : Session reset: ResetOnDisconnect
+20151001-22:33:01.571 : Connecting to 208.184.251.226 on port 11980
+20151001-22:33:01.707 : Connection succeeded
+20151001-22:33:01.717 : Session reset: ResetOnLogon
+20151001-22:33:01.723 : Session reset: ResetSeqNumFlag
+20151001-22:33:01.723 : Initiated logon request
+20151001-22:33:01.878 : Received logon
+20151001-22:33:48.889 : Initiated logout request
+20151001-22:33:49.026 : Received logout response
+20151001-22:33:49.027 : Session FIX.4.2:TMQREXOMB/TML1/TML NORTH VANCOUVER->MBO:12345678 disconnecting: Received logout response
+20151001-22:33:49.130 : Session reset: ResetOnDisconnect
+20151001-23:37:25.817 : Created session
+20151001-23:37:25.821 : Connecting to 208.184.251.226 on port 11980
+20151001-23:37:25.963 : Connection succeeded
+20151001-23:37:26.211 : Session reset: ResetOnLogon
+20151001-23:37:26.249 : Session reset: ResetSeqNumFlag
+20151001-23:37:26.252 : Initiated logon request
+20151001-23:37:26.450 : Received logon

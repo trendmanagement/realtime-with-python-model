@@ -1,0 +1,16 @@
+Sessions count in config: 1
+Connected To TT FIX  True
+Disconnected From TT FIX  False
+Connected To TT FIX  True
+Disconnected From TT FIX  False
+Connected To TT FIX  True
+Disconnected From TT FIX  False
+Connected To TT FIX  True
+Disconnected From TT FIX  False
+Connected To TT FIX  True
+Disconnected From TT FIX  False
+Connected To TT FIX  True
+Disconnected From TT FIX  False
+Connected To TT FIX  True
+Disconnected From TT FIX  False
+Connected To TT FIX  True

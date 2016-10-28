@@ -1,0 +1,21 @@
+F.CLEZ16
+F.CLEZ16
+F.CLEZ16
+F.CLEZ16
+F.CLEZ16 12
+F.CLEZ16 12
+F.CLEZ16 12
+F.CLEZ16 12
+F.CLEZ16 12
+Sessions count in config: 1
+F.CLEZ16 12
+EVM: Handling ExecutionReport: 058X5B138:0 / New / New
+EVM: Handling ExecutionReport: 058X5B137:0 / New / New
+F.CLEZ16 12
+EVM: Handling ExecutionReport: 058X5B138:1 / New / Cancelled
+EVM: Handling ExecutionReport: 058X5B137:1 / New / unknown
+EVM: Handling ExecutionReport: 058X5B137:2 / New / unknown
+EVM: Handling ExecutionReport: 058X5B137:3 / New / Cancelled
+F.CLEZ16 12
+F.CLEZ16 12
+F.CLEZ16 12

@@ -1,0 +1,22 @@
+RealtimeSpreadMonitor.OptionCQGDataManagement System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.OptionSpreadManager.runModelAndADMInstrumentTotals() in D:\RealtimeSpreadWithPythonModel\RealtimeSpreadMonitor\RealtimeSpreadMonitor\OptionSpreadManager.cs:line 3057
+   at RealtimeSpreadMonitor.OptionCQGDataManagement.calculateModelValuesAndSummarizeTotals() in D:\RealtimeSpreadWithPythonModel\RealtimeSpreadMonitor\RealtimeSpreadMonitor\OptionCQGDataManagement.cs:line 2353
+   at RealtimeSpreadMonitor.OptionCQGDataManagement.calculateModelValuesAndSummarizeTotalsThreadRun(Object obj) in D:\RealtimeSpreadWithPythonModel\RealtimeSpreadMonitor\RealtimeSpreadMonitor\OptionCQGDataManagement.cs:line 2260
+RealtimeSpreadMonitor.Forms.OptionRealtimeMonitor, Text:   Version:2.0.6130.24393 System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.Forms.OptionRealtimeMonitor.setupGridLiveData() in D:\RealtimeSpreadWithPythonModel\RealtimeSpreadMonitor\RealtimeSpreadMonitor\Forms\OptionRealtimeMonitor.cs:line 736
+RealtimeSpreadMonitor.Forms.OptionRealtimeMonitor, Text:   Version:2.0.6130.24393 System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.Forms.OptionRealtimeMonitor.setupInstrumentSummary() in D:\RealtimeSpreadWithPythonModel\RealtimeSpreadMonitor\RealtimeSpreadMonitor\Forms\OptionRealtimeMonitor.cs:line 1326
+RealtimeSpreadMonitor.Forms.OptionRealtimeMonitor, Text:   Version:2.0.6130.24393 System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.Forms.OptionRealtimeMonitor.setupInstrumentSummaryStrategyRRisk() in D:\RealtimeSpreadWithPythonModel\RealtimeSpreadMonitor\RealtimeSpreadMonitor\Forms\OptionRealtimeMonitor.cs:line 1473
+RealtimeSpreadMonitor.Forms.OptionRealtimeMonitor, Text:   Version:2.0.6130.24393 System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.Forms.OptionRealtimeMonitor.setupGridOrders() in D:\RealtimeSpreadWithPythonModel\RealtimeSpreadMonitor\RealtimeSpreadMonitor\Forms\OptionRealtimeMonitor.cs:line 1894
+RealtimeSpreadMonitor.FormManipulation.GridViewFCMPostionManipulation System.ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index
+   at System.ThrowHelper.ThrowArgumentOutOfRangeException(ExceptionArgument argument, ExceptionResource resource)
+   at RealtimeSpreadMonitor.FormManipulation.GridViewFCMPostionManipulation.threadsafefillGridLiveADMData(OptionRealtimeMonitor optionRealtimeMonitor) in D:\RealtimeSpreadWithPythonModel\RealtimeSpreadMonitor\RealtimeSpreadMonitor\FormManipulation\GridViewFCMPostionManipulation.cs:line 134
+RealtimeSpreadMonitor.OptionSpreadManager System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.OptionSpreadManager.fillExpressionOptionList() in D:\RealtimeSpreadWithPythonModel\RealtimeSpreadMonitor\RealtimeSpreadMonitor\OptionSpreadManager.cs:line 1200
+RealtimeSpreadMonitor.OptionSpreadManager System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.OptionSpreadManager.fillSubstituteEODExpressionOptionList() in D:\RealtimeSpreadWithPythonModel\RealtimeSpreadMonitor\RealtimeSpreadMonitor\OptionSpreadManager.cs:line 1494
+RealtimeSpreadMonitor.OptionSpreadManager System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.OptionSpreadManager.fillExpressionWithDefaultFutures() in D:\RealtimeSpreadWithPythonModel\RealtimeSpreadMonitor\RealtimeSpreadMonitor\OptionSpreadManager.cs:line 1096

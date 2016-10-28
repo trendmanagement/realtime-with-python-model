@@ -1,0 +1,306 @@
+DEC 15 EMINI S&P 500           orderLots -2 noOrderContracts -2 multiple 1
+PUT  DEC 15 EMINI S&P 500 2060 orderLots 1 noOrderContracts 1 multiple 1
+PUT  DEC 15 EMINI S&P 500 2040 orderLots -1 noOrderContracts -1 multiple 1
+CALL DEC 15 EMINI S&P 500 2105 orderLots 1 noOrderContracts 1 multiple 1
+PUT  FEB 16 CME CATTLE    1340 orderLots 2 noOrderContracts 2 multiple 1
+PUT  DEC 15 CME LEAN HOGS  670 orderLots -1 noOrderContracts -1 multiple 1
+PUT  DEC 15 CME LEAN HOGS  610 orderLots -1 noOrderContracts -1 multiple 1
+CALL DEC 15 CME LEAN HOGS  680 orderLots -1 noOrderContracts -1 multiple 1
+CALL JAN 16 CBT SOYBEANS   910 orderLots 1 noOrderContracts 1 multiple 1
+DEC 15 EMINI S&P 500           orderLots -2 noOrderContracts -2 multiple 1
+PUT  DEC 15 EMINI S&P 500 2060 orderLots 1 noOrderContracts 1 multiple 1
+ orderLots -1 noOrderContracts -1 multiple 1
+ orderLots 1 noOrderContracts 1 multiple 1
+ orderLots -1 noOrderContracts -1 multiple 1
+PUT  DEC 15 EMINI S&P 500 2040 orderLots -1 noOrderContracts -1 multiple 1
+CALL DEC 15 EMINI S&P 500 2105 orderLots 1 noOrderContracts 1 multiple 1
+ orderLots -1 noOrderContracts -1 multiple 1
+ orderLots -1 noOrderContracts -1 multiple 1
+PUT  FEB 16 CME CATTLE    1340 orderLots 2 noOrderContracts 2 multiple 1
+PUT  DEC 15 CME LEAN HOGS  670 orderLots -1 noOrderContracts -1 multiple 1
+PUT  DEC 15 CME LEAN HOGS  610 orderLots -1 noOrderContracts -1 multiple 1
+CALL DEC 15 CME LEAN HOGS  680 orderLots -1 noOrderContracts -1 multiple 1
+CALL JAN 16 CBT SOYBEANS   910 orderLots 1 noOrderContracts 1 multiple 1
+DEC 15 EMINI S&P 500           orderLots -2 noOrderContracts -2 multiple 1
+PUT  DEC 15 EMINI S&P 500 2060 orderLots 1 noOrderContracts 1 multiple 1
+ orderLots -1 noOrderContracts -1 multiple 1
+ orderLots 1 noOrderContracts 1 multiple 1
+ orderLots -1 noOrderContracts -1 multiple 1
+PUT  DEC 15 EMINI S&P 500 2040 orderLots -1 noOrderContracts -1 multiple 1
+CALL DEC 15 EMINI S&P 500 2105 orderLots 1 noOrderContracts 1 multiple 1
+ orderLots -1 noOrderContracts -1 multiple 1
+ orderLots -1 noOrderContracts -1 multiple 1
+PUT  FEB 16 CME CATTLE    1340 orderLots 2 noOrderContracts 2 multiple 1
+PUT  DEC 15 CME LEAN HOGS  670 orderLots -1 noOrderContracts -1 multiple 1
+PUT  DEC 15 CME LEAN HOGS  610 orderLots -1 noOrderContracts -1 multiple 1
+CALL DEC 15 CME LEAN HOGS  680 orderLots -1 noOrderContracts -1 multiple 1
+CALL JAN 16 CBT SOYBEANS   910 orderLots 1 noOrderContracts 1 multiple 1
+DEC 15 EMINI S&P 500           orderLots -2 noOrderContracts -2 multiple 1
+PUT  DEC 15 EMINI S&P 500 2060 orderLots 1 noOrderContracts 1 multiple 1
+ orderLots -1 noOrderContracts -1 multiple 1
+ orderLots 1 noOrderContracts 1 multiple 1
+ orderLots -1 noOrderContracts -1 multiple 1
+PUT  DEC 15 EMINI S&P 500 2040 orderLots -1 noOrderContracts -1 multiple 1
+CALL DEC 15 EMINI S&P 500 2105 orderLots 1 noOrderContracts 1 multiple 1
+ orderLots -1 noOrderContracts -1 multiple 1
+ orderLots -1 noOrderContracts -1 multiple 1
+PUT  FEB 16 CME CATTLE    1340 orderLots 2 noOrderContracts 2 multiple 1
+PUT  DEC 15 CME LEAN HOGS  670 orderLots -1 noOrderContracts -1 multiple 1
+PUT  DEC 15 CME LEAN HOGS  610 orderLots -1 noOrderContracts -1 multiple 1
+CALL DEC 15 CME LEAN HOGS  680 orderLots -1 noOrderContracts -1 multiple 1
+CALL JAN 16 CBT SOYBEANS   910 orderLots 1 noOrderContracts 1 multiple 1
+DEC 15 EMINI S&P 500           orderLots -2 noOrderContracts -2 multiple 1
+PUT  DEC 15 EMINI S&P 500 2060 orderLots 1 noOrderContracts 1 multiple 1
+PUT  DEC 15 EMINI S&P 500 2040 orderLots -1 noOrderContracts -1 multiple 1
+CALL DEC 15 EMINI S&P 500 2105 orderLots 1 noOrderContracts 1 multiple 1
+PUT  FEB 16 CME CATTLE    1340 orderLots 2 noOrderContracts 2 multiple 1
+PUT  DEC 15 CME LEAN HOGS  670 orderLots -1 noOrderContracts -1 multiple 1
+PUT  DEC 15 CME LEAN HOGS  610 orderLots -1 noOrderContracts -1 multiple 1
+CALL DEC 15 CME LEAN HOGS  680 orderLots -1 noOrderContracts -1 multiple 1
+CALL JAN 16 CBT SOYBEANS   910 orderLots 1 noOrderContracts 1 multiple 1
+DEC 15 EMINI S&P 500           orderLots -2 noOrderContracts -2 multiple 1
+PUT  DEC 15 EMINI S&P 500 2060 orderLots 1 noOrderContracts 1 multiple 1
+ orderLots -1 noOrderContracts -1 multiple 1
+ orderLots 1 noOrderContracts 1 multiple 1
+ orderLots -1 noOrderContracts -1 multiple 1
+PUT  DEC 15 EMINI S&P 500 2040 orderLots -1 noOrderContracts -1 multiple 1
+CALL DEC 15 EMINI S&P 500 2105 orderLots 1 noOrderContracts 1 multiple 1
+ orderLots -1 noOrderContracts -1 multiple 1
+ orderLots -1 noOrderContracts -1 multiple 1
+PUT  FEB 16 CME CATTLE    1340 orderLots 2 noOrderContracts 2 multiple 1
+PUT  DEC 15 CME LEAN HOGS  670 orderLots -1 noOrderContracts -1 multiple 1
+PUT  DEC 15 CME LEAN HOGS  610 orderLots -1 noOrderContracts -1 multiple 1
+CALL DEC 15 CME LEAN HOGS  680 orderLots -1 noOrderContracts -1 multiple 1
+CALL JAN 16 CBT SOYBEANS   910 orderLots 1 noOrderContracts 1 multiple 1
+DEC 15 EMINI S&P 500           orderLots -2 noOrderContracts -2 multiple 1
+PUT  DEC 15 EMINI S&P 500 2060 orderLots 1 noOrderContracts 1 multiple 1
+ orderLots -1 noOrderContracts -1 multiple 1
+ orderLots 1 noOrderContracts 1 multiple 1
+ orderLots -1 noOrderContracts -1 multiple 1
+PUT  DEC 15 EMINI S&P 500 2040 orderLots -1 noOrderContracts -1 multiple 1
+CALL DEC 15 EMINI S&P 500 2105 orderLots 1 noOrderContracts 1 multiple 1
+ orderLots -1 noOrderContracts -1 multiple 1
+ orderLots -1 noOrderContracts -1 multiple 1
+PUT  FEB 16 CME CATTLE    1340 orderLots 2 noOrderContracts 2 multiple 1
+PUT  DEC 15 CME LEAN HOGS  670 orderLots -1 noOrderContracts -1 multiple 1
+PUT  DEC 15 CME LEAN HOGS  610 orderLots -1 noOrderContracts -1 multiple 1
+CALL DEC 15 CME LEAN HOGS  680 orderLots -1 noOrderContracts -1 multiple 1
+CALL JAN 16 CBT SOYBEANS   910 orderLots 1 noOrderContracts 1 multiple 1
+DEC 15 EMINI S&P 500           orderLots -2 noOrderContracts -2 multiple 1
+PUT  DEC 15 EMINI S&P 500 2060 orderLots 1 noOrderContracts 1 multiple 1
+ orderLots -1 noOrderContracts -1 multiple 1
+ orderLots 1 noOrderContracts 1 multiple 1
+ orderLots -1 noOrderContracts -1 multiple 1
+PUT  DEC 15 EMINI S&P 500 2040 orderLots -1 noOrderContracts -1 multiple 1
+CALL DEC 15 EMINI S&P 500 2105 orderLots 1 noOrderContracts 1 multiple 1
+ orderLots -1 noOrderContracts -1 multiple 1
+ orderLots -1 noOrderContracts -1 multiple 1
+PUT  FEB 16 CME CATTLE    1340 orderLots 2 noOrderContracts 2 multiple 1
+PUT  DEC 15 CME LEAN HOGS  670 orderLots -1 noOrderContracts -1 multiple 1
+PUT  DEC 15 CME LEAN HOGS  610 orderLots -1 noOrderContracts -1 multiple 1
+CALL DEC 15 CME LEAN HOGS  680 orderLots -1 noOrderContracts -1 multiple 1
+CALL JAN 16 CBT SOYBEANS   910 orderLots 1 noOrderContracts 1 multiple 1
+DEC 15 EMINI S&P 500           orderLots -2 noOrderContracts -2 multiple 1
+PUT  DEC 15 EMINI S&P 500 2060 orderLots 1 noOrderContracts 1 multiple 1
+PUT  DEC 15 EMINI S&P 500 2040 orderLots -1 noOrderContracts -1 multiple 1
+CALL DEC 15 EMINI S&P 500 2105 orderLots 1 noOrderContracts 1 multiple 1
+PUT  FEB 16 CME CATTLE    1340 orderLots 2 noOrderContracts 2 multiple 1
+PUT  DEC 15 CME LEAN HOGS  670 orderLots -1 noOrderContracts -1 multiple 1
+PUT  DEC 15 CME LEAN HOGS  610 orderLots -1 noOrderContracts -1 multiple 1
+CALL DEC 15 CME LEAN HOGS  680 orderLots -1 noOrderContracts -1 multiple 1
+CALL JAN 16 CBT SOYBEANS   910 orderLots 1 noOrderContracts 1 multiple 1
+DEC 15 EMINI S&P 500           orderLots -2 noOrderContracts -2 multiple 1
+PUT  DEC 15 EMINI S&P 500 2060 orderLots 1 noOrderContracts 1 multiple 1
+ orderLots -1 noOrderContracts -1 multiple 1
+ orderLots 1 noOrderContracts 1 multiple 1
+ orderLots -1 noOrderContracts -1 multiple 1
+PUT  DEC 15 EMINI S&P 500 2040 orderLots -1 noOrderContracts -1 multiple 1
+CALL DEC 15 EMINI S&P 500 2105 orderLots 1 noOrderContracts 1 multiple 1
+ orderLots -1 noOrderContracts -1 multiple 1
+ orderLots -1 noOrderContracts -1 multiple 1
+PUT  FEB 16 CME CATTLE    1340 orderLots 2 noOrderContracts 2 multiple 1
+PUT  DEC 15 CME LEAN HOGS  670 orderLots -1 noOrderContracts -1 multiple 1
+PUT  DEC 15 CME LEAN HOGS  610 orderLots -1 noOrderContracts -1 multiple 1
+CALL DEC 15 CME LEAN HOGS  680 orderLots -1 noOrderContracts -1 multiple 1
+CALL JAN 16 CBT SOYBEANS   910 orderLots 1 noOrderContracts 1 multiple 1
+DEC 15 EMINI S&P 500           orderLots -2 noOrderContracts -2 multiple 1
+PUT  DEC 15 EMINI S&P 500 2060 orderLots 1 noOrderContracts 1 multiple 1
+ orderLots -1 noOrderContracts -1 multiple 1
+ orderLots 1 noOrderContracts 1 multiple 1
+ orderLots -1 noOrderContracts -1 multiple 1
+PUT  DEC 15 EMINI S&P 500 2040 orderLots -1 noOrderContracts -1 multiple 1
+CALL DEC 15 EMINI S&P 500 2105 orderLots 1 noOrderContracts 1 multiple 1
+ orderLots -1 noOrderContracts -1 multiple 1
+ orderLots -1 noOrderContracts -1 multiple 1
+PUT  FEB 16 CME CATTLE    1340 orderLots 2 noOrderContracts 2 multiple 1
+PUT  DEC 15 CME LEAN HOGS  670 orderLots -1 noOrderContracts -1 multiple 1
+PUT  DEC 15 CME LEAN HOGS  610 orderLots -1 noOrderContracts -1 multiple 1
+CALL DEC 15 CME LEAN HOGS  680 orderLots -1 noOrderContracts -1 multiple 1
+CALL JAN 16 CBT SOYBEANS   910 orderLots 1 noOrderContracts 1 multiple 1
+DEC 15 EMINI S&P 500           orderLots -2 noOrderContracts -2 multiple 1
+PUT  DEC 15 EMINI S&P 500 2060 orderLots 1 noOrderContracts 1 multiple 1
+ orderLots -1 noOrderContracts -1 multiple 1
+ orderLots 1 noOrderContracts 1 multiple 1
+ orderLots -1 noOrderContracts -1 multiple 1
+PUT  DEC 15 EMINI S&P 500 2040 orderLots -1 noOrderContracts -1 multiple 1
+CALL DEC 15 EMINI S&P 500 2105 orderLots 1 noOrderContracts 1 multiple 1
+ orderLots -1 noOrderContracts -1 multiple 1
+ orderLots -1 noOrderContracts -1 multiple 1
+PUT  FEB 16 CME CATTLE    1340 orderLots 2 noOrderContracts 2 multiple 1
+PUT  DEC 15 CME LEAN HOGS  670 orderLots -1 noOrderContracts -1 multiple 1
+PUT  DEC 15 CME LEAN HOGS  610 orderLots -1 noOrderContracts -1 multiple 1
+CALL DEC 15 CME LEAN HOGS  680 orderLots -1 noOrderContracts -1 multiple 1
+CALL JAN 16 CBT SOYBEANS   910 orderLots 1 noOrderContracts 1 multiple 1
+DEC 15 EMINI S&P 500           orderLots -2 noOrderContracts -2 multiple 1
+PUT  DEC 15 EMINI S&P 500 2060 orderLots 1 noOrderContracts 1 multiple 1
+PUT  DEC 15 EMINI S&P 500 2040 orderLots -1 noOrderContracts -1 multiple 1
+CALL DEC 15 EMINI S&P 500 2105 orderLots 1 noOrderContracts 1 multiple 1
+PUT  FEB 16 CME CATTLE    1340 orderLots 2 noOrderContracts 2 multiple 1
+PUT  DEC 15 CME LEAN HOGS  670 orderLots -1 noOrderContracts -1 multiple 1
+PUT  DEC 15 CME LEAN HOGS  610 orderLots -1 noOrderContracts -1 multiple 1
+CALL DEC 15 CME LEAN HOGS  680 orderLots -1 noOrderContracts -1 multiple 1
+CALL JAN 16 CBT SOYBEANS   910 orderLots 1 noOrderContracts 1 multiple 1
+DEC 15 EMINI S&P 500           orderLots -2 noOrderContracts -2 multiple 1
+PUT  DEC 15 EMINI S&P 500 2060 orderLots 1 noOrderContracts 1 multiple 1
+ orderLots -1 noOrderContracts -1 multiple 1
+ orderLots 1 noOrderContracts 1 multiple 1
+ orderLots -1 noOrderContracts -1 multiple 1
+PUT  DEC 15 EMINI S&P 500 2040 orderLots -1 noOrderContracts -1 multiple 1
+CALL DEC 15 EMINI S&P 500 2105 orderLots 1 noOrderContracts 1 multiple 1
+ orderLots -1 noOrderContracts -1 multiple 1
+ orderLots -1 noOrderContracts -1 multiple 1
+PUT  FEB 16 CME CATTLE    1340 orderLots 2 noOrderContracts 2 multiple 1
+PUT  DEC 15 CME LEAN HOGS  670 orderLots -1 noOrderContracts -1 multiple 1
+PUT  DEC 15 CME LEAN HOGS  610 orderLots -1 noOrderContracts -1 multiple 1
+CALL DEC 15 CME LEAN HOGS  680 orderLots -1 noOrderContracts -1 multiple 1
+CALL JAN 16 CBT SOYBEANS   910 orderLots 1 noOrderContracts 1 multiple 1
+DEC 15 EMINI S&P 500           orderLots -2 noOrderContracts -2 multiple 1
+PUT  DEC 15 EMINI S&P 500 2060 orderLots 1 noOrderContracts 1 multiple 1
+ orderLots -1 noOrderContracts -1 multiple 1
+ orderLots 1 noOrderContracts 1 multiple 1
+ orderLots -1 noOrderContracts -1 multiple 1
+PUT  DEC 15 EMINI S&P 500 2040 orderLots -1 noOrderContracts -1 multiple 1
+CALL DEC 15 EMINI S&P 500 2105 orderLots 1 noOrderContracts 1 multiple 1
+ orderLots -1 noOrderContracts -1 multiple 1
+ orderLots -1 noOrderContracts -1 multiple 1
+PUT  FEB 16 CME CATTLE    1340 orderLots 2 noOrderContracts 2 multiple 1
+PUT  DEC 15 CME LEAN HOGS  670 orderLots -1 noOrderContracts -1 multiple 1
+PUT  DEC 15 CME LEAN HOGS  610 orderLots -1 noOrderContracts -1 multiple 1
+CALL DEC 15 CME LEAN HOGS  680 orderLots -1 noOrderContracts -1 multiple 1
+CALL JAN 16 CBT SOYBEANS   910 orderLots 1 noOrderContracts 1 multiple 1
+DEC 15 EMINI S&P 500           orderLots -2 noOrderContracts -2 multiple 1
+PUT  DEC 15 EMINI S&P 500 2060 orderLots 1 noOrderContracts 1 multiple 1
+ orderLots -1 noOrderContracts -1 multiple 1
+ orderLots 1 noOrderContracts 1 multiple 1
+ orderLots -1 noOrderContracts -1 multiple 1
+PUT  DEC 15 EMINI S&P 500 2040 orderLots -1 noOrderContracts -1 multiple 1
+CALL DEC 15 EMINI S&P 500 2105 orderLots 1 noOrderContracts 1 multiple 1
+ orderLots -1 noOrderContracts -1 multiple 1
+ orderLots -1 noOrderContracts -1 multiple 1
+PUT  FEB 16 CME CATTLE    1340 orderLots 2 noOrderContracts 2 multiple 1
+PUT  DEC 15 CME LEAN HOGS  670 orderLots -1 noOrderContracts -1 multiple 1
+PUT  DEC 15 CME LEAN HOGS  610 orderLots -1 noOrderContracts -1 multiple 1
+CALL DEC 15 CME LEAN HOGS  680 orderLots -1 noOrderContracts -1 multiple 1
+CALL JAN 16 CBT SOYBEANS   910 orderLots 1 noOrderContracts 1 multiple 1
+DEC 15 EMINI S&P 500           orderLots -2 noOrderContracts -2 multiple 1
+PUT  DEC 15 EMINI S&P 500 2060 orderLots 1 noOrderContracts 1 multiple 1
+PUT  DEC 15 EMINI S&P 500 2040 orderLots -1 noOrderContracts -1 multiple 1
+CALL DEC 15 EMINI S&P 500 2105 orderLots 1 noOrderContracts 1 multiple 1
+PUT  FEB 16 CME CATTLE    1340 orderLots 2 noOrderContracts 2 multiple 1
+PUT  DEC 15 CME LEAN HOGS  670 orderLots -1 noOrderContracts -1 multiple 1
+PUT  DEC 15 CME LEAN HOGS  610 orderLots -1 noOrderContracts -1 multiple 1
+CALL DEC 15 CME LEAN HOGS  680 orderLots -1 noOrderContracts -1 multiple 1
+CALL JAN 16 CBT SOYBEANS   910 orderLots 1 noOrderContracts 1 multiple 1
+DEC 15 EMINI S&P 500           orderLots -2 noOrderContracts -2 multiple 1
+PUT  DEC 15 EMINI S&P 500 2060 orderLots 1 noOrderContracts 1 multiple 1
+ orderLots -1 noOrderContracts -1 multiple 1
+ orderLots 1 noOrderContracts 1 multiple 1
+ orderLots -1 noOrderContracts -1 multiple 1
+PUT  DEC 15 EMINI S&P 500 2040 orderLots -1 noOrderContracts -1 multiple 1
+CALL DEC 15 EMINI S&P 500 2105 orderLots 1 noOrderContracts 1 multiple 1
+ orderLots -1 noOrderContracts -1 multiple 1
+ orderLots -1 noOrderContracts -1 multiple 1
+PUT  FEB 16 CME CATTLE    1340 orderLots 2 noOrderContracts 2 multiple 1
+PUT  DEC 15 CME LEAN HOGS  670 orderLots -1 noOrderContracts -1 multiple 1
+PUT  DEC 15 CME LEAN HOGS  610 orderLots -1 noOrderContracts -1 multiple 1
+CALL DEC 15 CME LEAN HOGS  680 orderLots -1 noOrderContracts -1 multiple 1
+CALL JAN 16 CBT SOYBEANS   910 orderLots 1 noOrderContracts 1 multiple 1
+DEC 15 EMINI S&P 500           orderLots -2 noOrderContracts -2 multiple 1
+PUT  DEC 15 EMINI S&P 500 2060 orderLots 1 noOrderContracts 1 multiple 1
+ orderLots -1 noOrderContracts -1 multiple 1
+ orderLots 1 noOrderContracts 1 multiple 1
+ orderLots -1 noOrderContracts -1 multiple 1
+PUT  DEC 15 EMINI S&P 500 2040 orderLots -1 noOrderContracts -1 multiple 1
+CALL DEC 15 EMINI S&P 500 2105 orderLots 1 noOrderContracts 1 multiple 1
+ orderLots -1 noOrderContracts -1 multiple 1
+ orderLots -1 noOrderContracts -1 multiple 1
+PUT  FEB 16 CME CATTLE    1340 orderLots 2 noOrderContracts 2 multiple 1
+PUT  DEC 15 CME LEAN HOGS  670 orderLots -1 noOrderContracts -1 multiple 1
+PUT  DEC 15 CME LEAN HOGS  610 orderLots -1 noOrderContracts -1 multiple 1
+CALL DEC 15 CME LEAN HOGS  680 orderLots -1 noOrderContracts -1 multiple 1
+CALL JAN 16 CBT SOYBEANS   910 orderLots 1 noOrderContracts 1 multiple 1
+DEC 15 EMINI S&P 500           orderLots -2 noOrderContracts -2 multiple 1
+PUT  DEC 15 EMINI S&P 500 2060 orderLots 1 noOrderContracts 1 multiple 1
+ orderLots -1 noOrderContracts -1 multiple 1
+ orderLots 1 noOrderContracts 1 multiple 1
+ orderLots -1 noOrderContracts -1 multiple 1
+PUT  DEC 15 EMINI S&P 500 2040 orderLots -1 noOrderContracts -1 multiple 1
+CALL DEC 15 EMINI S&P 500 2105 orderLots 1 noOrderContracts 1 multiple 1
+ orderLots -1 noOrderContracts -1 multiple 1
+ orderLots -1 noOrderContracts -1 multiple 1
+PUT  FEB 16 CME CATTLE    1340 orderLots 2 noOrderContracts 2 multiple 1
+PUT  DEC 15 CME LEAN HOGS  670 orderLots -1 noOrderContracts -1 multiple 1
+PUT  DEC 15 CME LEAN HOGS  610 orderLots -1 noOrderContracts -1 multiple 1
+CALL DEC 15 CME LEAN HOGS  680 orderLots -1 noOrderContracts -1 multiple 1
+CALL JAN 16 CBT SOYBEANS   910 orderLots 1 noOrderContracts 1 multiple 1
+DEC 15 EMINI S&P 500           orderLots -2 noOrderContracts -2 multiple 1
+PUT  DEC 15 EMINI S&P 500 2060 orderLots 1 noOrderContracts 1 multiple 1
+PUT  DEC 15 EMINI S&P 500 2040 orderLots -1 noOrderContracts -1 multiple 1
+CALL DEC 15 EMINI S&P 500 2105 orderLots 1 noOrderContracts 1 multiple 1
+PUT  FEB 16 CME CATTLE    1340 orderLots 2 noOrderContracts 2 multiple 1
+PUT  DEC 15 CME LEAN HOGS  670 orderLots -1 noOrderContracts -1 multiple 1
+PUT  DEC 15 CME LEAN HOGS  610 orderLots -1 noOrderContracts -1 multiple 1
+CALL DEC 15 CME LEAN HOGS  680 orderLots -1 noOrderContracts -1 multiple 1
+CALL JAN 16 CBT SOYBEANS   910 orderLots 1 noOrderContracts 1 multiple 1
+DEC 15 EMINI S&P 500           orderLots -2 noOrderContracts -2 multiple 1
+PUT  DEC 15 EMINI S&P 500 2060 orderLots 1 noOrderContracts 1 multiple 1
+ orderLots -1 noOrderContracts -1 multiple 1
+ orderLots 1 noOrderContracts 1 multiple 1
+ orderLots -1 noOrderContracts -1 multiple 1
+PUT  DEC 15 EMINI S&P 500 2040 orderLots -1 noOrderContracts -1 multiple 1
+CALL DEC 15 EMINI S&P 500 2105 orderLots 1 noOrderContracts 1 multiple 1
+ orderLots -1 noOrderContracts -1 multiple 1
+ orderLots -1 noOrderContracts -1 multiple 1
+PUT  FEB 16 CME CATTLE    1340 orderLots 2 noOrderContracts 2 multiple 1
+PUT  DEC 15 CME LEAN HOGS  670 orderLots -1 noOrderContracts -1 multiple 1
+PUT  DEC 15 CME LEAN HOGS  610 orderLots -1 noOrderContracts -1 multiple 1
+CALL DEC 15 CME LEAN HOGS  680 orderLots -1 noOrderContracts -1 multiple 1
+CALL JAN 16 CBT SOYBEANS   910 orderLots 1 noOrderContracts 1 multiple 1
+DEC 15 EMINI S&P 500           orderLots -2 noOrderContracts -2 multiple 1
+PUT  DEC 15 EMINI S&P 500 2060 orderLots 1 noOrderContracts 1 multiple 1
+ orderLots -1 noOrderContracts -1 multiple 1
+ orderLots 1 noOrderContracts 1 multiple 1
+ orderLots -1 noOrderContracts -1 multiple 1
+PUT  DEC 15 EMINI S&P 500 2040 orderLots -1 noOrderContracts -1 multiple 1
+CALL DEC 15 EMINI S&P 500 2105 orderLots 1 noOrderContracts 1 multiple 1
+ orderLots -1 noOrderContracts -1 multiple 1
+ orderLots -1 noOrderContracts -1 multiple 1
+PUT  FEB 16 CME CATTLE    1340 orderLots 2 noOrderContracts 2 multiple 1
+PUT  DEC 15 CME LEAN HOGS  670 orderLots -1 noOrderContracts -1 multiple 1
+PUT  DEC 15 CME LEAN HOGS  610 orderLots -1 noOrderContracts -1 multiple 1
+CALL DEC 15 CME LEAN HOGS  680 orderLots -1 noOrderContracts -1 multiple 1
+CALL JAN 16 CBT SOYBEANS   910 orderLots 1 noOrderContracts 1 multiple 1
+DEC 15 EMINI S&P 500           orderLots -2 noOrderContracts -2 multiple 1
+PUT  DEC 15 EMINI S&P 500 2060 orderLots 1 noOrderContracts 1 multiple 1
+ orderLots -1 noOrderContracts -1 multiple 1
+ orderLots 1 noOrderContracts 1 multiple 1
+ orderLots -1 noOrderContracts -1 multiple 1
+PUT  DEC 15 EMINI S&P 500 2040 orderLots -1 noOrderContracts -1 multiple 1
+CALL DEC 15 EMINI S&P 500 2105 orderLots 1 noOrderContracts 1 multiple 1
+ orderLots -1 noOrderContracts -1 multiple 1
+ orderLots -1 noOrderContracts -1 multiple 1
+PUT  FEB 16 CME CATTLE    1340 orderLots 2 noOrderContracts 2 multiple 1
+PUT  DEC 15 CME LEAN HOGS  670 orderLots -1 noOrderContracts -1 multiple 1
+PUT  DEC 15 CME LEAN HOGS  610 orderLots -1 noOrderContracts -1 multiple 1
+CALL DEC 15 CME LEAN HOGS  680 orderLots -1 noOrderContracts -1 multiple 1
+CALL JAN 16 CBT SOYBEANS   910 orderLots 1 noOrderContracts 1 multiple 1

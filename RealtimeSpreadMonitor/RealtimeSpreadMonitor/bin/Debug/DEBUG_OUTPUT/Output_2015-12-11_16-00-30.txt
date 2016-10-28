@@ -1,0 +1,6 @@
+RealtimeSpreadMonitor.OptionCQGDataManagement System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.OptionCQGDataManagement.fillPricesFromQuote(OptionSpreadExpression optionSpreadExpression, CQGQuotes quotes) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\OptionCQGDataManagement.cs:line 1723
+   at RealtimeSpreadMonitor.OptionCQGDataManagement.m_CEL_InstrumentSubscribed(String symbol, CQGInstrument cqgInstrument) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\OptionCQGDataManagement.cs:line 292
+RealtimeSpreadMonitor.OptionCQGDataManagement System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.OptionCQGDataManagement.fillPricesFromQuote(OptionSpreadExpression optionSpreadExpression, CQGQuotes quotes) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\OptionCQGDataManagement.cs:line 1723
+   at RealtimeSpreadMonitor.OptionCQGDataManagement.m_CEL_InstrumentSubscribed(String symbol, CQGInstrument cqgInstrument) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\OptionCQGDataManagement.cs:line 292

@@ -1,0 +1,8 @@
+F.CLEZ16
+F.CLEZ16
+F.CLEZ16
+F.CLEZ16
+RealtimeSpreadMonitor.Forms.Settings, Text: Price Settings and End Of Day System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.Forms.Settings.getRealtimeSystemResultsFromDatabase() in D:\RealtimeSpreadWithPythonModel\RealtimeSpreadMonitor\RealtimeSpreadMonitor\Forms\Settings.cs:line 350
+RealtimeSpreadMonitor.FormManipulation.ModelADMCompareCalculationAndDisplay System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.FormManipulation.ModelADMCompareCalculationAndDisplay.threadSafeFillGridModelADMComparison(OptionRealtimeMonitor optionRealtimeMonitor) in D:\RealtimeSpreadWithPythonModel\RealtimeSpreadMonitor\RealtimeSpreadMonitor\FormManipulation\ModelADMCompareCalculationAndDisplay.cs:line 271

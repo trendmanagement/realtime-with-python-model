@@ -1,0 +1,56 @@
+20141205-18:40:51.577 : Created session
+20141205-18:40:51.581 : Connecting to 208.184.251.215 on port 11600
+20141205-18:40:52.907 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.215:11600
+20141205-18:40:59.587 : Connecting to 208.184.251.215 on port 11600
+20141205-18:41:00.941 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.215:11600
+20141205-18:41:07.593 : Connecting to 208.184.251.215 on port 11600
+20141205-18:41:08.946 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.215:11600
+20141205-18:41:15.601 : Connecting to 208.184.251.215 on port 11600
+20141205-18:41:16.921 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.215:11600
+20141205-18:41:23.608 : Connecting to 208.184.251.215 on port 11600
+20141205-18:41:24.945 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.215:11600
+20141205-18:41:31.613 : Connecting to 208.184.251.215 on port 11600
+20141205-18:41:31.718 : Connection succeeded
+20141205-18:41:31.733 : Session reset: ResetOnLogon
+20141205-18:41:31.751 : Session reset: ResetSeqNumFlag
+20141205-18:41:31.753 : Initiated logon request
+20141205-18:41:31.936 : Received logon
+20141205-18:44:50.489 : Initiated logout request
+20141205-18:44:50.602 : Received logout response
+20141205-18:44:50.603 : Session FIX.4.2:TMQREXODTS->TTDEV14O disconnecting: Received logout response
+20141205-18:44:50.646 : Session reset: ResetOnDisconnect
+20141205-18:44:57.494 : Created session
+20141205-18:44:57.495 : Connecting to 208.184.251.215 on port 11600
+20141205-18:44:57.597 : Connection succeeded
+20141205-18:44:57.605 : Session reset: ResetOnLogon
+20141205-18:44:57.612 : Session reset: ResetSeqNumFlag
+20141205-18:44:57.612 : Initiated logon request
+20141205-18:44:57.766 : Received logon
+20141205-18:52:38.108 : Session FIX.4.2:TMQREXODTS->TTDEV14O disconnecting: System.Net.Sockets.SocketException (0x80004005): An existing connection was forcibly closed by the remote host
+   at QuickFix.SocketInitiatorThread.ReadSome(Byte[] buffer, Int32 timeoutMilliseconds)
+   at QuickFix.SocketInitiatorThread.Read()
+20141205-18:52:38.144 : Session reset: ResetOnDisconnect
+20141205-18:52:39.758 : Connecting to 208.184.251.215 on port 11600
+20141205-18:52:41.085 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.215:11600
+20141205-18:52:47.762 : Connecting to 208.184.251.215 on port 11600
+20141205-18:52:49.098 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.215:11600
+20141205-18:52:55.768 : Connecting to 208.184.251.215 on port 11600
+20141205-18:52:57.134 : Connection failed: No connection could be made because the target machine actively refused it 208.184.251.215:11600
+20141205-18:53:03.773 : Connecting to 208.184.251.215 on port 11600
+20141205-18:53:03.883 : Connection succeeded
+20141205-18:53:03.890 : Session reset: ResetOnLogon
+20141205-18:53:03.897 : Session reset: ResetSeqNumFlag
+20141205-18:53:03.898 : Initiated logon request
+20141208-16:25:17.418 : Session FIX.4.2:TMQREXODTS->TTDEV14O already disconnected: Resetting...
+20141208-16:25:17.421 : Session reset: New session
+20141208-16:25:17.421 : Created session
+20141208-16:25:17.425 : Connecting to 208.184.251.215 on port 11600
+20141208-16:25:17.529 : Connection succeeded
+20141208-16:25:17.542 : Session reset: ResetOnLogon
+20141208-16:25:17.579 : Session reset: ResetSeqNumFlag
+20141208-16:25:17.581 : Initiated logon request
+20141208-16:25:18.229 : Received logon
+20141208-16:29:32.208 : Initiated logout request
+20141208-16:29:32.319 : Received logout response
+20141208-16:29:32.320 : Session FIX.4.2:TMQREXODTS->TTDEV14O disconnecting: Received logout response
+20141208-16:29:32.331 : Session reset: ResetOnDisconnect

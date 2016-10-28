@@ -1,0 +1,34 @@
+CLE  12/11/2015 11:45:00 AM
+EP  12/11/2015 1:30:00 PM
+JY6  12/11/2015 12:15:00 PM
+EU6  12/11/2015 12:15:00 PM
+BP6  12/11/2015 12:15:00 PM
+NGE  12/11/2015 11:45:00 AM
+GCE  12/11/2015 10:45:00 AM
+GLE  12/11/2015 11:15:00 AM
+ZCE  12/11/2015 11:30:00 AM
+HE  12/11/2015 11:15:00 AM
+DA6  12/11/2015 12:15:00 PM
+CCE  12/11/2015 1:15:00 PM
+ZSE  12/11/2015 11:30:00 AM
+TYA  12/11/2015 12:15:00 PM
+TYA  12/11/2015 12:15:00 PM
+FVA  12/11/2015 12:15:00 PM
+FVA  12/11/2015 12:15:00 PM
+EP  12/11/2015 1:30:00 PM
+CLE  12/11/2015 11:45:00 AM
+ZCE  12/11/2015 11:30:00 AM
+ZSE  12/11/2015 11:30:00 AM
+NGE  12/11/2015 11:45:00 AM
+GLE  12/11/2015 11:15:00 AM
+CCE  12/11/2015 1:15:00 PM
+HE  12/11/2015 11:15:00 AM
+EU6  12/11/2015 12:15:00 PM
+JY6  12/11/2015 12:15:00 PM
+BP6  12/11/2015 12:15:00 PM
+DA6  12/11/2015 12:15:00 PM
+GCE  12/11/2015 10:45:00 AM
+GCE  12/11/2015 10:45:00 AM
+RealtimeSpreadMonitor.OptionCQGDataManagement System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.OptionCQGDataManagement.fillPricesFromQuote(OptionSpreadExpression optionSpreadExpression, CQGQuotes quotes) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\OptionCQGDataManagement.cs:line 1727
+   at RealtimeSpreadMonitor.OptionCQGDataManagement.m_CEL_InstrumentSubscribed(String symbol, CQGInstrument cqgInstrument) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\OptionCQGDataManagement.cs:line 292

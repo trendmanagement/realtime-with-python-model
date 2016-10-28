@@ -1,0 +1,2 @@
+-0.014993836882919 priceinstrument.optionTickSize -149.93836882919 ticksize 0.0001
+0 priceinstrument.optionTickSize 0 ticksize 0.0001

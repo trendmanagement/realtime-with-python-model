@@ -1,0 +1,9 @@
+RealtimeSpreadMonitor.OptionSpreadManager System.InvalidOperationException: Invalid operation. The connection is closed.
+   at System.Data.SqlClient.SqlConnection.GetOpenConnection()
+   at System.Data.SqlClient.SqlConnection.get_ServerVersion()
+   at System.Data.Linq.SqlClient.SqlProvider.get_IsServer2KOrEarlier()
+   at System.Data.Linq.SqlClient.SqlProvider.InitializeProviderMode()
+   at System.Data.Linq.SqlClient.SqlProvider.System.Data.Linq.Provider.IProvider.Execute(Expression query)
+   at System.Data.Linq.DataQuery`1.System.Collections.Generic.IEnumerable<T>.GetEnumerator()
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.queryInstruments(Int32 idPortfoliogroup) in D:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 294
+   at RealtimeSpreadMonitor.OptionSpreadManager.fillStrategiesAndInstrumentsFromAzure() in D:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\OptionSpreadManager.cs:line 1298

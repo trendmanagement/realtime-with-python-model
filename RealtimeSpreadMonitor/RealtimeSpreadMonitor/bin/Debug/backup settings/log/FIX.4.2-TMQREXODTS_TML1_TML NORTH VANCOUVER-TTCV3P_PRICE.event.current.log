@@ -1,0 +1,21 @@
+20150204-16:23:59.023 : Created session
+20150204-16:23:59.047 : Connecting to 208.184.251.214 on port 11191
+20150204-16:23:59.149 : Connection succeeded
+20150204-16:23:59.162 : Session reset: ResetOnLogon
+20150204-16:24:13.866 : Session reset: ResetSeqNumFlag
+20150204-16:24:13.869 : Initiated logon request
+20150204-16:24:14.870 : Session FIX.4.2:TMQREXODTS/TML1/TML NORTH VANCOUVER->TTCV3P/PRICE disconnecting: Timed out waiting for logon response
+20150204-16:24:14.879 : Session reset: ResetOnDisconnect
+20150204-16:24:15.816 : Connecting to 208.184.251.214 on port 11191
+20150204-16:24:15.925 : Connection succeeded
+20150204-16:24:15.934 : Session reset: ResetOnLogon
+20150204-16:24:23.459 : Session reset: ResetSeqNumFlag
+20150204-16:24:23.459 : Initiated logon request
+20150204-16:24:23.922 : Received logon
+20150204-17:17:28.673 : Created session
+20150204-17:17:28.677 : Connecting to 208.184.251.214 on port 11191
+20150204-17:17:28.787 : Connection succeeded
+20150204-17:17:28.803 : Session reset: ResetOnLogon
+20150204-17:17:28.819 : Session reset: ResetSeqNumFlag
+20150204-17:17:28.820 : Initiated logon request
+20150204-17:17:29.304 : Received logon

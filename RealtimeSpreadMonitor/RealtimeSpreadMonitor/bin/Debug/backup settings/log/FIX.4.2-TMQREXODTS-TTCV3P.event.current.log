@@ -1,0 +1,117 @@
+20150128-23:02:23.165 : Created session
+20150128-23:02:23.169 : Connecting to 208.184.251.214 on port 11191
+20150128-23:02:23.302 : Connection succeeded
+20150128-23:02:23.378 : Session reset: ResetOnLogon
+20150128-23:02:23.403 : Session reset: ResetSeqNumFlag
+20150128-23:02:23.406 : Initiated logon request
+20150128-23:02:24.161 : Received logon
+20150128-23:05:12.382 : Created session
+20150128-23:05:12.388 : Connecting to 208.184.251.214 on port 11191
+20150128-23:05:12.499 : Connection succeeded
+20150128-23:05:12.536 : Session reset: ResetOnLogon
+20150128-23:05:12.559 : Session reset: ResetSeqNumFlag
+20150128-23:05:12.561 : Initiated logon request
+20150128-23:05:12.718 : Received logon
+20150128-23:11:24.458 : Created session
+20150128-23:11:24.463 : Connecting to 208.184.251.214 on port 11191
+20150128-23:11:24.578 : Connection succeeded
+20150128-23:11:24.586 : Session reset: ResetOnLogon
+20150128-23:11:24.605 : Session reset: ResetSeqNumFlag
+20150128-23:11:24.607 : Initiated logon request
+20150128-23:11:24.770 : Received logon
+20150128-23:36:46.462 : Created session
+20150128-23:36:46.467 : Connecting to 208.184.251.214 on port 11191
+20150128-23:36:46.577 : Connection succeeded
+20150128-23:36:46.593 : Session reset: ResetOnLogon
+20150128-23:36:46.615 : Session reset: ResetSeqNumFlag
+20150128-23:36:46.617 : Initiated logon request
+20150128-23:36:46.771 : Received logon
+20150128-23:37:55.869 : Created session
+20150128-23:37:55.875 : Connecting to 208.184.251.214 on port 11191
+20150128-23:37:56.001 : Connection succeeded
+20150128-23:37:56.029 : Session reset: ResetOnLogon
+20150128-23:37:56.050 : Session reset: ResetSeqNumFlag
+20150128-23:37:56.052 : Initiated logon request
+20150128-23:37:56.747 : Received logon
+20150128-23:54:25.166 : Created session
+20150128-23:54:25.170 : Connecting to 208.184.251.214 on port 11191
+20150128-23:54:25.288 : Connection succeeded
+20150128-23:54:25.306 : Session reset: ResetOnLogon
+20150128-23:54:25.333 : Session reset: ResetSeqNumFlag
+20150128-23:54:25.334 : Initiated logon request
+20150128-23:54:25.491 : Received logon
+20150128-23:57:02.091 : Created session
+20150128-23:57:02.098 : Connecting to 208.184.251.214 on port 11191
+20150128-23:57:02.202 : Connection succeeded
+20150128-23:57:02.217 : Session reset: ResetOnLogon
+20150128-23:57:02.234 : Session reset: ResetSeqNumFlag
+20150128-23:57:02.235 : Initiated logon request
+20150128-23:57:02.409 : Received logon
+20150128-23:58:51.682 : Sent test request TEST
+20150129-00:00:54.203 : Session reset: New session (detected in Next())
+20150129-00:00:54.203 : Session FIX.4.2:TMQREXODTS->TTCV3P disconnecting: Timed out waiting for heartbeat
+20150129-00:00:54.206 : Session reset: ResetOnDisconnect
+20150129-00:00:56.167 : Connecting to 208.184.251.214 on port 11191
+20150129-00:00:56.284 : Connection succeeded
+20150129-00:00:56.289 : Session reset: ResetOnLogon
+20150129-00:00:56.294 : Session reset: ResetSeqNumFlag
+20150129-00:00:56.295 : Initiated logon request
+20150129-00:00:56.475 : Received logon
+20150129-00:04:17.559 : Sent test request TEST
+20150129-22:44:03.080 : Created session
+20150129-22:44:03.085 : Connecting to 208.184.251.214 on port 11191
+20150129-22:44:03.192 : Connection succeeded
+20150129-22:44:03.210 : Session reset: ResetOnLogon
+20150129-22:44:03.227 : Session reset: ResetSeqNumFlag
+20150129-22:44:03.229 : Initiated logon request
+20150129-22:44:14.144 : Session FIX.4.2:TMQREXODTS->TTCV3P disconnecting: Timed out waiting for logon response
+20150129-22:44:17.735 : Session reset: ResetOnDisconnect
+20150129-22:44:19.721 : Connecting to 208.184.251.214 on port 11191
+20150129-22:44:19.843 : Connection succeeded
+20150129-22:44:19.845 : Session reset: ResetOnLogon
+20150129-22:44:19.847 : Session reset: ResetSeqNumFlag
+20150129-22:44:19.848 : Initiated logon request
+20150129-22:44:29.853 : Session FIX.4.2:TMQREXODTS->TTCV3P disconnecting: Timed out waiting for logon response
+20150129-22:44:29.861 : Session reset: ResetOnDisconnect
+20150129-22:44:31.736 : Connecting to 208.184.251.214 on port 11191
+20150129-22:44:31.846 : Connection succeeded
+20150129-22:44:31.852 : Session reset: ResetOnLogon
+20150129-22:44:31.858 : Session reset: ResetSeqNumFlag
+20150129-22:44:31.858 : Initiated logon request
+20150129-22:44:32.080 : Received logon
+20150129-22:48:04.257 : Created session
+20150129-22:48:04.261 : Connecting to 208.184.251.214 on port 11191
+20150129-22:48:04.373 : Connection succeeded
+20150129-22:48:04.386 : Session reset: ResetOnLogon
+20150129-22:48:04.404 : Session reset: ResetSeqNumFlag
+20150129-22:48:04.407 : Initiated logon request
+20150129-22:48:04.569 : Received logon
+20150203-23:30:34.905 : Session FIX.4.2:TMQREXODTS->TTCV3P already disconnected: Resetting...
+20150203-23:30:34.934 : Session reset: New session
+20150203-23:30:34.934 : Created session
+20150203-23:30:34.945 : Connecting to 208.184.251.214 on port 11191
+20150203-23:30:35.060 : Connection succeeded
+20150203-23:30:35.075 : Session reset: ResetOnLogon
+20150203-23:30:35.097 : Session reset: ResetSeqNumFlag
+20150203-23:30:35.108 : Initiated logon request
+20150203-23:30:35.274 : Received logon
+20150203-23:41:17.913 : Created session
+20150203-23:41:17.917 : Connecting to 208.184.251.214 on port 11191
+20150203-23:41:18.035 : Connection succeeded
+20150203-23:41:18.058 : Session reset: ResetOnLogon
+20150203-23:41:18.078 : Session reset: ResetSeqNumFlag
+20150203-23:41:18.080 : Initiated logon request
+20150203-23:41:18.284 : Received logon
+20150204-00:00:00.799 : Session reset: New session (detected in Next())
+20150204-00:00:13.765 : MsgSeqNum too high, expecting 1 but received 43
+20150204-00:00:13.770 : Sent ResendRequest FROM: 1 TO: 0
+20150204-00:00:13.884 : Session FIX.4.2:TMQREXODTS->TTCV3P disconnecting: System.Net.Sockets.SocketException (0x80004005): An existing connection was forcibly closed by the remote host
+   at QuickFix.SocketInitiatorThread.ReadSome(Byte[] buffer, Int32 timeoutMilliseconds)
+   at QuickFix.SocketInitiatorThread.Read()
+20150204-00:00:13.895 : Session reset: ResetOnDisconnect
+20150204-00:00:15.368 : Connecting to 208.184.251.214 on port 11191
+20150204-00:00:15.477 : Connection succeeded
+20150204-00:00:15.480 : Session reset: ResetOnLogon
+20150204-00:00:15.483 : Session reset: ResetSeqNumFlag
+20150204-00:00:15.483 : Initiated logon request
+20150204-00:00:15.641 : Received logon

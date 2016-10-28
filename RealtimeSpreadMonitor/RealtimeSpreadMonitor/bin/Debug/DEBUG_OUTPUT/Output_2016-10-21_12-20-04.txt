@@ -1,0 +1,2 @@
+RealtimeSpreadMonitor.OptionSpreadManager System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.OptionSpreadManager.fillADMExpressionOptionList() in D:\RealtimeSpreadWithPythonModel\RealtimeSpreadMonitor\RealtimeSpreadMonitor\OptionSpreadManager.cs:line 982

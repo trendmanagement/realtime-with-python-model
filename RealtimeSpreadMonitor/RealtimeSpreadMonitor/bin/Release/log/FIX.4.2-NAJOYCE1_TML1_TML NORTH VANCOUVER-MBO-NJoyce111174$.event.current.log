@@ -1,0 +1,1222 @@
+20150330-18:46:36.994 : Created session
+20150330-18:46:36.998 : Connecting to 12.41.48.99 on port 10516
+20150330-18:46:37.067 : Connection succeeded
+20150330-18:46:37.081 : Session reset: ResetOnLogon
+20150330-18:46:37.097 : Session reset: ResetSeqNumFlag
+20150330-18:46:37.098 : Initiated logon request
+20150330-18:46:37.176 : Received logout request
+20150330-18:46:37.176 : Sending logout response
+20150330-18:46:37.177 : Session FIX.4.2:NAJOYCE1/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout request
+20150330-18:46:37.192 : Session reset: ResetOnDisconnect
+20150330-18:46:39.001 : Connecting to 66.243.69.99 on port 10516
+20150330-18:46:39.082 : Connection succeeded
+20150330-18:46:39.087 : Session reset: ResetOnLogon
+20150330-18:46:39.093 : Session reset: ResetSeqNumFlag
+20150330-18:46:39.093 : Initiated logon request
+20150330-18:46:39.198 : Received logout request
+20150330-18:46:39.199 : Sending logout response
+20150330-18:46:39.199 : Session FIX.4.2:NAJOYCE1/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout request
+20150330-18:46:39.205 : Session reset: ResetOnDisconnect
+20150330-18:46:41.003 : Connecting to 12.41.48.99 on port 10516
+20150330-18:46:41.075 : Connection succeeded
+20150330-18:46:41.083 : Session reset: ResetOnLogon
+20150330-18:46:41.091 : Session reset: ResetSeqNumFlag
+20150330-18:46:41.091 : Initiated logon request
+20150330-18:46:41.155 : Received logout request
+20150330-18:46:41.156 : Sending logout response
+20150330-18:46:41.156 : Session FIX.4.2:NAJOYCE1/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout request
+20150330-18:46:41.165 : Session reset: ResetOnDisconnect
+20150330-18:46:43.007 : Connecting to 66.243.69.99 on port 10516
+20150330-18:46:43.090 : Connection succeeded
+20150330-18:46:43.093 : Session reset: ResetOnLogon
+20150330-18:46:43.097 : Session reset: ResetSeqNumFlag
+20150330-18:46:43.097 : Initiated logon request
+20150330-18:46:43.185 : Received logout request
+20150330-18:46:43.186 : Sending logout response
+20150330-18:46:43.186 : Session FIX.4.2:NAJOYCE1/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout request
+20150330-18:46:43.191 : Session reset: ResetOnDisconnect
+20150330-18:46:45.009 : Connecting to 12.41.48.99 on port 10516
+20150330-18:46:45.069 : Connection succeeded
+20150330-18:46:45.074 : Session reset: ResetOnLogon
+20150330-18:46:45.078 : Session reset: ResetSeqNumFlag
+20150330-18:46:45.079 : Initiated logon request
+20150330-18:46:45.138 : Received logout request
+20150330-18:46:45.139 : Sending logout response
+20150330-18:46:45.139 : Session FIX.4.2:NAJOYCE1/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout request
+20150330-18:46:45.147 : Session reset: ResetOnDisconnect
+20150330-18:46:47.010 : Connecting to 66.243.69.99 on port 10516
+20150330-18:46:47.096 : Connection succeeded
+20150330-18:46:47.105 : Session reset: ResetOnLogon
+20150330-18:46:47.114 : Session reset: ResetSeqNumFlag
+20150330-18:46:47.114 : Initiated logon request
+20150330-18:46:47.211 : Received logout request
+20150330-18:46:47.212 : Sending logout response
+20150330-18:46:47.212 : Session FIX.4.2:NAJOYCE1/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout request
+20150330-18:46:47.226 : Session reset: ResetOnDisconnect
+20150330-18:46:49.013 : Connecting to 12.41.48.99 on port 10516
+20150330-18:46:49.071 : Connection succeeded
+20150330-18:46:49.085 : Session reset: ResetOnLogon
+20150330-18:46:49.094 : Session reset: ResetSeqNumFlag
+20150330-18:46:49.095 : Initiated logon request
+20150330-18:46:49.158 : Received logout request
+20150330-18:46:49.158 : Sending logout response
+20150330-18:46:49.158 : Session FIX.4.2:NAJOYCE1/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout request
+20150330-18:46:49.173 : Session reset: ResetOnDisconnect
+20150330-18:46:51.014 : Connecting to 66.243.69.99 on port 10516
+20150330-18:46:51.094 : Connection succeeded
+20150330-18:46:51.096 : Session reset: ResetOnLogon
+20150330-18:46:51.098 : Session reset: ResetSeqNumFlag
+20150330-18:46:51.099 : Initiated logon request
+20150330-18:46:51.181 : Received logout request
+20150330-18:46:51.182 : Sending logout response
+20150330-18:46:51.182 : Session FIX.4.2:NAJOYCE1/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout request
+20150330-18:46:51.188 : Session reset: ResetOnDisconnect
+20150330-18:46:53.015 : Connecting to 12.41.48.99 on port 10516
+20150330-18:46:53.077 : Connection succeeded
+20150330-18:46:53.083 : Session reset: ResetOnLogon
+20150330-18:46:53.087 : Session reset: ResetSeqNumFlag
+20150330-18:46:53.087 : Initiated logon request
+20150330-18:46:53.153 : Received logout request
+20150330-18:46:53.153 : Sending logout response
+20150330-18:46:53.153 : Session FIX.4.2:NAJOYCE1/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout request
+20150330-18:46:53.157 : Session reset: ResetOnDisconnect
+20150330-18:46:55.016 : Connecting to 66.243.69.99 on port 10516
+20150330-18:46:55.094 : Connection succeeded
+20150330-18:46:55.096 : Session reset: ResetOnLogon
+20150330-18:46:55.099 : Session reset: ResetSeqNumFlag
+20150330-18:46:55.099 : Initiated logon request
+20150330-18:46:55.180 : Received logout request
+20150330-18:46:55.181 : Sending logout response
+20150330-18:46:55.181 : Session FIX.4.2:NAJOYCE1/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout request
+20150330-18:46:55.188 : Session reset: ResetOnDisconnect
+20150330-18:46:57.018 : Connecting to 12.41.48.99 on port 10516
+20150330-18:46:57.081 : Connection succeeded
+20150330-18:46:57.090 : Session reset: ResetOnLogon
+20150330-18:46:57.097 : Session reset: ResetSeqNumFlag
+20150330-18:46:57.097 : Initiated logon request
+20150330-18:46:57.157 : Received logout request
+20150330-18:46:57.157 : Sending logout response
+20150330-18:46:57.157 : Session FIX.4.2:NAJOYCE1/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout request
+20150330-18:46:57.161 : Session reset: ResetOnDisconnect
+20150330-18:46:59.020 : Connecting to 66.243.69.99 on port 10516
+20150330-18:46:59.109 : Connection succeeded
+20150330-18:46:59.112 : Session reset: ResetOnLogon
+20150330-18:46:59.114 : Session reset: ResetSeqNumFlag
+20150330-18:46:59.115 : Initiated logon request
+20150330-18:46:59.192 : Received logout request
+20150330-18:46:59.193 : Sending logout response
+20150330-18:46:59.193 : Session FIX.4.2:NAJOYCE1/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout request
+20150330-18:46:59.225 : Session reset: ResetOnDisconnect
+20150330-18:47:01.023 : Connecting to 12.41.48.99 on port 10516
+20150330-18:47:01.084 : Connection succeeded
+20150330-18:47:01.089 : Session reset: ResetOnLogon
+20150330-18:47:01.093 : Session reset: ResetSeqNumFlag
+20150330-18:47:01.094 : Initiated logon request
+20150330-18:47:01.154 : Received logout request
+20150330-18:47:01.154 : Sending logout response
+20150330-18:47:01.154 : Session FIX.4.2:NAJOYCE1/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout request
+20150330-18:47:01.159 : Session reset: ResetOnDisconnect
+20150330-18:47:03.024 : Connecting to 66.243.69.99 on port 10516
+20150330-18:47:03.107 : Connection succeeded
+20150330-18:47:03.115 : Session reset: ResetOnLogon
+20150330-18:47:03.128 : Session reset: ResetSeqNumFlag
+20150330-18:47:03.128 : Initiated logon request
+20150330-18:47:03.210 : Received logout request
+20150330-18:47:03.210 : Sending logout response
+20150330-18:47:03.210 : Session FIX.4.2:NAJOYCE1/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout request
+20150330-18:47:03.214 : Session reset: ResetOnDisconnect
+20150330-18:47:05.026 : Connecting to 12.41.48.99 on port 10516
+20150330-18:47:05.091 : Connection succeeded
+20150330-18:47:05.095 : Session reset: ResetOnLogon
+20150330-18:47:05.100 : Session reset: ResetSeqNumFlag
+20150330-18:47:05.100 : Initiated logon request
+20150330-18:47:05.166 : Received logout request
+20150330-18:47:05.185 : Sending logout response
+20150330-18:47:05.185 : Session FIX.4.2:NAJOYCE1/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout request
+20150330-18:47:05.195 : Session reset: ResetOnDisconnect
+20150330-18:47:07.027 : Connecting to 66.243.69.99 on port 10516
+20150330-18:47:07.110 : Connection succeeded
+20150330-18:47:07.112 : Session reset: ResetOnLogon
+20150330-18:47:07.115 : Session reset: ResetSeqNumFlag
+20150330-18:47:07.115 : Initiated logon request
+20150330-18:47:07.196 : Received logout request
+20150330-18:47:07.197 : Sending logout response
+20150330-18:47:07.197 : Session FIX.4.2:NAJOYCE1/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout request
+20150330-18:47:07.208 : Session reset: ResetOnDisconnect
+20150330-18:47:09.028 : Connecting to 12.41.48.99 on port 10516
+20150330-18:47:09.088 : Connection succeeded
+20150330-18:47:09.090 : Session reset: ResetOnLogon
+20150330-18:47:09.093 : Session reset: ResetSeqNumFlag
+20150330-18:47:09.093 : Initiated logon request
+20150330-18:47:09.158 : Received logout request
+20150330-18:47:09.160 : Sending logout response
+20150330-18:47:09.160 : Session FIX.4.2:NAJOYCE1/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout request
+20150330-18:47:09.170 : Session reset: ResetOnDisconnect
+20150330-18:47:11.029 : Connecting to 66.243.69.99 on port 10516
+20150330-18:47:11.112 : Connection succeeded
+20150330-18:47:11.114 : Session reset: ResetOnLogon
+20150330-18:47:11.117 : Session reset: ResetSeqNumFlag
+20150330-18:47:11.117 : Initiated logon request
+20150330-18:47:11.198 : Received logout request
+20150330-18:47:11.198 : Sending logout response
+20150330-18:47:11.198 : Session FIX.4.2:NAJOYCE1/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout request
+20150330-18:47:11.202 : Session reset: ResetOnDisconnect
+20150330-18:47:13.031 : Connecting to 12.41.48.99 on port 10516
+20150330-18:47:13.090 : Connection succeeded
+20150330-18:47:13.093 : Session reset: ResetOnLogon
+20150330-18:47:13.096 : Session reset: ResetSeqNumFlag
+20150330-18:47:13.096 : Initiated logon request
+20150330-18:47:13.154 : Received logout request
+20150330-18:47:13.154 : Sending logout response
+20150330-18:47:13.154 : Session FIX.4.2:NAJOYCE1/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout request
+20150330-18:47:13.159 : Session reset: ResetOnDisconnect
+20150330-18:47:15.033 : Connecting to 66.243.69.99 on port 10516
+20150330-18:47:15.115 : Connection succeeded
+20150330-18:47:15.118 : Session reset: ResetOnLogon
+20150330-18:47:15.120 : Session reset: ResetSeqNumFlag
+20150330-18:47:15.120 : Initiated logon request
+20150330-18:47:15.202 : Received logout request
+20150330-18:47:15.202 : Sending logout response
+20150330-18:47:15.203 : Session FIX.4.2:NAJOYCE1/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout request
+20150330-18:47:15.214 : Session reset: ResetOnDisconnect
+20150330-18:47:17.034 : Connecting to 12.41.48.99 on port 10516
+20150330-18:47:17.099 : Connection succeeded
+20150330-18:47:17.102 : Session reset: ResetOnLogon
+20150330-18:47:17.104 : Session reset: ResetSeqNumFlag
+20150330-18:47:17.105 : Initiated logon request
+20150330-18:47:17.165 : Received logout request
+20150330-18:47:17.165 : Sending logout response
+20150330-18:47:17.165 : Session FIX.4.2:NAJOYCE1/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout request
+20150330-18:47:17.170 : Session reset: ResetOnDisconnect
+20150330-18:47:19.035 : Connecting to 66.243.69.99 on port 10516
+20150330-18:47:19.118 : Connection succeeded
+20150330-18:47:19.146 : Session reset: ResetOnLogon
+20150330-18:47:19.180 : Session reset: ResetSeqNumFlag
+20150330-18:47:19.180 : Initiated logon request
+20150330-18:47:19.262 : Received logout request
+20150330-18:47:19.263 : Sending logout response
+20150330-18:47:19.263 : Session FIX.4.2:NAJOYCE1/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout request
+20150330-18:47:19.277 : Session reset: ResetOnDisconnect
+20150330-18:47:21.037 : Connecting to 12.41.48.99 on port 10516
+20150330-18:47:21.112 : Connection succeeded
+20150330-18:47:21.115 : Session reset: ResetOnLogon
+20150330-18:47:21.119 : Session reset: ResetSeqNumFlag
+20150330-18:47:21.120 : Initiated logon request
+20150330-18:47:21.183 : Received logout request
+20150330-18:47:21.183 : Sending logout response
+20150330-18:47:21.183 : Session FIX.4.2:NAJOYCE1/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout request
+20150330-18:47:21.189 : Session reset: ResetOnDisconnect
+20150330-18:47:23.039 : Connecting to 66.243.69.99 on port 10516
+20150330-18:47:23.119 : Connection succeeded
+20150330-18:47:23.123 : Session reset: ResetOnLogon
+20150330-18:47:23.126 : Session reset: ResetSeqNumFlag
+20150330-18:47:23.126 : Initiated logon request
+20150330-18:47:23.206 : Received logout request
+20150330-18:47:23.206 : Sending logout response
+20150330-18:47:23.206 : Session FIX.4.2:NAJOYCE1/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout request
+20150330-18:47:23.212 : Session reset: ResetOnDisconnect
+20150330-18:47:25.040 : Connecting to 12.41.48.99 on port 10516
+20150330-18:47:25.103 : Connection succeeded
+20150330-18:47:25.108 : Session reset: ResetOnLogon
+20150330-18:47:25.112 : Session reset: ResetSeqNumFlag
+20150330-18:47:25.112 : Initiated logon request
+20150330-18:47:25.172 : Received logout request
+20150330-18:47:25.173 : Sending logout response
+20150330-18:47:25.173 : Session FIX.4.2:NAJOYCE1/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout request
+20150330-18:47:25.181 : Session reset: ResetOnDisconnect
+20150330-18:47:27.043 : Connecting to 66.243.69.99 on port 10516
+20150330-18:47:27.126 : Connection succeeded
+20150330-18:47:27.134 : Session reset: ResetOnLogon
+20150330-18:47:27.142 : Session reset: ResetSeqNumFlag
+20150330-18:47:27.142 : Initiated logon request
+20150330-18:47:27.222 : Received logout request
+20150330-18:47:27.222 : Sending logout response
+20150330-18:47:27.222 : Session FIX.4.2:NAJOYCE1/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout request
+20150330-18:47:27.227 : Session reset: ResetOnDisconnect
+20150330-18:47:29.044 : Connecting to 12.41.48.99 on port 10516
+20150330-18:47:29.103 : Connection succeeded
+20150330-18:47:29.105 : Session reset: ResetOnLogon
+20150330-18:47:29.108 : Session reset: ResetSeqNumFlag
+20150330-18:47:29.108 : Initiated logon request
+20150330-18:47:29.193 : Received logout request
+20150330-18:47:29.193 : Sending logout response
+20150330-18:47:29.193 : Session FIX.4.2:NAJOYCE1/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout request
+20150330-18:47:29.202 : Session reset: ResetOnDisconnect
+20150330-18:47:31.047 : Connecting to 66.243.69.99 on port 10516
+20150330-18:47:31.129 : Connection succeeded
+20150330-18:47:31.133 : Session reset: ResetOnLogon
+20150330-18:47:31.138 : Session reset: ResetSeqNumFlag
+20150330-18:47:31.138 : Initiated logon request
+20150330-18:47:31.217 : Received logout request
+20150330-18:47:31.217 : Sending logout response
+20150330-18:47:31.217 : Session FIX.4.2:NAJOYCE1/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout request
+20150330-18:47:31.226 : Session reset: ResetOnDisconnect
+20150330-18:47:33.048 : Connecting to 12.41.48.99 on port 10516
+20150330-18:47:33.104 : Connection succeeded
+20150330-18:47:33.109 : Session reset: ResetOnLogon
+20150330-18:47:33.113 : Session reset: ResetSeqNumFlag
+20150330-18:47:33.113 : Initiated logon request
+20150330-18:47:33.177 : Received logout request
+20150330-18:47:33.178 : Sending logout response
+20150330-18:47:33.178 : Session FIX.4.2:NAJOYCE1/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout request
+20150330-18:47:33.186 : Session reset: ResetOnDisconnect
+20150330-18:47:35.051 : Connecting to 66.243.69.99 on port 10516
+20150330-18:47:35.129 : Connection succeeded
+20150330-18:47:35.131 : Session reset: ResetOnLogon
+20150330-18:47:35.134 : Session reset: ResetSeqNumFlag
+20150330-18:47:35.134 : Initiated logon request
+20150330-18:47:35.211 : Received logout request
+20150330-18:47:35.211 : Sending logout response
+20150330-18:47:35.211 : Session FIX.4.2:NAJOYCE1/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout request
+20150330-18:47:35.217 : Session reset: ResetOnDisconnect
+20150330-18:47:37.053 : Connecting to 12.41.48.99 on port 10516
+20150330-18:47:37.114 : Connection succeeded
+20150330-18:47:37.117 : Session reset: ResetOnLogon
+20150330-18:47:37.119 : Session reset: ResetSeqNumFlag
+20150330-18:47:37.120 : Initiated logon request
+20150330-18:47:37.180 : Received logout request
+20150330-18:47:37.180 : Sending logout response
+20150330-18:47:37.180 : Session FIX.4.2:NAJOYCE1/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout request
+20150330-18:47:37.183 : Session reset: ResetOnDisconnect
+20150330-18:47:39.054 : Connecting to 66.243.69.99 on port 10516
+20150330-18:47:39.128 : Connection succeeded
+20150330-18:47:39.131 : Session reset: ResetOnLogon
+20150330-18:47:39.133 : Session reset: ResetSeqNumFlag
+20150330-18:47:39.133 : Initiated logon request
+20150330-18:47:39.215 : Received logout request
+20150330-18:47:39.215 : Sending logout response
+20150330-18:47:39.215 : Session FIX.4.2:NAJOYCE1/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout request
+20150330-18:47:39.220 : Session reset: ResetOnDisconnect
+20150330-18:47:41.056 : Connecting to 12.41.48.99 on port 10516
+20150330-18:47:41.121 : Connection succeeded
+20150330-18:47:41.124 : Session reset: ResetOnLogon
+20150330-18:47:41.126 : Session reset: ResetSeqNumFlag
+20150330-18:47:41.126 : Initiated logon request
+20150330-18:47:41.195 : Received logout request
+20150330-18:47:41.196 : Sending logout response
+20150330-18:47:41.196 : Session FIX.4.2:NAJOYCE1/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout request
+20150330-18:47:41.199 : Session reset: ResetOnDisconnect
+20150330-18:47:43.058 : Connecting to 66.243.69.99 on port 10516
+20150330-18:47:43.135 : Connection succeeded
+20150330-18:47:43.152 : Session reset: ResetOnLogon
+20150330-18:47:43.192 : Session reset: ResetSeqNumFlag
+20150330-18:47:43.192 : Initiated logon request
+20150330-18:47:43.274 : Received logout request
+20150330-18:47:43.275 : Sending logout response
+20150330-18:47:43.275 : Session FIX.4.2:NAJOYCE1/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout request
+20150330-18:47:43.290 : Session reset: ResetOnDisconnect
+20150330-18:47:45.060 : Connecting to 12.41.48.99 on port 10516
+20150330-18:47:45.122 : Connection succeeded
+20150330-18:47:45.130 : Session reset: ResetOnLogon
+20150330-18:47:45.138 : Session reset: ResetSeqNumFlag
+20150330-18:47:45.139 : Initiated logon request
+20150330-18:47:45.197 : Received logout request
+20150330-18:47:45.198 : Sending logout response
+20150330-18:47:45.198 : Session FIX.4.2:NAJOYCE1/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout request
+20150330-18:47:45.211 : Session reset: ResetOnDisconnect
+20150330-18:47:47.062 : Connecting to 66.243.69.99 on port 10516
+20150330-18:47:47.157 : Connection succeeded
+20150330-18:47:47.165 : Session reset: ResetOnLogon
+20150330-18:47:47.173 : Session reset: ResetSeqNumFlag
+20150330-18:47:47.173 : Initiated logon request
+20150330-18:47:47.261 : Received logout request
+20150330-18:47:47.262 : Sending logout response
+20150330-18:47:47.262 : Session FIX.4.2:NAJOYCE1/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout request
+20150330-18:47:47.276 : Session reset: ResetOnDisconnect
+20150330-18:47:49.065 : Connecting to 12.41.48.99 on port 10516
+20150330-18:47:49.122 : Connection succeeded
+20150330-18:47:49.132 : Session reset: ResetOnLogon
+20150330-18:47:49.160 : Session reset: ResetSeqNumFlag
+20150330-18:47:49.161 : Initiated logon request
+20150330-18:47:49.219 : Received logout request
+20150330-18:47:49.220 : Sending logout response
+20150330-18:47:49.220 : Session FIX.4.2:NAJOYCE1/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout request
+20150330-18:47:49.235 : Session reset: ResetOnDisconnect
+20150330-18:47:51.067 : Connecting to 66.243.69.99 on port 10516
+20150330-18:47:51.148 : Connection succeeded
+20150330-18:47:51.150 : Session reset: ResetOnLogon
+20150330-18:47:51.153 : Session reset: ResetSeqNumFlag
+20150330-18:47:51.153 : Initiated logon request
+20150330-18:47:51.233 : Received logout request
+20150330-18:47:51.234 : Sending logout response
+20150330-18:47:51.234 : Session FIX.4.2:NAJOYCE1/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout request
+20150330-18:47:51.244 : Session reset: ResetOnDisconnect
+20150330-18:47:53.068 : Connecting to 12.41.48.99 on port 10516
+20150330-18:47:53.131 : Connection succeeded
+20150330-18:47:53.139 : Session reset: ResetOnLogon
+20150330-18:47:53.169 : Session reset: ResetSeqNumFlag
+20150330-18:47:53.170 : Initiated logon request
+20150330-18:47:53.254 : Received logout request
+20150330-18:47:53.255 : Sending logout response
+20150330-18:47:53.255 : Session FIX.4.2:NAJOYCE1/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout request
+20150330-18:47:53.270 : Session reset: ResetOnDisconnect
+20150330-18:47:55.070 : Connecting to 66.243.69.99 on port 10516
+20150330-18:47:55.176 : Connection succeeded
+20150330-18:47:55.185 : Session reset: ResetOnLogon
+20150330-18:47:55.194 : Session reset: ResetSeqNumFlag
+20150330-18:47:55.194 : Initiated logon request
+20150330-18:47:55.275 : Received logout request
+20150330-18:47:55.276 : Sending logout response
+20150330-18:47:55.276 : Session FIX.4.2:NAJOYCE1/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout request
+20150330-18:47:55.291 : Session reset: ResetOnDisconnect
+20150330-18:47:57.072 : Connecting to 12.41.48.99 on port 10516
+20150330-18:47:57.136 : Connection succeeded
+20150330-18:47:57.144 : Session reset: ResetOnLogon
+20150330-18:47:57.153 : Session reset: ResetSeqNumFlag
+20150330-18:47:57.154 : Initiated logon request
+20150330-18:47:57.229 : Received logout request
+20150330-18:47:57.230 : Sending logout response
+20150330-18:47:57.230 : Session FIX.4.2:NAJOYCE1/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout request
+20150330-18:47:57.243 : Session reset: ResetOnDisconnect
+20150330-18:47:59.074 : Connecting to 66.243.69.99 on port 10516
+20150330-18:47:59.154 : Connection succeeded
+20150330-18:47:59.155 : Session reset: ResetOnLogon
+20150330-18:47:59.158 : Session reset: ResetSeqNumFlag
+20150330-18:47:59.158 : Initiated logon request
+20150330-18:47:59.242 : Received logout request
+20150330-18:47:59.243 : Sending logout response
+20150330-18:47:59.243 : Session FIX.4.2:NAJOYCE1/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout request
+20150330-18:47:59.271 : Session reset: ResetOnDisconnect
+20150330-18:48:01.076 : Connecting to 12.41.48.99 on port 10516
+20150330-18:48:01.138 : Connection succeeded
+20150330-18:48:01.142 : Session reset: ResetOnLogon
+20150330-18:48:01.147 : Session reset: ResetSeqNumFlag
+20150330-18:48:01.148 : Initiated logon request
+20150330-18:48:01.216 : Received logout request
+20150330-18:48:01.217 : Sending logout response
+20150330-18:48:01.217 : Session FIX.4.2:NAJOYCE1/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout request
+20150330-18:48:01.241 : Session reset: ResetOnDisconnect
+20150330-18:48:03.078 : Connecting to 66.243.69.99 on port 10516
+20150330-18:48:03.171 : Connection succeeded
+20150330-18:48:03.173 : Session reset: ResetOnLogon
+20150330-18:48:03.176 : Session reset: ResetSeqNumFlag
+20150330-18:48:03.176 : Initiated logon request
+20150330-18:48:03.254 : Received logout request
+20150330-18:48:03.254 : Sending logout response
+20150330-18:48:03.254 : Session FIX.4.2:NAJOYCE1/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout request
+20150330-18:48:03.259 : Session reset: ResetOnDisconnect
+20150330-18:48:05.078 : Connecting to 12.41.48.99 on port 10516
+20150330-18:48:05.151 : Connection succeeded
+20150330-18:48:05.184 : Session reset: ResetOnLogon
+20150330-18:48:05.193 : Session reset: ResetSeqNumFlag
+20150330-18:48:05.193 : Initiated logon request
+20150330-18:48:05.269 : Received logout request
+20150330-18:48:05.270 : Sending logout response
+20150330-18:48:05.270 : Session FIX.4.2:NAJOYCE1/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout request
+20150330-18:48:05.284 : Session reset: ResetOnDisconnect
+20150330-18:48:07.081 : Connecting to 66.243.69.99 on port 10516
+20150330-18:48:07.159 : Connection succeeded
+20150330-18:48:07.162 : Session reset: ResetOnLogon
+20150330-18:48:07.164 : Session reset: ResetSeqNumFlag
+20150330-18:48:07.165 : Initiated logon request
+20150330-18:48:07.242 : Received logout request
+20150330-18:48:07.242 : Sending logout response
+20150330-18:48:07.242 : Session FIX.4.2:NAJOYCE1/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout request
+20150330-18:48:07.247 : Session reset: ResetOnDisconnect
+20150330-18:48:09.081 : Connecting to 12.41.48.99 on port 10516
+20150330-18:48:09.145 : Connection succeeded
+20150330-18:48:09.149 : Session reset: ResetOnLogon
+20150330-18:48:09.152 : Session reset: ResetSeqNumFlag
+20150330-18:48:09.152 : Initiated logon request
+20150330-18:48:09.226 : Received logout request
+20150330-18:48:09.227 : Sending logout response
+20150330-18:48:09.227 : Session FIX.4.2:NAJOYCE1/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout request
+20150330-18:48:09.242 : Session reset: ResetOnDisconnect
+20150330-18:48:11.084 : Connecting to 66.243.69.99 on port 10516
+20150330-18:48:11.165 : Connection succeeded
+20150330-18:48:11.171 : Session reset: ResetOnLogon
+20150330-18:48:11.177 : Session reset: ResetSeqNumFlag
+20150330-18:48:11.177 : Initiated logon request
+20150330-18:48:11.257 : Received logout request
+20150330-18:48:11.257 : Sending logout response
+20150330-18:48:11.257 : Session FIX.4.2:NAJOYCE1/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout request
+20150330-18:48:11.264 : Session reset: ResetOnDisconnect
+20150330-18:48:13.086 : Connecting to 12.41.48.99 on port 10516
+20150330-18:48:13.148 : Connection succeeded
+20150330-18:48:13.156 : Session reset: ResetOnLogon
+20150330-18:48:13.164 : Session reset: ResetSeqNumFlag
+20150330-18:48:13.165 : Initiated logon request
+20150330-18:48:13.240 : Received logout request
+20150330-18:48:13.242 : Sending logout response
+20150330-18:48:13.242 : Session FIX.4.2:NAJOYCE1/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout request
+20150330-18:48:13.257 : Session reset: ResetOnDisconnect
+20150330-18:48:15.087 : Connecting to 66.243.69.99 on port 10516
+20150330-18:48:15.172 : Connection succeeded
+20150330-18:48:15.180 : Session reset: ResetOnLogon
+20150330-18:48:15.188 : Session reset: ResetSeqNumFlag
+20150330-18:48:15.189 : Initiated logon request
+20150330-18:48:15.297 : Received logout request
+20150330-18:48:15.299 : Sending logout response
+20150330-18:48:15.299 : Session FIX.4.2:NAJOYCE1/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout request
+20150330-18:48:15.314 : Session reset: ResetOnDisconnect
+20150330-18:48:17.090 : Connecting to 12.41.48.99 on port 10516
+20150330-18:48:17.147 : Connection succeeded
+20150330-18:48:17.155 : Session reset: ResetOnLogon
+20150330-18:48:17.164 : Session reset: ResetSeqNumFlag
+20150330-18:48:17.164 : Initiated logon request
+20150330-18:48:17.226 : Received logout request
+20150330-18:48:17.226 : Sending logout response
+20150330-18:48:17.226 : Session FIX.4.2:NAJOYCE1/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout request
+20150330-18:48:17.251 : Session reset: ResetOnDisconnect
+20150330-18:48:19.091 : Connecting to 66.243.69.99 on port 10516
+20150330-18:48:19.175 : Connection succeeded
+20150330-18:48:19.177 : Session reset: ResetOnLogon
+20150330-18:48:19.180 : Session reset: ResetSeqNumFlag
+20150330-18:48:19.180 : Initiated logon request
+20150330-18:48:19.257 : Received logout request
+20150330-18:48:19.258 : Sending logout response
+20150330-18:48:19.258 : Session FIX.4.2:NAJOYCE1/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout request
+20150330-18:48:19.272 : Session reset: ResetOnDisconnect
+20150330-18:48:21.093 : Connecting to 12.41.48.99 on port 10516
+20150330-18:48:21.156 : Connection succeeded
+20150330-18:48:21.159 : Session reset: ResetOnLogon
+20150330-18:48:21.162 : Session reset: ResetSeqNumFlag
+20150330-18:48:21.163 : Initiated logon request
+20150330-18:48:21.223 : Received logout request
+20150330-18:48:21.224 : Sending logout response
+20150330-18:48:21.224 : Session FIX.4.2:NAJOYCE1/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout request
+20150330-18:48:21.238 : Session reset: ResetOnDisconnect
+20150330-18:48:23.094 : Connecting to 66.243.69.99 on port 10516
+20150330-18:48:23.184 : Connection succeeded
+20150330-18:48:23.192 : Session reset: ResetOnLogon
+20150330-18:48:23.200 : Session reset: ResetSeqNumFlag
+20150330-18:48:23.201 : Initiated logon request
+20150330-18:48:23.285 : Received logout request
+20150330-18:48:23.286 : Sending logout response
+20150330-18:48:23.286 : Session FIX.4.2:NAJOYCE1/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout request
+20150330-18:48:23.301 : Session reset: ResetOnDisconnect
+20150330-18:48:25.097 : Connecting to 12.41.48.99 on port 10516
+20150330-18:48:25.172 : Connection succeeded
+20150330-18:48:25.180 : Session reset: ResetOnLogon
+20150330-18:48:25.188 : Session reset: ResetSeqNumFlag
+20150330-18:48:25.189 : Initiated logon request
+20150330-18:48:25.250 : Received logout request
+20150330-18:48:25.251 : Sending logout response
+20150330-18:48:25.251 : Session FIX.4.2:NAJOYCE1/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout request
+20150330-18:48:25.266 : Session reset: ResetOnDisconnect
+20150330-18:48:27.098 : Connecting to 66.243.69.99 on port 10516
+20150330-18:48:27.179 : Connection succeeded
+20150330-18:48:27.188 : Session reset: ResetOnLogon
+20150330-18:48:27.195 : Session reset: ResetSeqNumFlag
+20150330-18:48:27.196 : Initiated logon request
+20150330-18:48:27.285 : Received logout request
+20150330-18:48:27.286 : Sending logout response
+20150330-18:48:27.286 : Session FIX.4.2:NAJOYCE1/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout request
+20150330-18:48:27.300 : Session reset: ResetOnDisconnect
+20150330-18:48:29.100 : Connecting to 12.41.48.99 on port 10516
+20150330-18:48:29.163 : Connection succeeded
+20150330-18:48:29.171 : Session reset: ResetOnLogon
+20150330-18:48:29.179 : Session reset: ResetSeqNumFlag
+20150330-18:48:29.180 : Initiated logon request
+20150330-18:48:29.240 : Received logout request
+20150330-18:48:29.241 : Sending logout response
+20150330-18:48:29.241 : Session FIX.4.2:NAJOYCE1/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout request
+20150330-18:48:29.256 : Session reset: ResetOnDisconnect
+20150330-18:48:31.102 : Connecting to 66.243.69.99 on port 10516
+20150330-18:48:31.185 : Connection succeeded
+20150330-18:48:31.193 : Session reset: ResetOnLogon
+20150330-18:48:31.201 : Session reset: ResetSeqNumFlag
+20150330-18:48:31.202 : Initiated logon request
+20150330-18:48:31.287 : Received logout request
+20150330-18:48:31.288 : Sending logout response
+20150330-18:48:31.288 : Session FIX.4.2:NAJOYCE1/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout request
+20150330-18:48:31.303 : Session reset: ResetOnDisconnect
+20150330-18:48:33.103 : Connecting to 12.41.48.99 on port 10516
+20150330-18:48:33.175 : Connection succeeded
+20150330-18:48:33.186 : Session reset: ResetOnLogon
+20150330-18:48:33.195 : Session reset: ResetSeqNumFlag
+20150330-18:48:33.196 : Initiated logon request
+20150330-18:48:33.261 : Received logout request
+20150330-18:48:33.262 : Sending logout response
+20150330-18:48:33.262 : Session FIX.4.2:NAJOYCE1/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout request
+20150330-18:48:33.277 : Session reset: ResetOnDisconnect
+20150330-18:48:35.106 : Connecting to 66.243.69.99 on port 10516
+20150330-18:48:35.187 : Connection succeeded
+20150330-18:48:35.192 : Session reset: ResetOnLogon
+20150330-18:48:35.212 : Session reset: ResetSeqNumFlag
+20150330-18:48:35.212 : Initiated logon request
+20150330-18:48:35.293 : Received logout request
+20150330-18:48:35.293 : Sending logout response
+20150330-18:48:35.294 : Session FIX.4.2:NAJOYCE1/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout request
+20150330-18:48:35.309 : Session reset: ResetOnDisconnect
+20150330-18:48:37.107 : Connecting to 12.41.48.99 on port 10516
+20150330-18:48:37.169 : Connection succeeded
+20150330-18:48:37.178 : Session reset: ResetOnLogon
+20150330-18:48:37.188 : Session reset: ResetSeqNumFlag
+20150330-18:48:37.189 : Initiated logon request
+20150330-18:48:37.248 : Received logout request
+20150330-18:48:37.249 : Sending logout response
+20150330-18:48:37.249 : Session FIX.4.2:NAJOYCE1/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout request
+20150330-18:48:37.263 : Session reset: ResetOnDisconnect
+20150330-18:48:39.110 : Connecting to 66.243.69.99 on port 10516
+20150330-18:48:39.198 : Connection succeeded
+20150330-18:48:39.206 : Session reset: ResetOnLogon
+20150330-18:48:39.214 : Session reset: ResetSeqNumFlag
+20150330-18:48:39.215 : Initiated logon request
+20150330-18:48:39.292 : Received logout request
+20150330-18:48:39.293 : Sending logout response
+20150330-18:48:39.293 : Session FIX.4.2:NAJOYCE1/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout request
+20150330-18:48:39.309 : Session reset: ResetOnDisconnect
+20150330-18:48:41.113 : Connecting to 12.41.48.99 on port 10516
+20150330-18:48:41.204 : Connection succeeded
+20150330-18:48:41.209 : Session reset: ResetOnLogon
+20150330-18:48:41.215 : Session reset: ResetSeqNumFlag
+20150330-18:48:41.229 : Initiated logon request
+20150330-18:48:41.299 : Received logout request
+20150330-18:48:41.300 : Sending logout response
+20150330-18:48:41.300 : Session FIX.4.2:NAJOYCE1/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout request
+20150330-18:48:41.306 : Session reset: ResetOnDisconnect
+20150330-18:48:43.114 : Connecting to 66.243.69.99 on port 10516
+20150330-18:48:43.202 : Connection succeeded
+20150330-18:48:43.207 : Session reset: ResetOnLogon
+20150330-18:48:43.213 : Session reset: ResetSeqNumFlag
+20150330-18:48:43.214 : Initiated logon request
+20150330-18:48:43.304 : Received logout request
+20150330-18:48:43.304 : Sending logout response
+20150330-18:48:43.304 : Session FIX.4.2:NAJOYCE1/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout request
+20150330-18:48:43.308 : Session reset: ResetOnDisconnect
+20150330-18:48:45.116 : Connecting to 12.41.48.99 on port 10516
+20150330-18:48:45.177 : Connection succeeded
+20150330-18:48:45.185 : Session reset: ResetOnLogon
+20150330-18:48:45.193 : Session reset: ResetSeqNumFlag
+20150330-18:48:45.194 : Initiated logon request
+20150330-18:48:45.254 : Received logout request
+20150330-18:48:45.255 : Sending logout response
+20150330-18:48:45.255 : Session FIX.4.2:NAJOYCE1/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout request
+20150330-18:48:45.270 : Session reset: ResetOnDisconnect
+20150330-18:48:47.118 : Connecting to 66.243.69.99 on port 10516
+20150330-18:48:47.200 : Connection succeeded
+20150330-18:48:47.208 : Session reset: ResetOnLogon
+20150330-18:48:47.215 : Session reset: ResetSeqNumFlag
+20150330-18:48:47.216 : Initiated logon request
+20150330-18:48:47.295 : Received logout request
+20150330-18:48:47.296 : Sending logout response
+20150330-18:48:47.297 : Session FIX.4.2:NAJOYCE1/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout request
+20150330-18:48:47.312 : Session reset: ResetOnDisconnect
+20150330-18:48:49.121 : Connecting to 12.41.48.99 on port 10516
+20150330-18:48:49.183 : Connection succeeded
+20150330-18:48:49.188 : Session reset: ResetOnLogon
+20150330-18:48:49.193 : Session reset: ResetSeqNumFlag
+20150330-18:48:49.193 : Initiated logon request
+20150330-18:48:49.260 : Received logout request
+20150330-18:48:49.261 : Sending logout response
+20150330-18:48:49.261 : Session FIX.4.2:NAJOYCE1/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout request
+20150330-18:48:49.276 : Session reset: ResetOnDisconnect
+20150330-18:48:51.123 : Connecting to 66.243.69.99 on port 10516
+20150330-18:48:51.254 : Connection succeeded
+20150330-18:48:51.263 : Session reset: ResetOnLogon
+20150330-18:48:51.271 : Session reset: ResetSeqNumFlag
+20150330-18:48:51.271 : Initiated logon request
+20150330-18:48:51.352 : Received logout request
+20150330-18:48:51.353 : Sending logout response
+20150330-18:48:51.353 : Session FIX.4.2:NAJOYCE1/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout request
+20150330-18:48:51.369 : Session reset: ResetOnDisconnect
+20150330-18:48:53.124 : Connecting to 12.41.48.99 on port 10516
+20150330-18:48:53.194 : Connection succeeded
+20150330-18:48:53.198 : Session reset: ResetOnLogon
+20150330-18:48:53.202 : Session reset: ResetSeqNumFlag
+20150330-18:48:53.202 : Initiated logon request
+20150330-18:48:53.267 : Received logout request
+20150330-18:48:53.268 : Sending logout response
+20150330-18:48:53.268 : Session FIX.4.2:NAJOYCE1/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout request
+20150330-18:48:53.282 : Session reset: ResetOnDisconnect
+20150330-18:48:55.125 : Connecting to 66.243.69.99 on port 10516
+20150330-18:48:55.208 : Connection succeeded
+20150330-18:48:55.217 : Session reset: ResetOnLogon
+20150330-18:48:55.225 : Session reset: ResetSeqNumFlag
+20150330-18:48:55.226 : Initiated logon request
+20150330-18:48:55.307 : Received logout request
+20150330-18:48:55.308 : Sending logout response
+20150330-18:48:55.308 : Session FIX.4.2:NAJOYCE1/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout request
+20150330-18:48:55.322 : Session reset: ResetOnDisconnect
+20150330-18:48:57.128 : Connecting to 12.41.48.99 on port 10516
+20150330-18:48:57.195 : Connection succeeded
+20150330-18:48:57.197 : Session reset: ResetOnLogon
+20150330-18:48:57.200 : Session reset: ResetSeqNumFlag
+20150330-18:48:57.200 : Initiated logon request
+20150330-18:48:57.259 : Received logout request
+20150330-18:48:57.259 : Sending logout response
+20150330-18:48:57.259 : Session FIX.4.2:NAJOYCE1/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout request
+20150330-18:48:57.264 : Session reset: ResetOnDisconnect
+20150330-18:48:59.130 : Connecting to 66.243.69.99 on port 10516
+20150330-18:48:59.214 : Connection succeeded
+20150330-18:48:59.219 : Session reset: ResetOnLogon
+20150330-18:48:59.223 : Session reset: ResetSeqNumFlag
+20150330-18:48:59.224 : Initiated logon request
+20150330-18:48:59.302 : Received logout request
+20150330-18:48:59.303 : Sending logout response
+20150330-18:48:59.303 : Session FIX.4.2:NAJOYCE1/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout request
+20150330-18:48:59.326 : Session reset: ResetOnDisconnect
+20150330-18:49:01.131 : Connecting to 12.41.48.99 on port 10516
+20150330-18:49:01.203 : Connection succeeded
+20150330-18:49:01.211 : Session reset: ResetOnLogon
+20150330-18:49:01.232 : Session reset: ResetSeqNumFlag
+20150330-18:49:01.233 : Initiated logon request
+20150330-18:49:01.301 : Received logout request
+20150330-18:49:01.302 : Sending logout response
+20150330-18:49:01.302 : Session FIX.4.2:NAJOYCE1/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout request
+20150330-18:49:01.317 : Session reset: ResetOnDisconnect
+20150330-18:49:03.133 : Connecting to 66.243.69.99 on port 10516
+20150330-18:49:03.220 : Connection succeeded
+20150330-18:49:03.228 : Session reset: ResetOnLogon
+20150330-18:49:03.236 : Session reset: ResetSeqNumFlag
+20150330-18:49:03.237 : Initiated logon request
+20150330-18:49:03.322 : Received logout request
+20150330-18:49:03.323 : Sending logout response
+20150330-18:49:03.323 : Session FIX.4.2:NAJOYCE1/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout request
+20150330-18:49:03.338 : Session reset: ResetOnDisconnect
+20150330-18:49:05.135 : Connecting to 12.41.48.99 on port 10516
+20150330-18:49:05.201 : Connection succeeded
+20150330-18:49:05.206 : Session reset: ResetOnLogon
+20150330-18:49:05.212 : Session reset: ResetSeqNumFlag
+20150330-18:49:05.213 : Initiated logon request
+20150330-18:49:05.275 : Received logout request
+20150330-18:49:05.276 : Sending logout response
+20150330-18:49:05.276 : Session FIX.4.2:NAJOYCE1/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout request
+20150330-18:49:05.280 : Session reset: ResetOnDisconnect
+20150330-18:49:07.138 : Connecting to 66.243.69.99 on port 10516
+20150330-18:49:07.225 : Connection succeeded
+20150330-18:49:07.233 : Session reset: ResetOnLogon
+20150330-18:49:07.244 : Session reset: ResetSeqNumFlag
+20150330-18:49:07.245 : Initiated logon request
+20150330-18:49:07.324 : Received logout request
+20150330-18:49:07.325 : Sending logout response
+20150330-18:49:07.325 : Session FIX.4.2:NAJOYCE1/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout request
+20150330-18:49:07.334 : Session reset: ResetOnDisconnect
+20150330-18:49:09.140 : Connecting to 12.41.48.99 on port 10516
+20150330-18:49:09.206 : Connection succeeded
+20150330-18:49:09.214 : Session reset: ResetOnLogon
+20150330-18:49:09.222 : Session reset: ResetSeqNumFlag
+20150330-18:49:09.223 : Initiated logon request
+20150330-18:49:09.295 : Received logout request
+20150330-18:49:09.296 : Sending logout response
+20150330-18:49:09.296 : Session FIX.4.2:NAJOYCE1/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout request
+20150330-18:49:09.312 : Session reset: ResetOnDisconnect
+20150330-18:49:11.143 : Connecting to 66.243.69.99 on port 10516
+20150330-18:49:11.220 : Connection succeeded
+20150330-18:49:11.223 : Session reset: ResetOnLogon
+20150330-18:49:11.226 : Session reset: ResetSeqNumFlag
+20150330-18:49:11.226 : Initiated logon request
+20150330-18:49:11.326 : Received logout request
+20150330-18:49:11.326 : Sending logout response
+20150330-18:49:11.326 : Session FIX.4.2:NAJOYCE1/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout request
+20150330-18:49:11.333 : Session reset: ResetOnDisconnect
+20150330-18:49:13.144 : Connecting to 12.41.48.99 on port 10516
+20150330-18:49:13.199 : Connection succeeded
+20150330-18:49:13.202 : Session reset: ResetOnLogon
+20150330-18:49:13.204 : Session reset: ResetSeqNumFlag
+20150330-18:49:13.204 : Initiated logon request
+20150330-18:49:13.278 : Received logout request
+20150330-18:49:13.278 : Sending logout response
+20150330-18:49:13.278 : Session FIX.4.2:NAJOYCE1/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout request
+20150330-18:49:13.284 : Session reset: ResetOnDisconnect
+20150330-18:49:15.146 : Connecting to 66.243.69.99 on port 10516
+20150330-18:49:15.232 : Connection succeeded
+20150330-18:49:15.241 : Session reset: ResetOnLogon
+20150330-18:49:15.249 : Session reset: ResetSeqNumFlag
+20150330-18:49:15.250 : Initiated logon request
+20150330-18:49:15.338 : Received logout request
+20150330-18:49:15.339 : Sending logout response
+20150330-18:49:15.339 : Session FIX.4.2:NAJOYCE1/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout request
+20150330-18:49:15.353 : Session reset: ResetOnDisconnect
+20150330-18:49:17.149 : Connecting to 12.41.48.99 on port 10516
+20150330-18:49:17.220 : Connection succeeded
+20150330-18:49:17.224 : Session reset: ResetOnLogon
+20150330-18:49:17.227 : Session reset: ResetSeqNumFlag
+20150330-18:49:17.227 : Initiated logon request
+20150330-18:49:17.337 : Received logout request
+20150330-18:49:17.338 : Sending logout response
+20150330-18:49:17.338 : Session FIX.4.2:NAJOYCE1/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout request
+20150330-18:49:17.350 : Session reset: ResetOnDisconnect
+20150330-18:49:19.150 : Connecting to 66.243.69.99 on port 10516
+20150330-18:49:19.232 : Connection succeeded
+20150330-18:49:19.241 : Session reset: ResetOnLogon
+20150330-18:49:19.252 : Session reset: ResetSeqNumFlag
+20150330-18:49:19.253 : Initiated logon request
+20150330-18:49:19.351 : Received logout request
+20150330-18:49:19.352 : Sending logout response
+20150330-18:49:19.352 : Session FIX.4.2:NAJOYCE1/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout request
+20150330-18:49:19.367 : Session reset: ResetOnDisconnect
+20150330-18:49:21.152 : Connecting to 12.41.48.99 on port 10516
+20150330-18:49:21.219 : Connection succeeded
+20150330-18:49:21.227 : Session reset: ResetOnLogon
+20150330-18:49:21.235 : Session reset: ResetSeqNumFlag
+20150330-18:49:21.235 : Initiated logon request
+20150330-18:49:21.299 : Received logout request
+20150330-18:49:21.300 : Sending logout response
+20150330-18:49:21.300 : Session FIX.4.2:NAJOYCE1/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout request
+20150330-18:49:21.330 : Session reset: ResetOnDisconnect
+20150330-18:49:23.154 : Connecting to 66.243.69.99 on port 10516
+20150330-18:49:23.238 : Connection succeeded
+20150330-18:49:23.246 : Session reset: ResetOnLogon
+20150330-18:49:23.254 : Session reset: ResetSeqNumFlag
+20150330-18:49:23.255 : Initiated logon request
+20150330-18:49:23.336 : Received logout request
+20150330-18:49:23.337 : Sending logout response
+20150330-18:49:23.337 : Session FIX.4.2:NAJOYCE1/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout request
+20150330-18:49:23.352 : Session reset: ResetOnDisconnect
+20150330-18:49:25.158 : Connecting to 12.41.48.99 on port 10516
+20150330-18:49:25.223 : Connection succeeded
+20150330-18:49:25.231 : Session reset: ResetOnLogon
+20150330-18:49:25.238 : Session reset: ResetSeqNumFlag
+20150330-18:49:25.239 : Initiated logon request
+20150330-18:49:25.315 : Received logout request
+20150330-18:49:25.315 : Sending logout response
+20150330-18:49:25.315 : Session FIX.4.2:NAJOYCE1/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout request
+20150330-18:49:25.337 : Session reset: ResetOnDisconnect
+20150330-18:49:27.160 : Connecting to 66.243.69.99 on port 10516
+20150330-18:49:27.241 : Connection succeeded
+20150330-18:49:27.249 : Session reset: ResetOnLogon
+20150330-18:49:27.258 : Session reset: ResetSeqNumFlag
+20150330-18:49:27.258 : Initiated logon request
+20150330-18:49:27.350 : Received logout request
+20150330-18:49:27.350 : Sending logout response
+20150330-18:49:27.350 : Session FIX.4.2:NAJOYCE1/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout request
+20150330-18:49:27.366 : Session reset: ResetOnDisconnect
+20150330-18:49:29.162 : Connecting to 12.41.48.99 on port 10516
+20150330-18:49:29.223 : Connection succeeded
+20150330-18:49:29.231 : Session reset: ResetOnLogon
+20150330-18:49:29.241 : Session reset: ResetSeqNumFlag
+20150330-18:49:29.241 : Initiated logon request
+20150330-18:49:29.302 : Received logout request
+20150330-18:49:29.302 : Sending logout response
+20150330-18:49:29.302 : Session FIX.4.2:NAJOYCE1/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout request
+20150330-18:49:29.312 : Session reset: ResetOnDisconnect
+20150330-18:49:31.165 : Connecting to 66.243.69.99 on port 10516
+20150330-18:49:31.250 : Connection succeeded
+20150330-18:49:31.258 : Session reset: ResetOnLogon
+20150330-18:49:31.266 : Session reset: ResetSeqNumFlag
+20150330-18:49:31.266 : Initiated logon request
+20150330-18:49:31.357 : Received logout request
+20150330-18:49:31.359 : Sending logout response
+20150330-18:49:31.359 : Session FIX.4.2:NAJOYCE1/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout request
+20150330-18:49:31.394 : Session reset: ResetOnDisconnect
+20150330-18:49:33.167 : Connecting to 12.41.48.99 on port 10516
+20150330-18:49:33.228 : Connection succeeded
+20150330-18:49:33.236 : Session reset: ResetOnLogon
+20150330-18:49:33.243 : Session reset: ResetSeqNumFlag
+20150330-18:49:33.244 : Initiated logon request
+20150330-18:49:33.316 : Received logout request
+20150330-18:49:33.317 : Sending logout response
+20150330-18:49:33.317 : Session FIX.4.2:NAJOYCE1/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout request
+20150330-18:49:33.327 : Session reset: ResetOnDisconnect
+20150330-18:49:35.169 : Connecting to 66.243.69.99 on port 10516
+20150330-18:49:35.255 : Connection succeeded
+20150330-18:49:35.258 : Session reset: ResetOnLogon
+20150330-18:49:35.260 : Session reset: ResetSeqNumFlag
+20150330-18:49:35.260 : Initiated logon request
+20150330-18:49:35.342 : Received logout request
+20150330-18:49:35.342 : Sending logout response
+20150330-18:49:35.342 : Session FIX.4.2:NAJOYCE1/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout request
+20150330-18:49:35.347 : Session reset: ResetOnDisconnect
+20150330-18:49:37.170 : Connecting to 12.41.48.99 on port 10516
+20150330-18:49:37.261 : Connection succeeded
+20150330-18:49:37.270 : Session reset: ResetOnLogon
+20150330-18:49:37.278 : Session reset: ResetSeqNumFlag
+20150330-18:49:37.279 : Initiated logon request
+20150330-18:49:37.344 : Received logout request
+20150330-18:49:37.344 : Sending logout response
+20150330-18:49:37.344 : Session FIX.4.2:NAJOYCE1/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout request
+20150330-18:49:37.355 : Session reset: ResetOnDisconnect
+20150330-18:49:39.173 : Connecting to 66.243.69.99 on port 10516
+20150330-18:49:39.256 : Connection succeeded
+20150330-18:49:39.259 : Session reset: ResetOnLogon
+20150330-18:49:39.261 : Session reset: ResetSeqNumFlag
+20150330-18:49:39.261 : Initiated logon request
+20150330-18:49:39.341 : Received logout request
+20150330-18:49:39.341 : Sending logout response
+20150330-18:49:39.341 : Session FIX.4.2:NAJOYCE1/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout request
+20150330-18:49:39.345 : Session reset: ResetOnDisconnect
+20150330-18:49:41.176 : Connecting to 12.41.48.99 on port 10516
+20150330-18:49:41.239 : Connection succeeded
+20150330-18:49:41.247 : Session reset: ResetOnLogon
+20150330-18:49:41.257 : Session reset: ResetSeqNumFlag
+20150330-18:49:41.257 : Initiated logon request
+20150330-18:49:41.317 : Received logout request
+20150330-18:49:41.318 : Sending logout response
+20150330-18:49:41.318 : Session FIX.4.2:NAJOYCE1/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout request
+20150330-18:49:41.332 : Session reset: ResetOnDisconnect
+20150330-18:49:43.177 : Connecting to 66.243.69.99 on port 10516
+20150330-18:49:43.263 : Connection succeeded
+20150330-18:49:43.267 : Session reset: ResetOnLogon
+20150330-18:49:43.271 : Session reset: ResetSeqNumFlag
+20150330-18:49:43.271 : Initiated logon request
+20150330-18:49:43.350 : Received logout request
+20150330-18:49:43.351 : Sending logout response
+20150330-18:49:43.351 : Session FIX.4.2:NAJOYCE1/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout request
+20150330-18:49:43.367 : Session reset: ResetOnDisconnect
+20150330-18:49:45.180 : Connecting to 12.41.48.99 on port 10516
+20150330-18:49:45.269 : Connection succeeded
+20150330-18:49:45.277 : Session reset: ResetOnLogon
+20150330-18:49:45.285 : Session reset: ResetSeqNumFlag
+20150330-18:49:45.285 : Initiated logon request
+20150330-18:49:45.347 : Received logout request
+20150330-18:49:45.348 : Sending logout response
+20150330-18:49:45.348 : Session FIX.4.2:NAJOYCE1/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout request
+20150330-18:49:45.363 : Session reset: ResetOnDisconnect
+20150330-18:49:47.182 : Connecting to 66.243.69.99 on port 10516
+20150330-18:49:47.262 : Connection succeeded
+20150330-18:49:47.270 : Session reset: ResetOnLogon
+20150330-18:49:47.278 : Session reset: ResetSeqNumFlag
+20150330-18:49:47.279 : Initiated logon request
+20150330-18:49:47.357 : Received logout request
+20150330-18:49:47.358 : Sending logout response
+20150330-18:49:47.358 : Session FIX.4.2:NAJOYCE1/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout request
+20150330-18:49:47.372 : Session reset: ResetOnDisconnect
+20150330-18:49:49.185 : Connecting to 12.41.48.99 on port 10516
+20150330-18:49:49.241 : Connection succeeded
+20150330-18:49:49.250 : Session reset: ResetOnLogon
+20150330-18:49:49.259 : Session reset: ResetSeqNumFlag
+20150330-18:49:49.260 : Initiated logon request
+20150330-18:49:49.332 : Received logout request
+20150330-18:49:49.333 : Sending logout response
+20150330-18:49:49.333 : Session FIX.4.2:NAJOYCE1/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout request
+20150330-18:49:49.348 : Session reset: ResetOnDisconnect
+20150330-18:49:51.187 : Connecting to 66.243.69.99 on port 10516
+20150330-18:49:51.269 : Connection succeeded
+20150330-18:49:51.277 : Session reset: ResetOnLogon
+20150330-18:49:51.285 : Session reset: ResetSeqNumFlag
+20150330-18:49:51.285 : Initiated logon request
+20150330-18:49:51.366 : Received logout request
+20150330-18:49:51.367 : Sending logout response
+20150330-18:49:51.367 : Session FIX.4.2:NAJOYCE1/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout request
+20150330-18:49:51.383 : Session reset: ResetOnDisconnect
+20150330-18:49:53.189 : Connecting to 12.41.48.99 on port 10516
+20150330-18:49:53.268 : Connection succeeded
+20150330-18:49:53.276 : Session reset: ResetOnLogon
+20150330-18:49:53.284 : Session reset: ResetSeqNumFlag
+20150330-18:49:53.284 : Initiated logon request
+20150330-18:49:53.342 : Received logout request
+20150330-18:49:53.343 : Sending logout response
+20150330-18:49:53.343 : Session FIX.4.2:NAJOYCE1/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout request
+20150330-18:49:53.353 : Session reset: ResetOnDisconnect
+20150330-18:49:55.191 : Connecting to 66.243.69.99 on port 10516
+20150330-18:49:55.275 : Connection succeeded
+20150330-18:49:55.286 : Session reset: ResetOnLogon
+20150330-18:49:55.295 : Session reset: ResetSeqNumFlag
+20150330-18:49:55.295 : Initiated logon request
+20150330-18:49:55.379 : Received logout request
+20150330-18:49:55.380 : Sending logout response
+20150330-18:49:55.380 : Session FIX.4.2:NAJOYCE1/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout request
+20150330-18:49:55.389 : Session reset: ResetOnDisconnect
+20150330-18:49:57.193 : Connecting to 12.41.48.99 on port 10516
+20150330-18:49:57.269 : Connection succeeded
+20150330-18:49:57.278 : Session reset: ResetOnLogon
+20150330-18:49:57.286 : Session reset: ResetSeqNumFlag
+20150330-18:49:57.287 : Initiated logon request
+20150330-18:49:57.352 : Received logout request
+20150330-18:49:57.353 : Sending logout response
+20150330-18:49:57.353 : Session FIX.4.2:NAJOYCE1/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout request
+20150330-18:49:57.367 : Session reset: ResetOnDisconnect
+20150330-18:49:59.196 : Connecting to 66.243.69.99 on port 10516
+20150330-18:49:59.285 : Connection succeeded
+20150330-18:49:59.287 : Session reset: ResetOnLogon
+20150330-18:49:59.289 : Session reset: ResetSeqNumFlag
+20150330-18:49:59.289 : Initiated logon request
+20150330-18:49:59.377 : Received logout request
+20150330-18:49:59.378 : Sending logout response
+20150330-18:49:59.378 : Session FIX.4.2:NAJOYCE1/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout request
+20150330-18:49:59.393 : Session reset: ResetOnDisconnect
+20150330-18:50:01.198 : Connecting to 12.41.48.99 on port 10516
+20150330-18:50:01.260 : Connection succeeded
+20150330-18:50:01.267 : Session reset: ResetOnLogon
+20150330-18:50:01.275 : Session reset: ResetSeqNumFlag
+20150330-18:50:01.276 : Initiated logon request
+20150330-18:50:01.340 : Received logout request
+20150330-18:50:01.341 : Sending logout response
+20150330-18:50:01.341 : Session FIX.4.2:NAJOYCE1/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout request
+20150330-18:50:01.355 : Session reset: ResetOnDisconnect
+20150330-18:50:03.200 : Connecting to 66.243.69.99 on port 10516
+20150330-18:50:03.279 : Connection succeeded
+20150330-18:50:03.287 : Session reset: ResetOnLogon
+20150330-18:50:03.295 : Session reset: ResetSeqNumFlag
+20150330-18:50:03.296 : Initiated logon request
+20150330-18:50:03.377 : Received logout request
+20150330-18:50:03.377 : Sending logout response
+20150330-18:50:03.377 : Session FIX.4.2:NAJOYCE1/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout request
+20150330-18:50:03.386 : Session reset: ResetOnDisconnect
+20150330-18:50:05.204 : Connecting to 12.41.48.99 on port 10516
+20150330-18:50:05.279 : Connection succeeded
+20150330-18:50:05.288 : Session reset: ResetOnLogon
+20150330-18:50:05.296 : Session reset: ResetSeqNumFlag
+20150330-18:50:05.297 : Initiated logon request
+20150330-18:50:05.358 : Received logout request
+20150330-18:50:05.359 : Sending logout response
+20150330-18:50:05.359 : Session FIX.4.2:NAJOYCE1/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout request
+20150330-18:50:05.374 : Session reset: ResetOnDisconnect
+20150330-18:50:07.207 : Connecting to 66.243.69.99 on port 10516
+20150330-18:50:07.289 : Connection succeeded
+20150330-18:50:07.297 : Session reset: ResetOnLogon
+20150330-18:50:07.306 : Session reset: ResetSeqNumFlag
+20150330-18:50:07.307 : Initiated logon request
+20150330-18:50:07.388 : Received logout request
+20150330-18:50:07.389 : Sending logout response
+20150330-18:50:07.389 : Session FIX.4.2:NAJOYCE1/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout request
+20150330-18:50:07.392 : Session reset: ResetOnDisconnect
+20150330-18:50:09.209 : Connecting to 12.41.48.99 on port 10516
+20150330-18:50:09.270 : Connection succeeded
+20150330-18:50:09.278 : Session reset: ResetOnLogon
+20150330-18:50:09.286 : Session reset: ResetSeqNumFlag
+20150330-18:50:09.286 : Initiated logon request
+20150330-18:50:09.369 : Received logout request
+20150330-18:50:09.370 : Sending logout response
+20150330-18:50:09.370 : Session FIX.4.2:NAJOYCE1/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout request
+20150330-18:50:09.385 : Session reset: ResetOnDisconnect
+20150330-18:50:11.211 : Connecting to 66.243.69.99 on port 10516
+20150330-18:50:11.293 : Connection succeeded
+20150330-18:50:11.301 : Session reset: ResetOnLogon
+20150330-18:50:11.310 : Session reset: ResetSeqNumFlag
+20150330-18:50:11.311 : Initiated logon request
+20150330-18:50:11.395 : Received logout request
+20150330-18:50:11.396 : Sending logout response
+20150330-18:50:11.396 : Session FIX.4.2:NAJOYCE1/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout request
+20150330-18:50:11.411 : Session reset: ResetOnDisconnect
+20150330-18:50:13.213 : Connecting to 12.41.48.99 on port 10516
+20150330-18:50:13.274 : Connection succeeded
+20150330-18:50:13.282 : Session reset: ResetOnLogon
+20150330-18:50:13.291 : Session reset: ResetSeqNumFlag
+20150330-18:50:13.291 : Initiated logon request
+20150330-18:50:13.349 : Received logout request
+20150330-18:50:13.350 : Sending logout response
+20150330-18:50:13.350 : Session FIX.4.2:NAJOYCE1/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout request
+20150330-18:50:13.364 : Session reset: ResetOnDisconnect
+20150330-18:50:15.215 : Connecting to 66.243.69.99 on port 10516
+20150330-18:50:15.295 : Connection succeeded
+20150330-18:50:15.297 : Session reset: ResetOnLogon
+20150330-18:50:15.300 : Session reset: ResetSeqNumFlag
+20150330-18:50:15.300 : Initiated logon request
+20150330-18:50:15.380 : Received logout request
+20150330-18:50:15.381 : Sending logout response
+20150330-18:50:15.381 : Session FIX.4.2:NAJOYCE1/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout request
+20150330-18:50:15.395 : Session reset: ResetOnDisconnect
+20150330-18:50:17.218 : Connecting to 12.41.48.99 on port 10516
+20150330-18:50:17.287 : Connection succeeded
+20150330-18:50:17.290 : Session reset: ResetOnLogon
+20150330-18:50:17.292 : Session reset: ResetSeqNumFlag
+20150330-18:50:17.292 : Initiated logon request
+20150330-18:50:17.355 : Received logout request
+20150330-18:50:17.356 : Sending logout response
+20150330-18:50:17.356 : Session FIX.4.2:NAJOYCE1/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout request
+20150330-18:50:17.365 : Session reset: ResetOnDisconnect
+20150330-18:50:19.219 : Connecting to 66.243.69.99 on port 10516
+20150330-18:50:19.302 : Connection succeeded
+20150330-18:50:19.310 : Session reset: ResetOnLogon
+20150330-18:50:19.319 : Session reset: ResetSeqNumFlag
+20150330-18:50:19.320 : Initiated logon request
+20150330-18:50:19.401 : Received logout request
+20150330-18:50:19.402 : Sending logout response
+20150330-18:50:19.402 : Session FIX.4.2:NAJOYCE1/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout request
+20150330-18:50:19.416 : Session reset: ResetOnDisconnect
+20150330-18:50:21.223 : Connecting to 12.41.48.99 on port 10516
+20150330-18:50:21.308 : Connection succeeded
+20150330-18:50:21.314 : Session reset: ResetOnLogon
+20150330-18:50:21.320 : Session reset: ResetSeqNumFlag
+20150330-18:50:21.321 : Initiated logon request
+20150330-18:50:21.387 : Received logout request
+20150330-18:50:21.388 : Sending logout response
+20150330-18:50:21.388 : Session FIX.4.2:NAJOYCE1/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout request
+20150330-18:50:21.392 : Session reset: ResetOnDisconnect
+20150330-18:50:23.248 : Connecting to 66.243.69.99 on port 10516
+20150330-18:50:23.331 : Connection succeeded
+20150330-18:50:23.339 : Session reset: ResetOnLogon
+20150330-18:50:23.347 : Session reset: ResetSeqNumFlag
+20150330-18:50:23.348 : Initiated logon request
+20150330-18:50:23.429 : Received logout request
+20150330-18:50:23.430 : Sending logout response
+20150330-18:50:23.430 : Session FIX.4.2:NAJOYCE1/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout request
+20150330-18:50:23.444 : Session reset: ResetOnDisconnect
+20150330-18:50:25.251 : Connecting to 12.41.48.99 on port 10516
+20150330-18:50:25.328 : Connection succeeded
+20150330-18:50:25.336 : Session reset: ResetOnLogon
+20150330-18:50:25.344 : Session reset: ResetSeqNumFlag
+20150330-18:50:25.345 : Initiated logon request
+20150330-18:50:25.413 : Received logout request
+20150330-18:50:25.414 : Sending logout response
+20150330-18:50:25.414 : Session FIX.4.2:NAJOYCE1/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout request
+20150330-18:50:25.429 : Session reset: ResetOnDisconnect
+20150330-18:50:27.253 : Connecting to 66.243.69.99 on port 10516
+20150330-18:50:27.334 : Connection succeeded
+20150330-18:50:27.342 : Session reset: ResetOnLogon
+20150330-18:50:27.351 : Session reset: ResetSeqNumFlag
+20150330-18:50:27.351 : Initiated logon request
+20150330-18:50:27.433 : Received logout request
+20150330-18:50:27.434 : Sending logout response
+20150330-18:50:27.434 : Session FIX.4.2:NAJOYCE1/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout request
+20150330-18:50:27.450 : Session reset: ResetOnDisconnect
+20150330-18:50:29.256 : Connecting to 12.41.48.99 on port 10516
+20150330-18:50:29.317 : Connection succeeded
+20150330-18:50:29.319 : Session reset: ResetOnLogon
+20150330-18:50:29.328 : Session reset: ResetSeqNumFlag
+20150330-18:50:29.328 : Initiated logon request
+20150330-18:50:29.392 : Received logout request
+20150330-18:50:29.393 : Sending logout response
+20150330-18:50:29.393 : Session FIX.4.2:NAJOYCE1/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout request
+20150330-18:50:29.408 : Session reset: ResetOnDisconnect
+20150330-18:50:31.258 : Connecting to 66.243.69.99 on port 10516
+20150330-18:50:31.334 : Connection succeeded
+20150330-18:50:31.344 : Session reset: ResetOnLogon
+20150330-18:50:31.353 : Session reset: ResetSeqNumFlag
+20150330-18:50:31.354 : Initiated logon request
+20150330-18:50:31.430 : Received logout request
+20150330-18:50:31.431 : Sending logout response
+20150330-18:50:31.431 : Session FIX.4.2:NAJOYCE1/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout request
+20150330-18:50:31.446 : Session reset: ResetOnDisconnect
+20150330-18:50:33.261 : Connecting to 12.41.48.99 on port 10516
+20150330-18:50:33.322 : Connection succeeded
+20150330-18:50:33.324 : Session reset: ResetOnLogon
+20150330-18:50:33.326 : Session reset: ResetSeqNumFlag
+20150330-18:50:33.327 : Initiated logon request
+20150330-18:50:33.384 : Received logout request
+20150330-18:50:33.384 : Sending logout response
+20150330-18:50:33.384 : Session FIX.4.2:NAJOYCE1/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout request
+20150330-18:50:33.389 : Session reset: ResetOnDisconnect
+20150330-18:50:35.263 : Connecting to 66.243.69.99 on port 10516
+20150330-18:50:35.348 : Connection succeeded
+20150330-18:50:35.354 : Session reset: ResetOnLogon
+20150330-18:50:35.360 : Session reset: ResetSeqNumFlag
+20150330-18:50:35.361 : Initiated logon request
+20150330-18:50:35.449 : Received logout request
+20150330-18:50:35.450 : Sending logout response
+20150330-18:50:35.450 : Session FIX.4.2:NAJOYCE1/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout request
+20150330-18:50:35.460 : Session reset: ResetOnDisconnect
+20150330-18:50:37.266 : Connecting to 12.41.48.99 on port 10516
+20150330-18:50:37.328 : Connection succeeded
+20150330-18:50:37.336 : Session reset: ResetOnLogon
+20150330-18:50:37.345 : Session reset: ResetSeqNumFlag
+20150330-18:50:37.345 : Initiated logon request
+20150330-18:50:37.404 : Received logout request
+20150330-18:50:37.405 : Sending logout response
+20150330-18:50:37.405 : Session FIX.4.2:NAJOYCE1/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout request
+20150330-18:50:37.420 : Session reset: ResetOnDisconnect
+20150330-18:50:39.268 : Connecting to 66.243.69.99 on port 10516
+20150330-18:50:39.350 : Connection succeeded
+20150330-18:50:39.352 : Session reset: ResetOnLogon
+20150330-18:50:39.354 : Session reset: ResetSeqNumFlag
+20150330-18:50:39.355 : Initiated logon request
+20150330-18:50:39.434 : Received logout request
+20150330-18:50:39.435 : Sending logout response
+20150330-18:50:39.435 : Session FIX.4.2:NAJOYCE1/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout request
+20150330-18:50:39.444 : Session reset: ResetOnDisconnect
+20150330-18:50:41.269 : Connecting to 12.41.48.99 on port 10516
+20150330-18:50:41.330 : Connection succeeded
+20150330-18:50:41.334 : Session reset: ResetOnLogon
+20150330-18:50:41.339 : Session reset: ResetSeqNumFlag
+20150330-18:50:41.339 : Initiated logon request
+20150330-18:50:41.402 : Received logout request
+20150330-18:50:41.404 : Sending logout response
+20150330-18:50:41.404 : Session FIX.4.2:NAJOYCE1/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout request
+20150330-18:50:41.419 : Session reset: ResetOnDisconnect
+20150330-18:50:43.273 : Connecting to 66.243.69.99 on port 10516
+20150330-18:50:43.354 : Connection succeeded
+20150330-18:50:43.362 : Session reset: ResetOnLogon
+20150330-18:50:43.370 : Session reset: ResetSeqNumFlag
+20150330-18:50:43.371 : Initiated logon request
+20150330-18:50:43.458 : Received logout request
+20150330-18:50:43.459 : Sending logout response
+20150330-18:50:43.459 : Session FIX.4.2:NAJOYCE1/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout request
+20150330-18:50:43.473 : Session reset: ResetOnDisconnect
+20150330-18:50:48.940 : Created session
+20150330-18:50:48.941 : Connecting to 12.41.48.99 on port 10516
+20150330-18:50:49.004 : Connection succeeded
+20150330-18:50:49.009 : Session reset: ResetOnLogon
+20150330-18:50:49.015 : Session reset: ResetSeqNumFlag
+20150330-18:50:49.015 : Initiated logon request
+20150330-18:50:49.221 : Received logon
+20150330-18:51:19.286 : Got resend request from 1 to 0
+20150330-18:51:19.291 : Sent SequenceReset TO: 3
+20150330-18:59:10.337 : Created session
+20150330-18:59:10.341 : Connecting to 12.41.48.99 on port 10516
+20150330-18:59:10.402 : Connection succeeded
+20150330-18:59:10.433 : Session reset: ResetOnLogon
+20150330-18:59:10.453 : Session reset: ResetSeqNumFlag
+20150330-18:59:10.455 : Initiated logon request
+20150330-18:59:10.681 : Received logon
+20150330-19:10:03.948 : Initiated logout request
+20150330-19:10:04.012 : Received logout response
+20150330-19:10:04.013 : Session FIX.4.2:NAJOYCE1/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout response
+20150330-19:10:04.041 : Session reset: ResetOnDisconnect
+20150330-19:55:03.533 : Created session
+20150330-19:55:03.536 : Connecting to 12.41.48.99 on port 10516
+20150330-19:55:03.597 : Connection succeeded
+20150330-19:55:03.611 : Session reset: ResetOnLogon
+20150330-19:55:03.628 : Session reset: ResetSeqNumFlag
+20150330-19:55:03.630 : Initiated logon request
+20150330-19:55:07.192 : Received logon
+20150330-20:07:04.604 : Initiated logout request
+20150330-20:07:04.671 : Received logout response
+20150330-20:07:04.673 : Session FIX.4.2:NAJOYCE1/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout response
+20150330-20:07:04.700 : Session reset: ResetOnDisconnect
+20150331-20:52:54.541 : Session FIX.4.2:NAJOYCE1/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ already disconnected: Resetting...
+20150331-20:52:54.545 : Session reset: New session
+20150331-20:52:54.545 : Created session
+20150331-20:52:54.548 : Connecting to 12.41.48.99 on port 10516
+20150331-20:52:54.605 : Connection succeeded
+20150331-20:52:54.618 : Session reset: ResetOnLogon
+20150331-20:52:54.638 : Session reset: ResetSeqNumFlag
+20150331-20:52:54.640 : Initiated logon request
+20150331-20:52:54.865 : Received logon
+20150331-20:53:41.166 : Initiated logout request
+20150331-20:53:41.234 : Received logout response
+20150331-20:53:41.235 : Session FIX.4.2:NAJOYCE1/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout response
+20150331-20:53:41.263 : Session reset: ResetOnDisconnect
+20150331-20:57:57.053 : Created session
+20150331-20:57:57.057 : Connecting to 12.41.48.99 on port 10516
+20150331-20:57:57.115 : Connection succeeded
+20150331-20:57:57.129 : Session reset: ResetOnLogon
+20150331-20:57:57.145 : Session reset: ResetSeqNumFlag
+20150331-20:57:57.147 : Initiated logon request
+20150331-20:58:02.559 : Received logon
+20150331-21:14:35.539 : Initiated logout request
+20150331-21:14:35.601 : Received logout response
+20150331-21:14:35.603 : Session FIX.4.2:NAJOYCE1/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout response
+20150331-21:14:35.790 : Session reset: ResetOnDisconnect
+20150331-21:19:08.382 : Created session
+20150331-21:19:08.385 : Connecting to 12.41.48.99 on port 10516
+20150331-21:19:08.442 : Connection succeeded
+20150331-21:19:08.468 : Session reset: ResetOnLogon
+20150331-21:19:08.498 : Session reset: ResetSeqNumFlag
+20150331-21:19:08.500 : Initiated logon request
+20150331-21:19:09.647 : Received logon
+20150331-21:19:45.116 : Initiated logout request
+20150331-21:19:45.176 : Received logout response
+20150331-21:19:45.177 : Session FIX.4.2:NAJOYCE1/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout response
+20150331-21:19:45.190 : Session reset: ResetOnDisconnect
+20150401-15:26:09.164 : Session FIX.4.2:NAJOYCE1/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ already disconnected: Resetting...
+20150401-15:26:09.170 : Session reset: New session
+20150401-15:26:09.170 : Created session
+20150401-15:26:09.174 : Connecting to 12.41.48.99 on port 10516
+20150401-15:26:09.255 : Connection succeeded
+20150401-15:26:09.268 : Session reset: ResetOnLogon
+20150401-15:26:09.285 : Session reset: ResetSeqNumFlag
+20150401-15:26:09.287 : Initiated logon request
+20150401-15:26:09.558 : Received logon
+20150401-15:27:51.860 : Initiated logout request
+20150401-15:27:51.923 : Received logout response
+20150401-15:27:51.923 : Session FIX.4.2:NAJOYCE1/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout response
+20150401-15:27:51.943 : Session reset: ResetOnDisconnect
+20151020-21:58:31.372 : Session FIX.4.2:NAJOYCE1/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ already disconnected: Resetting...
+20151020-21:58:31.390 : Session reset: New session
+20151020-21:58:31.391 : Created session
+20151020-21:58:31.396 : Connecting to 12.41.48.99 on port 10516
+20151020-21:58:31.514 : Connection succeeded
+20151020-21:58:31.574 : Session reset: ResetOnLogon
+20151020-21:58:31.588 : Session reset: ResetSeqNumFlag
+20151020-21:58:31.629 : Initiated logon request
+20151020-21:58:32.354 : Received logon
+20151020-22:11:57.279 : Created session
+20151020-22:11:57.283 : Connecting to 12.41.48.99 on port 10516
+20151020-22:11:57.726 : Connection succeeded
+20151020-22:11:57.736 : Session reset: ResetOnLogon
+20151020-22:11:57.749 : Session reset: ResetSeqNumFlag
+20151020-22:11:57.750 : Initiated logon request
+20151020-22:12:07.391 : Received logon
+20151020-22:18:50.683 : Received logout request
+20151020-22:18:50.684 : Sending logout response
+20151020-22:18:50.685 : Session FIX.4.2:NAJOYCE1/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout request
+20151020-22:18:50.706 : Session reset: ResetOnDisconnect
+20151020-22:18:52.589 : Connecting to 66.243.69.99 on port 10516
+20151020-22:18:52.679 : Connection succeeded
+20151020-22:18:52.682 : Session reset: ResetOnLogon
+20151020-22:18:52.696 : Session reset: ResetSeqNumFlag
+20151020-22:18:52.696 : Initiated logon request
+20151020-22:18:53.165 : Received logon

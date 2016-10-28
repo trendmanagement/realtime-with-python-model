@@ -1,0 +1,9 @@
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.OptionSpreadManager.fillInRestOfADMWebInputDataFromAzure(ADMPositionImportWeb FCM_DatatImportedRow_Local, TMLAzureModelDBQueries btdb) in D:\RealtimeSpreadWithPythonModel\RealtimeSpreadMonitor\RealtimeSpreadMonitor\OptionSpreadManager.cs:line 2677
+   at RealtimeSpreadMonitor.OptionSpreadManager.setupAdmWebInputDataFromAzure() in D:\RealtimeSpreadWithPythonModel\RealtimeSpreadMonitor\RealtimeSpreadMonitor\OptionSpreadManager.cs:line 2628
+RealtimeSpreadMonitor.FormManipulation.GridViewFCMPostionManipulation System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.FormManipulation.GridViewFCMPostionManipulation.threadsafefillGridLiveADMData(OptionRealtimeMonitor optionRealtimeMonitor) in D:\RealtimeSpreadWithPythonModel\RealtimeSpreadMonitor\RealtimeSpreadMonitor\FormManipulation\GridViewFCMPostionManipulation.cs:line 257
+RealtimeSpreadMonitor.OptionSpreadManager System.ArgumentNullException: Value cannot be null.
+Parameter name: key
+   at System.Collections.Concurrent.ConcurrentDictionary`2.ContainsKey(TKey key)
+   at RealtimeSpreadMonitor.OptionSpreadManager.fillADMExpressionOptionList() in D:\RealtimeSpreadWithPythonModel\RealtimeSpreadMonitor\RealtimeSpreadMonitor\OptionSpreadManager.cs:line 1023

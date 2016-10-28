@@ -1,0 +1,1 @@
+Sessions count in config: 1

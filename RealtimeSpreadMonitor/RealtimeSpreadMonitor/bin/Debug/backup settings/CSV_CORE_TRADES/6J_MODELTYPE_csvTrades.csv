@@ -1,0 +1,5 @@
+"Firm Id","Acct Id","Exchange","Ticker Symbol","Product Name","CC Code","Period Code","Put / Call","Strike","Underlying Period Code","Net Positions","Margin Type","Client ID"
+"tml1","6J","CME","","","J1","201408","PUT","0.00965","201409","-1","",
+"tml1","6J","CME","","","J1","201409","","","","-1","",
+"tml1","6J","CME","","","J1","201408","CALL","0.00985","201409","-1","",
+"tml1","6J","CME","","","J1","201408","CALL","0.0102","201409","1","",

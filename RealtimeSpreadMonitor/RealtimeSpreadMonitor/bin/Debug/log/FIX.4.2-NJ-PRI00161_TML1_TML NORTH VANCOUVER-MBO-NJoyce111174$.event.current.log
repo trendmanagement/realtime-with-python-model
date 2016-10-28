@@ -1,0 +1,7 @@
+20161027-23:11:10.505 : Created session
+20161027-23:11:10.513 : Connecting to 12.41.48.99 on port 10516
+20161027-23:11:10.589 : Connection succeeded
+20161027-23:11:10.601 : Session reset: ResetOnLogon
+20161027-23:11:10.619 : Session reset: ResetSeqNumFlag
+20161027-23:11:10.621 : Initiated logon request
+20161027-23:11:14.485 : Received logon

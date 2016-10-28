@@ -1,0 +1,4 @@
+RealtimeSpreadMonitor.ADMDataCommonMethods System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.ADMDataCommonMethods.readADMDetailedPositionImportWeb(String[] fileNames, List`1 admSummaryFieldsList, ImportFileCheck importFileCheck, Instrument[] instruments) in D:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\ADMDataCommonMethods.cs:line 365
+RealtimeSpreadMonitor.ADMDataCommonMethods System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.ADMDataCommonMethods.readADMDetailedPositionImportWeb(String[] fileNames, List`1 admSummaryFieldsList, ImportFileCheck importFileCheck, Instrument[] instruments) in D:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\ADMDataCommonMethods.cs:line 365

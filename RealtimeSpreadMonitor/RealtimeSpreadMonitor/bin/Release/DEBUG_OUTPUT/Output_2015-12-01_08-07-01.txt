@@ -1,0 +1,8 @@
+RealtimeSpreadMonitor.OptionSpreadManager System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.OptionSpreadManager.fillStrategiesAndInstruments() in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\OptionSpreadManager.cs:line 869
+RealtimeSpreadMonitor.Forms.OptionRealtimeMonitor, Text: DYNAMIC IRON CONDOR  Version:2.0.5813.14610 System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.OptionSpreadManager.rowHeaderLabelCreate(OptionStrategy optionStrategy) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\OptionSpreadManager.cs:line 4664
+   at RealtimeSpreadMonitor.Forms.OptionRealtimeMonitor.setupGridLiveData() in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\Forms\OptionRealtimeMonitor.cs:line 833
+RealtimeSpreadMonitor.Forms.OptionRealtimeMonitor, Text: DYNAMIC IRON CONDOR  Version:2.0.5813.14610 System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.OptionSpreadManager.rowHeaderLabelCreate(OptionStrategy optionStrategy) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\OptionSpreadManager.cs:line 4664
+   at RealtimeSpreadMonitor.Forms.OptionRealtimeMonitor.setupGridOrders() in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\Forms\OptionRealtimeMonitor.cs:line 2007

@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PublishUrlHistory>https://onedrive.live.com/redir%3fresid=B11671D93A96AF4C%25211184/|https://onedrive.live.com/redir%3fresid=B11671D93A96AF4C!1184&amp;authkey=!AHK8Gb1cttBFIn8&amp;ithint=folder%252c/|https://tmlexo.blob.core.windows.net/realtimemonitor/|http://tmlexo.blob.core.windows.net/realtimemonitor/|http://tmlexo.blob.core.windows.net/realtimemonitor%3fst=2014-08-14T16%253A51%253A54Z&amp;se=2014-08-14T17%253A51%253A54Z&amp;sr=c&amp;sp=rw&amp;sig=HlFb55Ev6VZMJFsms%252BCNuZOwf2N00yycpIN231Xh4SU%253D/</PublishUrlHistory>
+    <InstallUrlHistory />
+    <SupportUrlHistory />
+    <UpdateUrlHistory />
+    <BootstrapperUrlHistory />
+    <ErrorReportUrlHistory />
+    <FallbackCulture>en-US</FallbackCulture>
+    <VerifyUploadedFiles>false</VerifyUploadedFiles>
+  </PropertyGroup>
+</Project>

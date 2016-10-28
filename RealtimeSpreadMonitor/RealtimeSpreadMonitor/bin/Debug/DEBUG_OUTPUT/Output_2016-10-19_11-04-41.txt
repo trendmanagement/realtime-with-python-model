@@ -1,0 +1,22 @@
+RealtimeSpreadMonitor.OptionCQGDataManagement System.Runtime.InteropServices.COMException (0x80004005): Failed to process the instrument. Symbol name cannot be empty.
+See CQG OpenAPI Help for more details.
+   at CQG.ICQGCEL.NewInstrument(String symbol_)
+   at RealtimeSpreadMonitor.OptionCQGDataManagement.sendSubscribeRequestRun(Object obj) in D:\RealtimeSpreadWithPythonModel\RealtimeSpreadMonitor\RealtimeSpreadMonitor\OptionCQGDataManagement.cs:line 1130
+RealtimeSpreadMonitor.Forms.OptionRealtimeMonitor, Text:   Version:2.0.6136.19939 System.InvalidOperationException: Row associated with the currency manager's position cannot be made invisible.
+   at System.Windows.Forms.DataGridView.OnDataGridViewElementStateChanging(DataGridViewElement element, Int32 index, DataGridViewElementStates elementState)
+   at System.Windows.Forms.DataGridViewBand.OnStateChanging(DataGridViewElementStates elementState)
+   at System.Windows.Forms.DataGridViewBand.set_Visible(Boolean value)
+   at System.Windows.Forms.DataGridViewRow.set_Visible(Boolean value)
+   at RealtimeSpreadMonitor.Forms.OptionRealtimeMonitor.threadSafeHideUnhideSummaryData(DataGridView gridView, Int32 row, Boolean visible) in D:\RealtimeSpreadWithPythonModel\RealtimeSpreadMonitor\RealtimeSpreadMonitor\Forms\OptionRealtimeMonitor.cs:line 2070
+RealtimeSpreadMonitor.Forms.OptionRealtimeMonitor, Text:   Version:2.0.6136.19939 System.InvalidOperationException: Row associated with the currency manager's position cannot be made invisible.
+   at System.Windows.Forms.DataGridView.OnDataGridViewElementStateChanging(DataGridViewElement element, Int32 index, DataGridViewElementStates elementState)
+   at System.Windows.Forms.DataGridViewBand.OnStateChanging(DataGridViewElementStates elementState)
+   at System.Windows.Forms.DataGridViewBand.set_Visible(Boolean value)
+   at System.Windows.Forms.DataGridViewRow.set_Visible(Boolean value)
+   at RealtimeSpreadMonitor.Forms.OptionRealtimeMonitor.threadSafeHideUnhideSummaryData(DataGridView gridView, Int32 row, Boolean visible) in D:\RealtimeSpreadWithPythonModel\RealtimeSpreadMonitor\RealtimeSpreadMonitor\Forms\OptionRealtimeMonitor.cs:line 2070
+RealtimeSpreadMonitor.Forms.OptionRealtimeMonitor, Text:   Version:2.0.6136.19939 System.InvalidOperationException: Row associated with the currency manager's position cannot be made invisible.
+   at System.Windows.Forms.DataGridView.OnDataGridViewElementStateChanging(DataGridViewElement element, Int32 index, DataGridViewElementStates elementState)
+   at System.Windows.Forms.DataGridViewBand.OnStateChanging(DataGridViewElementStates elementState)
+   at System.Windows.Forms.DataGridViewBand.set_Visible(Boolean value)
+   at System.Windows.Forms.DataGridViewRow.set_Visible(Boolean value)
+   at RealtimeSpreadMonitor.Forms.OptionRealtimeMonitor.threadSafeHideUnhideSummaryData(DataGridView gridView, Int32 row, Boolean visible) in D:\RealtimeSpreadWithPythonModel\RealtimeSpreadMonitor\RealtimeSpreadMonitor\Forms\OptionRealtimeMonitor.cs:line 2070

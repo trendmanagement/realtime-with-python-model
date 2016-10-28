@@ -1,0 +1,5 @@
+RealtimeSpreadMonitor.OptionCQGDataManagement System.ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index
+   at System.ThrowHelper.ThrowArgumentOutOfRangeException(ExceptionArgument argument, ExceptionResource resource)
+   at System.Collections.Generic.List`1.get_Item(Int32 index)
+   at RealtimeSpreadMonitor.OptionCQGDataManagement.sendSubscribeRequestRun(Object obj) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\OptionCQGDataManagement.cs:line 1351

@@ -1,0 +1,40 @@
+1105 test
+0 priceinstrument.optionTickSize0 ticksize 0.1
+1100 test
+0 priceinstrument.optionTickSize0 ticksize 0.1
+1095 test
+0 priceinstrument.optionTickSize0 ticksize 0.1
+1090 test
+0 priceinstrument.optionTickSize0 ticksize 0.1
+1085 test
+0 priceinstrument.optionTickSize0 ticksize 0.1
+1080 test
+0 priceinstrument.optionTickSize0 ticksize 0.1
+1075 test
+0 priceinstrument.optionTickSize0 ticksize 0.1
+1070 test
+0 priceinstrument.optionTickSize0 ticksize 0.1
+1065 test
+0 priceinstrument.optionTickSize0 ticksize 0.1
+1060 test
+0 priceinstrument.optionTickSize0 ticksize 0.1
+1055 test
+0 priceinstrument.optionTickSize0 ticksize 0.1
+1050 test
+0 priceinstrument.optionTickSize0 ticksize 0.1
+1045 test
+0 priceinstrument.optionTickSize0 ticksize 0.1
+1040 test
+0 priceinstrument.optionTickSize0 ticksize 0.1
+1035 test
+0 priceinstrument.optionTickSize0 ticksize 0.1
+1030 test
+0 priceinstrument.optionTickSize0 ticksize 0.1
+1025 test
+0 priceinstrument.optionTickSize0 ticksize 0.1
+1020 test
+0 priceinstrument.optionTickSize0 ticksize 0.1
+1015 test
+0 priceinstrument.optionTickSize0 ticksize 0.1
+1010 test
+0 priceinstrument.optionTickSize0 ticksize 0.1

@@ -1,0 +1,15 @@
+RealtimeSpreadMonitor.ADMDataCommonMethods System.FormatException: Input string was not in a correct format.
+   at System.Number.ParseDouble(String value, NumberStyles options, NumberFormatInfo numfmt)
+   at System.Convert.ToDouble(String value)
+   at RealtimeSpreadMonitor.GMI.GMI_FileRead.FillGMI_Position_RCG(List`1 stringList) in D:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\GMI\GMI_FileRead.cs:line 145
+   at RealtimeSpreadMonitor.ADMDataCommonMethods.readADMDetailedPositionImportWeb(String[] fileNames, List`1 admSummaryFieldsList, ImportFileCheck importFileCheck, Instrument[] instruments) in D:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\ADMDataCommonMethods.cs:line 365
+RealtimeSpreadMonitor.ADMDataCommonMethods System.FormatException: Input string was not in a correct format.
+   at System.Number.ParseDouble(String value, NumberStyles options, NumberFormatInfo numfmt)
+   at System.Convert.ToDouble(String value)
+   at RealtimeSpreadMonitor.GMI.GMI_FileRead.FillGMI_Position_RCG(List`1 stringList) in D:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\GMI\GMI_FileRead.cs:line 145
+   at RealtimeSpreadMonitor.ADMDataCommonMethods.readADMDetailedPositionImportWeb(String[] fileNames, List`1 admSummaryFieldsList, ImportFileCheck importFileCheck, Instrument[] instruments) in D:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\ADMDataCommonMethods.cs:line 365
+RealtimeSpreadMonitor.ADMDataCommonMethods System.FormatException: Input string was not in a correct format.
+   at System.Number.ParseDouble(String value, NumberStyles options, NumberFormatInfo numfmt)
+   at System.Convert.ToDouble(String value)
+   at RealtimeSpreadMonitor.GMI.GMI_FileRead.FillGMI_Position_RCG(List`1 stringList) in D:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\GMI\GMI_FileRead.cs:line 145
+   at RealtimeSpreadMonitor.ADMDataCommonMethods.readADMDetailedPositionImportWeb(String[] fileNames, List`1 admSummaryFieldsList, ImportFileCheck importFileCheck, Instrument[] instruments) in D:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\ADMDataCommonMethods.cs:line 365

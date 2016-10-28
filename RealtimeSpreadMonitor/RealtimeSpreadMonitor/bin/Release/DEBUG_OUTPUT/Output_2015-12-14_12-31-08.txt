@@ -1,0 +1,8 @@
+RealtimeSpreadMonitor.OptionSpreadManager System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.OptionSpreadManager.fillStrategiesAndInstruments() in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\OptionSpreadManager.cs:line 894
+RealtimeSpreadMonitor.Forms.OptionRealtimeMonitor, Text: BUCEPHALUS_NEUTRAL PRI00161  Version:2.0.5826.22525 System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.OptionSpreadManager.rowHeaderLabelCreate(OptionStrategy optionStrategy) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\OptionSpreadManager.cs:line 4710
+   at RealtimeSpreadMonitor.Forms.OptionRealtimeMonitor.setupGridLiveData() in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\Forms\OptionRealtimeMonitor.cs:line 850
+RealtimeSpreadMonitor.Forms.OptionRealtimeMonitor, Text: BUCEPHALUS_NEUTRAL PRI00161  Version:2.0.5826.22525 System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.OptionSpreadManager.rowHeaderLabelCreate(OptionStrategy optionStrategy) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\OptionSpreadManager.cs:line 4710
+   at RealtimeSpreadMonitor.Forms.OptionRealtimeMonitor.setupGridOrders() in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\Forms\OptionRealtimeMonitor.cs:line 2026

@@ -1,0 +1,2 @@
+RealtimeSpreadMonitor.OptionSpreadManager System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.OptionSpreadManager.fillSubstitueEODADMExpressionOptionList() in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\OptionSpreadManager.cs:line 2116

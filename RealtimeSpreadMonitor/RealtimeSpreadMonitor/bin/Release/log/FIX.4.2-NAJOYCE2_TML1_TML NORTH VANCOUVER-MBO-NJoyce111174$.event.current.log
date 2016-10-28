@@ -1,0 +1,274 @@
+20150330-21:43:02.286 : Created session
+20150330-21:43:02.290 : Connecting to 12.41.48.99 on port 10516
+20150330-21:43:02.348 : Connection succeeded
+20150330-21:43:02.366 : Session reset: ResetOnLogon
+20150330-21:43:02.409 : Session reset: ResetSeqNumFlag
+20150330-21:43:02.412 : Initiated logon request
+20150330-21:43:08.060 : Session FIX.4.2:NAJOYCE2/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: System.Net.Sockets.SocketException (0x80004005): An existing connection was forcibly closed by the remote host
+   at QuickFix.SocketInitiatorThread.ReadSome(Byte[] buffer, Int32 timeoutMilliseconds)
+   at QuickFix.SocketInitiatorThread.Read()
+20150330-21:43:08.072 : Session reset: ResetOnDisconnect
+20150330-21:43:08.295 : Connecting to 66.243.69.99 on port 10516
+20150330-21:43:08.371 : Connection succeeded
+20150330-21:43:08.380 : Session reset: ResetOnLogon
+20150330-21:43:08.389 : Session reset: ResetSeqNumFlag
+20150330-21:43:08.390 : Initiated logon request
+20150330-21:43:08.632 : Received logon
+20150330-21:43:20.639 : Initiated logout request
+20150330-21:43:20.724 : Got resend request from 1 to 0
+20150330-21:43:20.727 : Sent SequenceReset TO: 3
+20150330-21:43:25.730 : Session FIX.4.2:NAJOYCE2/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Timed out waiting for logout response
+20150330-21:43:25.743 : Session reset: ResetOnDisconnect
+20150330-21:43:48.145 : Created session
+20150330-21:43:48.147 : Connecting to 12.41.48.99 on port 10516
+20150330-21:43:48.199 : Connection succeeded
+20150330-21:43:48.201 : Session reset: ResetOnLogon
+20150330-21:43:48.203 : Session reset: ResetSeqNumFlag
+20150330-21:43:48.203 : Initiated logon request
+20150330-21:43:50.321 : Received logon
+20150330-21:54:06.607 : Initiated logout request
+20150330-21:54:06.676 : Received logout response
+20150330-21:54:06.676 : Session FIX.4.2:NAJOYCE2/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout response
+20150330-21:54:06.684 : Session reset: ResetOnDisconnect
+20150331-19:30:15.312 : Session FIX.4.2:NAJOYCE2/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ already disconnected: Resetting...
+20150331-19:30:15.315 : Session reset: New session
+20150331-19:30:15.316 : Created session
+20150331-19:30:15.320 : Connecting to 12.41.48.99 on port 10516
+20150331-19:30:15.392 : Connection succeeded
+20150331-19:30:15.408 : Session reset: ResetOnLogon
+20150331-19:30:15.428 : Session reset: ResetSeqNumFlag
+20150331-19:30:15.430 : Initiated logon request
+20150331-19:30:15.629 : Received logon
+20150331-20:03:36.679 : Initiated logout request
+20150331-20:03:36.738 : Received logout response
+20150331-20:03:36.738 : Session FIX.4.2:NAJOYCE2/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout response
+20150331-20:03:36.746 : Session reset: ResetOnDisconnect
+20150331-20:05:35.899 : Created session
+20150331-20:05:35.902 : Connecting to 12.41.48.99 on port 10516
+20150331-20:05:35.957 : Connection succeeded
+20150331-20:05:35.970 : Session reset: ResetOnLogon
+20150331-20:05:35.986 : Session reset: ResetSeqNumFlag
+20150331-20:05:35.988 : Initiated logon request
+20150331-20:05:36.213 : Received logon
+20150331-20:06:25.280 : Initiated logout request
+20150331-20:06:25.338 : Received logout response
+20150331-20:06:25.338 : Session FIX.4.2:NAJOYCE2/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout response
+20150331-20:06:25.344 : Session reset: ResetOnDisconnect
+20150331-20:06:29.053 : Created session
+20150331-20:06:29.055 : Connecting to 66.243.69.99 on port 10516
+20150331-20:06:29.136 : Connection succeeded
+20150331-20:06:29.141 : Session reset: ResetOnLogon
+20150331-20:06:29.145 : Session reset: ResetSeqNumFlag
+20150331-20:06:29.146 : Initiated logon request
+20150331-20:06:29.341 : Received logon
+20150331-20:07:17.305 : Initiated logout request
+20150331-20:07:17.385 : Received logout response
+20150331-20:07:17.385 : Session FIX.4.2:NAJOYCE2/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout response
+20150331-20:07:17.391 : Session reset: ResetOnDisconnect
+20150331-20:08:02.661 : Created session
+20150331-20:08:02.662 : Connecting to 12.41.48.99 on port 10516
+20150331-20:08:02.716 : Connection succeeded
+20150331-20:08:02.718 : Session reset: ResetOnLogon
+20150331-20:08:02.721 : Session reset: ResetSeqNumFlag
+20150331-20:08:02.721 : Initiated logon request
+20150331-20:08:04.850 : Received logon
+20150331-20:16:21.713 : Initiated logout request
+20150331-20:16:21.773 : Received logout response
+20150331-20:16:21.773 : Session FIX.4.2:NAJOYCE2/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout response
+20150331-20:16:21.811 : Session reset: ResetOnDisconnect
+20150331-20:16:23.195 : Created session
+20150331-20:16:23.196 : Connecting to 66.243.69.99 on port 10516
+20150331-20:16:26.825 : Connection succeeded
+20150331-20:16:26.828 : Session reset: ResetOnLogon
+20150331-20:16:26.830 : Session reset: ResetSeqNumFlag
+20150331-20:16:26.830 : Initiated logon request
+20150331-20:16:27.826 : Connecting to 12.41.48.99 on port 10516
+20150331-20:16:27.886 : Connection succeeded
+20150331-20:16:28.780 : Received logon
+20150331-20:16:57.961 : Session FIX.4.2:NAJOYCE2/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: System.Net.Sockets.SocketException (0x80004005): An existing connection was forcibly closed by the remote host
+   at QuickFix.SocketInitiatorThread.ReadSome(Byte[] buffer, Int32 timeoutMilliseconds)
+   at QuickFix.SocketInitiatorThread.Read()
+20150331-20:16:57.981 : Session reset: ResetOnDisconnect
+20150331-20:16:59.847 : Connecting to 66.243.69.99 on port 10516
+20150331-20:16:59.925 : Connection succeeded
+20150331-20:16:59.931 : Session reset: ResetOnLogon
+20150331-20:16:59.937 : Session reset: ResetSeqNumFlag
+20150331-20:16:59.937 : Initiated logon request
+20150331-20:17:00.158 : Session FIX.4.2:NAJOYCE2/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: System.Net.Sockets.SocketException (0x80004005): An existing connection was forcibly closed by the remote host
+   at QuickFix.SocketInitiatorThread.ReadSome(Byte[] buffer, Int32 timeoutMilliseconds)
+   at QuickFix.SocketInitiatorThread.Read()
+20150331-20:17:00.182 : Session reset: ResetOnDisconnect
+20150331-20:17:01.848 : Connecting to 12.41.48.99 on port 10516
+20150331-20:17:01.908 : Connection succeeded
+20150331-20:17:01.913 : Session reset: ResetOnLogon
+20150331-20:17:01.918 : Session reset: ResetSeqNumFlag
+20150331-20:17:01.918 : Initiated logon request
+20150331-20:17:02.108 : Received logon
+20150331-20:17:08.781 : MsgSeqNum too high, expecting 2 but received 4
+20150331-20:17:08.785 : Sent ResendRequest FROM: 2 TO: 0
+20150331-20:17:10.354 : ResendRequest for messages FROM: 2 TO: 0 has been satisfied.
+20150331-20:17:38.781 : MsgSeqNum too high, expecting 3 but received 5
+20150331-20:17:38.782 : Sent ResendRequest FROM: 3 TO: 0
+20150331-20:17:40.356 : ResendRequest for messages FROM: 3 TO: 0 has been satisfied.
+20150331-20:17:40.356 : Processing queued message: 4
+20150331-20:17:40.357 : Processing queued message: 5
+20150331-20:17:44.360 : Initiated logout request
+20150331-20:17:44.426 : Received logout response
+20150331-20:17:44.426 : Session FIX.4.2:NAJOYCE2/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout response
+20150331-20:17:44.450 : Session reset: ResetOnDisconnect
+20150331-20:18:25.380 : Created session
+20150331-20:18:25.383 : Connecting to 12.41.48.99 on port 10516
+20150331-20:18:25.442 : Connection succeeded
+20150331-20:18:25.455 : Session reset: ResetOnLogon
+20150331-20:18:25.494 : Session reset: ResetSeqNumFlag
+20150331-20:18:25.496 : Initiated logon request
+20150331-20:18:27.831 : Received logon
+20150331-20:22:46.193 : Initiated logout request
+20150331-20:22:46.255 : Received logout response
+20150331-20:22:46.257 : Session FIX.4.2:NAJOYCE2/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout response
+20150331-20:22:46.283 : Session reset: ResetOnDisconnect
+20150331-20:22:49.129 : Created session
+20150331-20:22:49.130 : Connecting to 66.243.69.99 on port 10516
+20150331-20:22:49.208 : Connection succeeded
+20150331-20:22:49.210 : Session reset: ResetOnLogon
+20150331-20:22:49.213 : Session reset: ResetSeqNumFlag
+20150331-20:22:49.213 : Initiated logon request
+20150331-20:22:49.410 : Received logon
+20150331-20:23:18.006 : Initiated logout request
+20150331-20:23:18.088 : Received logout response
+20150331-20:23:18.088 : Session FIX.4.2:NAJOYCE2/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout response
+20150331-20:23:18.094 : Session reset: ResetOnDisconnect
+20150331-20:54:22.016 : Created session
+20150331-20:54:22.021 : Connecting to 12.41.48.99 on port 10516
+20150331-20:54:22.075 : Connection succeeded
+20150331-20:54:22.146 : Session reset: ResetOnLogon
+20150331-20:54:22.182 : Session reset: ResetSeqNumFlag
+20150331-20:54:22.186 : Initiated logon request
+20150331-20:54:22.409 : Received logon
+20150331-21:23:38.031 : Created session
+20150331-21:23:38.034 : Connecting to 12.41.48.99 on port 10516
+20150331-21:23:38.095 : Connection succeeded
+20150331-21:23:38.108 : Session reset: ResetOnLogon
+20150331-21:23:38.124 : Session reset: ResetSeqNumFlag
+20150331-21:23:38.125 : Initiated logon request
+20150331-21:23:38.322 : Received logon
+20150331-21:24:03.206 : Initiated logout request
+20150331-21:24:03.286 : Received logout response
+20150331-21:24:03.287 : Session FIX.4.2:NAJOYCE2/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout response
+20150331-21:24:03.322 : Session reset: ResetOnDisconnect
+20150401-15:23:04.938 : Session FIX.4.2:NAJOYCE2/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ already disconnected: Resetting...
+20150401-15:23:04.942 : Session reset: New session
+20150401-15:23:04.942 : Created session
+20150401-15:23:04.947 : Connecting to 12.41.48.99 on port 10516
+20150401-15:23:05.028 : Connection succeeded
+20150401-15:23:05.041 : Session reset: ResetOnLogon
+20150401-15:23:05.056 : Session reset: ResetSeqNumFlag
+20150401-15:23:05.058 : Initiated logon request
+20150401-15:23:10.728 : Received logon
+20150401-17:14:48.793 : Created session
+20150401-17:14:48.797 : Connecting to 12.41.48.99 on port 10516
+20150401-17:14:48.861 : Connection succeeded
+20150401-17:14:48.874 : Session reset: ResetOnLogon
+20150401-17:14:48.890 : Session reset: ResetSeqNumFlag
+20150401-17:14:48.891 : Initiated logon request
+20150401-17:14:49.148 : Received logon
+20150401-17:21:21.055 : Initiated logout request
+20150401-17:21:21.131 : Received logout response
+20150401-17:21:21.132 : Session FIX.4.2:NAJOYCE2/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout response
+20150401-17:21:21.161 : Session reset: ResetOnDisconnect
+20150410-17:38:40.244 : Session FIX.4.2:NAJOYCE2/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ already disconnected: Resetting...
+20150410-17:38:40.253 : Session reset: New session
+20150410-17:38:40.254 : Created session
+20150410-17:38:40.258 : Connecting to 12.41.48.99 on port 10516
+20150410-17:38:40.317 : Connection succeeded
+20150410-17:38:40.384 : Session reset: ResetOnLogon
+20150410-17:38:40.433 : Session reset: ResetSeqNumFlag
+20150410-17:38:40.454 : Initiated logon request
+20150410-17:38:42.948 : Session FIX.4.2:NAJOYCE2/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: System.Net.Sockets.SocketException (0x80004005): An existing connection was forcibly closed by the remote host
+   at QuickFix.SocketInitiatorThread.ReadSome(Byte[] buffer, Int32 timeoutMilliseconds)
+   at QuickFix.SocketInitiatorThread.Read()
+20150410-17:38:42.963 : Session reset: ResetOnDisconnect
+20150410-17:38:44.262 : Connecting to 66.243.69.99 on port 10516
+20150410-17:38:44.351 : Connection succeeded
+20150410-17:38:44.357 : Session reset: ResetOnLogon
+20150410-17:38:44.365 : Session reset: ResetSeqNumFlag
+20150410-17:38:44.366 : Initiated logon request
+20150410-17:38:44.611 : Received logon
+20150410-17:38:49.430 : Initiated logout request
+20150410-17:38:49.513 : Received logout response
+20150410-17:38:49.513 : Session FIX.4.2:NAJOYCE2/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout response
+20150410-17:38:49.521 : Session reset: ResetOnDisconnect
+20150417-20:43:58.422 : Session FIX.4.2:NAJOYCE2/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ already disconnected: Resetting...
+20150417-20:43:58.439 : Session reset: New session
+20150417-20:43:58.440 : Created session
+20150417-20:43:58.444 : Connecting to 12.41.48.99 on port 10516
+20150417-20:43:58.514 : Connection succeeded
+20150417-20:43:58.569 : Session reset: ResetOnLogon
+20150417-20:43:58.615 : Session reset: ResetSeqNumFlag
+20150417-20:43:58.671 : Initiated logon request
+20150417-20:43:58.886 : Session FIX.4.2:NAJOYCE2/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: System.Net.Sockets.SocketException (0x80004005): An existing connection was forcibly closed by the remote host
+   at QuickFix.SocketInitiatorThread.ReadSome(Byte[] buffer, Int32 timeoutMilliseconds)
+   at QuickFix.SocketInitiatorThread.Read()
+20150417-20:43:58.910 : Session reset: ResetOnDisconnect
+20150417-20:44:00.447 : Connecting to 66.243.69.99 on port 10516
+20150417-20:44:00.538 : Connection succeeded
+20150417-20:44:00.546 : Session reset: ResetOnLogon
+20150417-20:44:00.554 : Session reset: ResetSeqNumFlag
+20150417-20:44:00.555 : Initiated logon request
+20150417-20:44:00.818 : Received logon
+20150417-21:24:20.132 : Created session
+20150417-21:24:20.136 : Connecting to 12.41.48.99 on port 10516
+20150417-21:24:20.194 : Connection succeeded
+20150417-21:24:20.230 : Session reset: ResetOnLogon
+20150417-21:24:20.262 : Session reset: ResetSeqNumFlag
+20150417-21:24:20.263 : Initiated logon request
+20150417-21:24:20.470 : Session FIX.4.2:NAJOYCE2/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: System.Net.Sockets.SocketException (0x80004005): An existing connection was forcibly closed by the remote host
+   at QuickFix.SocketInitiatorThread.ReadSome(Byte[] buffer, Int32 timeoutMilliseconds)
+   at QuickFix.SocketInitiatorThread.Read()
+20150417-21:24:20.494 : Session reset: ResetOnDisconnect
+20150417-21:24:22.139 : Connecting to 66.243.69.99 on port 10516
+20150417-21:24:22.220 : Connection succeeded
+20150417-21:24:22.228 : Session reset: ResetOnLogon
+20150417-21:24:22.235 : Session reset: ResetSeqNumFlag
+20150417-21:24:22.236 : Initiated logon request
+20150417-21:24:22.478 : Received logon
+20150417-21:31:17.489 : Created session
+20150417-21:31:17.493 : Connecting to 12.41.48.99 on port 10516
+20150417-21:31:17.554 : Connection succeeded
+20150417-21:31:17.585 : Session reset: ResetOnLogon
+20150417-21:31:17.606 : Session reset: ResetSeqNumFlag
+20150417-21:31:17.608 : Initiated logon request
+20150417-21:31:17.826 : Session FIX.4.2:NAJOYCE2/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: System.Net.Sockets.SocketException (0x80004005): An existing connection was forcibly closed by the remote host
+   at QuickFix.SocketInitiatorThread.ReadSome(Byte[] buffer, Int32 timeoutMilliseconds)
+   at QuickFix.SocketInitiatorThread.Read()
+20150417-21:31:17.849 : Session reset: ResetOnDisconnect
+20150417-21:31:19.495 : Connecting to 66.243.69.99 on port 10516
+20150417-21:31:19.578 : Connection succeeded
+20150417-21:31:19.612 : Session reset: ResetOnLogon
+20150417-21:31:19.620 : Session reset: ResetSeqNumFlag
+20150417-21:31:19.621 : Initiated logon request
+20150417-21:31:19.850 : Received logon
+20150417-21:31:21.854 : Initiated logout request
+20150417-21:31:21.937 : Received logout response
+20150417-21:31:21.937 : Session FIX.4.2:NAJOYCE2/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout response
+20150417-21:31:21.961 : Session reset: ResetOnDisconnect
+20150417-21:32:46.528 : Created session
+20150417-21:32:46.532 : Connecting to 12.41.48.99 on port 10516
+20150417-21:32:46.590 : Connection succeeded
+20150417-21:32:46.619 : Session reset: ResetOnLogon
+20150417-21:32:46.645 : Session reset: ResetSeqNumFlag
+20150417-21:32:46.648 : Initiated logon request
+20150417-21:32:46.859 : Session FIX.4.2:NAJOYCE2/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: System.Net.Sockets.SocketException (0x80004005): An existing connection was forcibly closed by the remote host
+   at QuickFix.SocketInitiatorThread.ReadSome(Byte[] buffer, Int32 timeoutMilliseconds)
+   at QuickFix.SocketInitiatorThread.Read()
+20150417-21:32:46.875 : Session reset: ResetOnDisconnect
+20150417-21:32:48.534 : Connecting to 66.243.69.99 on port 10516
+20150417-21:32:48.616 : Connection succeeded
+20150417-21:32:48.619 : Session reset: ResetOnLogon
+20150417-21:32:48.621 : Session reset: ResetSeqNumFlag
+20150417-21:32:48.621 : Initiated logon request
+20150417-21:32:48.944 : Received logon
+20150417-21:32:53.950 : Initiated logout request
+20150417-21:32:54.031 : Received logout response
+20150417-21:32:54.032 : Session FIX.4.2:NAJOYCE2/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout response
+20150417-21:32:54.047 : Session reset: ResetOnDisconnect

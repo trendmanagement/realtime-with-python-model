@@ -1,0 +1,2 @@
+RealtimeSpreadMonitor.Forms.InitializationForm, Text: OPTIONS REALTIME System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.Forms.InitializationForm.btnRunSystem_Click(Object sender, EventArgs e) in D:\RealtimeSpreadWithPythonModel\RealtimeSpreadMonitor\RealtimeSpreadMonitor\Forms\InitializationForm.cs:line 66

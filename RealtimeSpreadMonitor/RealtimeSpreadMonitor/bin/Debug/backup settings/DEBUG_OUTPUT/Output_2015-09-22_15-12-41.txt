@@ -1,0 +1,40 @@
+1105 test
+22.4514120326475 priceinstrument.optionTickSize224.514120326475 ticksize 0.1
+1100 test
+20.4273001044019 priceinstrument.optionTickSize204.273001044019 ticksize 0.1
+1095 test
+18.528420752683 priceinstrument.optionTickSize185.28420752683 ticksize 0.1
+1090 test
+16.752849174276 priceinstrument.optionTickSize167.52849174276 ticksize 0.1
+1085 test
+15.0981660555677 priceinstrument.optionTickSize150.981660555677 ticksize 0.1
+1080 test
+13.5614787480897 priceinstrument.optionTickSize135.614787480897 ticksize 0.1
+1075 test
+12.139449285782 priceinstrument.optionTickSize121.39449285782 ticksize 0.1
+1070 test
+10.8283285860887 priceinstrument.optionTickSize108.283285860887 ticksize 0.1
+1065 test
+9.62399607347385 priceinstrument.optionTickSize96.2399607347385 ticksize 0.1
+1060 test
+8.5220038748065 priceinstrument.optionTickSize85.220038748065 ticksize 0.1
+1055 test
+7.51762466449463 priceinstrument.optionTickSize75.1762466449463 ticksize 0.1
+1050 test
+6.60590218586557 priceinstrument.optionTickSize66.0590218586557 ticksize 0.1
+1045 test
+5.78170344610334 priceinstrument.optionTickSize57.8170344610334 ticksize 0.1
+1040 test
+5.03977157631499 priceinstrument.optionTickSize50.3977157631499 ticksize 0.1
+1035 test
+4.37477836649833 priceinstrument.optionTickSize43.7477836649833 ticksize 0.1
+1030 test
+3.78137552693242 priceinstrument.optionTickSize37.8137552693242 ticksize 0.1
+1025 test
+3.25424379161397 priceinstrument.optionTickSize32.5424379161397 ticksize 0.1
+1020 test
+2.78813906379879 priceinstrument.optionTickSize27.8813906379879 ticksize 0.1
+1015 test
+2.37793490572781 priceinstrument.optionTickSize23.7793490572781 ticksize 0.1
+1010 test
+2.01866079087822 priceinstrument.optionTickSize20.1866079087822 ticksize 0.1

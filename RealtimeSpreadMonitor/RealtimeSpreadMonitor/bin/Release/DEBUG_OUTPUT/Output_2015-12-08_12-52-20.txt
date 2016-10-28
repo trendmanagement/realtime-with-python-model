@@ -1,0 +1,210 @@
+0,5,JAN 16 CBT SOYBEANS           , orderLots ,-2, noOrderContracts, -2, multiple, 1, webPos, 0
+0,7,JAN 16 CBT SOYBEANS           , orderLots ,1, noOrderContracts, 1, multiple, 1, webPos, 0
+RealtimeSpreadMonitor.FormManipulation.ModelADMCompareCalculationAndDisplay System.Collections.Generic.KeyNotFoundException: The given key was not present in the dictionary.
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at RealtimeSpreadMonitor.FormManipulation.ModelADMCompareCalculationAndDisplay.threadSafeFillGridModelADMComparison(OptionRealtimeMonitor optionRealtimeMonitor) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\FormManipulation\ModelADMCompareCalculationAndDisplay.cs:line 413
+0,5,JAN 16 CBT SOYBEANS           , orderLots ,-2, noOrderContracts, -2, multiple, 1, webPos, 0
+0,7,JAN 16 CBT SOYBEANS           , orderLots ,1, noOrderContracts, 1, multiple, 1, webPos, 0
+RealtimeSpreadMonitor.FormManipulation.ModelADMCompareCalculationAndDisplay System.Collections.Generic.KeyNotFoundException: The given key was not present in the dictionary.
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at RealtimeSpreadMonitor.FormManipulation.ModelADMCompareCalculationAndDisplay.threadSafeFillGridModelADMComparison(OptionRealtimeMonitor optionRealtimeMonitor) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\FormManipulation\ModelADMCompareCalculationAndDisplay.cs:line 413
+0,5,JAN 16 CBT SOYBEANS           , orderLots ,-2, noOrderContracts, -2, multiple, 1, webPos, 0
+0,7,JAN 16 CBT SOYBEANS           , orderLots ,1, noOrderContracts, 1, multiple, 1, webPos, 0
+RealtimeSpreadMonitor.FormManipulation.ModelADMCompareCalculationAndDisplay System.Collections.Generic.KeyNotFoundException: The given key was not present in the dictionary.
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at RealtimeSpreadMonitor.FormManipulation.ModelADMCompareCalculationAndDisplay.threadSafeFillGridModelADMComparison(OptionRealtimeMonitor optionRealtimeMonitor) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\FormManipulation\ModelADMCompareCalculationAndDisplay.cs:line 413
+0,5,JAN 16 CBT SOYBEANS           , orderLots ,-2, noOrderContracts, -2, multiple, 1, webPos, 0
+0,7,JAN 16 CBT SOYBEANS           , orderLots ,1, noOrderContracts, 1, multiple, 1, webPos, 0
+RealtimeSpreadMonitor.FormManipulation.ModelADMCompareCalculationAndDisplay System.Collections.Generic.KeyNotFoundException: The given key was not present in the dictionary.
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at RealtimeSpreadMonitor.FormManipulation.ModelADMCompareCalculationAndDisplay.threadSafeFillGridModelADMComparison(OptionRealtimeMonitor optionRealtimeMonitor) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\FormManipulation\ModelADMCompareCalculationAndDisplay.cs:line 413
+0,5,JAN 16 CBT SOYBEANS           , orderLots ,-2, noOrderContracts, -2, multiple, 1, webPos, 0
+0,7,JAN 16 CBT SOYBEANS           , orderLots ,1, noOrderContracts, 1, multiple, 1, webPos, 0
+RealtimeSpreadMonitor.FormManipulation.ModelADMCompareCalculationAndDisplay System.Collections.Generic.KeyNotFoundException: The given key was not present in the dictionary.
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at RealtimeSpreadMonitor.FormManipulation.ModelADMCompareCalculationAndDisplay.threadSafeFillGridModelADMComparison(OptionRealtimeMonitor optionRealtimeMonitor) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\FormManipulation\ModelADMCompareCalculationAndDisplay.cs:line 413
+0,5,JAN 16 CBT SOYBEANS           , orderLots ,-2, noOrderContracts, -2, multiple, 1, webPos, 0
+0,7,JAN 16 CBT SOYBEANS           , orderLots ,1, noOrderContracts, 1, multiple, 1, webPos, 0
+RealtimeSpreadMonitor.FormManipulation.ModelADMCompareCalculationAndDisplay System.Collections.Generic.KeyNotFoundException: The given key was not present in the dictionary.
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at RealtimeSpreadMonitor.FormManipulation.ModelADMCompareCalculationAndDisplay.threadSafeFillGridModelADMComparison(OptionRealtimeMonitor optionRealtimeMonitor) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\FormManipulation\ModelADMCompareCalculationAndDisplay.cs:line 413
+0,5,JAN 16 CBT SOYBEANS           , orderLots ,-2, noOrderContracts, -2, multiple, 1, webPos, 0
+0,7,JAN 16 CBT SOYBEANS           , orderLots ,1, noOrderContracts, 1, multiple, 1, webPos, 0
+RealtimeSpreadMonitor.FormManipulation.ModelADMCompareCalculationAndDisplay System.Collections.Generic.KeyNotFoundException: The given key was not present in the dictionary.
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at RealtimeSpreadMonitor.FormManipulation.ModelADMCompareCalculationAndDisplay.threadSafeFillGridModelADMComparison(OptionRealtimeMonitor optionRealtimeMonitor) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\FormManipulation\ModelADMCompareCalculationAndDisplay.cs:line 413
+0,5,JAN 16 CBT SOYBEANS           , orderLots ,-2, noOrderContracts, -2, multiple, 1, webPos, 0
+0,7,JAN 16 CBT SOYBEANS           , orderLots ,1, noOrderContracts, 1, multiple, 1, webPos, 0
+RealtimeSpreadMonitor.FormManipulation.ModelADMCompareCalculationAndDisplay System.Collections.Generic.KeyNotFoundException: The given key was not present in the dictionary.
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at RealtimeSpreadMonitor.FormManipulation.ModelADMCompareCalculationAndDisplay.threadSafeFillGridModelADMComparison(OptionRealtimeMonitor optionRealtimeMonitor) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\FormManipulation\ModelADMCompareCalculationAndDisplay.cs:line 413
+0,5,JAN 16 CBT SOYBEANS           , orderLots ,-2, noOrderContracts, -2, multiple, 1, webPos, 0
+0,7,JAN 16 CBT SOYBEANS           , orderLots ,1, noOrderContracts, 1, multiple, 1, webPos, 0
+RealtimeSpreadMonitor.FormManipulation.ModelADMCompareCalculationAndDisplay System.Collections.Generic.KeyNotFoundException: The given key was not present in the dictionary.
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at RealtimeSpreadMonitor.FormManipulation.ModelADMCompareCalculationAndDisplay.threadSafeFillGridModelADMComparison(OptionRealtimeMonitor optionRealtimeMonitor) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\FormManipulation\ModelADMCompareCalculationAndDisplay.cs:line 413
+0,5,JAN 16 CBT SOYBEANS           , orderLots ,-2, noOrderContracts, -2, multiple, 1, webPos, 0
+0,7,JAN 16 CBT SOYBEANS           , orderLots ,1, noOrderContracts, 1, multiple, 1, webPos, 0
+RealtimeSpreadMonitor.FormManipulation.ModelADMCompareCalculationAndDisplay System.Collections.Generic.KeyNotFoundException: The given key was not present in the dictionary.
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at RealtimeSpreadMonitor.FormManipulation.ModelADMCompareCalculationAndDisplay.threadSafeFillGridModelADMComparison(OptionRealtimeMonitor optionRealtimeMonitor) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\FormManipulation\ModelADMCompareCalculationAndDisplay.cs:line 413
+0,5,JAN 16 CBT SOYBEANS           , orderLots ,-2, noOrderContracts, -2, multiple, 1, webPos, 0
+0,7,JAN 16 CBT SOYBEANS           , orderLots ,1, noOrderContracts, 1, multiple, 1, webPos, 0
+RealtimeSpreadMonitor.FormManipulation.ModelADMCompareCalculationAndDisplay System.Collections.Generic.KeyNotFoundException: The given key was not present in the dictionary.
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at RealtimeSpreadMonitor.FormManipulation.ModelADMCompareCalculationAndDisplay.threadSafeFillGridModelADMComparison(OptionRealtimeMonitor optionRealtimeMonitor) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\FormManipulation\ModelADMCompareCalculationAndDisplay.cs:line 413
+0,5,JAN 16 CBT SOYBEANS           , orderLots ,-2, noOrderContracts, -2, multiple, 1, webPos, 0
+0,7,JAN 16 CBT SOYBEANS           , orderLots ,1, noOrderContracts, 1, multiple, 1, webPos, 0
+RealtimeSpreadMonitor.FormManipulation.ModelADMCompareCalculationAndDisplay System.Collections.Generic.KeyNotFoundException: The given key was not present in the dictionary.
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at RealtimeSpreadMonitor.FormManipulation.ModelADMCompareCalculationAndDisplay.threadSafeFillGridModelADMComparison(OptionRealtimeMonitor optionRealtimeMonitor) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\FormManipulation\ModelADMCompareCalculationAndDisplay.cs:line 413
+0,5,JAN 16 CBT SOYBEANS           , orderLots ,-2, noOrderContracts, -2, multiple, 1, webPos, 0
+0,7,JAN 16 CBT SOYBEANS           , orderLots ,1, noOrderContracts, 1, multiple, 1, webPos, 0
+RealtimeSpreadMonitor.FormManipulation.ModelADMCompareCalculationAndDisplay System.Collections.Generic.KeyNotFoundException: The given key was not present in the dictionary.
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at RealtimeSpreadMonitor.FormManipulation.ModelADMCompareCalculationAndDisplay.threadSafeFillGridModelADMComparison(OptionRealtimeMonitor optionRealtimeMonitor) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\FormManipulation\ModelADMCompareCalculationAndDisplay.cs:line 413
+0,5,JAN 16 CBT SOYBEANS           , orderLots ,-2, noOrderContracts, -2, multiple, 1, webPos, 0
+0,7,JAN 16 CBT SOYBEANS           , orderLots ,1, noOrderContracts, 1, multiple, 1, webPos, 0
+RealtimeSpreadMonitor.FormManipulation.ModelADMCompareCalculationAndDisplay System.Collections.Generic.KeyNotFoundException: The given key was not present in the dictionary.
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at RealtimeSpreadMonitor.FormManipulation.ModelADMCompareCalculationAndDisplay.threadSafeFillGridModelADMComparison(OptionRealtimeMonitor optionRealtimeMonitor) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\FormManipulation\ModelADMCompareCalculationAndDisplay.cs:line 413
+0,5,JAN 16 CBT SOYBEANS           , orderLots ,-2, noOrderContracts, -2, multiple, 1, webPos, 0
+0,7,JAN 16 CBT SOYBEANS           , orderLots ,1, noOrderContracts, 1, multiple, 1, webPos, 0
+RealtimeSpreadMonitor.FormManipulation.ModelADMCompareCalculationAndDisplay System.Collections.Generic.KeyNotFoundException: The given key was not present in the dictionary.
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at RealtimeSpreadMonitor.FormManipulation.ModelADMCompareCalculationAndDisplay.threadSafeFillGridModelADMComparison(OptionRealtimeMonitor optionRealtimeMonitor) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\FormManipulation\ModelADMCompareCalculationAndDisplay.cs:line 413
+0,5,JAN 16 CBT SOYBEANS           , orderLots ,-2, noOrderContracts, -2, multiple, 1, webPos, 0
+0,7,JAN 16 CBT SOYBEANS           , orderLots ,1, noOrderContracts, 1, multiple, 1, webPos, 0
+RealtimeSpreadMonitor.FormManipulation.ModelADMCompareCalculationAndDisplay System.Collections.Generic.KeyNotFoundException: The given key was not present in the dictionary.
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at RealtimeSpreadMonitor.FormManipulation.ModelADMCompareCalculationAndDisplay.threadSafeFillGridModelADMComparison(OptionRealtimeMonitor optionRealtimeMonitor) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\FormManipulation\ModelADMCompareCalculationAndDisplay.cs:line 413
+0,5,JAN 16 CBT SOYBEANS           , orderLots ,-2, noOrderContracts, -2, multiple, 1, webPos, 0
+0,7,JAN 16 CBT SOYBEANS           , orderLots ,1, noOrderContracts, 1, multiple, 1, webPos, 0
+RealtimeSpreadMonitor.FormManipulation.ModelADMCompareCalculationAndDisplay System.Collections.Generic.KeyNotFoundException: The given key was not present in the dictionary.
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at RealtimeSpreadMonitor.FormManipulation.ModelADMCompareCalculationAndDisplay.threadSafeFillGridModelADMComparison(OptionRealtimeMonitor optionRealtimeMonitor) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\FormManipulation\ModelADMCompareCalculationAndDisplay.cs:line 413
+0,5,JAN 16 CBT SOYBEANS           , orderLots ,-2, noOrderContracts, -2, multiple, 1, webPos, 0
+0,7,JAN 16 CBT SOYBEANS           , orderLots ,1, noOrderContracts, 1, multiple, 1, webPos, 0
+RealtimeSpreadMonitor.FormManipulation.ModelADMCompareCalculationAndDisplay System.Collections.Generic.KeyNotFoundException: The given key was not present in the dictionary.
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at RealtimeSpreadMonitor.FormManipulation.ModelADMCompareCalculationAndDisplay.threadSafeFillGridModelADMComparison(OptionRealtimeMonitor optionRealtimeMonitor) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\FormManipulation\ModelADMCompareCalculationAndDisplay.cs:line 413
+0,5,JAN 16 CBT SOYBEANS           , orderLots ,-2, noOrderContracts, -2, multiple, 1, webPos, 0
+0,7,JAN 16 CBT SOYBEANS           , orderLots ,1, noOrderContracts, 1, multiple, 1, webPos, 0
+RealtimeSpreadMonitor.FormManipulation.ModelADMCompareCalculationAndDisplay System.Collections.Generic.KeyNotFoundException: The given key was not present in the dictionary.
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at RealtimeSpreadMonitor.FormManipulation.ModelADMCompareCalculationAndDisplay.threadSafeFillGridModelADMComparison(OptionRealtimeMonitor optionRealtimeMonitor) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\FormManipulation\ModelADMCompareCalculationAndDisplay.cs:line 413
+0,5,JAN 16 CBT SOYBEANS           , orderLots ,-2, noOrderContracts, -2, multiple, 1, webPos, 0
+0,7,JAN 16 CBT SOYBEANS           , orderLots ,1, noOrderContracts, 1, multiple, 1, webPos, 0
+RealtimeSpreadMonitor.FormManipulation.ModelADMCompareCalculationAndDisplay System.Collections.Generic.KeyNotFoundException: The given key was not present in the dictionary.
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at RealtimeSpreadMonitor.FormManipulation.ModelADMCompareCalculationAndDisplay.threadSafeFillGridModelADMComparison(OptionRealtimeMonitor optionRealtimeMonitor) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\FormManipulation\ModelADMCompareCalculationAndDisplay.cs:line 413
+0,5,JAN 16 CBT SOYBEANS           , orderLots ,-2, noOrderContracts, -2, multiple, 1, webPos, 0
+0,7,JAN 16 CBT SOYBEANS           , orderLots ,1, noOrderContracts, 1, multiple, 1, webPos, 0
+RealtimeSpreadMonitor.FormManipulation.ModelADMCompareCalculationAndDisplay System.Collections.Generic.KeyNotFoundException: The given key was not present in the dictionary.
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at RealtimeSpreadMonitor.FormManipulation.ModelADMCompareCalculationAndDisplay.threadSafeFillGridModelADMComparison(OptionRealtimeMonitor optionRealtimeMonitor) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\FormManipulation\ModelADMCompareCalculationAndDisplay.cs:line 413
+0,5,JAN 16 CBT SOYBEANS           , orderLots ,-2, noOrderContracts, -2, multiple, 1, webPos, 0
+0,7,JAN 16 CBT SOYBEANS           , orderLots ,1, noOrderContracts, 1, multiple, 1, webPos, 0
+RealtimeSpreadMonitor.FormManipulation.ModelADMCompareCalculationAndDisplay System.Collections.Generic.KeyNotFoundException: The given key was not present in the dictionary.
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at RealtimeSpreadMonitor.FormManipulation.ModelADMCompareCalculationAndDisplay.threadSafeFillGridModelADMComparison(OptionRealtimeMonitor optionRealtimeMonitor) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\FormManipulation\ModelADMCompareCalculationAndDisplay.cs:line 413
+0,5,JAN 16 CBT SOYBEANS           , orderLots ,-2, noOrderContracts, -2, multiple, 1, webPos, 0
+0,7,JAN 16 CBT SOYBEANS           , orderLots ,1, noOrderContracts, 1, multiple, 1, webPos, 0
+RealtimeSpreadMonitor.FormManipulation.ModelADMCompareCalculationAndDisplay System.Collections.Generic.KeyNotFoundException: The given key was not present in the dictionary.
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at RealtimeSpreadMonitor.FormManipulation.ModelADMCompareCalculationAndDisplay.threadSafeFillGridModelADMComparison(OptionRealtimeMonitor optionRealtimeMonitor) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\FormManipulation\ModelADMCompareCalculationAndDisplay.cs:line 413
+0,5,JAN 16 CBT SOYBEANS           , orderLots ,-2, noOrderContracts, -2, multiple, 1, webPos, 0
+0,7,JAN 16 CBT SOYBEANS           , orderLots ,1, noOrderContracts, 1, multiple, 1, webPos, 0
+RealtimeSpreadMonitor.FormManipulation.ModelADMCompareCalculationAndDisplay System.Collections.Generic.KeyNotFoundException: The given key was not present in the dictionary.
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at RealtimeSpreadMonitor.FormManipulation.ModelADMCompareCalculationAndDisplay.threadSafeFillGridModelADMComparison(OptionRealtimeMonitor optionRealtimeMonitor) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\FormManipulation\ModelADMCompareCalculationAndDisplay.cs:line 413
+0,5,JAN 16 CBT SOYBEANS           , orderLots ,-2, noOrderContracts, -2, multiple, 1, webPos, 0
+0,7,JAN 16 CBT SOYBEANS           , orderLots ,1, noOrderContracts, 1, multiple, 1, webPos, 0
+RealtimeSpreadMonitor.FormManipulation.ModelADMCompareCalculationAndDisplay System.Collections.Generic.KeyNotFoundException: The given key was not present in the dictionary.
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at RealtimeSpreadMonitor.FormManipulation.ModelADMCompareCalculationAndDisplay.threadSafeFillGridModelADMComparison(OptionRealtimeMonitor optionRealtimeMonitor) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\FormManipulation\ModelADMCompareCalculationAndDisplay.cs:line 413
+0,5,JAN 16 CBT SOYBEANS           , orderLots ,-2, noOrderContracts, -2, multiple, 1, webPos, 0
+0,7,JAN 16 CBT SOYBEANS           , orderLots ,1, noOrderContracts, 1, multiple, 1, webPos, 0
+RealtimeSpreadMonitor.FormManipulation.ModelADMCompareCalculationAndDisplay System.Collections.Generic.KeyNotFoundException: The given key was not present in the dictionary.
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at RealtimeSpreadMonitor.FormManipulation.ModelADMCompareCalculationAndDisplay.threadSafeFillGridModelADMComparison(OptionRealtimeMonitor optionRealtimeMonitor) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\FormManipulation\ModelADMCompareCalculationAndDisplay.cs:line 413
+0,5,JAN 16 CBT SOYBEANS           , orderLots ,-2, noOrderContracts, -2, multiple, 1, webPos, 0
+0,7,JAN 16 CBT SOYBEANS           , orderLots ,1, noOrderContracts, 1, multiple, 1, webPos, 0
+RealtimeSpreadMonitor.FormManipulation.ModelADMCompareCalculationAndDisplay System.Collections.Generic.KeyNotFoundException: The given key was not present in the dictionary.
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at RealtimeSpreadMonitor.FormManipulation.ModelADMCompareCalculationAndDisplay.threadSafeFillGridModelADMComparison(OptionRealtimeMonitor optionRealtimeMonitor) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\FormManipulation\ModelADMCompareCalculationAndDisplay.cs:line 413
+0,5,JAN 16 CBT SOYBEANS           , orderLots ,-2, noOrderContracts, -2, multiple, 1, webPos, 0
+0,7,JAN 16 CBT SOYBEANS           , orderLots ,1, noOrderContracts, 1, multiple, 1, webPos, 0
+RealtimeSpreadMonitor.FormManipulation.ModelADMCompareCalculationAndDisplay System.Collections.Generic.KeyNotFoundException: The given key was not present in the dictionary.
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at RealtimeSpreadMonitor.FormManipulation.ModelADMCompareCalculationAndDisplay.threadSafeFillGridModelADMComparison(OptionRealtimeMonitor optionRealtimeMonitor) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\FormManipulation\ModelADMCompareCalculationAndDisplay.cs:line 413
+0,5,JAN 16 CBT SOYBEANS           , orderLots ,-2, noOrderContracts, -2, multiple, 1, webPos, 0
+0,7,JAN 16 CBT SOYBEANS           , orderLots ,1, noOrderContracts, 1, multiple, 1, webPos, 0
+RealtimeSpreadMonitor.FormManipulation.ModelADMCompareCalculationAndDisplay System.Collections.Generic.KeyNotFoundException: The given key was not present in the dictionary.
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at RealtimeSpreadMonitor.FormManipulation.ModelADMCompareCalculationAndDisplay.threadSafeFillGridModelADMComparison(OptionRealtimeMonitor optionRealtimeMonitor) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\FormManipulation\ModelADMCompareCalculationAndDisplay.cs:line 413
+0,5,JAN 16 CBT SOYBEANS           , orderLots ,-2, noOrderContracts, -2, multiple, 1, webPos, 0
+0,7,JAN 16 CBT SOYBEANS           , orderLots ,1, noOrderContracts, 1, multiple, 1, webPos, 0
+RealtimeSpreadMonitor.FormManipulation.ModelADMCompareCalculationAndDisplay System.Collections.Generic.KeyNotFoundException: The given key was not present in the dictionary.
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at RealtimeSpreadMonitor.FormManipulation.ModelADMCompareCalculationAndDisplay.threadSafeFillGridModelADMComparison(OptionRealtimeMonitor optionRealtimeMonitor) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\FormManipulation\ModelADMCompareCalculationAndDisplay.cs:line 413
+0,5,JAN 16 CBT SOYBEANS           , orderLots ,-2, noOrderContracts, -2, multiple, 1, webPos, 0
+0,7,JAN 16 CBT SOYBEANS           , orderLots ,1, noOrderContracts, 1, multiple, 1, webPos, 0
+RealtimeSpreadMonitor.FormManipulation.ModelADMCompareCalculationAndDisplay System.Collections.Generic.KeyNotFoundException: The given key was not present in the dictionary.
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at RealtimeSpreadMonitor.FormManipulation.ModelADMCompareCalculationAndDisplay.threadSafeFillGridModelADMComparison(OptionRealtimeMonitor optionRealtimeMonitor) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\FormManipulation\ModelADMCompareCalculationAndDisplay.cs:line 413
+0,5,JAN 16 CBT SOYBEANS           , orderLots ,-2, noOrderContracts, -2, multiple, 1, webPos, 0
+0,7,JAN 16 CBT SOYBEANS           , orderLots ,1, noOrderContracts, 1, multiple, 1, webPos, 0
+RealtimeSpreadMonitor.FormManipulation.ModelADMCompareCalculationAndDisplay System.Collections.Generic.KeyNotFoundException: The given key was not present in the dictionary.
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at RealtimeSpreadMonitor.FormManipulation.ModelADMCompareCalculationAndDisplay.threadSafeFillGridModelADMComparison(OptionRealtimeMonitor optionRealtimeMonitor) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\FormManipulation\ModelADMCompareCalculationAndDisplay.cs:line 413
+0,5,JAN 16 CBT SOYBEANS           , orderLots ,-2, noOrderContracts, -2, multiple, 1, webPos, 0
+0,7,JAN 16 CBT SOYBEANS           , orderLots ,1, noOrderContracts, 1, multiple, 1, webPos, 0
+RealtimeSpreadMonitor.FormManipulation.ModelADMCompareCalculationAndDisplay System.Collections.Generic.KeyNotFoundException: The given key was not present in the dictionary.
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at RealtimeSpreadMonitor.FormManipulation.ModelADMCompareCalculationAndDisplay.threadSafeFillGridModelADMComparison(OptionRealtimeMonitor optionRealtimeMonitor) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\FormManipulation\ModelADMCompareCalculationAndDisplay.cs:line 413
+0,5,JAN 16 CBT SOYBEANS           , orderLots ,-2, noOrderContracts, -2, multiple, 1, webPos, 0
+0,7,JAN 16 CBT SOYBEANS           , orderLots ,1, noOrderContracts, 1, multiple, 1, webPos, 0
+RealtimeSpreadMonitor.FormManipulation.ModelADMCompareCalculationAndDisplay System.Collections.Generic.KeyNotFoundException: The given key was not present in the dictionary.
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at RealtimeSpreadMonitor.FormManipulation.ModelADMCompareCalculationAndDisplay.threadSafeFillGridModelADMComparison(OptionRealtimeMonitor optionRealtimeMonitor) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\FormManipulation\ModelADMCompareCalculationAndDisplay.cs:line 413
+0,5,JAN 16 CBT SOYBEANS           , orderLots ,-2, noOrderContracts, -2, multiple, 1, webPos, 0
+0,7,JAN 16 CBT SOYBEANS           , orderLots ,1, noOrderContracts, 1, multiple, 1, webPos, 0
+RealtimeSpreadMonitor.FormManipulation.ModelADMCompareCalculationAndDisplay System.Collections.Generic.KeyNotFoundException: The given key was not present in the dictionary.
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at RealtimeSpreadMonitor.FormManipulation.ModelADMCompareCalculationAndDisplay.threadSafeFillGridModelADMComparison(OptionRealtimeMonitor optionRealtimeMonitor) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\FormManipulation\ModelADMCompareCalculationAndDisplay.cs:line 413
+0,5,JAN 16 CBT SOYBEANS           , orderLots ,-2, noOrderContracts, -2, multiple, 1, webPos, 0
+0,7,JAN 16 CBT SOYBEANS           , orderLots ,1, noOrderContracts, 1, multiple, 1, webPos, 0
+RealtimeSpreadMonitor.FormManipulation.ModelADMCompareCalculationAndDisplay System.Collections.Generic.KeyNotFoundException: The given key was not present in the dictionary.
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at RealtimeSpreadMonitor.FormManipulation.ModelADMCompareCalculationAndDisplay.threadSafeFillGridModelADMComparison(OptionRealtimeMonitor optionRealtimeMonitor) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\FormManipulation\ModelADMCompareCalculationAndDisplay.cs:line 413
+0,5,JAN 16 CBT SOYBEANS           , orderLots ,-2, noOrderContracts, -2, multiple, 1, webPos, 0
+0,7,JAN 16 CBT SOYBEANS           , orderLots ,1, noOrderContracts, 1, multiple, 1, webPos, 0
+RealtimeSpreadMonitor.FormManipulation.ModelADMCompareCalculationAndDisplay System.Collections.Generic.KeyNotFoundException: The given key was not present in the dictionary.
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at RealtimeSpreadMonitor.FormManipulation.ModelADMCompareCalculationAndDisplay.threadSafeFillGridModelADMComparison(OptionRealtimeMonitor optionRealtimeMonitor) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\FormManipulation\ModelADMCompareCalculationAndDisplay.cs:line 413
+0,5,JAN 16 CBT SOYBEANS           , orderLots ,-2, noOrderContracts, -2, multiple, 1, webPos, 0
+0,7,JAN 16 CBT SOYBEANS           , orderLots ,1, noOrderContracts, 1, multiple, 1, webPos, 0
+RealtimeSpreadMonitor.FormManipulation.ModelADMCompareCalculationAndDisplay System.Collections.Generic.KeyNotFoundException: The given key was not present in the dictionary.
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at RealtimeSpreadMonitor.FormManipulation.ModelADMCompareCalculationAndDisplay.threadSafeFillGridModelADMComparison(OptionRealtimeMonitor optionRealtimeMonitor) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\FormManipulation\ModelADMCompareCalculationAndDisplay.cs:line 413
+0,5,JAN 16 CBT SOYBEANS           , orderLots ,-2, noOrderContracts, -2, multiple, 1, webPos, 0
+0,7,JAN 16 CBT SOYBEANS           , orderLots ,1, noOrderContracts, 1, multiple, 1, webPos, 0
+RealtimeSpreadMonitor.FormManipulation.ModelADMCompareCalculationAndDisplay System.Collections.Generic.KeyNotFoundException: The given key was not present in the dictionary.
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at RealtimeSpreadMonitor.FormManipulation.ModelADMCompareCalculationAndDisplay.threadSafeFillGridModelADMComparison(OptionRealtimeMonitor optionRealtimeMonitor) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\FormManipulation\ModelADMCompareCalculationAndDisplay.cs:line 413
+0,5,JAN 16 CBT SOYBEANS           , orderLots ,-2, noOrderContracts, -2, multiple, 1, webPos, 0
+0,7,JAN 16 CBT SOYBEANS           , orderLots ,1, noOrderContracts, 1, multiple, 1, webPos, 0
+RealtimeSpreadMonitor.FormManipulation.ModelADMCompareCalculationAndDisplay System.Collections.Generic.KeyNotFoundException: The given key was not present in the dictionary.
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at RealtimeSpreadMonitor.FormManipulation.ModelADMCompareCalculationAndDisplay.threadSafeFillGridModelADMComparison(OptionRealtimeMonitor optionRealtimeMonitor) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\FormManipulation\ModelADMCompareCalculationAndDisplay.cs:line 413
+0,5,JAN 16 CBT SOYBEANS           , orderLots ,-2, noOrderContracts, -2, multiple, 1, webPos, 0
+0,7,JAN 16 CBT SOYBEANS           , orderLots ,1, noOrderContracts, 1, multiple, 1, webPos, 0
+RealtimeSpreadMonitor.FormManipulation.ModelADMCompareCalculationAndDisplay System.Collections.Generic.KeyNotFoundException: The given key was not present in the dictionary.
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at RealtimeSpreadMonitor.FormManipulation.ModelADMCompareCalculationAndDisplay.threadSafeFillGridModelADMComparison(OptionRealtimeMonitor optionRealtimeMonitor) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\FormManipulation\ModelADMCompareCalculationAndDisplay.cs:line 413
+0,5,JAN 16 CBT SOYBEANS           , orderLots ,-2, noOrderContracts, -2, multiple, 1, webPos, 0
+0,7,JAN 16 CBT SOYBEANS           , orderLots ,1, noOrderContracts, 1, multiple, 1, webPos, 0
+RealtimeSpreadMonitor.FormManipulation.ModelADMCompareCalculationAndDisplay System.Collections.Generic.KeyNotFoundException: The given key was not present in the dictionary.
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at RealtimeSpreadMonitor.FormManipulation.ModelADMCompareCalculationAndDisplay.threadSafeFillGridModelADMComparison(OptionRealtimeMonitor optionRealtimeMonitor) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\FormManipulation\ModelADMCompareCalculationAndDisplay.cs:line 413

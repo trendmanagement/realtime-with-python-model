@@ -1,0 +1,338 @@
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143
+RealtimeSpreadMonitor.TMLAzureModelDBQueries System.NullReferenceException: Object reference not set to an instance of an object.
+   at RealtimeSpreadMonitor.TMLAzureModelDBQueries.updateIntradaySystemResults(RealtimeSystemResults[] realtimeSystemResults) in d:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\TMLAzureModelDBQueries.cs:line 2143

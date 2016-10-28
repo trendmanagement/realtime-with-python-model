@@ -1,0 +1,2 @@
+-0.015 test
+-0.015 priceinstrument.optionTickSize -150 ticksize 0.0001

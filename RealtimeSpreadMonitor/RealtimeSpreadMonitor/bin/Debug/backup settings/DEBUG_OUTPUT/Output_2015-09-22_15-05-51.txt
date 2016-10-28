@@ -1,0 +1,2 @@
+1105 test
+545.10078961677 priceinstrument.optionTickSize5451.0078961677 ticksize 0.1

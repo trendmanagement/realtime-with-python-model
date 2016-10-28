@@ -1,0 +1,8 @@
+"Firm Id","Acct Id","Exchange","Ticker Symbol","Product Name","CC Code","Period Code","Put / Call","Strike","Underlying Period Code","Net Positions","Margin Type","Client ID"
+"tml1","ES_FCMTYPE","CME","","","ES","201409","","","","2","",
+"tml1","ES_FCMTYPE","CME","","","ES","201407","CALL","1955","201407","-1","",
+"tml1","ES_FCMTYPE","CME","","","ES","201407","CALL","1990","201407","-1","",
+"tml1","ES_FCMTYPE","CME","","","ES","201407","CALL","2030","201407","1","",
+"tml1","ES_FCMTYPE","CME","","","ES","201407","PUT","1875","201407","1","",
+"tml1","ES_FCMTYPE","CME","","","ES","201407","PUT","1920","201407","2","",
+"tml1","ES_FCMTYPE","CME","","","ES","201407","PUT","1950","201407","-3","",

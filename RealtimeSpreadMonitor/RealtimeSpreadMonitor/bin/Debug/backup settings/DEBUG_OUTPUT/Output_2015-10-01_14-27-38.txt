@@ -1,0 +1,2 @@
+Sessions count in config: 1
+Connected To TT FIX  True

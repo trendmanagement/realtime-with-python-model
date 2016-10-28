@@ -1,0 +1,22 @@
+F.CLEZ16
+F.CLEZ16
+F.CLEZ16
+F.CLEZ16
+System.FormatException: Element 'idoption' does not match any field or property of class RealtimeSpreadMonitor.Model.Option_mongo.
+   at MongoDB.Bson.Serialization.BsonClassMapSerializer`1.DeserializeClass(BsonDeserializationContext context)
+   at MongoDB.Bson.Serialization.BsonClassMapSerializer`1.Deserialize(BsonDeserializationContext context, BsonDeserializationArgs args)
+   at MongoDB.Bson.Serialization.IBsonSerializerExtensions.Deserialize[TValue](IBsonSerializer`1 serializer, BsonDeserializationContext context)
+   at MongoDB.Driver.Core.Operations.CursorBatchDeserializationHelper.DeserializeBatch[TDocument](RawBsonArray batch, IBsonSerializer`1 documentSerializer, MessageEncoderSettings messageEncoderSettings)
+   at MongoDB.Driver.Core.Operations.FindCommandOperation`1.CreateCursorBatch(BsonDocument result)
+   at MongoDB.Driver.Core.Operations.FindCommandOperation`1.ExecuteCommand(IReadBinding binding, ServerDescription serverDescription, CancellationToken cancellationToken)
+   at MongoDB.Driver.Core.Operations.FindCommandOperation`1.Execute(IReadBinding binding, CancellationToken cancellationToken)
+   at MongoDB.Driver.Core.Operations.FindOperation`1.Execute(IReadBinding binding, CancellationToken cancellationToken)
+   at MongoDB.Driver.OperationExecutor.ExecuteReadOperation[TResult](IReadBinding binding, IReadOperation`1 operation, CancellationToken cancellationToken)
+   at MongoDB.Driver.MongoCollectionImpl`1.ExecuteReadOperation[TResult](IReadOperation`1 operation, ReadPreference readPreference, CancellationToken cancellationToken)
+   at MongoDB.Driver.MongoCollectionImpl`1.ExecuteReadOperation[TResult](IReadOperation`1 operation, CancellationToken cancellationToken)
+   at MongoDB.Driver.MongoCollectionImpl`1.FindSync[TProjection](FilterDefinition`1 filter, FindOptions`2 options, CancellationToken cancellationToken)
+   at MongoDB.Driver.FindFluent`2.ToCursor(CancellationToken cancellationToken)
+   at MongoDB.Driver.IAsyncCursorSourceExtensions.Single[TDocument](IAsyncCursorSource`1 source, CancellationToken cancellationToken)
+   at RealtimeSpreadMonitor.Mongo.MongoDBConnectionAndSetup.GetOption(Int32 optionmonthint, Int32 optionyear, Int64 idinstrument, String PSUBTY, Double strikeprice) in D:\RealtimeSpreadWithPythonModel\RealtimeSpreadMonitor\RealtimeSpreadMonitor\Mongo\MongoDBConnectionAndSetup.cs:line 196
+   at RealtimeSpreadMonitor.OptionSpreadManager.fillInRestOfADMWebInputDataFrom_Mongo_AndAzure(ADMPositionImportWeb FCM_DatatImportedRow_Local, TMLAzureModelDBQueries btdb) in D:\RealtimeSpreadWithPythonModel\RealtimeSpreadMonitor\RealtimeSpreadMonitor\OptionSpreadManager.cs:line 2823
+   at RealtimeSpreadMonitor.OptionSpreadManager.setupAdmWebInputDataFromAzure() in D:\RealtimeSpreadWithPythonModel\RealtimeSpreadMonitor\RealtimeSpreadMonitor\OptionSpreadManager.cs:line 2529

@@ -1,0 +1,16 @@
+-0.0149934260984946 priceinstrument.optionTickSize -149.934260984946 ticksize 0.0001
+-0.0199912347979929 priceinstrument.optionTickSize -199.912347979929 ticksize 0.0001
+-0.0249890434974911 priceinstrument.optionTickSize -249.890434974911 ticksize 0.0001
+-0.0299868521969893 priceinstrument.optionTickSize -299.868521969893 ticksize 0.0001
+-0.0349846608964875 priceinstrument.optionTickSize -349.846608964875 ticksize 0.0001
+-0.0399824695959857 priceinstrument.optionTickSize -399.824695959857 ticksize 0.0001
+-0.0449802782954839 priceinstrument.optionTickSize -449.802782954839 ticksize 0.0001
+-0.0499780869949821 priceinstrument.optionTickSize -499.780869949821 ticksize 0.0001
+-0.0549758956944803 priceinstrument.optionTickSize -549.758956944803 ticksize 0.0001
+-0.0599737043939786 priceinstrument.optionTickSize -599.737043939786 ticksize 0.0001
+-0.0649715130934768 priceinstrument.optionTickSize -649.715130934768 ticksize 0.0001
+-0.069969321792975 priceinstrument.optionTickSize -699.69321792975 ticksize 0.0001
+-0.0749671304924732 priceinstrument.optionTickSize -749.671304924732 ticksize 0.0001
+-0.0799649391919714 priceinstrument.optionTickSize -799.649391919714 ticksize 0.0001
+-0.0849627478914696 priceinstrument.optionTickSize -849.627478914696 ticksize 0.0001
+-0.0899605565909678 priceinstrument.optionTickSize -899.605565909678 ticksize 0.0001
