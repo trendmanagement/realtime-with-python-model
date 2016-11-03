@@ -402,10 +402,10 @@ namespace RealtimeSpreadMonitor.Model
         /// used to caculate and store the instrument totals
         /// </summary>
         public List<LiveSpreadTotals> instrumentModelCalcTotals_ByAccount = new List<LiveSpreadTotals>();
-        public List<LiveSpreadTotals> instrumentSpreadTotals_ByAccount = new List<LiveSpreadTotals>();
+        //public List<LiveSpreadTotals> instrumentSpreadTotals_ByAccount = new List<LiveSpreadTotals>();
 
         public List<LiveSpreadTotals> instrumentADMCalcTotalsByAccount = new List<LiveSpreadTotals>();
-        public List<LiveSpreadTotals> instrumentADMSpreadTotalsByAccount = new List<LiveSpreadTotals>();
+        //public List<LiveSpreadTotals> instrumentADMSpreadTotalsByAccount = new List<LiveSpreadTotals>();
 
 
         /// <summary>

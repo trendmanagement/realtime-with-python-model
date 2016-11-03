@@ -103,7 +103,7 @@ namespace RealtimeSpreadMonitor
 
         public LegData[] legData;
 
-        public RollLegInfo[] rollIntoLegInfo;
+        //public RollLegInfo[] rollIntoLegInfo;
 
         public LegData[] rollIntoLegData;
 
@@ -211,23 +211,23 @@ namespace RealtimeSpreadMonitor
         public LegData[] defaultFuturesData;
     }
 
-    public class RollLegInfo : LegInfo
-    {
-        public int strikeLevelOffsetForRoll;
+    //public class RollLegInfo : LegInfo
+    //{
+    //    public int strikeLevelOffsetForRoll;
 
-        public int strikeIndexOfStrikeRange = TradingSystemConstants.STRIKE_PRICE_REFERENCE_COUNT/2;
-        //public double[] futurePriceReference = new double[TradingSystemConstants.STRIKE_PRICE_REFERENCE_COUNT];
-        public double[] optionStrikePriceReference = new double[TradingSystemConstants.STRIKE_PRICE_REFERENCE_COUNT];
+    //    public int strikeIndexOfStrikeRange = TradingSystemConstants.STRIKE_PRICE_REFERENCE_COUNT/2;
+    //    //public double[] futurePriceReference = new double[TradingSystemConstants.STRIKE_PRICE_REFERENCE_COUNT];
+    //    public double[] optionStrikePriceReference = new double[TradingSystemConstants.STRIKE_PRICE_REFERENCE_COUNT];
 
-        //future info
-        public double futurePriceUsedToCalculateStrikes;
-        public double futurePriceFactor;
+    //    //future info
+    //    public double futurePriceUsedToCalculateStrikes;
+    //    public double futurePriceFactor;
 
-        public bool reachedBarAfterDecisionBar_ForRoll;
+    //    public bool reachedBarAfterDecisionBar_ForRoll;
 
-        public double[,] futurePriceRule = new double[2, TradingSystemConstants.STRIKE_PRICE_REFERENCE_COUNT];
+    //    public double[,] futurePriceRule = new double[2, TradingSystemConstants.STRIKE_PRICE_REFERENCE_COUNT];
 
-    }
+    //}
 
     public class LiveSpreadTotals
     {

@@ -572,9 +572,9 @@ namespace RealtimeSpreadMonitor.FormManipulation
                     FCM_DataImportLibrary.FCM_PostionList_forCompare[admRowCounter].modelPL = 0;
 
                     FCM_DataImportLibrary.FCM_PostionList_forCompare[admRowCounter].fcmPL =
-                            FCM_DataImportLibrary.FCM_PostionList_forCompare[admRowCounter].contractData.pAndLDay
+                            FCM_DataImportLibrary.FCM_PostionList_forCompare[admRowCounter].positionTotals.pAndLDay
                             +
-                            FCM_DataImportLibrary.FCM_PostionList_forCompare[admRowCounter].contractData.pAndLDayOrders;
+                            FCM_DataImportLibrary.FCM_PostionList_forCompare[admRowCounter].positionTotals.pAndLDayOrders;
 
 
 
@@ -796,9 +796,9 @@ namespace RealtimeSpreadMonitor.FormManipulation
                 fillGridViewADMCompareFields(optionRealtimeMonitor, row, (int)ADM_MODEL_POSITION_COMPARE_FIELDS_DISPLAYED.EXCEPTIONS,
                         "false", Color.Cyan);
 
-                optionSpreadManager.statusAndConnectedUpdates.markLiveAsConnected(gridViewModelADMCompare, row,
-                    (int)ADM_MODEL_POSITION_COMPARE_FIELDS_DISPLAYED.REBALANCE,
-                    false, Color.Red);
+                //optionSpreadManager.statusAndConnectedUpdates.markLiveAsConnected(gridViewModelADMCompare, row,
+                //    (int)ADM_MODEL_POSITION_COMPARE_FIELDS_DISPLAYED.REBALANCE,
+                //    false, Color.Red);
             }
             else if (optionSpreadManager.exceptionContractList.Contains(
                         FCM_DataImportLibrary.FCM_PostionList_forCompare[row].asset.cqgsymbol))
@@ -809,9 +809,9 @@ namespace RealtimeSpreadMonitor.FormManipulation
                 fillGridViewADMCompareFields(optionRealtimeMonitor, row, (int)ADM_MODEL_POSITION_COMPARE_FIELDS_DISPLAYED.EXCEPTIONS,
                         "true", Color.MediumPurple);
 
-                optionSpreadManager.statusAndConnectedUpdates.markLiveAsConnected(gridViewModelADMCompare, row,
-                    (int)ADM_MODEL_POSITION_COMPARE_FIELDS_DISPLAYED.REBALANCE,
-                    false, Color.MediumPurple);
+                //optionSpreadManager.statusAndConnectedUpdates.markLiveAsConnected(gridViewModelADMCompare, row,
+                //    (int)ADM_MODEL_POSITION_COMPARE_FIELDS_DISPLAYED.REBALANCE,
+                //    false, Color.MediumPurple);
             }
             else
             {
@@ -822,19 +822,19 @@ namespace RealtimeSpreadMonitor.FormManipulation
                 fillGridViewADMCompareFields(optionRealtimeMonitor, row, (int)ADM_MODEL_POSITION_COMPARE_FIELDS_DISPLAYED.EXCEPTIONS,
                         "false", Color.Cyan);
 
-                if (FCM_DataImportLibrary.FCM_PostionList_forCompare != null && row < FCM_DataImportLibrary.FCM_PostionList_forCompare.Count
-                    && FCM_DataImportLibrary.FCM_PostionList_forCompare[row].rebalanceLots == 0)
-                {
-                    optionSpreadManager.statusAndConnectedUpdates.markLiveAsConnected(gridViewModelADMCompare, row,
-                        (int)ADM_MODEL_POSITION_COMPARE_FIELDS_DISPLAYED.REBALANCE,
-                        false, Color.LightGray);
-                }
-                else
-                {
-                    optionSpreadManager.statusAndConnectedUpdates.markLiveAsConnected(gridViewModelADMCompare, row,
-                        (int)ADM_MODEL_POSITION_COMPARE_FIELDS_DISPLAYED.REBALANCE,
-                        false, Color.Yellow);
-                }
+                //if (FCM_DataImportLibrary.FCM_PostionList_forCompare != null && row < FCM_DataImportLibrary.FCM_PostionList_forCompare.Count
+                //    && FCM_DataImportLibrary.FCM_PostionList_forCompare[row].rebalanceLots == 0)
+                //{
+                //    optionSpreadManager.statusAndConnectedUpdates.markLiveAsConnected(gridViewModelADMCompare, row,
+                //        (int)ADM_MODEL_POSITION_COMPARE_FIELDS_DISPLAYED.REBALANCE,
+                //        false, Color.LightGray);
+                //}
+                //else
+                //{
+                //    optionSpreadManager.statusAndConnectedUpdates.markLiveAsConnected(gridViewModelADMCompare, row,
+                //        (int)ADM_MODEL_POSITION_COMPARE_FIELDS_DISPLAYED.REBALANCE,
+                //        false, Color.Yellow);
+                //}
             }
         }
 

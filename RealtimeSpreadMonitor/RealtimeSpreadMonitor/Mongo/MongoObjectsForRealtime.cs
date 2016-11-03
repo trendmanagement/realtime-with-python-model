@@ -177,7 +177,7 @@ namespace RealtimeSpreadMonitor.Mongo
         //public List<TheoreticalBar> theoreticalOptionDataList;
 
 
-        public DateTime previousDateTimeBoundaryStart;
+        //public DateTime previousDateTimeBoundaryStart;
 
         public CQG.CQGTimedBar todayTransactionBar;
         public DateTime todayTransactionTimeBoundary;

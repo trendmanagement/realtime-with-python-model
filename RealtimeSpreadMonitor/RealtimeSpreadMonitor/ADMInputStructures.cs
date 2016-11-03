@@ -32,7 +32,9 @@ namespace RealtimeSpreadMonitor
         public String strike;
 
         //public LegInfo contractInfo = new LegInfo();
-        public LegData contractData = new LegData();
+        //public LegData contractData = new LegData();
+
+        public LiveSpreadTotals positionTotals = new LiveSpreadTotals();
 
         public double modelLots;
         public double orderLots;

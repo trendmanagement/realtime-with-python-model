@@ -24,33 +24,7 @@ namespace RealtimeSpreadMonitor
 
     public class OptionSpreadManager
     {
-        //private System.Threading.Timer timer3SetupTimeRealtimeStateWriteToDatabase;
-        //private TimeSpan timeToWriteStateToDatabase = new TimeSpan(15, 00, 00);
-
-        //private TimeSpan _dataResetTime1 = new TimeSpan(7, 10, 0);
-        //public TimeSpan dataResetTime1
-        //{
-        //    get { return _dataResetTime1; }
-        //}
-
-        //private TimeSpan _dataResetTime2 = new TimeSpan(8, 30, 0);
-        //public TimeSpan dataResetTime2
-        //{
-        //    get { return _dataResetTime2; }
-        //}
-
-        //internal int threadCount;
-        //internal void closeThread(object o, EventArgs e)
-        //{
-        //    // Decrease number of threads
-        //    threadCount--;
-        //}
-
-        //internal void openThread(object o, EventArgs e)
-        //{
-        //    // Decrease number of threads
-        //    threadCount++;
-        //}
+        
 
         private OptionArrayTypes optionArrayTypes = new OptionArrayTypes();
 
@@ -74,24 +48,6 @@ namespace RealtimeSpreadMonitor
             get { return sOptionRealtimeMonitor; }
         }
 
-        private List<int> sContractSummaryExpressionListIdx = new List<int>();
-        internal List<int> contractSummaryExpressionListIdx
-        {
-            get { return sContractSummaryExpressionListIdx; }
-        }
-
-
-        //private List<ADMPositionImportWeb> sAdmPositionImportWebForImportDisplay;
-        //public List<ADMPositionImportWeb> FCM_positionImportNotConsolidated
-        //{
-        //    get { return sAdmPositionImportWebForImportDisplay; }
-        //}
-
-        //private List<ADMPositionImportWeb> sAdmPositionImportWeb;
-        //public List<ADMPositionImportWeb> admPositionImportWeb
-        //{
-        //    get { return sAdmPositionImportWeb; }
-        //}
 
         private DateTime dateOfADMPositionsFile;
 
@@ -101,25 +57,13 @@ namespace RealtimeSpreadMonitor
             get { return sADMDataCommonMethods; }
         }
 
-        private AdmReportSummaryForm sAdmReportWebPositionsForm;
-        public AdmReportSummaryForm admReportWebPositionsForm
-        {
-            get { return sAdmReportWebPositionsForm; }
-        }
-
-        //private bool usingEODSettlements;
-
-        //private RealtimeMonitorSettings sRealtimeMonitorSettings;
-        //public RealtimeMonitorSettings realtimeMonitorSettings
+        //private FCM_ReportSummaryForm sAdmReportWebPositionsForm;
+        //public FCM_ReportSummaryForm admReportWebPositionsForm
         //{
-        //    get { return sRealtimeMonitorSettings; }
+        //    get { return sAdmReportWebPositionsForm; }
         //}
 
-        //private List<ADMPositionImportWeb> sAdmPositionImportWebListForCompare = new List<ADMPositionImportWeb>();
-        //public List<ADMPositionImportWeb> FCM_PostionList_forCompare
-        //{
-        //    get { return null; } // sAdmPositionImportWebListForCompare; }
-        //}
+
 
         private HashSet<string> sZeroPriceContractList = new HashSet<string>();
         public HashSet<string> zeroPriceContractList
@@ -148,12 +92,12 @@ namespace RealtimeSpreadMonitor
             set { _fxce = value; }
         }
 
-        private bool _fxceConnected = false;
-        public bool fxceConnected
-        {
-            get { return _fxceConnected; }
-            set { _fxceConnected = value; }
-        }
+        //private bool _fxceConnected = false;
+        //public bool fxceConnected
+        //{
+        //    get { return _fxceConnected; }
+        //    set { _fxceConnected = value; }
+        //}
 
         //private Dictionary<string, string>[] sInstrumentAcctHashSet;
         //public Dictionary<string, string>[] instrumentAcctHashSet
@@ -161,17 +105,17 @@ namespace RealtimeSpreadMonitor
         //    get { return sInstrumentAcctHashSet; }
         //}
 
-        private StatusAndConnectedUpdates sStatusAndConnectedUpdates;
-        internal StatusAndConnectedUpdates statusAndConnectedUpdates
-        {
-            get { return sStatusAndConnectedUpdates; }
-        }
+        //private StatusAndConnectedUpdates sStatusAndConnectedUpdates;
+        //internal StatusAndConnectedUpdates statusAndConnectedUpdates
+        //{
+        //    get { return sStatusAndConnectedUpdates; }
+        //}
 
-        private GridViewContractSummaryManipulation sGridViewContractSummaryManipulation;
-        internal GridViewContractSummaryManipulation gridViewContractSummaryManipulation
-        {
-            get { return sGridViewContractSummaryManipulation; }
-        }
+        //private GridViewContractSummaryManipulation sGridViewContractSummaryManipulation;
+        //internal GridViewContractSummaryManipulation gridViewContractSummaryManipulation
+        //{
+        //    get { return sGridViewContractSummaryManipulation; }
+        //}
 
         private ModelADMCompareCalculationAndDisplay sModelADMCompareCalculationAndDisplay;
         internal ModelADMCompareCalculationAndDisplay modelADMCompareCalculationAndDisplay
@@ -186,7 +130,6 @@ namespace RealtimeSpreadMonitor
             this.optionRealtimeStartup = optionRealtimeStartup;
             this.optionStartupProgress = optionStartupProgress;
 
-            //sRealtimeMonitorSettings = new RealtimeMonitorSettings();
         }
 
 
@@ -195,28 +138,7 @@ namespace RealtimeSpreadMonitor
         internal bool includeExcludeOrdersInModelADMCompare = true;
 
 
-        /// <summary>
-        /// The option data set hash set
-        /// used when calling data from database for the options data
-        /// </summary>
-        private Dictionary<long, DataSet> optionDataSetHashSet = new Dictionary<long, DataSet>();
 
-        private Dictionary<string, long> optionIdFromInfo = new Dictionary<string, long>();
-
-        /// <summary>
-        /// The future data set hash set
-        /// used when calling data from database for the options data
-        /// </summary>
-        private Dictionary<long, DataSet> futureDataSetHashSet = new Dictionary<long, DataSet>();
-
-        //private Dictionary<string, long> futureIdFromInfo = new Dictionary<string, long>();
-
-
-        private bool _supplementContractFilled = false;
-        internal bool supplementContractFilled
-        {
-            get { return _supplementContractFilled; }
-        }
 
         public void initializeOptionSystem(Object obj)
         {
@@ -468,9 +390,21 @@ namespace RealtimeSpreadMonitor
             {
                 foreach (string accountName in DataCollectionLibrary.accountNameList)
                 {
-                    AccountPosition archive = MongoDBConnectionAndSetup.GetAccountArchivePositionsInfoFromMongo(accountName);
+                    List<AccountPosition> archive = MongoDBConnectionAndSetup.GetAccountArchivePositionsInfoFromMongo(accountName);
 
-                    DataCollectionLibrary.accountPositionsArchiveList.Add(archive);
+                    int acctCnt = 0;
+                    while(acctCnt < archive.Count)
+                    {
+                        if(archive[acctCnt].date_now.DayOfWeek != DayOfWeek.Saturday
+                            && archive[acctCnt].date_now.DayOfWeek != DayOfWeek.Sunday)
+                        {
+                            DataCollectionLibrary.accountPositionsArchiveList.Add(archive[acctCnt]);
+
+                            break;
+                        }
+
+                        acctCnt++;
+                    }                    
                 }
             }
 
@@ -551,6 +485,8 @@ namespace RealtimeSpreadMonitor
             FillAccountPosition(false);
 
             AppendTo_optionSpreadExpressionHashTable();
+
+            DataCollectionLibrary.performFullContractRefresh = true;
         }
 
         private void AdjustQtyBasedOnDate()
@@ -606,13 +542,13 @@ namespace RealtimeSpreadMonitor
                 {
                     im.instrumentModelCalcTotals_ByAccount.Add(new LiveSpreadTotals());
 
-                    im.instrumentSpreadTotals_ByAccount.Add(new LiveSpreadTotals());
+                    //im.instrumentSpreadTotals_ByAccount.Add(new LiveSpreadTotals());
 
 
 
                     im.instrumentADMCalcTotalsByAccount.Add(new LiveSpreadTotals());
 
-                    im.instrumentADMSpreadTotalsByAccount.Add(new LiveSpreadTotals());
+                    //im.instrumentADMSpreadTotalsByAccount.Add(new LiveSpreadTotals());
                 }
 
             }
@@ -626,11 +562,11 @@ namespace RealtimeSpreadMonitor
             for (int portfolioGroupCnt = 0; portfolioGroupCnt <= DataCollectionLibrary.portfolioAllocation.accountAllocation.Count; portfolioGroupCnt++)
             {
                 DataTotalLibrary.portfolioSpreadCalcTotals.Add(new LiveSpreadTotals());
-                DataTotalLibrary.portfolioSpreadTotals.Add(new LiveSpreadTotals());
+                //DataTotalLibrary.portfolioSpreadTotals.Add(new LiveSpreadTotals());
 
 
                 DataTotalLibrary.portfolioADMSpreadCalcTotals.Add(new LiveSpreadTotals());
-                DataTotalLibrary.portfolioADMSpreadTotals.Add(new LiveSpreadTotals());
+                //DataTotalLibrary.portfolioADMSpreadTotals.Add(new LiveSpreadTotals());
             }
         }
 
@@ -799,11 +735,13 @@ namespace RealtimeSpreadMonitor
             //FCM_PostionList_forCompare);
 
 
-            sStatusAndConnectedUpdates
-                = new StatusAndConnectedUpdates(sOptionRealtimeMonitor, this);
+            //sStatusAndConnectedUpdates
+            //    = new StatusAndConnectedUpdates(sOptionRealtimeMonitor, this);
 
-            sGridViewContractSummaryManipulation
-                = new GridViewContractSummaryManipulation(this, statusAndConnectedUpdates);
+            ContractsModel_Library.gridViewContractSummaryManipulation
+                = new GridViewContractSummaryManipulation();
+
+            ContractsModel_Library.gridViewFCMPostionManipulation = new GridViewFCMPostionManipulation();
 
 
 
@@ -828,8 +766,10 @@ namespace RealtimeSpreadMonitor
 
             sOptionRealtimeMonitor.setupTreeViewBrokerAcct();
 
-            gridViewContractSummaryManipulation.setupContractSummaryLiveData(sOptionRealtimeMonitor);
-            //sOptionRealtimeMonitor.setupContractSummaryLiveData();
+            ContractsModel_Library.gridViewContractSummaryManipulation.setupContractSummaryLiveData(sOptionRealtimeMonitor);
+
+            ContractsModel_Library.gridViewFCMPostionManipulation.SetupFCMSummaryData(sOptionRealtimeMonitor);
+
 
             sModelADMCompareCalculationAndDisplay.fillGridModelADMComparison(sOptionRealtimeMonitor);
 
@@ -853,20 +793,20 @@ namespace RealtimeSpreadMonitor
             sof.readInstrumentSpecificFIXField(fullFile, DataCollectionLibrary.instrumentSpecificFIXFieldHashSet);
         }
 
-        private List<OptionStrategy> getSupplementalContracts(OptionArrayTypes optionArrayTypes,
-            QueryFutureIdContractDelegate queryFutureIdContractDelegate, object queryObject)
-        {
-            SaveOutputFile sof = new SaveOutputFile();
+        //private List<OptionStrategy> getSupplementalContracts(OptionArrayTypes optionArrayTypes,
+        //    QueryFutureIdContractDelegate queryFutureIdContractDelegate, object queryObject)
+        //{
+        //    SaveOutputFile sof = new SaveOutputFile();
 
-            String fullFile = System.IO.Path.Combine(Directory.GetCurrentDirectory(),
-                    TradingSystemConstants.INITIALIZE_CONFIG_DIRECTORY,
-                    TradingSystemConstants.SUPPLEMENT_CONTRACTS);
+        //    String fullFile = System.IO.Path.Combine(Directory.GetCurrentDirectory(),
+        //            TradingSystemConstants.INITIALIZE_CONFIG_DIRECTORY,
+        //            TradingSystemConstants.SUPPLEMENT_CONTRACTS);
 
-            //Dictionary<string, InstrumentSpecificFIXFields> instrumentSpecificFIXFieldHashSet =
-            return sof.readSupplementContracts(fullFile, optionArrayTypes, DataCollectionLibrary.initializationParms.idPortfolioGroup,
-                queryFutureIdContractDelegate, queryObject);
+        //    //Dictionary<string, InstrumentSpecificFIXFields> instrumentSpecificFIXFieldHashSet =
+        //    return sof.readSupplementContracts(fullFile, optionArrayTypes, DataCollectionLibrary.initializationParms.idPortfolioGroup,
+        //        queryFutureIdContractDelegate, queryObject);
 
-        }
+        //}
 
         internal string getInstrumentSpecificFieldKey(StageOrdersToTTWPFLibrary.Model.OrderModel orderModel)
         {
@@ -1026,16 +966,16 @@ namespace RealtimeSpreadMonitor
 
                         DateTime currentDate = DateTime.Now.Date;
 
-                        mose_new.impliedVolFromSpan =
-                            admPositionImportWeb.contractData.impliedVolFromDB;
+                        //mose_new.impliedVolFromSpan =
+                        //    admPositionImportWeb.optionSpreadExpression.impliedVolFromDB;
 
-                        mose_new.previousDateTimeBoundaryStart
-                            = admPositionImportWeb.contractData.dataDateTimeFromDB.Date
-                            .AddHours(
-                                admPositionImportWeb.instrument.customdayboundarytime.Hour)
-                            .AddMinutes(
-                               admPositionImportWeb.instrument.customdayboundarytime.Minute)
-                            .AddMinutes(1);
+                        //mose_new.previousDateTimeBoundaryStart
+                        //    = admPositionImportWeb.contractData.dataDateTimeFromDB.Date
+                        //    .AddHours(
+                        //        admPositionImportWeb.instrument.customdayboundarytime.Hour)
+                        //    .AddMinutes(
+                        //       admPositionImportWeb.instrument.customdayboundarytime.Minute)
+                        //    .AddMinutes(1);
 
                         //mose_new.yesterdaySettlement =
                         //    admPositionImportWeb.contractData.settlementPriceFromDB;
@@ -1122,7 +1062,7 @@ namespace RealtimeSpreadMonitor
                         }
 
 
-                        admPositionImportWeb.contractData.optionSpreadExpression = mose_new;
+                        //admPositionImportWeb.optionSpreadExpression = mose_new;
 
                         admPositionImportWeb.optionSpreadExpression = mose_new;
 
@@ -1131,7 +1071,7 @@ namespace RealtimeSpreadMonitor
                     else
                     {
 
-                        admPositionImportWeb.contractData.optionSpreadExpression = mose;
+                        //admPositionImportWeb.optionSpreadExpression = mose;
 
                         admPositionImportWeb.optionSpreadExpression = mose;
 
@@ -1257,7 +1197,9 @@ namespace RealtimeSpreadMonitor
 
             optionCQGDataManagement.resetThreadStopVariables();
 
-            optionCQGDataManagement.setupCalculateModelValuesAndSummarizeTotals();
+            //optionCQGDataManagement.setupCalculateModelValuesAndSummarizeTotals();
+
+            DataCollectionLibrary.performFull_FCMSummary_Refresh = true;
         }
 
 
@@ -1313,10 +1255,14 @@ namespace RealtimeSpreadMonitor
                 {
                     im.instrumentModelCalcTotals_ByAccount[accountCnt].pAndLDay = 0;
 
+                    im.instrumentModelCalcTotals_ByAccount[accountCnt].pAndLDaySettlementToSettlement = 0;
+
                     im.instrumentModelCalcTotals_ByAccount[accountCnt].delta = 0;
                 }
 
                 DataTotalLibrary.portfolioSpreadCalcTotals[accountCnt].pAndLDay = 0;
+
+                DataTotalLibrary.portfolioSpreadCalcTotals[accountCnt].pAndLDaySettlementToSettlement = 0;
 
                 DataTotalLibrary.portfolioSpreadCalcTotals[accountCnt].delta = 0;
             }
@@ -1345,25 +1291,29 @@ namespace RealtimeSpreadMonitor
                     }
 
                     p.positionTotals.pAndLDay = (p.mose.defaultPrice - p.mose.yesterdaySettlement) / ticksize * tickvalue * p.prev_qty;
+
                     p.positionTotals.pAndLDaySettlementToSettlement = (p.mose.settlement - p.mose.yesterdaySettlement) / ticksize * tickvalue * p.prev_qty;
+                    
                     p.positionTotals.delta = p.mose.delta * p.qty;
 
                     if (p.qty != p.prev_qty && p.mose.transactionPriceFilled)
                     {
                         double orderQty = p.qty - p.prev_qty;
-                        p.positionTotals.pAndLDay += (p.mose.defaultPrice - p.mose.transactionPrice) / ticksize * tickvalue * orderQty;
-                        p.positionTotals.pAndLDaySettlementToSettlement += (p.mose.settlement - p.mose.transactionPrice) / ticksize * tickvalue * orderQty;
+
+                        p.positionTotals.pAndLDayOrders = (p.mose.defaultPrice - p.mose.transactionPrice) / ticksize * tickvalue * orderQty;
+
+                        p.positionTotals.pAndLDaySettleOrders = (p.mose.settlement - p.mose.transactionPrice) / ticksize * tickvalue * orderQty;
+
                     }
 
-                    im.instrumentModelCalcTotals_ByAccount[accountCnt2].pAndLDay += p.positionTotals.pAndLDay;
+                    im.instrumentModelCalcTotals_ByAccount[accountCnt2].pAndLDay += p.positionTotals.pAndLDay + p.positionTotals.pAndLDayOrders;
+
+                    im.instrumentModelCalcTotals_ByAccount[accountCnt2].pAndLDaySettlementToSettlement
+                        += p.positionTotals.pAndLDaySettlementToSettlement + p.positionTotals.pAndLDaySettleOrders;
 
                     im.instrumentModelCalcTotals_ByAccount[accountCnt2].delta += p.positionTotals.delta;
 
-
-
                 }
-
-
 
                 accountCnt2++;
             }
@@ -1377,14 +1327,23 @@ namespace RealtimeSpreadMonitor
                 while (accountCnt3 < DataCollectionLibrary.portfolioAllocation.accountAllocation.Count)
                 {
                     lst.pAndLDay += im.instrumentModelCalcTotals_ByAccount[accountCnt3].pAndLDay;
+
+                    lst.pAndLDaySettlementToSettlement += im.instrumentModelCalcTotals_ByAccount[accountCnt3].pAndLDaySettlementToSettlement;
+
                     lst.delta += im.instrumentModelCalcTotals_ByAccount[accountCnt3].delta;
 
-                    im.instrumentSpreadTotals_ByAccount[accountCnt3].pAndLDay = im.instrumentModelCalcTotals_ByAccount[accountCnt3].pAndLDay;
+                    //im.instrumentSpreadTotals_ByAccount[accountCnt3].pAndLDay = im.instrumentModelCalcTotals_ByAccount[accountCnt3].pAndLDay;
 
-                    im.instrumentSpreadTotals_ByAccount[accountCnt3].delta = im.instrumentModelCalcTotals_ByAccount[accountCnt3].delta;
+                    //im.instrumentSpreadTotals_ByAccount[accountCnt3].pAndLDaySettlementToSettlement
+                    //    = im.instrumentModelCalcTotals_ByAccount[accountCnt3].pAndLDaySettlementToSettlement;
+
+                    //im.instrumentSpreadTotals_ByAccount[accountCnt3].delta = im.instrumentModelCalcTotals_ByAccount[accountCnt3].delta;
 
 
                     DataTotalLibrary.portfolioSpreadCalcTotals[accountCnt3].pAndLDay += im.instrumentModelCalcTotals_ByAccount[accountCnt3].pAndLDay;
+
+                    DataTotalLibrary.portfolioSpreadCalcTotals[accountCnt3].pAndLDaySettlementToSettlement
+                        += im.instrumentModelCalcTotals_ByAccount[accountCnt3].pAndLDaySettlementToSettlement;
 
                     DataTotalLibrary.portfolioSpreadCalcTotals[accountCnt3].delta += im.instrumentModelCalcTotals_ByAccount[accountCnt3].delta;
 
@@ -1392,9 +1351,11 @@ namespace RealtimeSpreadMonitor
                     accountCnt3++;
                 }
 
-                im.instrumentSpreadTotals_ByAccount[accountCnt3].pAndLDay = lst.pAndLDay;
+                im.instrumentModelCalcTotals_ByAccount[accountCnt3].pAndLDay = lst.pAndLDay;
 
-                im.instrumentSpreadTotals_ByAccount[accountCnt3].delta = lst.delta;
+                im.instrumentModelCalcTotals_ByAccount[accountCnt3].pAndLDaySettlementToSettlement = lst.pAndLDaySettlementToSettlement;
+
+                im.instrumentModelCalcTotals_ByAccount[accountCnt3].delta = lst.delta;
             }
 
             LiveSpreadTotals lst_final = new LiveSpreadTotals();
@@ -1403,22 +1364,22 @@ namespace RealtimeSpreadMonitor
             while (accountCnt4 < DataCollectionLibrary.portfolioAllocation.accountAllocation.Count)
             {
                 lst_final.pAndLDay += DataTotalLibrary.portfolioSpreadCalcTotals[accountCnt4].pAndLDay;
+                lst_final.pAndLDaySettlementToSettlement += DataTotalLibrary.portfolioSpreadCalcTotals[accountCnt4].pAndLDaySettlementToSettlement;
                 lst_final.delta += DataTotalLibrary.portfolioSpreadCalcTotals[accountCnt4].delta;
 
-                DataTotalLibrary.portfolioSpreadTotals[accountCnt4].pAndLDay = DataTotalLibrary.portfolioSpreadCalcTotals[accountCnt4].pAndLDay;
-
-                DataTotalLibrary.portfolioSpreadTotals[accountCnt4].delta = DataTotalLibrary.portfolioSpreadCalcTotals[accountCnt4].delta;
+                //DataTotalLibrary.portfolioSpreadTotals[accountCnt4].pAndLDay = DataTotalLibrary.portfolioSpreadCalcTotals[accountCnt4].pAndLDay;
+                //DataTotalLibrary.portfolioSpreadTotals[accountCnt4].pAndLDaySettlementToSettlement
+                //    = DataTotalLibrary.portfolioSpreadCalcTotals[accountCnt4].pAndLDaySettlementToSettlement;
+                //DataTotalLibrary.portfolioSpreadTotals[accountCnt4].delta = DataTotalLibrary.portfolioSpreadCalcTotals[accountCnt4].delta;
 
                 accountCnt4++;
             }
 
-            DataTotalLibrary.portfolioSpreadTotals[accountCnt4].pAndLDay = lst_final.pAndLDay;
+            DataTotalLibrary.portfolioSpreadCalcTotals[accountCnt4].pAndLDay = lst_final.pAndLDay;
 
-            DataTotalLibrary.portfolioSpreadTotals[accountCnt4].delta = lst_final.delta;
+            DataTotalLibrary.portfolioSpreadCalcTotals[accountCnt4].pAndLDaySettlementToSettlement = lst_final.pAndLDaySettlementToSettlement;
 
-
-
-
+            DataTotalLibrary.portfolioSpreadCalcTotals[accountCnt4].delta = lst_final.delta;
 
         }
 
@@ -1461,7 +1422,8 @@ namespace RealtimeSpreadMonitor
 
             foreach (ADMPositionImportWeb fcmPosition in FCM_DataImportLibrary.FCM_Import_Consolidated)
             {
-                if (DateTime.Now.Date.CompareTo(
+                if (fcmPosition.asset != null &&
+                    DateTime.Now.Date.CompareTo(
                     fcmPosition.asset.expirationdate.Date)
                         <= 0
                         && fcmPosition.optionSpreadExpression != null)
@@ -1540,49 +1502,49 @@ namespace RealtimeSpreadMonitor
                     //if (fcmPosition.instrument.eodAnalysisAtInstrument)
                     {
                         fcmPosition
-                            .contractData.pAndLDaySettlementToSettlement =
+                            .positionTotals.pAndLDaySettlementToSettlement =
                                 currentPLChangeSettlementToSettlement * numberOfContracts;
                     }
 
                     fcmPosition
-                        .contractData.pAndLDaySettleOrders =
+                        .positionTotals.pAndLDaySettleOrders =
                         currentLongTransPLChangeToSettle * numberOfLongTrans
                         + currentShortTransPLChangeToSettle * numberOfShortTrans;
 
                     //*************************
                     fcmPosition
-                        .contractData.pAndLLongSettlementOrders =
+                        .positionTotals.pAndLLongSettlementOrders =
                         currentLongTransPLChangeToSettle * numberOfLongTrans;
 
                     fcmPosition
-                        .contractData.pAndLShortSettlementOrders =
+                        .positionTotals.pAndLShortSettlementOrders =
                         currentShortTransPLChangeToSettle * numberOfShortTrans;
                     //*************************
 
 
                     fcmPosition
-                        .contractData.pAndLDay =
+                        .positionTotals.pAndLDay =
                         currentPLChange * numberOfContracts;
 
                     fcmPosition
-                        .contractData.pAndLDayOrders =
+                        .positionTotals.pAndLDayOrders =
                         currentLongTransPLChange * numberOfLongTrans
                         + currentShortTransPLChange * numberOfShortTrans;
 
 
                     //*************************
                     fcmPosition
-                        .contractData.pAndLLongOrders =
+                        .positionTotals.pAndLLongOrders =
                         currentLongTransPLChange * numberOfLongTrans;
 
                     fcmPosition
-                        .contractData.pAndLShortOrders =
+                        .positionTotals.pAndLShortOrders =
                         currentShortTransPLChange * numberOfShortTrans;
                     //*************************
 
 
                     fcmPosition
-                        .contractData.delta =
+                        .positionTotals.delta =
                         (numberOfContracts + numberOfLongTrans + numberOfShortTrans)
                         * fcmPosition.optionSpreadExpression.delta;
 
@@ -1599,14 +1561,14 @@ namespace RealtimeSpreadMonitor
                 Instrument_mongo im = DataCollectionLibrary.instrumentHashTable_keyinstrumentid[fcmPosition.instrument.idinstrument];
 
                 im.instrumentADMCalcTotalsByAccount[fcmPosition.acctGroup.acctIndex_UsedForTotals_Visibility].pAndLDay
-                    += fcmPosition.contractData.pAndLDay + fcmPosition.contractData.pAndLDayOrders;
+                    += fcmPosition.positionTotals.pAndLDay + fcmPosition.positionTotals.pAndLDayOrders;
 
                 im.instrumentADMCalcTotalsByAccount[fcmPosition.acctGroup.acctIndex_UsedForTotals_Visibility].delta
-                    += fcmPosition.contractData.delta;
+                    += fcmPosition.positionTotals.delta;
 
                 im.instrumentADMCalcTotalsByAccount[fcmPosition.acctGroup.acctIndex_UsedForTotals_Visibility].pAndLDaySettlementToSettlement
-                    += fcmPosition.contractData.pAndLDaySettlementToSettlement
-                        + fcmPosition.contractData.pAndLDaySettleOrders;
+                    += fcmPosition.positionTotals.pAndLDaySettlementToSettlement
+                        + fcmPosition.positionTotals.pAndLDaySettleOrders;
 
             }
 
@@ -1623,12 +1585,12 @@ namespace RealtimeSpreadMonitor
                     lst.delta += im.instrumentADMCalcTotalsByAccount[accountCnt3].delta;
                     lst.pAndLDaySettlementToSettlement += im.instrumentADMCalcTotalsByAccount[accountCnt3].pAndLDaySettlementToSettlement;
 
-                    im.instrumentADMSpreadTotalsByAccount[accountCnt3].pAndLDay = im.instrumentADMCalcTotalsByAccount[accountCnt3].pAndLDay;
+                    //im.instrumentADMCalcTotalsByAccount[accountCnt3].pAndLDay = im.instrumentADMCalcTotalsByAccount[accountCnt3].pAndLDay;
 
-                    im.instrumentADMSpreadTotalsByAccount[accountCnt3].delta = im.instrumentADMCalcTotalsByAccount[accountCnt3].delta;
+                    //im.instrumentADMCalcTotalsByAccount[accountCnt3].delta = im.instrumentADMCalcTotalsByAccount[accountCnt3].delta;
 
-                    im.instrumentADMSpreadTotalsByAccount[accountCnt3].pAndLDaySettlementToSettlement =
-                        im.instrumentADMCalcTotalsByAccount[accountCnt3].pAndLDaySettlementToSettlement;
+                    //im.instrumentADMCalcTotalsByAccount[accountCnt3].pAndLDaySettlementToSettlement =
+                    //    im.instrumentADMCalcTotalsByAccount[accountCnt3].pAndLDaySettlementToSettlement;
 
 
 
@@ -1643,11 +1605,11 @@ namespace RealtimeSpreadMonitor
                     accountCnt3++;
                 }
 
-                im.instrumentADMSpreadTotalsByAccount[accountCnt3].pAndLDay = lst.pAndLDay;
+                im.instrumentADMCalcTotalsByAccount[accountCnt3].pAndLDay = lst.pAndLDay;
 
-                im.instrumentADMSpreadTotalsByAccount[accountCnt3].delta = lst.delta;
+                im.instrumentADMCalcTotalsByAccount[accountCnt3].delta = lst.delta;
 
-                im.instrumentADMSpreadTotalsByAccount[accountCnt3].pAndLDaySettlementToSettlement = lst.pAndLDaySettlementToSettlement;
+                im.instrumentADMCalcTotalsByAccount[accountCnt3].pAndLDaySettlementToSettlement = lst.pAndLDaySettlementToSettlement;
             }
 
 
@@ -1660,21 +1622,21 @@ namespace RealtimeSpreadMonitor
                 lst_final.delta += DataTotalLibrary.portfolioADMSpreadCalcTotals[accountCnt4].delta;
                 lst_final.pAndLDaySettlementToSettlement += DataTotalLibrary.portfolioADMSpreadCalcTotals[accountCnt4].pAndLDaySettlementToSettlement;
 
-                DataTotalLibrary.portfolioADMSpreadTotals[accountCnt4].pAndLDay = DataTotalLibrary.portfolioADMSpreadCalcTotals[accountCnt4].pAndLDay;
+                //DataTotalLibrary.portfolioADMSpreadTotals[accountCnt4].pAndLDay = DataTotalLibrary.portfolioADMSpreadCalcTotals[accountCnt4].pAndLDay;
 
-                DataTotalLibrary.portfolioADMSpreadTotals[accountCnt4].delta = DataTotalLibrary.portfolioADMSpreadCalcTotals[accountCnt4].delta;
+                //DataTotalLibrary.portfolioADMSpreadTotals[accountCnt4].delta = DataTotalLibrary.portfolioADMSpreadCalcTotals[accountCnt4].delta;
 
-                DataTotalLibrary.portfolioADMSpreadTotals[accountCnt4].pAndLDaySettlementToSettlement
-                    = DataTotalLibrary.portfolioADMSpreadCalcTotals[accountCnt4].pAndLDaySettlementToSettlement;
+                //DataTotalLibrary.portfolioADMSpreadTotals[accountCnt4].pAndLDaySettlementToSettlement
+                //    = DataTotalLibrary.portfolioADMSpreadCalcTotals[accountCnt4].pAndLDaySettlementToSettlement;
 
                 accountCnt4++;
             }
 
-            DataTotalLibrary.portfolioADMSpreadTotals[accountCnt4].pAndLDay = lst_final.pAndLDay;
+            DataTotalLibrary.portfolioADMSpreadCalcTotals[accountCnt4].pAndLDay = lst_final.pAndLDay;
 
-            DataTotalLibrary.portfolioADMSpreadTotals[accountCnt4].delta = lst_final.delta;
+            DataTotalLibrary.portfolioADMSpreadCalcTotals[accountCnt4].delta = lst_final.delta;
 
-            DataTotalLibrary.portfolioADMSpreadTotals[accountCnt4].pAndLDaySettlementToSettlement = lst_final.pAndLDaySettlementToSettlement;
+            DataTotalLibrary.portfolioADMSpreadCalcTotals[accountCnt4].pAndLDaySettlementToSettlement = lst_final.pAndLDaySettlementToSettlement;
 
 
             //for (int admPosCnt = 0; admPosCnt < admPositionImportWeb.Count; admPosCnt++)
@@ -2113,34 +2075,20 @@ namespace RealtimeSpreadMonitor
 
         public void displayADMInputWithWebPositions()
         {
-            if (sAdmReportWebPositionsForm == null)
+            if (FCM_DataImportLibrary.FCM_ReportWebPositionsForm == null)
             {
-                sAdmReportWebPositionsForm = new AdmReportSummaryForm();
+                FCM_DataImportLibrary.FCM_ReportWebPositionsForm = new FCM_ReportSummaryForm();
             }
 
-            sAdmReportWebPositionsForm.fillFileDateTimeLabel(dateOfADMPositionsFile);
-
-            //sAdmReportWebPositionsForm.displayADMInputWithWebPositions(this, optionRealtimeMonitor.contractSummaryInstrumentSelectedIdx);
-
-            sAdmReportWebPositionsForm.Show();
-
-            sAdmReportWebPositionsForm.BringToFront();
-
-            sAdmReportWebPositionsForm.setupAdmInputSummaryGrid(FCM_DataImportLibrary.FCM_positionImportNotConsolidated);
+            FCM_DataImportLibrary.FCM_ReportWebPositionsForm.fillFileDateTimeLabel(dateOfADMPositionsFile);
 
 
-        }
+            FCM_DataImportLibrary.FCM_ReportWebPositionsForm.Show();
 
-        public void highlightAdmReportWebPositionsInADMStrategyInfoList(int stratCounter, int legCounter)
-        {
-            //if (!liveADMStrategyInfoList[stratCounter].admLegInfo[legCounter].notInADMPositionsWebData)
-            //{
-            //    int rowInWebPositionsData = findOfADMWebPositionsData(
-            //        liveADMStrategyInfoList[stratCounter].admLegInfo[legCounter].aDMPositionImportWeb.cqgSymbol);
+            FCM_DataImportLibrary.FCM_ReportWebPositionsForm.BringToFront();
 
-            //    if (sAdmReportWebPositionsForm != null)
-            //        sAdmReportWebPositionsForm.highlightRow(rowInWebPositionsData, false);
-            //}
+            FCM_DataImportLibrary.FCM_ReportWebPositionsForm.setupAdmInputSummaryGrid(FCM_DataImportLibrary.FCM_positionImportNotConsolidated);
+
         }
 
 
@@ -2678,13 +2626,6 @@ namespace RealtimeSpreadMonitor
             //}
         }
 
-        public void updateADMSummaryForm(long contractSummaryInstrumentSelectedIdx)
-        {
-            if (sAdmReportWebPositionsForm != null)
-            {
-                sAdmReportWebPositionsForm.updateSelectedInstrumentFromTreeADM(contractSummaryInstrumentSelectedIdx);
-            }
-        }
 
         internal string selectAcct(string tradingTechnologiesExchangeSymbol,
             AccountAllocation portfolioGroupAllocation, bool fillingPayoffGrid)

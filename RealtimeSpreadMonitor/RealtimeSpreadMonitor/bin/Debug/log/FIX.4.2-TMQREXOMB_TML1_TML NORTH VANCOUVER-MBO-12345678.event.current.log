@@ -132,3 +132,16 @@
 20161028-18:47:20.127 : Received logout response
 20161028-18:47:20.127 : Session FIX.4.2:TMQREXOMB/TML1/TML NORTH VANCOUVER->MBO:12345678 disconnecting: Received logout response
 20161028-18:47:20.141 : Session reset: ResetOnDisconnect
+20161031-21:45:03.093 : Session FIX.4.2:TMQREXOMB/TML1/TML NORTH VANCOUVER->MBO:12345678 already disconnected: Resetting...
+20161031-21:45:03.152 : Session reset: New session
+20161031-21:45:03.154 : Created session
+20161031-21:45:03.174 : Connecting to 208.184.251.226 on port 11980
+20161031-21:45:03.329 : Connection succeeded
+20161031-21:45:03.341 : Session reset: ResetOnLogon
+20161031-21:45:03.364 : Session reset: ResetSeqNumFlag
+20161031-21:45:03.396 : Initiated logon request
+20161031-21:45:03.730 : Received logon
+20161031-21:45:05.733 : Initiated logout request
+20161031-21:45:05.849 : Received logout response
+20161031-21:45:05.850 : Session FIX.4.2:TMQREXOMB/TML1/TML NORTH VANCOUVER->MBO:12345678 disconnecting: Received logout response
+20161031-21:45:05.878 : Session reset: ResetOnDisconnect

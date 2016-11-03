@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 
@@ -409,7 +410,7 @@ namespace RealtimeSpreadMonitor
         EXPRESSION_IDX
     }
 
-    public class TradingSystemConstants
+    public static class TradingSystemConstants
     {
         public const int MINUTES_IN_DAY = 1440;
         
@@ -455,7 +456,7 @@ namespace RealtimeSpreadMonitor
         public const double OPTION_ACCEPTABLE_BID_ASK_SPREAD = 20;
         public const int OPTIONREALTIMEREFRESH = 5000;
 
-        public const int MODEL_CALC_TIME_REFRESH = 5000;
+        //public const int MODEL_CALC_TIME_REFRESH = 5000;
 
         public const int MINUTES_STALE_LIVE_UPDATE = 15;
 
@@ -464,5 +465,14 @@ namespace RealtimeSpreadMonitor
         public const int STRIKE_COUNT_FOR_DEFAULT_TO_THEORETICAL = 4;
 
         public const int ALL_INSTRUMENTS_SELECTED = -1;
+
+       
     };
+
+    public static class RealtimeColors
+    {
+        public static Color positiveBackColor = Color.LawnGreen;
+        public static Color negativeBackColor = Color.Red;
+        public static Color offsetRowBackColor = Color.LightGray;
+    }
 }

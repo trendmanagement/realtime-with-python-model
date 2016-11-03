@@ -6,6 +6,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using RealtimeSpreadMonitor.Mongo;
+using RealtimeSpreadMonitor.Forms;
+using RealtimeSpreadMonitor.FormManipulation;
 
 namespace RealtimeSpreadMonitor.Model
 {
@@ -13,7 +15,9 @@ namespace RealtimeSpreadMonitor.Model
     {
         
 
-
+        /// <summary>
+        /// the following are all used to keep track of the instruments called out to CQG
+        /// </summary>
         internal static List<MongoDB_OptionSpreadExpression> optionSpreadExpressionList
             = new List<MongoDB_OptionSpreadExpression>();
 
@@ -31,7 +35,10 @@ namespace RealtimeSpreadMonitor.Model
 
         internal static ConcurrentDictionary<string, MongoDB_OptionSpreadExpression> optionSpreadExpressionHashTable_keyFullName
             = new ConcurrentDictionary<string, MongoDB_OptionSpreadExpression>();
+        //^^^^^^^^^^^^^
 
+
+        
 
         internal static MongoDB_OptionSpreadExpression riskFreeRateExpression = null;
 
@@ -73,22 +80,6 @@ namespace RealtimeSpreadMonitor.Model
 
 
 
-        //internal static internal Dictionary<string, Instrument_mongo> instrumentHashTable_keyadmcode
-        //    = new Dictionary<string, Instrument_mongo>();
-
-
-
-        //internal static internal Dictionary<long, List<Contract>> contractHashTableByInstId
-        //    = new Dictionary<long, List<Contract>>();
-
-
-        
-
-
-
-        //internal static DataTable contractSummaryGridListDataTable = new DataTable();
-
-
         internal static InitializationParms initializationParms = new InitializationParms();
 
         internal static RealtimeMonitorSettings realtimeMonitorSettings = new RealtimeMonitorSettings();
@@ -96,29 +87,10 @@ namespace RealtimeSpreadMonitor.Model
 
 
 
-
-
-        
-
-        //internal static int brokerAccountChosen;
-
-
-
-
-
-        //internal static int brokerAccountChosen;
-
-        
-
         /// <summary>
-        /// The portfolio group allocation chosen
-        /// this is a list of the portfoliogroupallocation chosen from the tree
+        /// instrumentSpecificFIXFieldHashSet
+        /// the key is a string of broker_18220, underlyingGateway, underlyingExchange and underlyingExchangeSymbol
         /// </summary>
-        //internal static List<int> portfolioGroupAllocationChosen = new List<int>();
-
-        //internal static ConcurrentDictionary<string, FCM_POFFIC_PACCT> portfolioGroupFcmOfficeAcctChosenHashSet
-        //    = new ConcurrentDictionary<string, FCM_POFFIC_PACCT>();
-
         internal static ConcurrentDictionary<string, InstrumentSpecificFIXFields> instrumentSpecificFIXFieldHashSet
             = new ConcurrentDictionary<string, InstrumentSpecificFIXFields>();
 
@@ -142,20 +114,31 @@ namespace RealtimeSpreadMonitor.Model
         /// </summary>
         internal static DataTable contractSummaryDataTable = new DataTable();
         internal static bool performFullContractRefresh = true;
-        //internal static bool refreshedContractsFromMongo = true;
+
+        /// <summary>
+        /// used for the updating of data in the FCM summary
+        /// </summary>
+        internal static DataTable FCM_SummaryDataTable = new DataTable();
+        internal static bool performFull_FCMSummary_Refresh = true;
+
+        /// <summary>
+        /// marks whether supplement contracts have been filled, these are contracts that need to be pushed into the realtime when specified
+        /// in configuration startup to supply data for contracts
+        /// </summary>
+        internal static bool supplementContractFilled = false;
+
+        /// <summary>
+        /// used to mark whether FIX TT connected
+        /// </summary>
+        internal static bool _fxceConnected = false;
+
     }
 
     static class DataTotalLibrary
     {
-        //internal static LiveSpreadTotals[] instrumentModelCalcTotals;
-        //internal static LiveSpreadTotals[] instrumentSpreadTotals;
         internal static List<LiveSpreadTotals> portfolioSpreadCalcTotals = new List<LiveSpreadTotals>();
-        internal static List<LiveSpreadTotals> portfolioSpreadTotals = new List<LiveSpreadTotals>();
 
-        //internal static LiveSpreadTotals[,] instrumentADMCalcTotalsByAccount;
-        //internal static LiveSpreadTotals[,] instrumentADMSpreadTotalsByAccount;
         internal static List<LiveSpreadTotals> portfolioADMSpreadCalcTotals = new List<LiveSpreadTotals>();
-        internal static List<LiveSpreadTotals> portfolioADMSpreadTotals = new List<LiveSpreadTotals>();
     }
 
     static class FCM_DataImportLibrary
@@ -165,8 +148,23 @@ namespace RealtimeSpreadMonitor.Model
         internal static List<ADMPositionImportWeb> FCM_Import_Consolidated;
 
         internal static List<ADMPositionImportWeb> FCM_PostionList_forCompare = new List<ADMPositionImportWeb>();
+
+
+        internal static DataTable FCM_fullImportDataTableForDisplay = new DataTable();
+
+
+        /// <summary>
+        /// this is the form to see all of the data imported from the GMI files
+        /// </summary>
+        internal static FCM_ReportSummaryForm FCM_ReportWebPositionsForm;
     }
 
+    static class ContractsModel_Library
+    {
+        internal static GridViewContractSummaryManipulation gridViewContractSummaryManipulation;
+
+        internal static GridViewFCMPostionManipulation gridViewFCMPostionManipulation;
+    }
 
     static class ThreadTracker
     {

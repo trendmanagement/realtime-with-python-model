@@ -350,7 +350,7 @@ namespace RealtimeSpreadMonitor
 
                                         if (aDMSummaryImport != null)
                                         {
-                                            FCM_SummaryFieldsList.Add(aDMSummaryImport);
+                                            
 
                                             setupInstrumentAndfillStrikeInDecimal(aDMSummaryImport,
                                                 brokerImportFiles);
@@ -372,15 +372,18 @@ namespace RealtimeSpreadMonitor
                                                 aDMSummaryImport.acctGroup =
                                                     DataCollectionLibrary.portfolioAllocation.accountAllocation_KeyOfficAcct[key];
 
+                                                //only add accounts that we have set up
+                                                FCM_SummaryFieldsList.Add(aDMSummaryImport);
+
                                                 //aDMSummaryImport.acctGroup = aa;
                                             }
                                             else
                                             {
-                                                if (DataCollectionLibrary.portfolioAllocation.accountAllocation.Count > 0)
-                                                {
-                                                    aDMSummaryImport.acctGroup =
-                                                        DataCollectionLibrary.portfolioAllocation.accountAllocation[0];
-                                                }
+                                                //if (DataCollectionLibrary.portfolioAllocation.accountAllocation.Count > 0)
+                                                //{
+                                                //    aDMSummaryImport.acctGroup =
+                                                //        DataCollectionLibrary.portfolioAllocation.accountAllocation[0];
+                                                //}
                                             }
 
                                             //Console.WriteLine(aDMSummaryImport.POFFIC);
@@ -857,7 +860,7 @@ namespace RealtimeSpreadMonitor
             copyInto.strike = copyFrom.strike;
 
             //copyInto.contractInfo = copyFrom.contractInfo;
-            copyInto.contractData = copyFrom.contractData;
+            copyInto.positionTotals = copyFrom.positionTotals;
 
 
 

@@ -94,13 +94,13 @@ namespace RealtimeSpreadMonitor.Mongo
             return _accountPositionCollection.Find(filter).ToList();
         }
 
-        internal static AccountPosition GetAccountArchivePositionsInfoFromMongo(string accountName)
+        internal static List<AccountPosition> GetAccountArchivePositionsInfoFromMongo(string accountName)
         {
             var builder = Builders<AccountPosition>.Filter;
             var filter = builder.Eq(x => x.name, accountName);
 
             return _accountPositionArchiveCollection.Find(filter)
-                .Sort(Builders<AccountPosition>.Sort.Descending("date_now")).Limit(1).Single();
+                .Sort(Builders<AccountPosition>.Sort.Descending("date_now")).Limit(2).ToList();
         }
 
         internal static List<Instrument_mongo> GetInstrumentListFromMongo(List<long> instrumentIdList)

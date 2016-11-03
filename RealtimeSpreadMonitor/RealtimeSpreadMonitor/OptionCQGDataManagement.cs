@@ -41,7 +41,7 @@ namespace RealtimeSpreadMonitor
         {
             this.optionSpreadManager = optionSpreadManager;
 
-            setupCalculateModelValuesAndSummarizeTotals();
+            //setupCalculateModelValuesAndSummarizeTotals();
         }
 
         public void stopDataManagementAndTotalCalcThreads()
@@ -229,13 +229,13 @@ namespace RealtimeSpreadMonitor
                         {
                             fillDefaultMidPrice_Option(optionSpreadExpression);
 
-                           
+
                         }
                         else if (optionSpreadExpression.optionExpressionType == OPTION_EXPRESSION_TYPES.OPTION_EXPRESSION_RISK_FREE_RATE)
                         {
                             fillDefaultPrice_RiskFreeRate(optionSpreadExpression);
 
-                            
+
                         }
 
 
@@ -317,13 +317,13 @@ namespace RealtimeSpreadMonitor
                             {
                                 fillDefaultMidPrice_Option(optionSpreadExpression);
 
-                               
+
                             }
                             else if (optionSpreadExpression.optionExpressionType == OPTION_EXPRESSION_TYPES.OPTION_EXPRESSION_RISK_FREE_RATE)
                             {
                                 fillDefaultPrice_RiskFreeRate(optionSpreadExpression);
 
-                               
+
                             }
 
                         }
@@ -469,7 +469,7 @@ namespace RealtimeSpreadMonitor
 
                                 fillDefaultMidPrice_Future(ose);
 
-                               
+
 
                             }
                         }
@@ -571,7 +571,7 @@ namespace RealtimeSpreadMonitor
 
                             fillDefaultMidPrice_Future(ose);
 
-                           
+
                         }
 
                     }
@@ -616,30 +616,13 @@ namespace RealtimeSpreadMonitor
 
                             fillDefaultMidPrice_Future(ose);
 
-                           
+
 
                         }
 
 
                     }
                 }
-
-
-
-
-
-
-                //TSErrorCatch.debugWriteOut(
-                //    optionSpreadExpressionList[expressionCounter]
-                //                            .futureBarData[test].barTime + "  " +
-
-                //    optionSpreadExpressionList[expressionCounter]
-                //                            .futureBarData[test].open + "  " +
-
-                //    optionSpreadExpressionList[expressionCounter]
-                //                            .futureBarData[test].cumulativeVolume);
-
-
 
 
             }
@@ -717,16 +700,13 @@ namespace RealtimeSpreadMonitor
                                 Thread.Sleep(SUBSCRIPTION_TIMEDELAY_CONSTANT);
 
 
+                                string msg =
+                                    "SUBSCRIBE " + DataCollectionLibrary.optionSpreadExpressionList[i].asset.cqgsymbol
+                                    + " : " + (i + 1) + " OF " +
+                                    DataCollectionLibrary.optionSpreadExpressionList.Count;
 
-                                int count = i + 1;
+                                AsyncTaskListener.StatusUpdateAsync(msg, STATUS_FORMAT.ALARM, STATUS_TYPE.DATA_SUBSCRIPTION_STATUS);
 
-                                if (optionSpreadManager.optionRealtimeMonitor != null)
-                                {
-                                    optionSpreadManager.optionRealtimeMonitor.updateStatusSubscribeData(
-                                        "SUBSCRIBE " + DataCollectionLibrary.optionSpreadExpressionList[i].asset.cqgsymbol
-                                        + " : " + count + " OF " +
-                                        DataCollectionLibrary.optionSpreadExpressionList.Count);
-                                }
 
                                 m_CEL.NewInstrument(DataCollectionLibrary.optionSpreadExpressionList[i].asset.cqgsymbol);
 
@@ -742,7 +722,7 @@ namespace RealtimeSpreadMonitor
                             if (DataCollectionLibrary.optionSpreadExpressionList[i].callPutOrFuture == OPTION_SPREAD_CONTRACT_TYPE.FUTURE)
                             {
                                 if (!DataCollectionLibrary.optionSpreadExpressionList[i].requestedMinuteBars)
-                                    //&& DataCollectionLibrary.optionSpreadExpressionList[i].normalSubscriptionRequest)
+                                //&& DataCollectionLibrary.optionSpreadExpressionList[i].normalSubscriptionRequest)
                                 {
                                     requestFutureContractTimeBars(DataCollectionLibrary.optionSpreadExpressionList[i],
                                         i);
@@ -756,17 +736,13 @@ namespace RealtimeSpreadMonitor
 
                             Thread.Sleep(SUBSCRIPTION_TIMEDELAY_CONSTANT);
 
+                            string msg =
+                                    "SUBSCRIBE " + DataCollectionLibrary.optionSpreadExpressionList[i].asset.cqgsymbol
+                                    + " : " + (i + 1) + " OF " +
+                                    DataCollectionLibrary.optionSpreadExpressionList.Count;
 
+                            AsyncTaskListener.StatusUpdateAsync(msg, STATUS_FORMAT.ALARM, STATUS_TYPE.DATA_SUBSCRIPTION_STATUS);
 
-                            int count = i + 1;
-
-                            if (optionSpreadManager.optionRealtimeMonitor != null)
-                            {
-                                optionSpreadManager.optionRealtimeMonitor.updateStatusSubscribeData(
-                                        "SUBSCRIBE " + DataCollectionLibrary.optionSpreadExpressionList[i].asset.cqgsymbol
-                                        + " : " + count + " OF " +
-                                        DataCollectionLibrary.optionSpreadExpressionList.Count);
-                            }
 
                             m_CEL.NewInstrument(DataCollectionLibrary.optionSpreadExpressionList[i].asset.cqgsymbol);
 
@@ -777,20 +753,14 @@ namespace RealtimeSpreadMonitor
                                 DataCollectionLibrary.optionSpreadExpressionList[i],
                                 (oldKey, oldValue) => DataCollectionLibrary.optionSpreadExpressionList[i]);
 
-                            //optionSpreadExpressionCheckSubscribedListIdx.AddOrUpdate(
-                            //    DataCollectionLibrary.optionSpreadExpressionList[i].cqgsymbol, idx,
-                            //    (oldKey, oldValue) => idx);
+
 
                             if (DataCollectionLibrary.optionSpreadExpressionList[i].callPutOrFuture == OPTION_SPREAD_CONTRACT_TYPE.FUTURE)
                             {
                                 DataCollectionLibrary.optionSpreadExpressionList[i].requestedMinuteBars = false;
-                                
 
-                                //if (DataCollectionLibrary.optionSpreadExpressionList[i].normalSubscriptionRequest)
-                                {
-                                    requestFutureContractTimeBars(DataCollectionLibrary.optionSpreadExpressionList[i],
-                                        i);
-                                }
+                                requestFutureContractTimeBars(DataCollectionLibrary.optionSpreadExpressionList[i],
+                                    i);
 
                             }
                         }
@@ -802,18 +772,8 @@ namespace RealtimeSpreadMonitor
 
                     Thread.Sleep(SUBSCRIPTION_TIMEDELAY_CONSTANT);
 
-                    if (optionSpreadManager.optionRealtimeMonitor != null)
-                    {
-                        optionSpreadManager.optionRealtimeMonitor.updateStatusSubscribeData("");
-                    }
+                    AsyncTaskListener.StatusUpdateAsync("", STATUS_FORMAT.ALARM, STATUS_TYPE.DATA_SUBSCRIPTION_STATUS);
 
-                    if (DataCollectionLibrary.realtimeMonitorSettings.eodAnalysis
-                        && !DataCollectionLibrary.realtimeMonitorSettings.alreadyWritten)
-                    {
-                        Thread writeStateToDbThread = new Thread(new ParameterizedThreadStart(runRealtimeWriteStateToDB));
-                        writeStateToDbThread.IsBackground = true;
-                        writeStateToDbThread.Start();
-                    }
                 }
             }
             catch (Exception ex)
@@ -824,36 +784,7 @@ namespace RealtimeSpreadMonitor
             ThreadTracker.closeThread(null, null);
         }
 
-        private void runRealtimeWriteStateToDB(Object obj)
-        {
-            ThreadTracker.openThread(null, null);
-
-            Thread.Sleep(10000);
-
-            DateTime writeDate = DateTime.Now;// = optionSpreadManager.writeRealtimeStateToDatabase();
-
-
-            //if (DataCollectionLibrary.initializationParms.useCloudDb)
-            //{
-            //writeDate = optionSpreadManager.writeRealtimeStateToDatabaseAzure();
-            //}
-            //else
-            //{
-            //    writeDate = optionSpreadManager.writeRealtimeStateToDatabase();
-            //}
-
-
-            DataCollectionLibrary.realtimeMonitorSettings.alreadyWritten = true;
-
-            //optionSpreadManager.realtimeMonitorSettings.
-            if (optionSpreadManager.optionRealtimeMonitor.settings != null)
-            {
-                optionSpreadManager.optionRealtimeMonitor.settings
-                    .updateWriteDate(writeDate);
-            }
-
-            ThreadTracker.closeThread(null, null);
-        }
+        
 
         public void requestFutureContractTimeBars(MongoDB_OptionSpreadExpression optionSpreadExpression,
             int optionSpreadExpressionIdx)
@@ -969,7 +900,7 @@ namespace RealtimeSpreadMonitor
 
                     foreach (MongoDB_OptionSpreadExpression optionSpreadThatUsesFuture in optionSpreadExpression.optionExpressionsThatUseThisFutureAsUnderlying)
                     {
-                        
+
 
                         fillEodAnalysisPrices(optionSpreadThatUsesFuture);
 
@@ -1860,56 +1791,56 @@ namespace RealtimeSpreadMonitor
             }
         }
 
-        public void setupCalculateModelValuesAndSummarizeTotals()
-        {
+        //        public void setupCalculateModelValuesAndSummarizeTotals()
+        //        {
 
-#if DEBUG
-            try
-#endif
-            {
-                calculateModelValuesAndSummarizeTotalsThread = new Thread(new ParameterizedThreadStart(calculateModelValuesAndSummarizeTotalsThreadRun));
-                calculateModelValuesAndSummarizeTotalsThread.IsBackground = true;
-                calculateModelValuesAndSummarizeTotalsThread.Start();
-            }
-#if DEBUG
-            catch (Exception ex)
-            {
-                TSErrorCatch.errorCatchOut(Convert.ToString(this), ex);
-            }
-#endif
+        //#if DEBUG
+        //            try
+        //#endif
+        //            {
+        //                calculateModelValuesAndSummarizeTotalsThread = new Thread(new ParameterizedThreadStart(calculateModelValuesAndSummarizeTotalsThreadRun));
+        //                calculateModelValuesAndSummarizeTotalsThread.IsBackground = true;
+        //                calculateModelValuesAndSummarizeTotalsThread.Start();
+        //            }
+        //#if DEBUG
+        //            catch (Exception ex)
+        //            {
+        //                TSErrorCatch.errorCatchOut(Convert.ToString(this), ex);
+        //            }
+        //#endif
 
-        }
+        //        }
 
-        private void calculateModelValuesAndSummarizeTotalsThreadRun(Object obj)
-        {
-            ThreadTracker.openThread(null, null);
+        //private void calculateModelValuesAndSummarizeTotalsThreadRun(Object obj)
+        //{
+        //    ThreadTracker.openThread(null, null);
 
-            try
-            {
-                while (!calculateModelValuesThreadShouldStop)
-                {
-                    calculateModelValuesAndSummarizeTotals();
+        //    try
+        //    {
+        //        while (!calculateModelValuesThreadShouldStop)
+        //        {
+        //            calculateModelValuesAndSummarizeTotals();
 
-                    Thread.Sleep(TradingSystemConstants.MODEL_CALC_TIME_REFRESH);
+        //            Thread.Sleep(TradingSystemConstants.MODEL_CALC_TIME_REFRESH);
 
-                }
-            }
-            catch (Exception ex)
-            {
-                TSErrorCatch.errorCatchOut(Convert.ToString(this), ex);
-            }
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        TSErrorCatch.errorCatchOut(Convert.ToString(this), ex);
+        //    }
 
-            ThreadTracker.closeThread(null, null);
-        }
+        //    ThreadTracker.closeThread(null, null);
+        //}
 
-        private void calculateModelValuesAndSummarizeTotals()
-        {
+        //private void calculateModelValuesAndSummarizeTotals()
+        //{
 
-            optionSpreadManager.RunSpreadTotalCalculations();
+        //    optionSpreadManager.RunSpreadTotalCalculations();
 
-            optionSpreadManager.RunADMSpreadTotalCalculations();
+        //    optionSpreadManager.RunADMSpreadTotalCalculations();
 
-        }
+        //}
 
     }
 }

@@ -157,11 +157,11 @@
     <Compile Include="FormManipulation\ModelADMCompareCalculationAndDisplay.cs" />
     <Compile Include="FormManipulation\StatusAndConnectedUpdates.cs" />
     <Compile Include="FormManipulation\StrategyAction.cs" />
-    <Compile Include="Forms\AdmReportSummaryForm.cs">
+    <Compile Include="Forms\FCM_ReportSummaryForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\AdmReportSummaryForm.designer.cs">
-      <DependentUpon>AdmReportSummaryForm.cs</DependentUpon>
+    <Compile Include="Forms\FCM_ReportSummaryForm.designer.cs">
+      <DependentUpon>FCM_ReportSummaryForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\ChartForm.cs">
       <SubType>Form</SubType>
@@ -272,8 +272,8 @@
     <None Include="DataClassesTMLDB.dbml.layout">
       <DependentUpon>DataClassesTMLDB.dbml</DependentUpon>
     </None>
-    <EmbeddedResource Include="Forms\AdmReportSummaryForm.resx">
-      <DependentUpon>AdmReportSummaryForm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\FCM_ReportSummaryForm.resx">
+      <DependentUpon>FCM_ReportSummaryForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ChartForm.resx">
       <DependentUpon>ChartForm.cs</DependentUpon>

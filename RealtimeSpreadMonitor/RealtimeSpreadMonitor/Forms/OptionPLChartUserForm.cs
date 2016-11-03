@@ -588,8 +588,8 @@ namespace RealtimeSpreadMonitor.Forms
                                     acct,
                                     admPositionImportWebList[contractCount].callPutOrFuture,
                                     admPositionImportWebList[contractCount].asset.strikeprice,
-                                    admPositionImportWebList[contractCount].contractData.optionSpreadExpression.defaultPrice,
-                                    admPositionImportWebList[contractCount].contractData.optionSpreadExpression.impliedVol * 100,
+                                    admPositionImportWebList[contractCount].optionSpreadExpression.defaultPrice,
+                                    admPositionImportWebList[contractCount].optionSpreadExpression.impliedVol * 100,
                                     admPositionImportWebList[contractCount].asset.year,
                                     admPositionImportWebList[contractCount].asset.monthint,
                                     admPositionImportWebList[contractCount].asset.optionyear,
@@ -597,7 +597,7 @@ namespace RealtimeSpreadMonitor.Forms
                                     Convert.ToInt32(admPositionImportWebList[contractCount].netContractsEditable
                                         + admPositionImportWebList[contractCount].transNetLong
                                         - admPositionImportWebList[contractCount].transNetShort),
-                                    admPositionImportWebList[contractCount].contractData.optionSpreadExpression.asset.yearFraction
+                                    admPositionImportWebList[contractCount].optionSpreadExpression.asset.yearFraction
                                     * 365
                                     ))
                                 {
@@ -791,37 +791,37 @@ namespace RealtimeSpreadMonitor.Forms
                             optionMonth =
                                 FCM_DataImportLibrary.FCM_PostionList_forCompare[contractCount].optionSpreadExpression.optionMonthInt;
                         }
-                        else if (FCM_DataImportLibrary.FCM_PostionList_forCompare[contractCount].contractData != null &&
-                            FCM_DataImportLibrary.FCM_PostionList_forCompare[contractCount].contractData.optionSpreadExpression != null)
+                        else if (FCM_DataImportLibrary.FCM_PostionList_forCompare[contractCount] != null &&
+                            FCM_DataImportLibrary.FCM_PostionList_forCompare[contractCount].optionSpreadExpression != null)
                         {
                             callPutOrFuture = FCM_DataImportLibrary.FCM_PostionList_forCompare[contractCount]
-                                .contractData.optionSpreadExpression.callPutOrFuture;
+                                .optionSpreadExpression.callPutOrFuture;
 
                             defaultPrice = FCM_DataImportLibrary.FCM_PostionList_forCompare[contractCount]
-                                .contractData.optionSpreadExpression.defaultPrice;
+                                .optionSpreadExpression.defaultPrice;
 
                             impliedVol = FCM_DataImportLibrary.FCM_PostionList_forCompare[contractCount]
-                                .contractData.optionSpreadExpression.impliedVol * 100;
+                                .optionSpreadExpression.impliedVol * 100;
 
                             yearFraction = FCM_DataImportLibrary.FCM_PostionList_forCompare[contractCount]
-                                .contractData.optionSpreadExpression.asset.yearFraction
+                                .optionSpreadExpression.asset.yearFraction
                                 * 365;
 
                             strikePrice = FCM_DataImportLibrary.FCM_PostionList_forCompare[contractCount]
-                                .contractData.optionSpreadExpression.asset.strikeprice;
+                                .optionSpreadExpression.asset.strikeprice;
 
                             contractYear =
                                 FCM_DataImportLibrary.FCM_PostionList_forCompare[contractCount]
-                                .contractData.optionSpreadExpression.futureContractYear;
+                                .optionSpreadExpression.futureContractYear;
                             contractMonth =
                                 FCM_DataImportLibrary.FCM_PostionList_forCompare[contractCount]
-                                .contractData.optionSpreadExpression.futureContractMonthInt;
+                                .optionSpreadExpression.futureContractMonthInt;
                             optionYear =
                                 FCM_DataImportLibrary.FCM_PostionList_forCompare[contractCount]
-                                .contractData.optionSpreadExpression.optionYear;
+                                .optionSpreadExpression.optionYear;
                             optionMonth =
                                 FCM_DataImportLibrary.FCM_PostionList_forCompare[contractCount]
-                                .contractData.optionSpreadExpression.optionMonthInt;
+                                .optionSpreadExpression.optionMonthInt;
                         }
                         else
                         {
@@ -1033,37 +1033,37 @@ namespace RealtimeSpreadMonitor.Forms
                             optionMonth =
                                 admPositionImportWebListForCompare[contractCount].optionSpreadExpression.optionMonthInt;
                         }
-                        else if (admPositionImportWebListForCompare[contractCount].contractData != null &&
-                            admPositionImportWebListForCompare[contractCount].contractData.optionSpreadExpression != null)
+                        else if (admPositionImportWebListForCompare[contractCount].positionTotals != null &&
+                            admPositionImportWebListForCompare[contractCount].optionSpreadExpression != null)
                         {
                             callPutOrFuture = admPositionImportWebListForCompare[contractCount]
-                                .contractData.optionSpreadExpression.callPutOrFuture;
+                                .optionSpreadExpression.callPutOrFuture;
 
                             defaultPrice = admPositionImportWebListForCompare[contractCount]
-                                .contractData.optionSpreadExpression.defaultPrice;
+                                .optionSpreadExpression.defaultPrice;
 
                             impliedVol = admPositionImportWebListForCompare[contractCount]
-                                .contractData.optionSpreadExpression.impliedVol * 100;
+                                .optionSpreadExpression.impliedVol * 100;
 
                             yearFraction = admPositionImportWebListForCompare[contractCount]
-                                .contractData.optionSpreadExpression.asset.yearFraction
+                                .optionSpreadExpression.asset.yearFraction
                                 * 365;
 
                             strikePrice = admPositionImportWebListForCompare[contractCount]
-                                .contractData.optionSpreadExpression.strikePrice;
+                                .optionSpreadExpression.strikePrice;
 
                             contractYear =
                                 admPositionImportWebListForCompare[contractCount]
-                                .contractData.optionSpreadExpression.futureContractYear;
+                                .optionSpreadExpression.futureContractYear;
                             contractMonth =
                                 admPositionImportWebListForCompare[contractCount]
-                                .contractData.optionSpreadExpression.futureContractMonthInt;
+                                .optionSpreadExpression.futureContractMonthInt;
                             optionYear =
                                 admPositionImportWebListForCompare[contractCount]
-                                .contractData.optionSpreadExpression.optionYear;
+                                .optionSpreadExpression.optionYear;
                             optionMonth =
                                 admPositionImportWebListForCompare[contractCount]
-                                .contractData.optionSpreadExpression.optionMonthInt;
+                                .optionSpreadExpression.optionMonthInt;
                         }
                         else
                         {

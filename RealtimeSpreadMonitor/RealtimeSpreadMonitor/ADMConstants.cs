@@ -131,7 +131,7 @@ namespace RealtimeSpreadMonitor
 
     public enum OPTION_LIVE_ADM_DATA_COLUMNS
     {
-
+        CONTRACT,
         TIME,
         POFFIC,
         PACCT,
@@ -172,7 +172,7 @@ namespace RealtimeSpreadMonitor
         STRIKE,
         DESCRIP,
         CUSIP,
-        ADMPOSWEB_IDX,
+        //ADMPOSWEB_IDX,
         INSTRUMENT_ID,
     };
 }
