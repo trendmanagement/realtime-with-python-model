@@ -56,18 +56,18 @@ namespace RealtimeSpreadMonitor.Mongo
         public char callPutOrFutureChar;
 
 
-        public long optionId; //only filled if contract is an option
-        public long underlyingFutureId;
+        //public long optionId; //only filled if contract is an option
+        //public long underlyingFutureId;
 
         public long substituteOptionId; //only filled if contract is an option
         public long substituteUnderlyingFutureId;
 
 
-        public long futureId; //only filled if contract is a future
+        //public long futureId; //only filled if contract is a future
         public long substituteFutureId;
 
 
-        public double strikePrice;
+        //public double strikePrice;
 
         public double riskFreeRate = 0.01;
         public bool riskFreeRateFilled = false;
@@ -116,10 +116,10 @@ namespace RealtimeSpreadMonitor.Mongo
 
 
         public double defaultBidPriceBeforeTheor;
-        //public bool defaultBidPriceBeforeTheorFilled;
+
 
         public double defaultAskPriceBeforeTheor;
-        //public bool defaultAskPriceBeforeTheorFilled;        
+      
 
         public double defaultMidPriceBeforeTheor;
 
@@ -155,29 +155,18 @@ namespace RealtimeSpreadMonitor.Mongo
 
 
 
-        public List<int> spreadIdx = new List<int>();
-        public List<int> legIdx = new List<int>();
-        public List<int> rowIdx = new List<int>();
+        //public List<int> spreadIdx = new List<int>();
+        //public List<int> legIdx = new List<int>();
+        //public List<int> rowIdx = new List<int>();
 
 
-        public List<int> substituteSymbolSpreadIdx = new List<int>();
-        public List<int> substituteSymbolLegIdx = new List<int>();
-        public List<int> substituteSymbolRowIdx = new List<int>();
+        //public List<int> substituteSymbolSpreadIdx = new List<int>();
+        //public List<int> substituteSymbolLegIdx = new List<int>();
+        //public List<int> substituteSymbolRowIdx = new List<int>();
 
         public MongoDB_OptionSpreadExpression mainExpressionSubstitutionUsedFor;
 
 
-        //public List<int> admStrategyIdx = new List<int>();
-        //public List<int> admPositionImportWebIdx = new List<int>();
-        //public List<int> admRowIdx = new List<int>();
-
-
-        //public List<OHLCData> futureBarData;
-        //public List<DateTime> futureBarTimeRef;
-        //public List<TheoreticalBar> theoreticalOptionDataList;
-
-
-        //public DateTime previousDateTimeBoundaryStart;
 
         public CQG.CQGTimedBar todayTransactionBar;
         public DateTime todayTransactionTimeBoundary;
@@ -188,13 +177,13 @@ namespace RealtimeSpreadMonitor.Mongo
         public DateTime todayDecisionTime;
         public bool reachedDecisionBar = false;
         public bool reachedBarAfterDecisionBar = false;
-        public bool reached1MinAfterDecisionBarUsedForSnapshot = false;
+        //public bool reached1MinAfterDecisionBarUsedForSnapshot = false;
 
         //public DateTime settlementDateTimeMarker;
         //public bool reachedSettlementDateTimeMarker;
 
 
-        public CQG_REFRESH_STATE guiRefresh = CQG_REFRESH_STATE.NOTHING;
+        //public CQG_REFRESH_STATE guiRefresh = CQG_REFRESH_STATE.NOTHING;
         public CQG_REFRESH_STATE totalCalcsRefresh = CQG_REFRESH_STATE.NOTHING;
 
         public MongoDB_OptionSpreadExpression underlyingFutureExpression;
@@ -202,30 +191,6 @@ namespace RealtimeSpreadMonitor.Mongo
         public List<MongoDB_OptionSpreadExpression> optionExpressionsThatUseThisFutureAsUnderlying = new List<MongoDB_OptionSpreadExpression>();
 
 
-        //************************
-        //Order summary variables
-        //public int numberOfOrderContractsTempForCalc = 0;
-        //public int numberOfOrderContractsTempForCalcNotActive = 0;
-
-        //public int numberOfOrderContracts = 0;
-       // public int numberOfOrderContractsNotActive = 0;
-
-        //public bool contractHasOrder;
-
-        //public bool orderActionTest;
-        //*************************
-
-        //************************
-        //Contract summary variables
-        //public int numberOfLotsHeldForContractSummary = 0;
-        //public double plChgForContractSummary = 0;
-        //public double deltaChgForContractSummary = 0;
-
-        //public double plChgOrders = 0;
-
-        //public double plChgOrdersToSettlement = 0;
-
-        //public double plChgToSettlement = 0;
 
 
         //Expression List grid
@@ -240,13 +205,6 @@ namespace RealtimeSpreadMonitor.Mongo
             this.optionExpressionType = optionExpressionType;
 
             this.asset = new Asset();
-
-            //if (optionExpressionType == OPTION_EXPRESSION_TYPES.SPREAD_LEG_PRICE
-            //    && callPutOrFuture == OPTION_SPREAD_CONTRACT_TYPE.FUTURE)
-            //{
-            //    optionExpressionsThatUseThisFutureAsUnderlying
-            //        = new List<MongoDB_OptionSpreadExpression>();
-            //}
 
         }
 

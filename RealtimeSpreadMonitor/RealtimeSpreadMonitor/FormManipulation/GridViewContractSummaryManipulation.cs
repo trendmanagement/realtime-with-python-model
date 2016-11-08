@@ -116,6 +116,10 @@ namespace RealtimeSpreadMonitor.FormManipulation
                                 dataTable.Rows[rowCount][(int)CONTRACTSUMMARY_DATA_COLUMNS.STRIKE_PRICE] = p.asset.strikeprice;
                             }
 
+                            dataTable.Rows[rowCount][(int)CONTRACTSUMMARY_DATA_COLUMNS.RFRSH_TIME]
+                                = ap.date_now.ToString("MM-dd HH:mm", DateTimeFormatInfo.InvariantInfo);
+
+
                             dataTable.Rows[rowCount][(int)CONTRACTSUMMARY_DATA_COLUMNS.TIME]
                                 = p.mose.lastTimeUpdated.ToString("MM-dd HH:mm", DateTimeFormatInfo.InvariantInfo);
 

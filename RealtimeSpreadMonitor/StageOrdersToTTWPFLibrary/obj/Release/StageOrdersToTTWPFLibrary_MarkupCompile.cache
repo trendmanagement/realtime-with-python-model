@@ -4,7 +4,7 @@
 library
 C#
 .cs
-D:\RealtimeSpread\RealtimeSpreadMonitor\StageOrdersToTTWPFLibrary\obj\Release\
+D:\RealtimeSpreadWithPythonModel\RealtimeSpreadMonitor\StageOrdersToTTWPFLibrary\obj\Release\
 StageOrdersToTTWPFLibrary
 none
 false
@@ -13,7 +13,7 @@ TRACE
 52124145738
 
 27-509704216
-18579716984
+18-168581816
 Themes\Generic.xaml;View\ExecutionView.xaml;View\FIXMessageView.xaml;View\OrderView.xaml;View\StageOrdersMainView.xaml;
 
 False

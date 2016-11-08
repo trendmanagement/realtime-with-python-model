@@ -432,12 +432,12 @@ namespace RealtimeSpreadMonitor
                                         ose.reachedBarAfterDecisionBar = true;
                                     }
 
-                                    if (!ose.reached1MinAfterDecisionBarUsedForSnapshot
-                                        && cqg_TimedBarsIn[timedBarsInCounter].Timestamp
-                                        .CompareTo(ose.todayDecisionTime.AddMinutes(1)) > 0)
-                                    {
-                                        ose.reached1MinAfterDecisionBarUsedForSnapshot = true;
-                                    }
+                                    //if (!ose.reached1MinAfterDecisionBarUsedForSnapshot
+                                    //    && cqg_TimedBarsIn[timedBarsInCounter].Timestamp
+                                    //    .CompareTo(ose.todayDecisionTime.AddMinutes(1)) > 0)
+                                    //{
+                                    //    ose.reached1MinAfterDecisionBarUsedForSnapshot = true;
+                                    //}
 
 
                                     timedBarsInCounter++;
@@ -544,12 +544,12 @@ namespace RealtimeSpreadMonitor
                                 ose.reachedBarAfterDecisionBar = true;
                             }
 
-                            if (!ose.reached1MinAfterDecisionBarUsedForSnapshot
-                                && cqg_TimedBarsIn[lastTimedBarInIndex].Timestamp
-                                .CompareTo(ose.todayDecisionTime.AddMinutes(1)) > 0)
-                            {
-                                ose.reached1MinAfterDecisionBarUsedForSnapshot = true;
-                            }
+                            //if (!ose.reached1MinAfterDecisionBarUsedForSnapshot
+                            //    && cqg_TimedBarsIn[lastTimedBarInIndex].Timestamp
+                            //    .CompareTo(ose.todayDecisionTime.AddMinutes(1)) > 0)
+                            //{
+                            //    ose.reached1MinAfterDecisionBarUsedForSnapshot = true;
+                            //}
 
 
                             lastTimedBarInIndex++;
@@ -784,7 +784,7 @@ namespace RealtimeSpreadMonitor
             ThreadTracker.closeThread(null, null);
         }
 
-        
+
 
         public void requestFutureContractTimeBars(MongoDB_OptionSpreadExpression optionSpreadExpression,
             int optionSpreadExpressionIdx)
@@ -894,19 +894,46 @@ namespace RealtimeSpreadMonitor
                     optionSpreadExpression.impliedVol = 0;
                     optionSpreadExpression.delta = 1 * TradingSystemConstants.OPTION_DELTA_MULTIPLIER;
 
-                    fillFutureDecisionAndTransactionPrice(optionSpreadExpression);
+                    ///Below fills decision bar for future and options of future
+                    if (optionSpreadExpression.decisionBar != null)
+                    {
+                        optionSpreadExpression.decisionPrice = optionSpreadExpression.decisionBar.Close;
+
+                        optionSpreadExpression.decisionPriceTime = optionSpreadExpression.decisionBar.Timestamp;
+
+                        if (optionSpreadExpression.reachedDecisionBar)
+                        {
+                            optionSpreadExpression.decisionPriceFilled = true;
+                        }
+                    }
+
+
+                    if (optionSpreadExpression.todayTransactionBar != null)
+                    {
+                        optionSpreadExpression.transactionPrice =
+                            optionSpreadExpression.todayTransactionBar.Close;
+
+                        optionSpreadExpression.transactionPriceTime =
+                            optionSpreadExpression.todayTransactionBar.Timestamp;
+
+                        if (optionSpreadExpression.reachedTransactionTimeBoundary)
+                        {
+                            optionSpreadExpression.transactionPriceFilled = true;
+                        }
+
+                    }
 
                     TSErrorCatch.debugWriteOut(optionSpreadExpression.asset.cqgsymbol + " " + optionSpreadExpression.optionExpressionsThatUseThisFutureAsUnderlying.Count());
 
                     foreach (MongoDB_OptionSpreadExpression optionSpreadThatUsesFuture in optionSpreadExpression.optionExpressionsThatUseThisFutureAsUnderlying)
                     {
-
+                        generatingGreeksAndImpliedVol(optionSpreadThatUsesFuture);
 
                         fillEodAnalysisPrices(optionSpreadThatUsesFuture);
 
                         fillTheoreticalOptionPrice(optionSpreadThatUsesFuture);
 
-                        generatingGreeks(optionSpreadThatUsesFuture);
+
 
                         if (optionSpreadThatUsesFuture.setSubscriptionLevel)
                         {
@@ -920,7 +947,11 @@ namespace RealtimeSpreadMonitor
                 }
                 else
                 {
-                    generatingGreeks(optionSpreadExpression);
+                    generatingGreeksAndImpliedVol(optionSpreadExpression);
+
+                    fillEodAnalysisPrices(optionSpreadExpression);
+
+                    //fillTheoreticalOptionPrice(optionSpreadExpression);
                 }
 
 
@@ -1226,21 +1257,11 @@ namespace RealtimeSpreadMonitor
 
 
 
-        public void generatingGreeks(MongoDB_OptionSpreadExpression optionSpreadExpression)
+        public void generatingGreeksAndImpliedVol(MongoDB_OptionSpreadExpression optionSpreadExpression)
         {
 
 
-            //             double yearFrac =
-            //              optionSpreadHistoricalBuild[spreadCounter].
-            //                 calcYearFrac(optionBuilderSpreadStructure[
-            //                                     currentDateContractListMainIdx[spreadCounter][(int)OPTION_SPREAD_ROLL_INDEXES.OPTION_SPREAD_IDX]
-            //                                     ]
-            //                                 .optionBuildLegStructureArray[legCounter]
-            //                                 .optionBuildLegDataAtRollDateList[
-            //                                     currentDateContractListMainIdx[spreadCounter][(int)OPTION_SPREAD_ROLL_INDEXES.OPTION_SPREAD_ROLL_IDX]
-            //                                     ]
-            //                                 .optionExpirationRollInto.optionExpiration,
-            //                                                 DateTime.Now);
+
 
             if (optionSpreadExpression.callPutOrFuture == OPTION_SPREAD_CONTRACT_TYPE.FUTURE)
             {
@@ -1284,8 +1305,6 @@ namespace RealtimeSpreadMonitor
 
                         optionSpreadExpression.defaultPriceFilled = true;
 
-                        //optionSpreadExpression.defaultPriceForDisplay = optionSpreadExpression.defaultPrice;
-
                         optionSpreadExpression.totalCalcsRefresh = CQG_REFRESH_STATE.DATA_UPDATED;
                     }
 
@@ -1327,12 +1346,7 @@ namespace RealtimeSpreadMonitor
                     //       0,
                     //       optionSpreadExpression.impliedVol);
                 }
-                else
-                {
-                    //optionSpreadExpression.impliedVol = optionSpreadExpression.impliedVolFromSpan;
 
-                    //optionSpreadExpression.impliedVolFilled = true;
-                }
             }
 
         }
@@ -1378,72 +1392,7 @@ namespace RealtimeSpreadMonitor
 
         }
 
-        public void fillFutureDecisionAndTransactionPrice(MongoDB_OptionSpreadExpression optionSpreadExpression)
-        {
-            if (optionSpreadExpression.decisionBar != null && optionSpreadExpression.todayTransactionBar != null)
-            {
-                //if (!optionSpreadExpression.filledAfterReachedDecisionBar)
-                {
-                    optionSpreadExpression.decisionPrice =
-                        optionSpreadExpression.decisionBar.Close;
 
-                    optionSpreadExpression.decisionPriceTime =
-                        optionSpreadExpression.decisionBar.Timestamp;
-
-                    optionSpreadExpression.decisionPriceFilled = true;
-
-                    //if (optionSpreadExpression.reachedDecisionBar)
-                    //{
-                    //    optionSpreadExpression.filledAfterReachedDecisionBar = true;
-                    //}
-                }
-
-                //if (!optionSpreadExpression.filledAfterTransactionTimeBoundary)
-                {
-
-
-                    optionSpreadExpression.transactionPrice =
-                        optionSpreadExpression.todayTransactionBar.Close;
-
-                    optionSpreadExpression.transactionPriceTime =
-                        optionSpreadExpression.todayTransactionBar.Timestamp;
-
-
-                    if (optionSpreadExpression.reachedTransactionTimeBoundary)
-                    {
-                        //optionSpreadExpression.filledAfterTransactionTimeBoundary = true;
-
-                        optionSpreadExpression.transactionPriceFilled = true;
-
-                        foreach (MongoDB_OptionSpreadExpression ose in optionSpreadExpression.optionExpressionsThatUseThisFutureAsUnderlying)
-                        {
-                            ose.transactionPriceFilled = true;
-                        }
-
-                    }
-
-
-                }
-
-
-
-                //CHANGED DEC 30 2015 
-                //if (optionSpreadExpression.instrument.eodAnalysisAtInstrument)
-                //{
-                //    optionSpreadExpression.defaultPrice =
-                //                optionSpreadExpression.transactionPrice;
-
-                //    optionSpreadExpression.minutesSinceLastUpdate = 0;
-
-                //    optionSpreadExpression.lastTimeUpdated =
-                //        optionSpreadExpression.transactionPriceTime;
-
-                //    optionSpreadExpression.defaultPriceFilled = true;
-                //}
-
-            }
-
-        }
 
         public void fillEodAnalysisPrices(MongoDB_OptionSpreadExpression optionSpreadExpression)
         {
@@ -1453,140 +1402,139 @@ namespace RealtimeSpreadMonitor
 
             if (optionSpreadExpression.callPutOrFuture != OPTION_SPREAD_CONTRACT_TYPE.FUTURE)
             {
-                //optionSpreadExpression.strikeLevel =
-                //        optionSpreadManager.strikeLevelCalc(
-                //                optionSpreadExpression.underlyingTransactionTimePrice,
-                //                optionSpreadExpression.strikePrice,
-                //                optionSpreadExpression.instrument);
+
                 MongoDB_OptionSpreadExpression futureExpression = optionSpreadExpression.underlyingFutureExpression;
 
-                //optionSpreadExpression.theoreticalOptionPrice =
+                if (futureExpression.decisionPriceFilled)
+                {
 
-                //BELOW IS CHANGE FOR PREVIOUS SETTLEMENT
-                //OCT 23 2014
+                    optionSpreadExpression.decisionPrice =
+                        OptionCalcs.blackScholes(
+                            optionSpreadExpression.asset.callorput,
+                               futureExpression.decisionPrice,
+                               optionSpreadExpression.asset.strikeprice,
+                               optionSpreadExpression.asset.yearFraction, optionSpreadExpression.riskFreeRate,
+                               optionSpreadExpression.impliedVolFromSpan);
 
-                optionSpreadExpression.decisionPrice =
-                    OptionCalcs.blackScholes(
-                        optionSpreadExpression.asset.callorput,
-                           futureExpression.decisionPrice,
-                           optionSpreadExpression.asset.strikeprice,
-                           optionSpreadExpression.asset.yearFraction, optionSpreadExpression.riskFreeRate,
-                           optionSpreadExpression.impliedVolFromSpan);
+                    optionSpreadExpression.decisionPriceFilled = true;
 
-                double optionticksize = OptionSpreadManager.chooseoptionticksize(
-                            optionSpreadExpression.decisionPrice,
-                            optionSpreadExpression.instrument.optionticksize,
-                            optionSpreadExpression.instrument.secondaryoptionticksize,
-                            optionSpreadExpression.instrument.secondaryoptionticksizerule);
+                    double optionticksize = OptionSpreadManager.chooseoptionticksize(
+                                optionSpreadExpression.decisionPrice,
+                                optionSpreadExpression.instrument.optionticksize,
+                                optionSpreadExpression.instrument.secondaryoptionticksize,
+                                optionSpreadExpression.instrument.secondaryoptionticksizerule);
 
-                optionSpreadExpression.decisionPrice =
-                    ((int)((optionSpreadExpression.decisionPrice + optionticksize / 2) /
-                        optionticksize)) * optionticksize;
+                    optionSpreadExpression.decisionPrice =
+                        ((int)((optionSpreadExpression.decisionPrice + optionticksize / 2) /
+                            optionticksize)) * optionticksize;
 
-                //StringBuilder testingOut = new StringBuilder();
-                //testingOut.Append("DECISION,");
-                //testingOut.Append(optionSpreadExpression.instrument.name);
-                //testingOut.Append(",CALL OR PUT, ");
-                //testingOut.Append(optionSpreadExpression.callPutOrFutureChar);
-                //testingOut.Append(",FUT PRICE, ");
-                //testingOut.Append(futureExpression.decisionPrice);
-                //testingOut.Append(",STRIKE PRICE, ");
-                //testingOut.Append(optionSpreadExpression.strikePrice);
-                //testingOut.Append(",YEAR FRACTION, ");
-                //testingOut.Append(optionSpreadExpression.yearFraction);
-                //testingOut.Append(",RFR, ");
-                //testingOut.Append(optionSpreadExpression.riskFreeRate);
-                //testingOut.Append(",SETTLE, ");
-                //testingOut.Append(optionSpreadExpression.settlementImpliedVol);
-                //testingOut.Append(",OPTION PRICE, ");
-                //testingOut.Append(optionSpreadExpression.decisionPrice);
+                    //StringBuilder testingOut = new StringBuilder();
+                    //testingOut.Append("DECISION,");
+                    //testingOut.Append(optionSpreadExpression.instrument.name);
+                    //testingOut.Append(",CALL OR PUT, ");
+                    //testingOut.Append(optionSpreadExpression.callPutOrFutureChar);
+                    //testingOut.Append(",FUT PRICE, ");
+                    //testingOut.Append(futureExpression.decisionPrice);
+                    //testingOut.Append(",STRIKE PRICE, ");
+                    //testingOut.Append(optionSpreadExpression.strikePrice);
+                    //testingOut.Append(",YEAR FRACTION, ");
+                    //testingOut.Append(optionSpreadExpression.yearFraction);
+                    //testingOut.Append(",RFR, ");
+                    //testingOut.Append(optionSpreadExpression.riskFreeRate);
+                    //testingOut.Append(",SETTLE, ");
+                    //testingOut.Append(optionSpreadExpression.settlementImpliedVol);
+                    //testingOut.Append(",OPTION PRICE, ");
+                    //testingOut.Append(optionSpreadExpression.decisionPrice);
 
-                //TSErrorCatch.debugWriteOut(testingOut.ToString());
+                    //TSErrorCatch.debugWriteOut(testingOut.ToString());
 
-                optionSpreadExpression.decisionPriceTime = futureExpression.decisionPriceTime;
+                    optionSpreadExpression.decisionPriceTime = futureExpression.decisionPriceTime;
 
-                optionSpreadExpression.decisionPriceFilled = true;
+                    optionSpreadExpression.decisionPriceFilled = true;
 
-                optionSpreadExpression.reachedDecisionBar = futureExpression.reachedDecisionBar;
+                    //optionSpreadExpression.reachedDecisionBar = futureExpression.reachedDecisionBar;
 
-                optionSpreadExpression.reachedBarAfterDecisionBar = futureExpression.reachedBarAfterDecisionBar;
+                    //this is used to fill the order with the mark of when decision bar filled
+                    //optionSpreadExpression.reachedBarAfterDecisionBar = futureExpression.reachedBarAfterDecisionBar;
+                }
 
-                optionSpreadExpression.reached1MinAfterDecisionBarUsedForSnapshot = futureExpression.reached1MinAfterDecisionBarUsedForSnapshot;
+                //optionSpreadExpression.reached1MinAfterDecisionBarUsedForSnapshot = futureExpression.reached1MinAfterDecisionBarUsedForSnapshot;
 
                 //optionSpreadExpression.instrument.eodAnalysisAtInstrument = futureExpression.instrument.eodAnalysisAtInstrument;
 
-                //if (optionSpreadManager.realtimeMonitorSettings.eodAnalysis)
-                if (futureExpression.instrument.eodAnalysisAtInstrument)
+                if (futureExpression.transactionPriceFilled)
                 {
-                    optionSpreadExpression.transactionPrice =
-                        OptionCalcs.blackScholes(
-                            optionSpreadExpression.asset.callorput,
-                               futureExpression.transactionPrice,
-                               optionSpreadExpression.asset.strikeprice,
-                               optionSpreadExpression.asset.yearFraction, optionSpreadExpression.riskFreeRate,
-                               optionSpreadExpression.settlementImpliedVol);
-                }
-                else
-                {
-                    //if (optionSpreadExpression.instrument.idinstrument == 53
-                    //    && optionSpreadExpression.strikePrice == 0.00920
-                    //    && optionSpreadExpression.callPutOrFuture.CompareTo("PUT") == 0)
-                    //{
-                    //    TSErrorCatch.debugWriteOut("test");
-                    //}
-                    if (!optionSpreadExpression.filledAfterTransactionTimeBoundary)
+                    if (futureExpression.instrument.eodAnalysisAtInstrument)
                     {
-                        if (optionSpreadExpression.impliedVolFilled && optionSpreadExpression.transactionPriceFilled)
+                        optionSpreadExpression.transactionPrice =
+                            OptionCalcs.blackScholes(
+                                optionSpreadExpression.asset.callorput,
+                                   futureExpression.transactionPrice,
+                                   optionSpreadExpression.asset.strikeprice,
+                                   optionSpreadExpression.asset.yearFraction, optionSpreadExpression.riskFreeRate,
+                                   optionSpreadExpression.settlementImpliedVol);
+
+                        optionSpreadExpression.transactionPriceFilled = true;
+                    }
+                    else
+                    {
+
+                        if (!optionSpreadExpression.filledAfterTransactionTimeBoundary)
                         {
-                            optionSpreadExpression.transactionPrice =
-                                OptionCalcs.blackScholes(
-                                    optionSpreadExpression.asset.callorput,
-                                       futureExpression.transactionPrice,
-                                       optionSpreadExpression.asset.strikeprice,
-                                       optionSpreadExpression.asset.yearFraction, optionSpreadExpression.riskFreeRate,
-                                       optionSpreadExpression.impliedVol);
+                            if (optionSpreadExpression.impliedVolFilled)
+                            {
+                                optionSpreadExpression.transactionPrice =
+                                    OptionCalcs.blackScholes(
+                                        optionSpreadExpression.asset.callorput,
+                                           futureExpression.transactionPrice,
+                                           optionSpreadExpression.asset.strikeprice,
+                                           optionSpreadExpression.asset.yearFraction, optionSpreadExpression.riskFreeRate,
+                                           optionSpreadExpression.impliedVol);
 
-                            optionSpreadExpression.filledAfterTransactionTimeBoundary = true;
+                                optionSpreadExpression.transactionPriceFilled = true;
 
+                                optionSpreadExpression.filledAfterTransactionTimeBoundary = true;
+
+                            }
                         }
                     }
+
+                    double optionticksize = OptionSpreadManager.chooseoptionticksize(
+                                optionSpreadExpression.transactionPrice,
+                                optionSpreadExpression.instrument.optionticksize,
+                                optionSpreadExpression.instrument.secondaryoptionticksize,
+                                optionSpreadExpression.instrument.secondaryoptionticksizerule);
+
+                    optionSpreadExpression.transactionPrice =
+                        ((int)((optionSpreadExpression.transactionPrice + optionticksize / 2) /
+                            optionticksize)) * optionticksize;
+
+                    //testingOut.Clear();
+                    //testingOut.Append("TRANS,");
+                    //testingOut.Append(optionSpreadExpression.instrument.name);
+                    //testingOut.Append(",CALL OR PUT, ");
+                    //testingOut.Append(optionSpreadExpression.callPutOrFutureChar);
+                    //testingOut.Append(",FUT PRICE, ");
+                    //testingOut.Append(futureExpression.transactionPrice);
+                    //testingOut.Append(",STRIKE PRICE, ");
+                    //testingOut.Append(optionSpreadExpression.strikePrice);
+                    //testingOut.Append(",YEAR FRACTION, ");
+                    //testingOut.Append(optionSpreadExpression.yearFraction);
+                    //testingOut.Append(",RFR, ");
+                    //testingOut.Append(optionSpreadExpression.riskFreeRate);
+                    //testingOut.Append(",SETTLE, ");
+                    //testingOut.Append(optionSpreadExpression.settlementImpliedVol);
+                    //testingOut.Append(",OPTION PRICE, ");
+                    //testingOut.Append(optionSpreadExpression.transactionPrice);
+
+                    //TSErrorCatch.debugWriteOut(testingOut.ToString());
+
+                    optionSpreadExpression.transactionPriceTime = futureExpression.transactionPriceTime;
+
+                    //optionSpreadExpression.decisionPriceFilled = true;
+
+                    //optionSpreadExpression.reachedTransactionTimeBoundary = futureExpression.reachedTransactionTimeBoundary;
                 }
-
-                optionticksize = OptionSpreadManager.chooseoptionticksize(
-                            optionSpreadExpression.transactionPrice,
-                            optionSpreadExpression.instrument.optionticksize,
-                            optionSpreadExpression.instrument.secondaryoptionticksize,
-                            optionSpreadExpression.instrument.secondaryoptionticksizerule);
-
-                optionSpreadExpression.transactionPrice =
-                    ((int)((optionSpreadExpression.transactionPrice + optionticksize / 2) /
-                        optionticksize)) * optionticksize;
-
-                //testingOut.Clear();
-                //testingOut.Append("TRANS,");
-                //testingOut.Append(optionSpreadExpression.instrument.name);
-                //testingOut.Append(",CALL OR PUT, ");
-                //testingOut.Append(optionSpreadExpression.callPutOrFutureChar);
-                //testingOut.Append(",FUT PRICE, ");
-                //testingOut.Append(futureExpression.transactionPrice);
-                //testingOut.Append(",STRIKE PRICE, ");
-                //testingOut.Append(optionSpreadExpression.strikePrice);
-                //testingOut.Append(",YEAR FRACTION, ");
-                //testingOut.Append(optionSpreadExpression.yearFraction);
-                //testingOut.Append(",RFR, ");
-                //testingOut.Append(optionSpreadExpression.riskFreeRate);
-                //testingOut.Append(",SETTLE, ");
-                //testingOut.Append(optionSpreadExpression.settlementImpliedVol);
-                //testingOut.Append(",OPTION PRICE, ");
-                //testingOut.Append(optionSpreadExpression.transactionPrice);
-
-                //TSErrorCatch.debugWriteOut(testingOut.ToString());
-
-                optionSpreadExpression.transactionPriceTime = futureExpression.transactionPriceTime;
-
-                optionSpreadExpression.decisionPriceFilled = true;
-
-                optionSpreadExpression.reachedTransactionTimeBoundary = futureExpression.reachedTransactionTimeBoundary;
 
                 //optionSpreadExpression.defaultPrice = optionSpreadExpression.theoreticalOptionPrice;
 
@@ -1609,184 +1557,125 @@ namespace RealtimeSpreadMonitor
         public void fillTheoreticalOptionPrice(MongoDB_OptionSpreadExpression optionSpreadExpression)
         {
 
-
-
             if (optionSpreadExpression.callPutOrFuture != OPTION_SPREAD_CONTRACT_TYPE.FUTURE)
             {
                 MongoDB_OptionSpreadExpression futureExpression = optionSpreadExpression.underlyingFutureExpression;
 
-                //if (optionSpreadExpression.theoreticalOptionDataList == null)
-                //{
-                //    optionSpreadExpression.theoreticalOptionDataList = new List<TheoreticalBar>();
-                //}
 
-                //if (optionSpreadExpression.riskFreeRateFilled
-                //    && futureExpression.futureBarData != null
-                //    && (futureExpression.futureBarData.Count - 1) > optionSpreadExpression.theoreticalOptionDataList.Count)
-                //{
-                //    for (int i = optionSpreadExpression.theoreticalOptionDataList.Count; i < futureExpression.futureBarData.Count - 1;
-                //        i++)
-                //    {
-                //        TheoreticalBar bar = new TheoreticalBar();
-
-                //        bar.barTime = futureExpression.futureBarData[i].barTime;
-
-                //        bar.price =
-                //            OptionCalcs.blackScholes(
-                //            optionSpreadExpression.callPutOrFutureChar,
-                //               futureExpression.futureBarData[i].close,
-                //               optionSpreadExpression.strikePrice,
-                //               optionSpreadExpression.yearFraction, optionSpreadExpression.riskFreeRate,
-                //               optionSpreadExpression.impliedVolFromSpan);  // / 100);
-
-                //        double optionticksize = OptionSpreadManager.chooseoptionticksize(
-                //            bar.price,
-                //            optionSpreadExpression.instrument.optionticksize,
-                //            optionSpreadExpression.instrument.secondaryoptionticksize,
-                //            optionSpreadExpression.instrument.secondaryoptionticksizerule);
-
-                //        bar.price =
-                //            ((int)((bar.price + optionticksize / 2) /
-                //                optionticksize)) * optionticksize;
-
-                //        optionSpreadExpression.theoreticalOptionDataList.Add(bar);
-
-                //        //if (futureExpression.futureBarData[i].close != 0)
-
-                //        //TSErrorCatch.debugWriteOut(futureExpression.futureBarData[i].close + "," + bar.price);
-                //    }
-                //}
-
-                //if (optionSpreadExpression.cqgsymbol.CompareTo("C.US.TYAM1412600") == 0)
-                //{
-                //    TSErrorCatch.debugWriteOut("TEST");
-                //}
 
                 if (futureExpression.defaultPriceFilled)
-                //CHANGED DEC 30 2015 
-                //&& !optionSpreadExpression.instrument.eodAnalysisAtInstrument)
                 {
 
 
+                    optionSpreadExpression.theoreticalOptionPrice =
+                        OptionCalcs.blackScholes(
+                        optionSpreadExpression.asset.callorput,
+                           futureExpression.defaultPrice,
+                           optionSpreadExpression.asset.strikeprice,
+                           optionSpreadExpression.asset.yearFraction, optionSpreadExpression.riskFreeRate,
+                           optionSpreadExpression.impliedVolFromSpan);  // / 100);
+
+                    double optionticksize = OptionSpreadManager.chooseoptionticksize(
+                        optionSpreadExpression.theoreticalOptionPrice,
+                        optionSpreadExpression.instrument.optionticksize,
+                        optionSpreadExpression.instrument.secondaryoptionticksize,
+                        optionSpreadExpression.instrument.secondaryoptionticksizerule);
+
+                    optionSpreadExpression.theoreticalOptionPrice =
+                        ((int)((optionSpreadExpression.theoreticalOptionPrice + optionticksize / 2) /
+                            optionticksize)) * optionticksize;
+
+                    if (optionSpreadExpression.theoreticalOptionPrice == 0)
                     {
-                        //optionSpreadExpression.strikeLevel =
-                        //        optionSpreadManager.strikeLevelCalc(
-                        //                futureExpression.defaultPrice,
-                        //                optionSpreadExpression.strikePrice,
-                        //                optionSpreadExpression.instrument);
+                        optionSpreadExpression.theoreticalOptionPrice = optionSpreadExpression.instrument.optionticksize; // OptionConstants.OPTION_ZERO_PRICE;
+                    }
 
-                        optionSpreadExpression.theoreticalOptionPrice =
-                            OptionCalcs.blackScholes(
-                            optionSpreadExpression.asset.callorput,
-                               futureExpression.defaultPrice,
-                               optionSpreadExpression.asset.strikeprice,
-                               optionSpreadExpression.asset.yearFraction, optionSpreadExpression.riskFreeRate,
-                               optionSpreadExpression.impliedVolFromSpan);  // / 100);
+                    if (DataCollectionLibrary.realtimeMonitorSettings.realtimePriceFillType
+                            == REALTIME_PRICE_FILL_TYPE.PRICE_MID_BID_ASK)
+                    {
+                        optionSpreadExpression.defaultPrice = optionSpreadExpression.defaultMidPriceBeforeTheor;
+                    }
+                    else if (DataCollectionLibrary.realtimeMonitorSettings.realtimePriceFillType
+                            == REALTIME_PRICE_FILL_TYPE.PRICE_ASK)
+                    {
+                        optionSpreadExpression.defaultPrice = optionSpreadExpression.defaultAskPriceBeforeTheor;
+                    }
+                    else if (DataCollectionLibrary.realtimeMonitorSettings.realtimePriceFillType
+                            == REALTIME_PRICE_FILL_TYPE.PRICE_BID)
+                    {
+                        optionSpreadExpression.defaultPrice = optionSpreadExpression.defaultBidPriceBeforeTheor;
+                    }
+                    else if (DataCollectionLibrary.realtimeMonitorSettings.realtimePriceFillType
+                            == REALTIME_PRICE_FILL_TYPE.PRICE_DEFAULT)
+                    {
+                        bool midPriceAcceptable = false;
 
-                        double optionticksize = OptionSpreadManager.chooseoptionticksize(
-                            optionSpreadExpression.theoreticalOptionPrice,
+                        if (optionSpreadExpression.bidFilled && optionSpreadExpression.askFilled
+                            &&
+                            Math.Abs((optionSpreadExpression.bid - optionSpreadExpression.ask)
+                        / OptionSpreadManager.chooseoptionticksize(optionSpreadExpression.ask,
                             optionSpreadExpression.instrument.optionticksize,
                             optionSpreadExpression.instrument.secondaryoptionticksize,
-                            optionSpreadExpression.instrument.secondaryoptionticksizerule);
-
-                        optionSpreadExpression.theoreticalOptionPrice =
-                            ((int)((optionSpreadExpression.theoreticalOptionPrice + optionticksize / 2) /
-                                optionticksize)) * optionticksize;
-
-                        if (optionSpreadExpression.theoreticalOptionPrice == 0)
+                            optionSpreadExpression.instrument.secondaryoptionticksizerule))
+                        < TradingSystemConstants.OPTION_ACCEPTABLE_BID_ASK_SPREAD)
                         {
-                            optionSpreadExpression.theoreticalOptionPrice = optionSpreadExpression.instrument.optionticksize; // OptionConstants.OPTION_ZERO_PRICE;
+                            midPriceAcceptable = true;
                         }
 
-                        if (DataCollectionLibrary.realtimeMonitorSettings.realtimePriceFillType
-                                == REALTIME_PRICE_FILL_TYPE.PRICE_MID_BID_ASK)
+                        if (midPriceAcceptable
+                            ||
+                            Math.Abs((optionSpreadExpression.defaultMidPriceBeforeTheor
+                            - optionSpreadExpression.theoreticalOptionPrice)
+                            / optionSpreadExpression.theoreticalOptionPrice) <= TradingSystemConstants.OPTION_DEFAULT_THEORETICAL_PRICE_RANGE)
                         {
-                            optionSpreadExpression.defaultPrice = optionSpreadExpression.defaultMidPriceBeforeTheor;
-                        }
-                        else if (DataCollectionLibrary.realtimeMonitorSettings.realtimePriceFillType
-                                == REALTIME_PRICE_FILL_TYPE.PRICE_ASK)
-                        {
-                            optionSpreadExpression.defaultPrice = optionSpreadExpression.defaultAskPriceBeforeTheor;
-                        }
-                        else if (DataCollectionLibrary.realtimeMonitorSettings.realtimePriceFillType
-                                == REALTIME_PRICE_FILL_TYPE.PRICE_BID)
-                        {
-                            optionSpreadExpression.defaultPrice = optionSpreadExpression.defaultBidPriceBeforeTheor;
-                        }
-                        else if (DataCollectionLibrary.realtimeMonitorSettings.realtimePriceFillType
-                                == REALTIME_PRICE_FILL_TYPE.PRICE_DEFAULT)
-                        {
-                            bool midPriceAcceptable = false;
+                            //                         TSErrorCatch.debugWriteOut(optionSpreadExpression.cqgsymbol + "  NOT theoretical Price "
+                            //                             + optionSpreadExpression.optionDefaultPriceWithoutTheoretical);
 
-                            if (optionSpreadExpression.bidFilled && optionSpreadExpression.askFilled
-                                &&
-                                Math.Abs((optionSpreadExpression.bid - optionSpreadExpression.ask)
-                            / OptionSpreadManager.chooseoptionticksize(optionSpreadExpression.ask,
-                                optionSpreadExpression.instrument.optionticksize,
-                                optionSpreadExpression.instrument.secondaryoptionticksize,
-                                optionSpreadExpression.instrument.secondaryoptionticksizerule))
-                            < TradingSystemConstants.OPTION_ACCEPTABLE_BID_ASK_SPREAD)
+
+                            bool filledDefaultPrice = false;
+
+                            if (optionSpreadExpression.callPutOrFuture == OPTION_SPREAD_CONTRACT_TYPE.CALL)
                             {
-                                midPriceAcceptable = true;
-                            }
-
-                            if (midPriceAcceptable
-                                ||
-                                Math.Abs((optionSpreadExpression.defaultMidPriceBeforeTheor
-                                - optionSpreadExpression.theoreticalOptionPrice)
-                                / optionSpreadExpression.theoreticalOptionPrice) <= TradingSystemConstants.OPTION_DEFAULT_THEORETICAL_PRICE_RANGE)
-                            {
-                                //                         TSErrorCatch.debugWriteOut(optionSpreadExpression.cqgsymbol + "  NOT theoretical Price "
-                                //                             + optionSpreadExpression.optionDefaultPriceWithoutTheoretical);
-
-                                //optionSpreadExpression.underlyingDefaultPrice = defaultPrice;
-                                //if (optionSpreadExpression.callPutOrFuture != (int)OPTION_SPREAD_CONTRACT_TYPE.CALL)
-
-                                bool filledDefaultPrice = false;
-
-                                if (optionSpreadExpression.callPutOrFuture == OPTION_SPREAD_CONTRACT_TYPE.CALL)
+                                if (futureExpression.defaultPrice >
+                                    optionSpreadExpression.asset.strikeprice + (TradingSystemConstants.STRIKE_COUNT_FOR_DEFAULT_TO_THEORETICAL
+                                        * optionSpreadExpression.instrument.optionstrikeincrement))
                                 {
-                                    if (futureExpression.defaultPrice >
-                                        optionSpreadExpression.strikePrice + (TradingSystemConstants.STRIKE_COUNT_FOR_DEFAULT_TO_THEORETICAL
-                                            * optionSpreadExpression.instrument.optionstrikeincrement))
-                                    {
-                                        optionSpreadExpression.defaultPrice = optionSpreadExpression.theoreticalOptionPrice;
-                                        filledDefaultPrice = true;
-                                    }
-                                }
-                                else if (optionSpreadExpression.callPutOrFuture == OPTION_SPREAD_CONTRACT_TYPE.PUT)
-                                {
-                                    if (futureExpression.defaultPrice <
-                                        optionSpreadExpression.strikePrice - (TradingSystemConstants.STRIKE_COUNT_FOR_DEFAULT_TO_THEORETICAL
-                                            * optionSpreadExpression.instrument.optionstrikeincrement))
-                                    {
-                                        optionSpreadExpression.defaultPrice = optionSpreadExpression.theoreticalOptionPrice;
-                                        filledDefaultPrice = true;
-                                    }
-                                }
-
-                                if (!filledDefaultPrice)
-                                {
-                                    optionSpreadExpression.defaultPrice = optionSpreadExpression.defaultMidPriceBeforeTheor;
+                                    optionSpreadExpression.defaultPrice = optionSpreadExpression.theoreticalOptionPrice;
+                                    filledDefaultPrice = true;
                                 }
                             }
-                            else
+                            else if (optionSpreadExpression.callPutOrFuture == OPTION_SPREAD_CONTRACT_TYPE.PUT)
                             {
-                                /*TSErrorCatch.debugWriteOut(optionSpreadExpression.cqgsymbol + "  IS theoretical Price");*/
+                                if (futureExpression.defaultPrice <
+                                    optionSpreadExpression.asset.strikeprice - (TradingSystemConstants.STRIKE_COUNT_FOR_DEFAULT_TO_THEORETICAL
+                                        * optionSpreadExpression.instrument.optionstrikeincrement))
+                                {
+                                    optionSpreadExpression.defaultPrice = optionSpreadExpression.theoreticalOptionPrice;
+                                    filledDefaultPrice = true;
+                                }
+                            }
 
-                                optionSpreadExpression.defaultPrice = optionSpreadExpression.theoreticalOptionPrice;
+                            if (!filledDefaultPrice)
+                            {
+                                optionSpreadExpression.defaultPrice = optionSpreadExpression.defaultMidPriceBeforeTheor;
                             }
                         }
                         else
                         {
+                            /*TSErrorCatch.debugWriteOut(optionSpreadExpression.cqgsymbol + "  IS theoretical Price");*/
+
                             optionSpreadExpression.defaultPrice = optionSpreadExpression.theoreticalOptionPrice;
                         }
                     }
+                    else
+                    {
+                        optionSpreadExpression.defaultPrice = optionSpreadExpression.theoreticalOptionPrice;
+                    }
+
 
 
                     optionSpreadExpression.defaultPriceFilled = true;
 
-                    //optionSpreadExpression.defaultPriceForDisplay = optionSpreadExpression.defaultPrice;
                 }
             }
         }

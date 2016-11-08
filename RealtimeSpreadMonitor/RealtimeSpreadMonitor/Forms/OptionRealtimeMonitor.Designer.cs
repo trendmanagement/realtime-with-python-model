@@ -39,6 +39,8 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -55,8 +57,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.splitContainer4 = new System.Windows.Forms.SplitContainer();
             this.label1 = new System.Windows.Forms.Label();
             this.splitContainer6 = new System.Windows.Forms.SplitContainer();
@@ -109,6 +109,7 @@
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripBtnADMPayoff = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
+            this.gridLiveFCMData = new System.Windows.Forms.DataGridView();
             this.tabPageModelADMCompare = new System.Windows.Forms.TabPage();
             this.splitContainer11 = new System.Windows.Forms.SplitContainer();
             this.toolStripModelADMCompare = new System.Windows.Forms.ToolStrip();
@@ -177,7 +178,6 @@
             this.toolStripSeparator19 = new System.Windows.Forms.ToolStripSeparator();
             this.refreshToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
-            this.gridLiveFCMData = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer4)).BeginInit();
             this.splitContainer4.Panel1.SuspendLayout();
             this.splitContainer4.Panel2.SuspendLayout();
@@ -228,6 +228,7 @@
             this.splitContainer7.Panel2.SuspendLayout();
             this.splitContainer7.SuspendLayout();
             this.toolStripADMPositions.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridLiveFCMData)).BeginInit();
             this.tabPageModelADMCompare.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer11)).BeginInit();
             this.splitContainer11.Panel1.SuspendLayout();
@@ -270,7 +271,6 @@
             this.statusStripOptionMonitor.SuspendLayout();
             this.mainRealtimeMenuStrip.SuspendLayout();
             this.toolStripContainer1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridLiveFCMData)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainer4
@@ -1006,6 +1006,41 @@
             // 
             this.toolStripSeparator7.Name = "toolStripSeparator7";
             this.toolStripSeparator7.Size = new System.Drawing.Size(6, 25);
+            // 
+            // gridLiveFCMData
+            // 
+            this.gridLiveFCMData.AllowUserToAddRows = false;
+            this.gridLiveFCMData.AllowUserToDeleteRows = false;
+            this.gridLiveFCMData.AllowUserToResizeRows = false;
+            this.gridLiveFCMData.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.gridLiveFCMData.BackgroundColor = System.Drawing.Color.White;
+            this.gridLiveFCMData.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridLiveFCMData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            this.gridLiveFCMData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gridLiveFCMData.DefaultCellStyle = dataGridViewCellStyle12;
+            this.gridLiveFCMData.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridLiveFCMData.Location = new System.Drawing.Point(0, 0);
+            this.gridLiveFCMData.Name = "gridLiveFCMData";
+            this.gridLiveFCMData.ReadOnly = true;
+            this.gridLiveFCMData.RowHeadersVisible = false;
+            this.gridLiveFCMData.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
+            this.gridLiveFCMData.Size = new System.Drawing.Size(977, 410);
+            this.gridLiveFCMData.TabIndex = 8;
+            this.gridLiveFCMData.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.gridLiveFCMData_CellFormatting);
             // 
             // tabPageModelADMCompare
             // 
@@ -1824,41 +1859,6 @@
             this.toolStripContainer1.TabIndex = 6;
             this.toolStripContainer1.Text = "toolStripContainer1";
             // 
-            // gridLiveFCMData
-            // 
-            this.gridLiveFCMData.AllowUserToAddRows = false;
-            this.gridLiveFCMData.AllowUserToDeleteRows = false;
-            this.gridLiveFCMData.AllowUserToResizeRows = false;
-            this.gridLiveFCMData.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.gridLiveFCMData.BackgroundColor = System.Drawing.Color.White;
-            this.gridLiveFCMData.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gridLiveFCMData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
-            this.gridLiveFCMData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gridLiveFCMData.DefaultCellStyle = dataGridViewCellStyle12;
-            this.gridLiveFCMData.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridLiveFCMData.Location = new System.Drawing.Point(0, 0);
-            this.gridLiveFCMData.Name = "gridLiveFCMData";
-            this.gridLiveFCMData.ReadOnly = true;
-            this.gridLiveFCMData.RowHeadersVisible = false;
-            this.gridLiveFCMData.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
-            this.gridLiveFCMData.Size = new System.Drawing.Size(977, 410);
-            this.gridLiveFCMData.TabIndex = 8;
-            this.gridLiveFCMData.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.gridLiveFCMData_CellFormatting);
-            // 
             // OptionRealtimeMonitor
             // 
             this.AllowDrop = true;
@@ -1935,6 +1935,7 @@
             this.splitContainer7.ResumeLayout(false);
             this.toolStripADMPositions.ResumeLayout(false);
             this.toolStripADMPositions.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridLiveFCMData)).EndInit();
             this.tabPageModelADMCompare.ResumeLayout(false);
             this.splitContainer11.Panel1.ResumeLayout(false);
             this.splitContainer11.Panel1.PerformLayout();
@@ -1984,7 +1985,6 @@
             this.mainRealtimeMenuStrip.PerformLayout();
             this.toolStripContainer1.ResumeLayout(false);
             this.toolStripContainer1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridLiveFCMData)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

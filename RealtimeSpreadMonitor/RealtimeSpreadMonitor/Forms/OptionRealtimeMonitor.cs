@@ -177,6 +177,8 @@ namespace RealtimeSpreadMonitor.Forms
             {
                 toolStripStatusLabelUsingSupplementContract.Text = "";
             }
+
+            
         }
 
 
@@ -542,7 +544,6 @@ namespace RealtimeSpreadMonitor.Forms
 
             for (int groupAllocCnt = 0; groupAllocCnt <= DataCollectionLibrary.portfolioAllocation.accountAllocation.Count; groupAllocCnt++)
             {
-                //instrumentRollIntoSummary[i] = new InstrumentRollIntoSummary();
 
                 if (groupAllocCnt == DataCollectionLibrary.portfolioAllocation.accountAllocation.Count)
                 {
@@ -551,16 +552,16 @@ namespace RealtimeSpreadMonitor.Forms
                     treeViewBrokerAcct.Nodes.Add(groupAllocCnt.ToString(), "ALL ACCTS");
 
                     treeViewBrokerAcct.SelectedNode = treeViewBrokerAcct.Nodes[groupAllocCnt];
-
-                    //treeViewInstruments.SelectedNode.BackColor = Color.Yellow;
                 }
                 else
                 {
                     StringBuilder treeVal = new StringBuilder();
-                    treeVal.Append(DataCollectionLibrary.accountPositionsList[groupAllocCnt]
-                        .date_now.ToString("MM-dd HH:mm", DateTimeFormatInfo.InvariantInfo));
+
+
+                    treeVal.Append(DataCollectionLibrary.accountPositionsList[groupAllocCnt].client_name);
                     treeVal.Append("|");
                     treeVal.Append(DataCollectionLibrary.portfolioAllocation.accountAllocation[groupAllocCnt].broker);
+                    treeVal.Append("|");
                     treeVal.Append(DataCollectionLibrary.portfolioAllocation.accountAllocation[groupAllocCnt].account);
                     treeVal.Append("|");
                     treeVal.Append(DataCollectionLibrary.portfolioAllocation.accountAllocation[groupAllocCnt].FCM_OFFICE);
@@ -1181,7 +1182,7 @@ namespace RealtimeSpreadMonitor.Forms
         {
             orderSummaryGrid.DataSource = DataCollectionLibrary.orderSummaryDataTable;
 
-
+            DataCollectionLibrary.orderSummaryDataTable.Columns.Add(ORDER_SUMMARY_COLUMNS.RFRSH_TIME.ToString());
             DataCollectionLibrary.orderSummaryDataTable.Columns.Add(ORDER_SUMMARY_COLUMNS.INST.ToString());
             DataCollectionLibrary.orderSummaryDataTable.Columns.Add(ORDER_SUMMARY_COLUMNS.CONTRACT.ToString());
             DataCollectionLibrary.orderSummaryDataTable.Columns.Add(ORDER_SUMMARY_COLUMNS.QTY.ToString());
@@ -1265,15 +1266,17 @@ namespace RealtimeSpreadMonitor.Forms
 
                 Instrument_mongo im = DataCollectionLibrary.instrumentHashTable_keyinstrumentid[p.asset.idinstrument];
 
+                DateTime decisionTime = im.customdayboundarytime.AddMinutes(-im.decisionoffsetminutes);
+
                 dataTable.Rows.Add();
+                dataTable.Rows[dataTable.Rows.Count - 1][(int)ORDER_SUMMARY_COLUMNS.RFRSH_TIME] 
+                    = ap.date_now.ToString("MM-dd HH:mm", DateTimeFormatInfo.InvariantInfo); ;
                 dataTable.Rows[dataTable.Rows.Count - 1][(int)ORDER_SUMMARY_COLUMNS.INST] = im.cqgsymbol;
                 dataTable.Rows[dataTable.Rows.Count - 1][(int)ORDER_SUMMARY_COLUMNS.CONTRACT] = p.asset.cqgsymbol;
                 dataTable.Rows[dataTable.Rows.Count - 1][(int)ORDER_SUMMARY_COLUMNS.QTY] = p.qty - p.prev_qty;
 
                 dataTable.Rows[dataTable.Rows.Count - 1][(int)ORDER_SUMMARY_COLUMNS.DECS_T] =
-                    im.customdayboundarytime
-                    .AddMinutes(-im.decisionoffsetminutes)
-                    .ToString("HH:mm", DateTimeFormatInfo.InvariantInfo);
+                    decisionTime.ToString("HH:mm", DateTimeFormatInfo.InvariantInfo);
                 dataTable.Rows[dataTable.Rows.Count - 1][(int)ORDER_SUMMARY_COLUMNS.TRANS_T] =
                     im.customdayboundarytime.ToString("HH:mm", DateTimeFormatInfo.InvariantInfo);
 
@@ -1303,7 +1306,9 @@ namespace RealtimeSpreadMonitor.Forms
                     dataTable.Rows[dataTable.Rows.Count - 1][(int)ORDER_SUMMARY_COLUMNS.TRANS_P] = " ";
                 }
 
-                dataTable.Rows[dataTable.Rows.Count - 1][(int)ORDER_SUMMARY_COLUMNS.DECS_FILL] = p.mose.reachedBarAfterDecisionBar;
+                dataTable.Rows[dataTable.Rows.Count - 1][(int)ORDER_SUMMARY_COLUMNS.DECS_FILL] =
+                    ap.date_now.CompareTo(decisionTime) >= 0;
+                    //p.mose.reachedBarAfterDecisionBar;
 
                 dataTable.Rows[dataTable.Rows.Count - 1][(int)ORDER_SUMMARY_COLUMNS.INSID] = im.idinstrument;
 
@@ -3194,7 +3199,7 @@ namespace RealtimeSpreadMonitor.Forms
                                 orderModel.optionYear = optionSpreadExpressionList[expressionCount].optionYear;
                                 orderModel.optionStrikePrice =
                                     (decimal)ConversionAndFormatting.convertToStrikeForTT(
-                                    optionSpreadExpressionList[expressionCount].strikePrice,
+                                    optionSpreadExpressionList[expressionCount].asset.strikeprice,
                                     optionSpreadExpressionList[expressionCount].instrument.optionstrikeincrement,
                                     optionSpreadExpressionList[expressionCount].instrument.optionstrikedisplayTT,
                                     optionSpreadExpressionList[expressionCount].instrument.idinstrument);
@@ -3475,7 +3480,7 @@ namespace RealtimeSpreadMonitor.Forms
                                 orderModel.optionYear = optionSpreadExpressionList[expressionCount].optionYear;
                                 orderModel.optionStrikePrice =
                                     (decimal)ConversionAndFormatting.convertToStrikeForTT(
-                                    optionSpreadExpressionList[expressionCount].strikePrice,
+                                    optionSpreadExpressionList[expressionCount].asset.strikeprice,
                                     optionSpreadExpressionList[expressionCount].instrument.optionstrikeincrement,
                                     sd,
                                     optionSpreadExpressionList[expressionCount].instrument.idinstrument);
@@ -4526,6 +4531,8 @@ namespace RealtimeSpreadMonitor.Forms
             optionSpreadManager.optionCQGDataManagement.initializeCQGAndCallbacks();
 
             updateStatusStripOptionMonitor();
+
+            
         }
 
         private void refreshToolStripMenuItem_Click(object sender, EventArgs e)
@@ -4580,7 +4587,9 @@ namespace RealtimeSpreadMonitor.Forms
                         e.CellStyle.BackColor = RealtimeColors.negativeBackColor;
                     }
                 }
-                else if (e.ColumnIndex == (int)CONTRACTSUMMARY_DATA_COLUMNS.CONTRACT)
+                else if (e.ColumnIndex == (int)CONTRACTSUMMARY_DATA_COLUMNS.CONTRACT
+                    || e.ColumnIndex == (int)CONTRACTSUMMARY_DATA_COLUMNS.RFRSH_TIME
+                    || e.ColumnIndex == (int)CONTRACTSUMMARY_DATA_COLUMNS.TIME)
                 {
                     if (e.RowIndex % 2 == 0)
                     {

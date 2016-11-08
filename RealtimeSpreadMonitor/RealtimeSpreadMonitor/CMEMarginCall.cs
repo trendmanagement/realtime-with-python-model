@@ -197,8 +197,8 @@ namespace RealtimeSpreadMonitor
                 for (int i = 0; i < optionSpreadExpressionList.Count; i++)
                 {
                     if (optionSpreadExpressionList[i].optionExpressionType != OPTION_EXPRESSION_TYPES.OPTION_EXPRESSION_RISK_FREE_RATE
-                        && optionSpreadExpressionList[i].spreadIdx.Count > 0
-                        && optionSpreadExpressionList[i].legIdx.Count > 0
+                        //&& optionSpreadExpressionList[i].spreadIdx.Count > 0
+                        //&& optionSpreadExpressionList[i].legIdx.Count > 0
                         //&& optionSpreadExpressionList[i].numberOfLotsHeldForContractSummary != 0
                         && optionSpreadExpressionList[i].instrument.idinstrument == instruments[instrumentCnt].idinstrument)
                     {
@@ -210,8 +210,8 @@ namespace RealtimeSpreadMonitor
                         line[3] = "";
                         line[4] = "";
 
-                        int spreadIdx = optionSpreadExpressionList[i].spreadIdx[0];
-                        int legIdx = optionSpreadExpressionList[i].legIdx[0];
+                        int spreadIdx = 0;// optionSpreadExpressionList[i].spreadIdx[0];
+                        int legIdx = 0;// optionSpreadExpressionList[i].legIdx[0];
 
                         if (optionSpreadExpressionList[i].callPutOrFuture == OPTION_SPREAD_CONTRACT_TYPE.FUTURE)
                         {
@@ -246,7 +246,7 @@ namespace RealtimeSpreadMonitor
                                 line[7] = "PUT";
                             }
 
-                            line[8] = CMECoreStrikeFormat(optionSpreadExpressionList[i].strikePrice,
+                            line[8] = CMECoreStrikeFormat(optionSpreadExpressionList[i].asset.strikeprice,
                                                             optionSpreadExpressionList[i].instrument.idinstrument).ToString();
 
                             //int findFutCnt = 0;

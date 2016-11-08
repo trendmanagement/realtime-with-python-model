@@ -245,13 +245,15 @@ namespace RealtimeSpreadMonitor.Forms
                 {
                     StringBuilder treeVal = new StringBuilder();
 
+                    treeVal.Append(DataCollectionLibrary.accountPositionsList[groupAllocCnt].client_name);
+                    treeVal.Append("|");
                     treeVal.Append(DataCollectionLibrary.portfolioAllocation.accountAllocation[groupAllocCnt].broker);
-                    treeVal.Append(" | ");
+                    treeVal.Append("|");
                     treeVal.Append(DataCollectionLibrary.portfolioAllocation.accountAllocation[groupAllocCnt].account);
-                    //treeVal.Append(" | ");
-                    //treeVal.Append(DataCollectionLibrary.portfolioAllocation.accountAllocation[groupAllocCnt].multiple);
-                    treeVal.Append(" | ");
-                    treeVal.Append(DataCollectionLibrary.portfolioAllocation.accountAllocation[groupAllocCnt].FCM_POFFIC_PACCT);
+                    treeVal.Append("|");
+                    treeVal.Append(DataCollectionLibrary.portfolioAllocation.accountAllocation[groupAllocCnt].FCM_OFFICE);
+                    treeVal.Append(DataCollectionLibrary.portfolioAllocation.accountAllocation[groupAllocCnt].FCM_ACCT);
+
 
                     treeViewBrokerAcct.Nodes.Add(groupAllocCnt.ToString(), treeVal.ToString());
                 }
@@ -1050,7 +1052,7 @@ namespace RealtimeSpreadMonitor.Forms
                                 * 365;
 
                             strikePrice = admPositionImportWebListForCompare[contractCount]
-                                .optionSpreadExpression.strikePrice;
+                                .optionSpreadExpression.asset.strikeprice;
 
                             contractYear =
                                 admPositionImportWebListForCompare[contractCount]
@@ -4002,7 +4004,7 @@ namespace RealtimeSpreadMonitor.Forms
                             {
                                 if (year == DataCollectionLibrary.optionSpreadExpressionList[expressionCnt].optionYear
                                     && monthInt == DataCollectionLibrary.optionSpreadExpressionList[expressionCnt].optionMonthInt
-                                    && strike == DataCollectionLibrary.optionSpreadExpressionList[expressionCnt].strikePrice)
+                                    && strike == DataCollectionLibrary.optionSpreadExpressionList[expressionCnt].asset.strikeprice)
                                 {
                                     double optionticksize = OptionSpreadManager.chooseoptionticksize(
                                         DataCollectionLibrary.optionSpreadExpressionList[expressionCnt].defaultPrice,

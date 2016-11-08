@@ -33,7 +33,6 @@ D:\RealtimeSpreadWithPythonModel\RealtimeSpreadMonitor\StageOrdersToTTWPFLibrary
 D:\RealtimeSpreadWithPythonModel\RealtimeSpreadMonitor\StageOrdersToTTWPFLibrary\bin\Debug\QuickFix.dll
 D:\RealtimeSpreadWithPythonModel\RealtimeSpreadMonitor\StageOrdersToTTWPFLibrary\bin\Debug\MongoDB.Bson.xml
 D:\RealtimeSpreadWithPythonModel\RealtimeSpreadMonitor\StageOrdersToTTWPFLibrary\bin\Debug\MongoDB.Driver.xml
-D:\RealtimeSpreadWithPythonModel\RealtimeSpreadMonitor\StageOrdersToTTWPFLibrary\obj\Debug\StageOrdersToTTWPFLibrary.csprojResolveAssemblyReference.cache
 D:\RealtimeSpreadWithPythonModel\RealtimeSpreadMonitor\StageOrdersToTTWPFLibrary\obj\Debug\View\ExecutionView.baml
 D:\RealtimeSpreadWithPythonModel\RealtimeSpreadMonitor\StageOrdersToTTWPFLibrary\obj\Debug\View\FIXMessageView.baml
 D:\RealtimeSpreadWithPythonModel\RealtimeSpreadMonitor\StageOrdersToTTWPFLibrary\obj\Debug\View\OrderView.baml

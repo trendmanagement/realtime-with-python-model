@@ -160,6 +160,9 @@ namespace RealtimeSpreadMonitor
 
         }
 
+        /// <summary>
+        /// this was initially used to set up test accounts
+        /// </summary>
         private void fillMongoWithPortfolioAllocation()
         {
             PortfolioAllocation_Mongo portfolioAllocation_Mongo = new PortfolioAllocation_Mongo();
@@ -1294,7 +1297,7 @@ namespace RealtimeSpreadMonitor
 
                     p.positionTotals.pAndLDaySettlementToSettlement = (p.mose.settlement - p.mose.yesterdaySettlement) / ticksize * tickvalue * p.prev_qty;
                     
-                    p.positionTotals.delta = p.mose.delta * p.qty;
+                    p.positionTotals.delta = p.mose.delta * p.prev_qty;
 
                     if (p.qty != p.prev_qty && p.mose.transactionPriceFilled)
                     {
@@ -1304,6 +1307,7 @@ namespace RealtimeSpreadMonitor
 
                         p.positionTotals.pAndLDaySettleOrders = (p.mose.settlement - p.mose.transactionPrice) / ticksize * tickvalue * orderQty;
 
+                        p.positionTotals.delta += p.mose.delta * orderQty;
                     }
 
                     im.instrumentModelCalcTotals_ByAccount[accountCnt2].pAndLDay += p.positionTotals.pAndLDay + p.positionTotals.pAndLDayOrders;

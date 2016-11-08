@@ -176,8 +176,8 @@ namespace RealtimeSpreadMonitor
 
     public enum CONTRACTSUMMARY_DATA_COLUMNS
     {
+        RFRSH_TIME = 0,
         CONTRACT,
-        //LEG,
         TIME,
 
         QTY,
@@ -209,8 +209,6 @@ namespace RealtimeSpreadMonitor
         //EXPR,
         STRIKE_PRICE,
         //RFR,
-
-        //SPREAD_ID,
         INSTRUMENT_ID,
         ACCOUNT,
         FCM_OFFICE,
@@ -219,7 +217,7 @@ namespace RealtimeSpreadMonitor
 
     public enum ORDER_SUMMARY_COLUMNS
     {
-        INST = 0, CONTRACT, QTY, DECS_T, TRANS_T, DECS_P, TRANS_P, DECS_FILL, INSID, ACCT, FCM_OFFICE, FCM_ACCT
+        RFRSH_TIME = 0, INST, CONTRACT, QTY, DECS_T, TRANS_T, DECS_P, TRANS_P, DECS_FILL, INSID, ACCT, FCM_OFFICE, FCM_ACCT
     }
 
     public enum OPTION_LIVE_DATA_SUMMARY_ROWS

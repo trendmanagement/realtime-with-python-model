@@ -60,6 +60,7 @@ D:\RealtimeSpreadWithPythonModel\RealtimeSpreadMonitor\RealtimeSpreadMonitor\bin
 D:\RealtimeSpreadWithPythonModel\RealtimeSpreadMonitor\RealtimeSpreadMonitor\obj\x86\Debug\RealtimeSpreadMonitor.csprojResolveAssemblyReference.cache
 D:\RealtimeSpreadWithPythonModel\RealtimeSpreadMonitor\RealtimeSpreadMonitor\obj\x86\Debug\Interop.CQG.dll
 D:\RealtimeSpreadWithPythonModel\RealtimeSpreadMonitor\RealtimeSpreadMonitor\obj\x86\Debug\RealtimeSpreadMonitor.csproj.ResolveComReference.cache
+D:\RealtimeSpreadWithPythonModel\RealtimeSpreadMonitor\RealtimeSpreadMonitor\obj\x86\Debug\RealtimeSpreadMonitor.Forms.FCM_ReportSummaryForm.resources
 D:\RealtimeSpreadWithPythonModel\RealtimeSpreadMonitor\RealtimeSpreadMonitor\obj\x86\Debug\RealtimeSpreadMonitor.Forms.ChartForm.resources
 D:\RealtimeSpreadWithPythonModel\RealtimeSpreadMonitor\RealtimeSpreadMonitor\obj\x86\Debug\RealtimeSpreadMonitor.Forms.EODPayoffs.resources
 D:\RealtimeSpreadWithPythonModel\RealtimeSpreadMonitor\RealtimeSpreadMonitor\obj\x86\Debug\RealtimeSpreadMonitor.Forms.FileLoadList.resources
@@ -78,4 +79,3 @@ D:\RealtimeSpreadWithPythonModel\RealtimeSpreadMonitor\RealtimeSpreadMonitor\obj
 D:\RealtimeSpreadWithPythonModel\RealtimeSpreadMonitor\RealtimeSpreadMonitor\obj\x86\Debug\RealtimeSpreadMonitor.csproj.GenerateResource.Cache
 D:\RealtimeSpreadWithPythonModel\RealtimeSpreadMonitor\RealtimeSpreadMonitor\obj\x86\Debug\RealtimeSpreadMonitor.exe
 D:\RealtimeSpreadWithPythonModel\RealtimeSpreadMonitor\RealtimeSpreadMonitor\obj\x86\Debug\RealtimeSpreadMonitor.pdb
-D:\RealtimeSpreadWithPythonModel\RealtimeSpreadMonitor\RealtimeSpreadMonitor\obj\x86\Debug\RealtimeSpreadMonitor.Forms.FCM_ReportSummaryForm.resources
