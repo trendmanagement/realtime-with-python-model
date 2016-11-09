@@ -116,57 +116,85 @@ namespace RealtimeSpreadMonitor.FormManipulation
                                 dataTable.Rows[rowCount][(int)CONTRACTSUMMARY_DATA_COLUMNS.STRIKE_PRICE] = p.asset.strikeprice;
                             }
 
-                            dataTable.Rows[rowCount][(int)CONTRACTSUMMARY_DATA_COLUMNS.RFRSH_TIME]
-                                = ap.date_now.ToString("MM-dd HH:mm", DateTimeFormatInfo.InvariantInfo);
+                            UpdateCell(rowCount, (int)CONTRACTSUMMARY_DATA_COLUMNS.RFRSH_TIME,
+                                dataTable, ap.date_now.ToString("MM-dd HH:mm", DateTimeFormatInfo.InvariantInfo));
+                            //dataTable.Rows[rowCount][(int)CONTRACTSUMMARY_DATA_COLUMNS.RFRSH_TIME]
+                            //    = ap.date_now.ToString("MM-dd HH:mm", DateTimeFormatInfo.InvariantInfo);
 
+                            UpdateCell(rowCount, (int)CONTRACTSUMMARY_DATA_COLUMNS.TIME,
+                                dataTable, p.mose.lastTimeUpdated.ToString("MM-dd HH:mm", DateTimeFormatInfo.InvariantInfo));
+                            //dataTable.Rows[rowCount][(int)CONTRACTSUMMARY_DATA_COLUMNS.TIME]
+                            //    = p.mose.lastTimeUpdated.ToString("MM-dd HH:mm", DateTimeFormatInfo.InvariantInfo);
 
-                            dataTable.Rows[rowCount][(int)CONTRACTSUMMARY_DATA_COLUMNS.TIME]
-                                = p.mose.lastTimeUpdated.ToString("MM-dd HH:mm", DateTimeFormatInfo.InvariantInfo);
-
+                            UpdateCell(rowCount, (int)CONTRACTSUMMARY_DATA_COLUMNS.PL_DAY_CHG,
+                                dataTable, Math.Round(p.positionTotals.pAndLDay, 2).ToString());
                             //dataTable.Rows[rowCount][(int)CONTRACTSUMMARY_DATA_COLUMNS.PL_DAY_CHG]
-                            //    = (p.mose.defaultPrice - p.mose.yesterdaySettlement) / im.ticksize * im.tickvalue * p.prev_qty;
+                            //    = Math.Round(p.positionTotals.pAndLDay,2);
 
-                            dataTable.Rows[rowCount][(int)CONTRACTSUMMARY_DATA_COLUMNS.PL_DAY_CHG]
-                                = p.positionTotals.pAndLDay;
+                            UpdateCell(rowCount, (int)CONTRACTSUMMARY_DATA_COLUMNS.ORDER_PL_CHG,
+                                dataTable, Math.Round(p.positionTotals.pAndLDayOrders, 2).ToString());
+                            //dataTable.Rows[rowCount][(int)CONTRACTSUMMARY_DATA_COLUMNS.ORDER_PL_CHG]
+                            //    = Math.Round(p.positionTotals.pAndLDayOrders,2);
 
-                            dataTable.Rows[rowCount][(int)CONTRACTSUMMARY_DATA_COLUMNS.ORDER_PL_CHG]
-                                = p.positionTotals.pAndLDayOrders;
+                            UpdateCell(rowCount, (int)CONTRACTSUMMARY_DATA_COLUMNS.DELTA,
+                                dataTable, Math.Round(p.positionTotals.delta, 2).ToString());
+                            //dataTable.Rows[rowCount][(int)CONTRACTSUMMARY_DATA_COLUMNS.DELTA]
+                            //    = Math.Round(p.positionTotals.delta, 2);
 
-                            dataTable.Rows[rowCount][(int)CONTRACTSUMMARY_DATA_COLUMNS.DELTA]
-                                = Math.Round(p.positionTotals.delta, 2);
+                            UpdateCell(rowCount, (int)CONTRACTSUMMARY_DATA_COLUMNS.DFLT_PRICE,
+                                dataTable, p.mose.defaultPrice.ToString());
+                            //dataTable.Rows[rowCount][(int)CONTRACTSUMMARY_DATA_COLUMNS.DFLT_PRICE]
+                            //    = p.mose.defaultPrice;
 
-                            dataTable.Rows[rowCount][(int)CONTRACTSUMMARY_DATA_COLUMNS.DFLT_PRICE]
-                                = p.mose.defaultPrice;
+                            UpdateCell(rowCount, (int)CONTRACTSUMMARY_DATA_COLUMNS.THEOR_PRICE,
+                                dataTable, p.mose.theoreticalOptionPrice.ToString());
+                            //dataTable.Rows[rowCount][(int)CONTRACTSUMMARY_DATA_COLUMNS.THEOR_PRICE]
+                            //    = p.mose.theoreticalOptionPrice;
 
-                            dataTable.Rows[rowCount][(int)CONTRACTSUMMARY_DATA_COLUMNS.THEOR_PRICE]
-                                = p.mose.theoreticalOptionPrice;
+                            UpdateCell(rowCount, (int)CONTRACTSUMMARY_DATA_COLUMNS.SPAN_IMPL_VOL,
+                                dataTable, Math.Round(p.mose.impliedVolFromSpan, 2).ToString());
+                            //dataTable.Rows[rowCount][(int)CONTRACTSUMMARY_DATA_COLUMNS.SPAN_IMPL_VOL]
+                            //    = Math.Round(p.mose.impliedVolFromSpan,2);
 
-                            dataTable.Rows[rowCount][(int)CONTRACTSUMMARY_DATA_COLUMNS.SPAN_IMPL_VOL]
-                                = Math.Round(p.mose.impliedVolFromSpan,2);
+                            UpdateCell(rowCount, (int)CONTRACTSUMMARY_DATA_COLUMNS.SETL_IMPL_VOL,
+                                dataTable, Math.Round(p.mose.settlementImpliedVol, 2).ToString());
+                            //dataTable.Rows[rowCount][(int)CONTRACTSUMMARY_DATA_COLUMNS.SETL_IMPL_VOL]
+                            //    = Math.Round(p.mose.settlementImpliedVol,2);
 
-                            dataTable.Rows[rowCount][(int)CONTRACTSUMMARY_DATA_COLUMNS.SETL_IMPL_VOL]
-                                = Math.Round(p.mose.settlementImpliedVol,2);
+                            UpdateCell(rowCount, (int)CONTRACTSUMMARY_DATA_COLUMNS.IMPL_VOL,
+                                dataTable, Math.Round(p.mose.impliedVol, 2).ToString());
+                            //dataTable.Rows[rowCount][(int)CONTRACTSUMMARY_DATA_COLUMNS.IMPL_VOL]
+                            //    = Math.Round(p.mose.impliedVol,2);
 
-                            dataTable.Rows[rowCount][(int)CONTRACTSUMMARY_DATA_COLUMNS.IMPL_VOL]
-                                = Math.Round(p.mose.impliedVol,2);
+                            UpdateCell(rowCount, (int)CONTRACTSUMMARY_DATA_COLUMNS.BID,
+                                dataTable, p.mose.bid.ToString());
+                            //dataTable.Rows[rowCount][(int)CONTRACTSUMMARY_DATA_COLUMNS.BID]
+                            //    = p.mose.bid;
 
-                            dataTable.Rows[rowCount][(int)CONTRACTSUMMARY_DATA_COLUMNS.BID]
-                                = p.mose.bid;
+                            UpdateCell(rowCount, (int)CONTRACTSUMMARY_DATA_COLUMNS.ASK,
+                                dataTable, p.mose.ask.ToString());
+                            //dataTable.Rows[rowCount][(int)CONTRACTSUMMARY_DATA_COLUMNS.ASK]
+                            //    = p.mose.ask;
 
-                            dataTable.Rows[rowCount][(int)CONTRACTSUMMARY_DATA_COLUMNS.ASK]
-                                = p.mose.ask;
+                            UpdateCell(rowCount, (int)CONTRACTSUMMARY_DATA_COLUMNS.LAST,
+                                dataTable, p.mose.trade.ToString());
+                            //dataTable.Rows[rowCount][(int)CONTRACTSUMMARY_DATA_COLUMNS.LAST]
+                            //    = p.mose.trade;
 
-                            dataTable.Rows[rowCount][(int)CONTRACTSUMMARY_DATA_COLUMNS.LAST]
-                                = p.mose.trade;
+                            UpdateCell(rowCount, (int)CONTRACTSUMMARY_DATA_COLUMNS.STTLE,
+                                dataTable, p.mose.settlement.ToString());
+                            //dataTable.Rows[rowCount][(int)CONTRACTSUMMARY_DATA_COLUMNS.STTLE]
+                            //    = p.mose.settlement;
 
-                            dataTable.Rows[rowCount][(int)CONTRACTSUMMARY_DATA_COLUMNS.STTLE]
-                                = p.mose.settlement;
+                            UpdateCell(rowCount, (int)CONTRACTSUMMARY_DATA_COLUMNS.SETL_TIME,
+                                dataTable, p.mose.settlementDateTime.ToString("MM-dd HH:mm", DateTimeFormatInfo.InvariantInfo));
+                            //dataTable.Rows[rowCount][(int)CONTRACTSUMMARY_DATA_COLUMNS.SETL_TIME]
+                            //    = p.mose.settlementDateTime.ToString("MM-dd HH:mm", DateTimeFormatInfo.InvariantInfo);
 
-                            dataTable.Rows[rowCount][(int)CONTRACTSUMMARY_DATA_COLUMNS.SETL_TIME]
-                                = p.mose.settlementDateTime.ToString("MM-dd HH:mm", DateTimeFormatInfo.InvariantInfo);
-
-                            dataTable.Rows[rowCount][(int)CONTRACTSUMMARY_DATA_COLUMNS.YEST_STTLE]
-                                = p.mose.yesterdaySettlement;
+                            UpdateCell(rowCount, (int)CONTRACTSUMMARY_DATA_COLUMNS.YEST_STTLE,
+                                dataTable, p.mose.yesterdaySettlement.ToString());
+                            //dataTable.Rows[rowCount][(int)CONTRACTSUMMARY_DATA_COLUMNS.YEST_STTLE]
+                            //    = p.mose.yesterdaySettlement;
 
 
                             rowCount++;
@@ -178,63 +206,72 @@ namespace RealtimeSpreadMonitor.FormManipulation
             }
         }
 
-
-        delegate void ThreadSafeFillLiveDataPageDelegate(
-            OptionRealtimeMonitor optionRealtimeMonitor,
-            int row, int col, String displayValue,
-            bool updateColor, double value);
-
-        public void fillContractSummaryLiveData(OptionRealtimeMonitor optionRealtimeMonitor,
-            int row, int col, String displayValue,
-            bool updateColor, double value)
+        private void UpdateCell(int row, int col, DataTable dataTable, string displayValue)
         {
-            try
+            if (dataTable.Rows[row][col] == null
+                || dataTable.Rows[row][col].ToString().CompareTo(displayValue) != 0)
             {
-                if (optionRealtimeMonitor.InvokeRequired)
-                {
-                    ThreadSafeFillLiveDataPageDelegate d = new ThreadSafeFillLiveDataPageDelegate(threadSafeFillContractSummaryLiveData);
-
-                    optionRealtimeMonitor.Invoke(d, optionRealtimeMonitor, row, col, displayValue, updateColor, value);
-                }
-                else
-                {
-                    threadSafeFillContractSummaryLiveData(optionRealtimeMonitor, row, col, displayValue, updateColor, value);
-                }
-            }
-            catch (Exception ex)
-            {
-                TSErrorCatch.errorCatchOut(Convert.ToString(this), ex);
+                dataTable.Rows[row][col] = displayValue;
             }
         }
 
-        public void threadSafeFillContractSummaryLiveData(
-            OptionRealtimeMonitor optionRealtimeMonitor,
-            int row, int col, String displayValue,
-            bool updateColor, double value)
-        {
-            try
-            {
-                int rowToUpdate = row;
 
-                if (optionRealtimeMonitor.getGridViewContractSummary.Rows[rowToUpdate].Cells[col].Value == null
-                    ||
-                    optionRealtimeMonitor.getGridViewContractSummary.Rows[rowToUpdate].Cells[col].Value.ToString().CompareTo(displayValue) != 0
-                    )
-                {
-                    optionRealtimeMonitor.getGridViewContractSummary.Rows[rowToUpdate].Cells[col].Value = displayValue;
+        //delegate void ThreadSafeFillLiveDataPageDelegate(
+        //    OptionRealtimeMonitor optionRealtimeMonitor,
+        //    int row, int col, String displayValue,
+        //    bool updateColor, double value);
 
-                    if (updateColor)
-                    {
-                        optionRealtimeMonitor.getGridViewContractSummary.Rows[rowToUpdate].Cells[col].Style.BackColor
-                            = CommonFormManipulation.plUpDownColor(value);
-                    }
-                }
+        //public void fillContractSummaryLiveData(OptionRealtimeMonitor optionRealtimeMonitor,
+        //    int row, int col, String displayValue,
+        //    bool updateColor, double value)
+        //{
+        //    try
+        //    {
+        //        if (optionRealtimeMonitor.InvokeRequired)
+        //        {
+        //            ThreadSafeFillLiveDataPageDelegate d = new ThreadSafeFillLiveDataPageDelegate(threadSafeFillContractSummaryLiveData);
 
-            }
-            catch (Exception ex)
-            {
-                TSErrorCatch.errorCatchOut(Convert.ToString(this), ex);
-            }
-        }
+        //            optionRealtimeMonitor.Invoke(d, optionRealtimeMonitor, row, col, displayValue, updateColor, value);
+        //        }
+        //        else
+        //        {
+        //            threadSafeFillContractSummaryLiveData(optionRealtimeMonitor, row, col, displayValue, updateColor, value);
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        TSErrorCatch.errorCatchOut(Convert.ToString(this), ex);
+        //    }
+        //}
+
+        //public void threadSafeFillContractSummaryLiveData(
+        //    OptionRealtimeMonitor optionRealtimeMonitor,
+        //    int row, int col, String displayValue,
+        //    bool updateColor, double value)
+        //{
+        //    try
+        //    {
+        //        int rowToUpdate = row;
+
+        //        if (optionRealtimeMonitor.getGridViewContractSummary.Rows[rowToUpdate].Cells[col].Value == null
+        //            ||
+        //            optionRealtimeMonitor.getGridViewContractSummary.Rows[rowToUpdate].Cells[col].Value.ToString().CompareTo(displayValue) != 0
+        //            )
+        //        {
+        //            optionRealtimeMonitor.getGridViewContractSummary.Rows[rowToUpdate].Cells[col].Value = displayValue;
+
+        //            if (updateColor)
+        //            {
+        //                optionRealtimeMonitor.getGridViewContractSummary.Rows[rowToUpdate].Cells[col].Style.BackColor
+        //                    = CommonFormManipulation.plUpDownColor(value);
+        //            }
+        //        }
+
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        TSErrorCatch.errorCatchOut(Convert.ToString(this), ex);
+        //    }
+        //}
     }
 }

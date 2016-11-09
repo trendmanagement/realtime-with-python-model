@@ -25,6 +25,8 @@ namespace RealtimeSpreadMonitor.Model
         public bool visible { get; set; } = true;
 
         public int acctIndex_UsedForTotals_Visibility = 0;
+
+        public Account accountFromMongo { get; set; }
     }
 
     public class PortfolioAllocation_Mongo
@@ -179,6 +181,8 @@ namespace RealtimeSpreadMonitor.Model
         public AccountInfo info { get; set; }
 
         public List<Position> positions { get; set; }
+
+        public AccountAllocation accountAllocation { get; set; }
     }
 
     public class OrderSummary_AccountPosition

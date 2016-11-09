@@ -280,11 +280,16 @@ namespace RealtimeSpreadMonitor
 
             DataCollectionLibrary.accountList = MongoDBConnectionAndSetup.GetAccountInfoFromMongo(DataCollectionLibrary.accountNameList);
 
-            //List<AccountPosition> archive_pos = MongoDBConnectionAndSetup.GetAccountArchivePositionsInfoFromMongo(DataCollectionLibrary.accountNameList);
+            Dictionary<string, Account> accountListDictionary = DataCollectionLibrary.accountList.ToDictionary(x => x.name, x => x);
 
-            //List<AccountPosition> new_pos = MongoDBConnectionAndSetup.GetAccountPositionsInfoFromMongo(DataCollectionLibrary.accountNameList);
+            ///
+            /// this adds the Account to the accountAllocation
+            ///
+            foreach (AccountAllocation ac in DataCollectionLibrary.portfolioAllocation.accountAllocation)
+            {
+                ac.accountFromMongo = accountListDictionary[ac.account];
+            }
 
-            //DataCollectionLibrary.accountPositionsList
 
             //AdjustQtyBasedOnDate();
 
@@ -475,6 +480,14 @@ namespace RealtimeSpreadMonitor
 
 
             DataCollectionLibrary.accountPositionsList = new_pos;
+
+            ///
+            ///add account allocation to account position so you have all account info in account position
+            ///
+            foreach (AccountPosition ap in DataCollectionLibrary.accountPositionsList)
+            {
+                ap.accountAllocation = DataCollectionLibrary.portfolioAllocation.accountAllocation_KeyAccountname[ap.name];
+            }
 
             //DataCollectionLibrary.accountPositionsList = new List<AccountPosition>();
         }
@@ -1271,7 +1284,7 @@ namespace RealtimeSpreadMonitor
             }
 
 
-            int accountCnt2 = 0;
+            //int accountCnt2 = 0;
             foreach (AccountPosition ap in DataCollectionLibrary.accountPositionsList)
             {
                 foreach (Position p in ap.positions)
@@ -1310,16 +1323,17 @@ namespace RealtimeSpreadMonitor
                         p.positionTotals.delta += p.mose.delta * orderQty;
                     }
 
-                    im.instrumentModelCalcTotals_ByAccount[accountCnt2].pAndLDay += p.positionTotals.pAndLDay + p.positionTotals.pAndLDayOrders;
+                    //Get acct group
+                    im.instrumentModelCalcTotals_ByAccount[ap.accountAllocation.acctIndex_UsedForTotals_Visibility].pAndLDay += p.positionTotals.pAndLDay + p.positionTotals.pAndLDayOrders;
 
-                    im.instrumentModelCalcTotals_ByAccount[accountCnt2].pAndLDaySettlementToSettlement
+                    im.instrumentModelCalcTotals_ByAccount[ap.accountAllocation.acctIndex_UsedForTotals_Visibility].pAndLDaySettlementToSettlement
                         += p.positionTotals.pAndLDaySettlementToSettlement + p.positionTotals.pAndLDaySettleOrders;
 
-                    im.instrumentModelCalcTotals_ByAccount[accountCnt2].delta += p.positionTotals.delta;
+                    im.instrumentModelCalcTotals_ByAccount[ap.accountAllocation.acctIndex_UsedForTotals_Visibility].delta += p.positionTotals.delta;
 
                 }
 
-                accountCnt2++;
+                //accountCnt2++;
             }
 
             foreach (Instrument_mongo im in DataCollectionLibrary.instrumentList)
