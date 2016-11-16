@@ -105,7 +105,7 @@ namespace RealtimeSpreadMonitor
                 //(callsFromCQG,&CallsFromCQG.m_CEL_CELDataConnectionChg);
                 m_CEL.DataConnectionStatusChanged += new CQG._ICQGCELEvents_DataConnectionStatusChangedEventHandler(m_CEL_CELDataConnectionChg);
 
-                //m_CEL.LineTimeChanged += new CQG._ICQGCELEvents_LineTimeChangedEventHandler(m_CEL_LineTimeChanged);
+                m_CEL.LineTimeChanged += new CQG._ICQGCELEvents_LineTimeChangedEventHandler(m_CEL_LineTimeChanged);
 
                 // 		//m_CEL.DataError += new _ICQGCELEvents_DataErrorEventHandler(CEL_DataError);
                 //m_CEL.InstrumentsGroupResolved += new CQG._ICQGCELEvents_InstrumentsGroupResolvedEventHandler(m_CEL_InstrumentsGroupResolved);
@@ -136,6 +136,30 @@ namespace RealtimeSpreadMonitor
             catch (Exception ex)
             {
                 TSErrorCatch.errorCatchOut(Convert.ToString(this), ex);
+            }
+        }
+
+        private void m_CEL_LineTimeChanged(DateTime new_line_time)
+        {
+            List<MongoDB_OptionSpreadExpression> optionSpreadExpressionList
+            = new List<MongoDB_OptionSpreadExpression>();
+
+            foreach(MongoDB_OptionSpreadExpression ose in DataCollectionLibrary.optionSpreadExpressionList)
+            {
+                if(ose.callPutOrFuture == OPTION_SPREAD_CONTRACT_TYPE.FUTURE && ose.lastBarAnalyzed)
+                {
+                    if (!ose.decisionPriceFilled
+                                && new_line_time.CompareTo(ose.todayDecisionTime) > 0)
+                    {
+                        ose.decisionPriceFilled = true;
+                    }
+
+                    if (!ose.transactionPriceFilled
+                                && new_line_time.CompareTo(ose.todayTransactionTimeBoundary) >= 0)
+                    {
+                        ose.transactionPriceFilled = true;
+                    }
+                }
             }
         }
 
@@ -377,14 +401,18 @@ namespace RealtimeSpreadMonitor
                                 //and hogs that don't have data
                                 ose.todayTransactionTimeBoundary
                                     = DataCollectionLibrary.initializationParms.modelDateTime.Date
-                                    .AddHours(
-                                        ose.instrument.customdayboundarytime.Hour)
-                                    .AddMinutes(
-                                        ose.instrument.customdayboundarytime.Minute);
+                                    //.AddHours(15)
+                                    //.AddMinutes(11);
+                                .AddHours(
+                                    ose.instrument.customdayboundarytime.Hour)
+                                .AddMinutes(
+                                    ose.instrument.customdayboundarytime.Minute);
 
                                 ose.todayDecisionTime
                                     = DataCollectionLibrary.initializationParms.modelDateTime.Date
-                                    .AddHours(
+                                    //.AddHours(15)
+                                    //.AddMinutes(11);
+                                .AddHours(
                                         ose.instrument.customdayboundarytime.Hour)
                                     .AddMinutes(
                                         ose.instrument.customdayboundarytime.Minute
@@ -396,41 +424,51 @@ namespace RealtimeSpreadMonitor
                                 while (timedBarsInCounter < cqg_TimedBarsIn.Count)
                                 {
 
-                                    if (!ose.reachedTransactionTimeBoundary
+                                    if (!ose.transactionPriceFilled
                                         && cqg_TimedBarsIn[timedBarsInCounter].Timestamp
                                         .CompareTo(ose.todayTransactionTimeBoundary) <= 0)
                                     {
-                                        ose.todayTransactionBar = cqg_TimedBarsIn[timedBarsInCounter];
+                                        //ose.transactionBarIdx = timedBarsInCounter;
+                                        //ose.todayTransactionBar = cqg_TimedBarsIn[timedBarsInCounter];
+
+                                        ose.transactionPrice = cqg_TimedBarsIn[timedBarsInCounter].Close;
+
+                                        ose.transactionPriceTime = cqg_TimedBarsIn[timedBarsInCounter].Timestamp;
 
                                     }
 
-                                    if (!ose.reachedTransactionTimeBoundary
-                                        && cqg_TimedBarsIn[timedBarsInCounter].Timestamp
-                                        .CompareTo(ose.todayTransactionTimeBoundary) >= 0)
-                                    {
-                                        ose.reachedTransactionTimeBoundary = true;
-                                    }
+                                    //if (!ose.transactionPriceFilled
+                                    //    && cqg_TimedBarsIn[timedBarsInCounter].Timestamp
+                                    //    .CompareTo(ose.todayTransactionTimeBoundary) >= 0)
+                                    //{
+                                    //    //ose.reachedTransactionTimeBoundary = true;
+                                    //    ose.transactionPriceFilled = true;
+                                    //}
 
-                                    if (!ose.reachedDecisionBar
+                                    if (!ose.decisionPriceFilled
                                         && cqg_TimedBarsIn[timedBarsInCounter].Timestamp
                                         .CompareTo(ose.todayDecisionTime) <= 0)
                                     {
-                                        ose.decisionBar = cqg_TimedBarsIn[timedBarsInCounter];
+                                        
+                                        ose.decisionPrice = cqg_TimedBarsIn[timedBarsInCounter].Close;
+
+                                        ose.decisionPriceTime = cqg_TimedBarsIn[timedBarsInCounter].Timestamp;
                                     }
 
-                                    if (!ose.reachedDecisionBar
-                                        && cqg_TimedBarsIn[timedBarsInCounter].Timestamp
-                                        .CompareTo(ose.todayDecisionTime) >= 0)
-                                    {
-                                        ose.reachedDecisionBar = true;
-                                    }
+                                    //if (!ose.decisionPriceFilled
+                                    //    && cqg_TimedBarsIn[timedBarsInCounter].Timestamp
+                                    //    .CompareTo(ose.todayDecisionTime) >= 0)
+                                    //{
+                                    //    //ose.reachedDecisionBar = true;
+                                    //    ose.decisionPriceFilled = true;
+                                    //}
 
-                                    if (!ose.reachedBarAfterDecisionBar
-                                        && cqg_TimedBarsIn[timedBarsInCounter].Timestamp
-                                        .CompareTo(ose.todayDecisionTime) > 0)
-                                    {
-                                        ose.reachedBarAfterDecisionBar = true;
-                                    }
+                                    //if (!ose.reachedBarAfterDecisionBar
+                                    //    && cqg_TimedBarsIn[timedBarsInCounter].Timestamp
+                                    //    .CompareTo(ose.todayDecisionTime) > 0)
+                                    //{
+                                    //    ose.reachedBarAfterDecisionBar = true;
+                                    //}
 
                                     //if (!ose.reached1MinAfterDecisionBarUsedForSnapshot
                                     //    && cqg_TimedBarsIn[timedBarsInCounter].Timestamp
@@ -443,6 +481,8 @@ namespace RealtimeSpreadMonitor
                                     timedBarsInCounter++;
 
                                 }
+
+                                ose.lastBarAnalyzed = true;
 
                                 int backTimeCounter = cqg_TimedBarsIn.Count - 1;
 
@@ -508,41 +548,51 @@ namespace RealtimeSpreadMonitor
                         while (lastTimedBarInIndex < cqg_TimedBarsIn.Count)
                         {
 
-                            if (!ose.reachedTransactionTimeBoundary
+                            if (!ose.transactionPriceFilled
                                 && cqg_TimedBarsIn[lastTimedBarInIndex].Timestamp
                                 .CompareTo(ose.todayTransactionTimeBoundary) <= 0)
                             {
-                                ose.todayTransactionBar = cqg_TimedBarsIn[lastTimedBarInIndex];
+                                //ose.transactionBarIdx = lastTimedBarInIndex;
+                                //ose.todayTransactionBar = cqg_TimedBarsIn[lastTimedBarInIndex];
+
+                                ose.transactionPrice = cqg_TimedBarsIn[lastTimedBarInIndex].Close;
+
+                                ose.transactionPriceTime = cqg_TimedBarsIn[lastTimedBarInIndex].Timestamp;
 
                             }
 
-                            if (!ose.reachedTransactionTimeBoundary
-                                && cqg_TimedBarsIn[lastTimedBarInIndex].Timestamp
-                                .CompareTo(ose.todayTransactionTimeBoundary) >= 0)
-                            {
-                                ose.reachedTransactionTimeBoundary = true;
-                            }
+                            //if (!ose.transactionPriceFilled
+                            //    && cqg_TimedBarsIn[lastTimedBarInIndex].Timestamp
+                            //    .CompareTo(ose.todayTransactionTimeBoundary) >= 0)
+                            //{
+                            //    ose.transactionPriceFilled = true;
+                            //}
 
-                            if (!ose.reachedDecisionBar
+                            if (!ose.decisionPriceFilled
                                 && cqg_TimedBarsIn[lastTimedBarInIndex].Timestamp
                                 .CompareTo(ose.todayDecisionTime) <= 0)
                             {
-                                ose.decisionBar = cqg_TimedBarsIn[lastTimedBarInIndex];
+                                //ose.decisionBarIdx = lastTimedBarInIndex;
+                                //ose.decisionBar = cqg_TimedBarsIn[lastTimedBarInIndex];
+
+                                ose.decisionPrice = cqg_TimedBarsIn[lastTimedBarInIndex].Close;
+
+                                ose.decisionPriceTime = cqg_TimedBarsIn[lastTimedBarInIndex].Timestamp;
                             }
 
-                            if (!ose.reachedDecisionBar
-                                && cqg_TimedBarsIn[lastTimedBarInIndex].Timestamp
-                                .CompareTo(ose.todayDecisionTime) >= 0)
-                            {
-                                ose.reachedDecisionBar = true;
-                            }
+                            //if (!ose.decisionPriceFilled
+                            //    && cqg_TimedBarsIn[lastTimedBarInIndex].Timestamp
+                            //    .CompareTo(ose.todayDecisionTime) >= 0)
+                            //{
+                            //    ose.decisionPriceFilled = true;
+                            //}
 
-                            if (!ose.reachedBarAfterDecisionBar
-                                && cqg_TimedBarsIn[lastTimedBarInIndex].Timestamp
-                                .CompareTo(ose.todayDecisionTime) > 0)
-                            {
-                                ose.reachedBarAfterDecisionBar = true;
-                            }
+                            //if (!ose.reachedBarAfterDecisionBar
+                            //    && cqg_TimedBarsIn[lastTimedBarInIndex].Timestamp
+                            //    .CompareTo(ose.todayDecisionTime) > 0)
+                            //{
+                            //    ose.reachedBarAfterDecisionBar = true;
+                            //}
 
                             //if (!ose.reached1MinAfterDecisionBarUsedForSnapshot
                             //    && cqg_TimedBarsIn[lastTimedBarInIndex].Timestamp
@@ -555,6 +605,8 @@ namespace RealtimeSpreadMonitor
                             lastTimedBarInIndex++;
 
                         }
+
+                        ose.lastBarAnalyzed = true;
 
                         int lastbaridx = cqg_TimedBarsIn.Count - 1;
 
@@ -613,6 +665,30 @@ namespace RealtimeSpreadMonitor
                                 cqg_TimedBarsIn[index].Close;
 
                             ose.tradeFilled = true;
+
+
+
+                            if (cqg_TimedBarsIn[index].Timestamp
+                                        .CompareTo(ose.todayTransactionTimeBoundary) == 0)
+                            {
+
+                                ose.transactionPrice = cqg_TimedBarsIn[index].Close;
+
+                                //ose.transactionPriceTime = cqg_TimedBarsIn[index].Timestamp;
+
+                            }
+
+                            if (cqg_TimedBarsIn[index].Timestamp
+                                .CompareTo(ose.todayDecisionTime) == 0)
+                            {
+
+                                ose.decisionPrice = cqg_TimedBarsIn[index].Close;
+
+                                //ose.decisionPriceTime = cqg_TimedBarsIn[index].Timestamp;
+                            }
+
+
+
 
                             fillDefaultMidPrice_Future(ose);
 
@@ -895,35 +971,36 @@ namespace RealtimeSpreadMonitor
                     optionSpreadExpression.delta = 1 * TradingSystemConstants.OPTION_DELTA_MULTIPLIER;
 
                     ///Below fills decision bar for future and options of future
-                    if (optionSpreadExpression.decisionBar != null)
-                    {
-                        optionSpreadExpression.decisionPrice = optionSpreadExpression.decisionBar.Close;
+                    //if (optionSpreadExpression.decisionBar != null)
+                    //{
+                    //    optionSpreadExpression.decisionPrice 
+                    //        = optionSpreadExpression.futureTimedBars[optionSpreadExpression.decisionBarIdx].Close;
 
-                        optionSpreadExpression.decisionPriceTime = optionSpreadExpression.decisionBar.Timestamp;
+                    //    optionSpreadExpression.decisionPriceTime = optionSpreadExpression.decisionBar.Timestamp;
 
-                        if (optionSpreadExpression.reachedDecisionBar)
-                        {
-                            optionSpreadExpression.decisionPriceFilled = true;
-                        }
-                    }
+                    //    if (optionSpreadExpression.reachedDecisionBar)
+                    //    {
+                    //        optionSpreadExpression.decisionPriceFilled = true;
+                    //    }
+                    //}
 
 
-                    if (optionSpreadExpression.todayTransactionBar != null)
-                    {
-                        optionSpreadExpression.transactionPrice =
-                            optionSpreadExpression.todayTransactionBar.Close;
+                    //if (optionSpreadExpression.todayTransactionBar != null)
+                    //{
+                    //    optionSpreadExpression.transactionPrice =
+                    //        optionSpreadExpression.todayTransactionBar.Close;
 
-                        optionSpreadExpression.transactionPriceTime =
-                            optionSpreadExpression.todayTransactionBar.Timestamp;
+                    //    optionSpreadExpression.transactionPriceTime =
+                    //        optionSpreadExpression.todayTransactionBar.Timestamp;
 
-                        if (optionSpreadExpression.reachedTransactionTimeBoundary)
-                        {
-                            optionSpreadExpression.transactionPriceFilled = true;
-                        }
+                    //    if (optionSpreadExpression.reachedTransactionTimeBoundary)
+                    //    {
+                    //        optionSpreadExpression.transactionPriceFilled = true;
+                    //    }
 
-                    }
+                    //}
 
-                    TSErrorCatch.debugWriteOut(optionSpreadExpression.asset.cqgsymbol + " " + optionSpreadExpression.optionExpressionsThatUseThisFutureAsUnderlying.Count());
+                    //TSErrorCatch.debugWriteOut(optionSpreadExpression.asset.cqgsymbol + " " + optionSpreadExpression.optionExpressionsThatUseThisFutureAsUnderlying.Count());
 
                     foreach (MongoDB_OptionSpreadExpression optionSpreadThatUsesFuture in optionSpreadExpression.optionExpressionsThatUseThisFutureAsUnderlying)
                     {

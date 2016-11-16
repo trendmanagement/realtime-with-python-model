@@ -1520,13 +1520,13 @@ namespace RealtimeSpreadMonitor.Forms
                                     (int)EXPRESSION_LIST_VIEW.DFLT_PRICE,
                                     ose.defaultPrice.ToString(), false, ose.defaultPrice);
 
-                            if (ose.decisionBar != null)
-                            {
-                                fillDataGridViewExpressionListPage(ose.dataGridExpressionListRow,
-                                        (int)EXPRESSION_LIST_VIEW.CUM_VOL,
-                                        "0", false,
-                                        0);
-                            }
+                            //if (ose.decisionPriceFilled != null)
+                            //{
+                            //    fillDataGridViewExpressionListPage(ose.dataGridExpressionListRow,
+                            //            (int)EXPRESSION_LIST_VIEW.CUM_VOL,
+                            //            "0", false,
+                            //            0);
+                            //}
 
                             fillDataGridViewExpressionListPage(ose.dataGridExpressionListRow,
                                     (int)EXPRESSION_LIST_VIEW.THEOR_PRICE,

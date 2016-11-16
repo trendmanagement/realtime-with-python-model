@@ -127,17 +127,25 @@ namespace RealtimeSpreadMonitor.Mongo
         public bool defaultPriceFilled;
 
 
+        public bool lastBarAnalyzed = false;
 
+        public DateTime todayDecisionTime;
         public double decisionPrice;
         public DateTime decisionPriceTime;
+        //public bool decisionBarAnalyzed = false;
         public bool decisionPriceFilled = false;
 
+
+        public DateTime todayTransactionTimeBoundary;
         public double transactionPrice;
         public DateTime transactionPriceTime;
+        //public bool transactionBarAnalyzed = false;
         public bool transactionPriceFilled = false;
 
+        public bool filledAfterTransactionTimeBoundary = false;
 
-        
+
+
 
 
         public double theoreticalOptionPrice;
@@ -167,16 +175,17 @@ namespace RealtimeSpreadMonitor.Mongo
         public MongoDB_OptionSpreadExpression mainExpressionSubstitutionUsedFor;
 
 
+        //public int transactionBarIdx;
+        //public CQG.CQGTimedBar todayTransactionBar;
+        
+        //public bool reachedTransactionTimeBoundary = false;
+        
 
-        public CQG.CQGTimedBar todayTransactionBar;
-        public DateTime todayTransactionTimeBoundary;
-        public bool reachedTransactionTimeBoundary = false;
-        public bool filledAfterTransactionTimeBoundary = false;
-
-        public CQG.CQGTimedBar decisionBar;
-        public DateTime todayDecisionTime;
-        public bool reachedDecisionBar = false;
-        public bool reachedBarAfterDecisionBar = false;
+        //public int decisionBarIdx;
+        //public CQG.CQGTimedBar decisionBar;
+        //public DateTime todayDecisionTime;
+        //public bool reachedDecisionBar = false;
+        //public bool reachedBarAfterDecisionBar = false;
         //public bool reached1MinAfterDecisionBarUsedForSnapshot = false;
 
         //public DateTime settlementDateTimeMarker;
