@@ -101,6 +101,8 @@ namespace RealtimeSpreadMonitor.Model
 
         public char callorput { get; set; }
 
+        public double _hash { get; set; }
+
         /// <summary>
         /// future specific fields
         /// </summary>
