@@ -38,7 +38,8 @@ namespace RealtimeSpreadMonitor.Forms
 
         private OptionSpreadManager optionSpreadManager;
 
-        private int brokerAccountChosen;
+        //private int brokerAccountChosen;
+        private HashSet<Tuple<string, string>> brokerAccountChosen = new HashSet<Tuple<string, string>>();
 
         private Dictionary<string, int> brokerAcctDictionary = new Dictionary<string, int>();
 
@@ -228,7 +229,8 @@ namespace RealtimeSpreadMonitor.Forms
 
         public void setupTreeViewBrokerAcct()
         {
-            brokerAccountChosen = DataCollectionLibrary.portfolioAllocation.accountAllocation.Count;
+            //brokerAccountChosen = DataCollectionLibrary.portfolioAllocation.accountAllocation.Count;
+            
 
             for (int groupAllocCnt = 0; groupAllocCnt <= DataCollectionLibrary.portfolioAllocation.accountAllocation.Count; groupAllocCnt++)
             {
@@ -251,6 +253,8 @@ namespace RealtimeSpreadMonitor.Forms
                     treeVal.Append("|");
                     treeVal.Append(DataCollectionLibrary.portfolioAllocation.accountAllocation[groupAllocCnt].account);
                     treeVal.Append("|");
+                    treeVal.Append(DataCollectionLibrary.portfolioAllocation.accountAllocation[groupAllocCnt].accountFromMongo.campaign_name);
+                    treeVal.Append("|");
                     treeVal.Append(DataCollectionLibrary.portfolioAllocation.accountAllocation[groupAllocCnt].FCM_OFFICE);
                     treeVal.Append(DataCollectionLibrary.portfolioAllocation.accountAllocation[groupAllocCnt].FCM_ACCT);
 
@@ -258,53 +262,127 @@ namespace RealtimeSpreadMonitor.Forms
                     treeViewBrokerAcct.Nodes.Add(groupAllocCnt.ToString(), treeVal.ToString());
                 }
             }
+
+            treeViewBrokerAcct.Nodes[treeViewBrokerAcct.Nodes.Count - 1].Checked = true;
+
         }
 
 
         private void treeViewBrokerAcct_AfterSelect(object sender, TreeViewEventArgs e)
         {
-            TreeNode x = treeViewBrokerAcct.SelectedNode;
+            //TreeNode x = treeViewBrokerAcct.SelectedNode;
 
-            if (x != null)
+            //if (x != null)
+            //{
+
+            //    brokerAccountChosen = x.Index;
+
+            //    int legCount = 0;
+            //    while (legCount < gridViewSpreadGrid.RowCount)
+            //    {
+            //        gridViewSpreadGrid.Rows[legCount].DefaultCellStyle.BackColor = Color.White;
+
+            //        if (brokerAccountChosen < DataCollectionLibrary.portfolioAllocation.accountAllocation.Count)
+            //        {
+            //            if ((gridViewSpreadGrid.Rows[legCount]
+            //                        .Cells[(int)OPTION_PL_COLUMNS.BRKR].Value != null
+            //                &&
+            //                gridViewSpreadGrid.Rows[legCount]
+            //                        .Cells[(int)OPTION_PL_COLUMNS.ACCT].Value != null)
+            //                &&
+            //                (
+            //                gridViewSpreadGrid.Rows[legCount]
+            //                        .Cells[(int)OPTION_PL_COLUMNS.BRKR].Value.ToString().CompareTo(
+            //                DataCollectionLibrary.portfolioAllocation.accountAllocation[brokerAccountChosen].broker) != 0
+            //                ||
+            //                gridViewSpreadGrid.Rows[legCount]
+            //                        .Cells[(int)OPTION_PL_COLUMNS.ACCT].Value.ToString().CompareTo(
+            //                DataCollectionLibrary.portfolioAllocation.accountAllocation[brokerAccountChosen].account) != 0
+            //                ))
+            //            {
+            //                gridViewSpreadGrid.Rows[legCount].DefaultCellStyle.BackColor = Color.DarkGray;
+            //                //continueThisLeg = false;
+            //            }
+            //        }
+
+            //        legCount++;
+            //    }
+
+            //    fillChart();
+            //}
+        }
+
+
+        
+
+        private void treeViewBrokerAcct_AfterCheck(object sender, TreeViewEventArgs e)
+        {
+            treeViewBrokerAcct.BeginUpdate();
+
+            if(e.Node.Index == treeViewBrokerAcct.Nodes.Count - 1)
             {
+                bool allselected = e.Node.Checked;
 
-                brokerAccountChosen = x.Index;
+                //foreach (TreeNode tn in treeViewBrokerAcct.Nodes)
+                for(int i = 0; i < treeViewBrokerAcct.Nodes.Count - 1; i++)
+                {
+                    treeViewBrokerAcct.Nodes[i].Checked = allselected;
+                }
+            }
+            else
+            {
+                Tuple<string,string> tuple = Tuple.Create(DataCollectionLibrary.portfolioAllocation.accountAllocation[e.Node.Index].broker,
+                             DataCollectionLibrary.portfolioAllocation.accountAllocation[e.Node.Index].account);
+
+                if(e.Node.Checked)
+                {
+                    if (!brokerAccountChosen.Contains(tuple))
+                    {
+                        brokerAccountChosen.Add(tuple);
+                    }
+                }
+                else
+                {
+                    if (brokerAccountChosen.Contains(tuple))
+                    {
+                        brokerAccountChosen.Remove(tuple);
+                    }
+                }
 
                 int legCount = 0;
                 while (legCount < gridViewSpreadGrid.RowCount)
                 {
                     gridViewSpreadGrid.Rows[legCount].DefaultCellStyle.BackColor = Color.White;
-
-                    if (brokerAccountChosen < DataCollectionLibrary.portfolioAllocation.accountAllocation.Count)
-                    {
-                        if ((gridViewSpreadGrid.Rows[legCount]
+                    //********
+                    if (gridViewSpreadGrid.Rows[legCount]
                                     .Cells[(int)OPTION_PL_COLUMNS.BRKR].Value != null
                             &&
                             gridViewSpreadGrid.Rows[legCount]
                                     .Cells[(int)OPTION_PL_COLUMNS.ACCT].Value != null)
-                            &&
-                            (
-                            gridViewSpreadGrid.Rows[legCount]
-                                    .Cells[(int)OPTION_PL_COLUMNS.BRKR].Value.ToString().CompareTo(
-                            DataCollectionLibrary.portfolioAllocation.accountAllocation[brokerAccountChosen].broker) != 0
-                            ||
-                            gridViewSpreadGrid.Rows[legCount]
-                                    .Cells[(int)OPTION_PL_COLUMNS.ACCT].Value.ToString().CompareTo(
-                            DataCollectionLibrary.portfolioAllocation.accountAllocation[brokerAccountChosen].account) != 0
-                            ))
+                    {
+
+
+                        if (!brokerAccountChosen.Contains(Tuple.Create(gridViewSpreadGrid.Rows[legCount]
+                                    .Cells[(int)OPTION_PL_COLUMNS.BRKR].Value.ToString(),
+                                    gridViewSpreadGrid.Rows[legCount]
+                                    .Cells[(int)OPTION_PL_COLUMNS.ACCT].Value.ToString())))
                         {
                             gridViewSpreadGrid.Rows[legCount].DefaultCellStyle.BackColor = Color.DarkGray;
-                            //continueThisLeg = false;
                         }
+                        //continueThisLeg = false;
                     }
+
 
                     legCount++;
                 }
 
-                fillChart();
+                clearChart();
             }
-        }
 
+            
+
+            treeViewBrokerAcct.EndUpdate();
+        }
 
         public void fillGridFromContractSummary(
             OptionSpreadManager optionSpreadManager,
@@ -901,7 +979,7 @@ namespace RealtimeSpreadMonitor.Forms
 
 
 
-                
+
 
                 if (DataCollectionLibrary.riskFreeRateExpression != null)
                 {
@@ -1211,27 +1289,7 @@ namespace RealtimeSpreadMonitor.Forms
 
                 int futureExpCnt = getFutureExpressionIdx();
 
-                //while (futureExpCnt < optionSpreadExpressionList.Count())
-                //{
-                //    if (optionSpreadExpressionList[futureExpCnt].instrument != null
-                //        && instrument.idxOfInstrumentInList ==
-                //            optionSpreadExpressionList[futureExpCnt].instrument.idxOfInstrumentInList
-                //        &&
-                //        optionSpreadExpressionList[futureExpCnt].callPutOrFuture ==
-                //            OPTION_SPREAD_CONTRACT_TYPE.FUTURE)
-                //    {
-                //        //futureAvgPrice = optionSpreadExpressionList[expCount].defaultPrice;
-
-                //        break;
-                //    }
-
-                //    futureExpCnt++;
-                //}
-
-                //if (futureExpCnt >= optionSpreadExpressionList.Count())
-                //{
-                //    futureExpCnt--;
-                //}
+                
 
                 int row = gridViewSpreadGrid.Rows.Add();
 
@@ -1366,7 +1424,7 @@ namespace RealtimeSpreadMonitor.Forms
 
             countOfTest = Convert.ToInt16(countTextBox.Text);
 
-            int legCount = 0;
+            int rowIdx = 0;
 
             int futureIdx = findFutureLeg();
 
@@ -1440,33 +1498,49 @@ namespace RealtimeSpreadMonitor.Forms
                 double deltaTotalAtExp = 0;
 
 
-                legCount = 0;
+                rowIdx = 0;
 
-                while (legCount < gridViewSpreadGrid.RowCount)
+                while (rowIdx < gridViewSpreadGrid.RowCount)
                 {
                     bool continueThisLeg = true;
 
-                    if (brokerAccountChosen < DataCollectionLibrary.portfolioAllocation.accountAllocation.Count)
-                    {
-                        if ((gridViewSpreadGrid.Rows[legCount]
+                    if (gridViewSpreadGrid.Rows[rowIdx]
                                     .Cells[(int)OPTION_PL_COLUMNS.BRKR].Value != null
                             &&
-                            gridViewSpreadGrid.Rows[legCount]
+                            gridViewSpreadGrid.Rows[rowIdx]
                                     .Cells[(int)OPTION_PL_COLUMNS.ACCT].Value != null)
-                            &&
-                            (
-                            gridViewSpreadGrid.Rows[legCount]
-                                    .Cells[(int)OPTION_PL_COLUMNS.BRKR].Value.ToString().CompareTo(
-                            DataCollectionLibrary.portfolioAllocation.accountAllocation[brokerAccountChosen].broker) != 0
-                            ||
-                            gridViewSpreadGrid.Rows[legCount]
-                                    .Cells[(int)OPTION_PL_COLUMNS.ACCT].Value.ToString().CompareTo(
-                            DataCollectionLibrary.portfolioAllocation.accountAllocation[brokerAccountChosen].account) != 0
-                            ))
+                    {
+
+                        if (!brokerAccountChosen.Contains(Tuple.Create(gridViewSpreadGrid.Rows[rowIdx]
+                                    .Cells[(int)OPTION_PL_COLUMNS.BRKR].Value.ToString(),
+                                    gridViewSpreadGrid.Rows[rowIdx]
+                                    .Cells[(int)OPTION_PL_COLUMNS.ACCT].Value.ToString())))
                         {
                             continueThisLeg = false;
                         }
                     }
+
+                    //if (brokerAccountChosen < DataCollectionLibrary.portfolioAllocation.accountAllocation.Count)
+                    //{
+                    //    if ((gridViewSpreadGrid.Rows[rowIdx]
+                    //                .Cells[(int)OPTION_PL_COLUMNS.BRKR].Value != null
+                    //        &&
+                    //        gridViewSpreadGrid.Rows[rowIdx]
+                    //                .Cells[(int)OPTION_PL_COLUMNS.ACCT].Value != null)
+                    //        &&
+                    //        (
+                    //        gridViewSpreadGrid.Rows[rowIdx]
+                    //                .Cells[(int)OPTION_PL_COLUMNS.BRKR].Value.ToString().CompareTo(
+                    //        DataCollectionLibrary.portfolioAllocation.accountAllocation[brokerAccountChosen].broker) != 0
+                    //        ||
+                    //        gridViewSpreadGrid.Rows[rowIdx]
+                    //                .Cells[(int)OPTION_PL_COLUMNS.ACCT].Value.ToString().CompareTo(
+                    //        DataCollectionLibrary.portfolioAllocation.accountAllocation[brokerAccountChosen].account) != 0
+                    //        ))
+                    //    {
+                    //        continueThisLeg = false;
+                    //    }
+                    //}
 
 
 
@@ -1474,7 +1548,7 @@ namespace RealtimeSpreadMonitor.Forms
 
                     while (continueThisLeg && cellCount <= (int)OPTION_PL_COLUMNS.DEL_ROW)  //gridViewSpreadGrid.Rows[legCount].Cells.Count)
                     {
-                        if (gridViewSpreadGrid.Rows[legCount].Cells[cellCount].Value == null)
+                        if (gridViewSpreadGrid.Rows[rowIdx].Cells[cellCount].Value == null)
                         {
                             continueThisLeg = false;
                             break;
@@ -1485,7 +1559,7 @@ namespace RealtimeSpreadMonitor.Forms
 
                     if (continueThisLeg)
                     {
-                        String contractType = gridViewSpreadGrid.Rows[legCount]
+                        String contractType = gridViewSpreadGrid.Rows[rowIdx]
                             .Cells[(int)OPTION_PL_COLUMNS.CNTRT_TYPE].Value.ToString();
 
                         //double strike = Convert.ToDouble(gridViewSpreadGrid.Rows[legCount]
@@ -1493,22 +1567,22 @@ namespace RealtimeSpreadMonitor.Forms
 
                         double strike =
                         //ConversionAndFormatting.convertToTickMovesDouble(
-                        Convert.ToDouble(gridViewSpreadGrid.Rows[legCount].Cells[(int)OPTION_PL_COLUMNS.STRIKE].Value);
+                        Convert.ToDouble(gridViewSpreadGrid.Rows[rowIdx].Cells[(int)OPTION_PL_COLUMNS.STRIKE].Value);
                         //instrument.optionstrikeincrement,
                         //instrument.optionStrikeDisplay
                         //instrument.ticksize, instrument.tickDisplay
                         //);
 
-                        double daysToExp = Convert.ToDouble(gridViewSpreadGrid.Rows[legCount]
+                        double daysToExp = Convert.ToDouble(gridViewSpreadGrid.Rows[rowIdx]
                                                 .Cells[(int)OPTION_PL_COLUMNS.DAYS_TO_EXP].Value);
                         daysToExp /= 365;
 
-                        double implVol = Convert.ToDouble(gridViewSpreadGrid.Rows[legCount]
+                        double implVol = Convert.ToDouble(gridViewSpreadGrid.Rows[rowIdx]
                                                 .Cells[(int)OPTION_PL_COLUMNS.IMPL_VOL].Value);
                         //implVol = 15;
                         implVol /= 100;
 
-                        double numOfContracts = Convert.ToDouble(gridViewSpreadGrid.Rows[legCount]
+                        double numOfContracts = Convert.ToDouble(gridViewSpreadGrid.Rows[rowIdx]
                                                 .Cells[(int)OPTION_PL_COLUMNS.NET].Value);
 
                         double avgPrice = 0;  // Convert.ToDouble(gridViewSpreadGrid.Rows[legCount]
@@ -1518,7 +1592,7 @@ namespace RealtimeSpreadMonitor.Forms
                             (int)OPTION_SPREAD_CONTRACT_TYPE.FUTURE)) == 0)
                         {
                             avgPrice = ConversionAndFormatting.convertToTickMovesDouble(
-                                gridViewSpreadGrid.Rows[legCount]
+                                gridViewSpreadGrid.Rows[rowIdx]
                                     .Cells[(int)OPTION_PL_COLUMNS.AVG_PRC].Value.ToString(),
                                 instrument.ticksize, instrument.tickdisplay);
                         }
@@ -1529,14 +1603,14 @@ namespace RealtimeSpreadMonitor.Forms
                             if (instrument.secondaryoptionticksizerule > 0)
                             {
                                 tempAvgPrice = ConversionAndFormatting.convertToTickMovesDouble(
-                                    gridViewSpreadGrid.Rows[legCount]
+                                    gridViewSpreadGrid.Rows[rowIdx]
                                         .Cells[(int)OPTION_PL_COLUMNS.AVG_PRC].Value.ToString(),
                                     instrument.secondaryoptionticksize, instrument.secondaryoptiontickdisplay);
                             }
                             else
                             {
                                 tempAvgPrice = ConversionAndFormatting.convertToTickMovesDouble(
-                                    gridViewSpreadGrid.Rows[legCount]
+                                    gridViewSpreadGrid.Rows[rowIdx]
                                         .Cells[(int)OPTION_PL_COLUMNS.AVG_PRC].Value.ToString(),
                                     instrument.optionticksize, instrument.optiontickdisplay);
                             }
@@ -1555,7 +1629,7 @@ namespace RealtimeSpreadMonitor.Forms
 
 
                             ConversionAndFormatting.convertToTickMovesDouble(
-                                    gridViewSpreadGrid.Rows[legCount]
+                                    gridViewSpreadGrid.Rows[rowIdx]
                                         .Cells[(int)OPTION_PL_COLUMNS.AVG_PRC].Value.ToString(),
                                     optionticksize, tickDisplay);
 
@@ -1691,7 +1765,7 @@ namespace RealtimeSpreadMonitor.Forms
 
                         }
                     }
-                    legCount++;
+                    rowIdx++;
                 }
 
                 if (plTotal > maxTotal)
@@ -1805,6 +1879,15 @@ namespace RealtimeSpreadMonitor.Forms
             chart2.ResetAutoValues();
             chart2.Series.Add(deltaSeries);
             chart2.Series.Add(deltaSeriesAtExp);
+        }
+
+        private void clearChart()
+        {
+            chart1.Series.Clear();
+            chart1.ResetAutoValues();
+
+            chart2.Series.Clear();
+            chart2.ResetAutoValues();
         }
 
         private void btnChart_Click(object sender, EventArgs e)
@@ -2190,56 +2273,59 @@ namespace RealtimeSpreadMonitor.Forms
 
                 if (futureIdx > -1)
                 {
-
+                    for (int rowIdx = 0; rowIdx < gridViewSpreadGrid.Rows.Count; rowIdx++)
                     {
-                        for (int rowIdx = 0; rowIdx < gridViewSpreadGrid.Rows.Count; rowIdx++)
+                        if (!sendSelectedRows
+                            ||
+                            (sendSelectedRows &&
+                            Convert.ToBoolean(gridViewSpreadGrid.Rows[rowIdx].Cells[(int)OPTION_PL_COLUMNS.SEL_ROW].Value)))
                         {
-                            if (!sendSelectedRows
-                                ||
-                                (sendSelectedRows &&
-                                Convert.ToBoolean(gridViewSpreadGrid.Rows[rowIdx].Cells[(int)OPTION_PL_COLUMNS.SEL_ROW].Value)))
+
+                            int stageOrderLots = Convert.ToInt16(gridViewSpreadGrid.Rows[rowIdx].Cells[(int)OPTION_PL_COLUMNS.NET].Value);
+
+                            if (reverseLots)
                             {
+                                stageOrderLots = -1 * stageOrderLots;
+                            }
 
-                                int stageOrderLots = Convert.ToInt16(gridViewSpreadGrid.Rows[rowIdx].Cells[(int)OPTION_PL_COLUMNS.NET].Value);
+                            if (stageOrderLots != 0
+                                && gridViewSpreadGrid.Rows[rowIdx].Cells[(int)OPTION_PL_COLUMNS.BRKR].Value != null
+                                && gridViewSpreadGrid.Rows[rowIdx].Cells[(int)OPTION_PL_COLUMNS.ACCT].Value != null)
+                            {
+                                bool continueToSubmitThisLeg = true;
 
-                                if (reverseLots)
+                                if (!brokerAccountChosen.Contains(Tuple.Create(gridViewSpreadGrid.Rows[rowIdx]
+                                    .Cells[(int)OPTION_PL_COLUMNS.BRKR].Value.ToString(),
+                                    gridViewSpreadGrid.Rows[rowIdx]
+                                    .Cells[(int)OPTION_PL_COLUMNS.ACCT].Value.ToString())))
                                 {
-                                    stageOrderLots = -1 * stageOrderLots;
+                                    continueToSubmitThisLeg = false;
                                 }
 
-                                if (stageOrderLots != 0
-                                    && gridViewSpreadGrid.Rows[rowIdx].Cells[(int)OPTION_PL_COLUMNS.BRKR].Value != null
-                                    && gridViewSpreadGrid.Rows[rowIdx].Cells[(int)OPTION_PL_COLUMNS.ACCT].Value != null)
+                                //if (brokerAccountChosen < DataCollectionLibrary.portfolioAllocation.accountAllocation.Count)
+                                //{
+                                //    if (gridViewSpreadGrid.Rows[rowIdx]
+                                //                .Cells[(int)OPTION_PL_COLUMNS.BRKR].Value.ToString().CompareTo(
+                                //        DataCollectionLibrary.portfolioAllocation.accountAllocation[brokerAccountChosen].broker) != 0
+                                //        ||
+                                //        gridViewSpreadGrid.Rows[rowIdx]
+                                //                .Cells[(int)OPTION_PL_COLUMNS.ACCT].Value.ToString().CompareTo(
+                                //        DataCollectionLibrary.portfolioAllocation.accountAllocation[brokerAccountChosen].account) != 0
+                                //        )
+                                //    {
+                                //        continueToSubmitThisLeg = false;
+                                //    }
+                                //}
+
+                                if (continueToSubmitThisLeg)
                                 {
-                                    bool continueToSubmitThisLeg = true;
-
-                                    if (brokerAccountChosen < DataCollectionLibrary.portfolioAllocation.accountAllocation.Count)
-                                    {
-                                        if (gridViewSpreadGrid.Rows[rowIdx]
-                                                    .Cells[(int)OPTION_PL_COLUMNS.BRKR].Value.ToString().CompareTo(
-                                            DataCollectionLibrary.portfolioAllocation.accountAllocation[brokerAccountChosen].broker) != 0
-                                            ||
-                                            gridViewSpreadGrid.Rows[rowIdx]
-                                                    .Cells[(int)OPTION_PL_COLUMNS.ACCT].Value.ToString().CompareTo(
-                                            DataCollectionLibrary.portfolioAllocation.accountAllocation[brokerAccountChosen].account) != 0
-                                            )
-                                        {
-                                            continueToSubmitThisLeg = false;
-                                        }
-                                    }
-
-                                    if (continueToSubmitThisLeg)
-                                    {
-                                        contractListToStage.Add(getOrder(futureIdx, rowIdx,
-                                            stageOrderLots));
-                                    }
-
+                                    contractListToStage.Add(getOrder(futureIdx, rowIdx,
+                                        stageOrderLots));
                                 }
+
                             }
                         }
-
                     }
-
                 }
 
                 if (contractListToStage.Count > 0)
@@ -3048,28 +3134,32 @@ namespace RealtimeSpreadMonitor.Forms
 
                                 for (int groupAllocCnt = 0; groupAllocCnt < DataCollectionLibrary.portfolioAllocation.accountAllocation.Count; groupAllocCnt++)
                                 {
+                                    if (brokerAccountChosen.Contains(Tuple.Create(DataCollectionLibrary.portfolioAllocation.accountAllocation[groupAllocCnt].broker,
+                                            DataCollectionLibrary.portfolioAllocation.accountAllocation[groupAllocCnt].account)))
+                                    {
 
-                                    string acct = optionSpreadManager.selectAcct(
+                                        string acct = optionSpreadManager.selectAcct(
                                         instrument.exchangesymbol,
                                         DataCollectionLibrary.portfolioAllocation.accountAllocation[groupAllocCnt], true);
 
-                                    if (
-                                        fillInGridDataRow(rowCount,
-                                    DataCollectionLibrary.portfolioAllocation.accountAllocation[groupAllocCnt].broker,
-                                    acct,
-                                    contractTypeWing,
-                                    strikeTest,
-                                    price,
-                                    optionImplVol * 100,
-                                    0,
-                                    0,
-                                    optionYear,
-                                    optionMonthInt,
-                                    Convert.ToInt16(DataCollectionLibrary.accountList[groupAllocCnt].info.size_factor),
-                                    daysToExpOfOption * 365
-                                    ))
-                                    {
-                                        rowCount++;
+                                        if (
+                                            fillInGridDataRow(rowCount,
+                                        DataCollectionLibrary.portfolioAllocation.accountAllocation[groupAllocCnt].broker,
+                                        acct,
+                                        contractTypeWing,
+                                        strikeTest,
+                                        price,
+                                        optionImplVol * 100,
+                                        0,
+                                        0,
+                                        optionYear,
+                                        optionMonthInt,
+                                        Convert.ToInt16(DataCollectionLibrary.accountList[groupAllocCnt].info.size_factor),
+                                        daysToExpOfOption * 365
+                                        ))
+                                        {
+                                            rowCount++;
+                                        }
                                     }
                                 }
 
@@ -3259,51 +3349,56 @@ namespace RealtimeSpreadMonitor.Forms
 
                                     for (int groupAllocCnt = 0; groupAllocCnt < DataCollectionLibrary.portfolioAllocation.accountAllocation.Count; groupAllocCnt++)
                                     {
+                                        if (brokerAccountChosen.Contains(Tuple.Create(DataCollectionLibrary.portfolioAllocation.accountAllocation[groupAllocCnt].broker,
+                                            DataCollectionLibrary.portfolioAllocation.accountAllocation[groupAllocCnt].account)))
+                                        {
 
-                                        string acct = optionSpreadManager.selectAcct(
+                                            string acct = optionSpreadManager.selectAcct(
                                             instrument.exchangesymbol,
                                             DataCollectionLibrary.portfolioAllocation.accountAllocation[groupAllocCnt], true);
 
-                                        if (
-                                            fillInGridDataRow(rowCount,
-                                        DataCollectionLibrary.portfolioAllocation.accountAllocation[groupAllocCnt].broker,
-                                        acct,
-                                        syntheticReplacementContract,
-                                        strike,
-                                        price,
-                                        optionImplVol * 100,
-                                        0,
-                                        0,
-                                        optionYear,
-                                        optionMonthInt,
-                                        Convert.ToInt16(DataCollectionLibrary.accountList[groupAllocCnt].info.size_factor)
-                                            * optionMultiplier,
-                                        daysToExpOfOption * 365
-                                        ))
-                                        {
-                                            rowCount++;
-                                        }
+                                            if (
+                                                fillInGridDataRow(rowCount,
+                                            DataCollectionLibrary.portfolioAllocation.accountAllocation[groupAllocCnt].broker,
+                                            acct,
+                                            syntheticReplacementContract,
+                                            strike,
+                                            price,
+                                            optionImplVol * 100,
+                                            0,
+                                            0,
+                                            optionYear,
+                                            optionMonthInt,
+                                            Convert.ToInt16(DataCollectionLibrary.accountList[groupAllocCnt].info.size_factor)
+                                                * optionMultiplier,
+                                            daysToExpOfOption * 365
+                                            ))
+                                            {
+                                                rowCount++;
+                                            }
 
 
 
-                                        if (
-                                            fillInGridDataRow(rowCount,
-                                        DataCollectionLibrary.portfolioAllocation.accountAllocation[groupAllocCnt].broker,
-                                        acct,
-                                        OPTION_SPREAD_CONTRACT_TYPE.FUTURE,
-                                        0,
-                                        futureClose,
-                                        0,
-                                        DataCollectionLibrary.optionSpreadExpressionList[futureExpressionIdx].futureContractYear,
-                                        DataCollectionLibrary.optionSpreadExpressionList[futureExpressionIdx].futureContractMonthInt,
-                                        0,
-                                        0,
-                                        Convert.ToInt16(DataCollectionLibrary.accountList[groupAllocCnt].info.size_factor)
-                                            * futureMultiplier,
-                                        0
-                                        ))
-                                        {
-                                            rowCount++;
+                                            if (
+                                                fillInGridDataRow(rowCount,
+                                            DataCollectionLibrary.portfolioAllocation.accountAllocation[groupAllocCnt].broker,
+                                            acct,
+                                            OPTION_SPREAD_CONTRACT_TYPE.FUTURE,
+                                            0,
+                                            futureClose,
+                                            0,
+                                            DataCollectionLibrary.optionSpreadExpressionList[futureExpressionIdx].futureContractYear,
+                                            DataCollectionLibrary.optionSpreadExpressionList[futureExpressionIdx].futureContractMonthInt,
+                                            0,
+                                            0,
+                                            Convert.ToInt16(DataCollectionLibrary.accountList[groupAllocCnt].info.size_factor)
+                                                * futureMultiplier,
+                                            0
+                                            ))
+                                            {
+                                                rowCount++;
+                                            }
+
                                         }
 
 
@@ -3468,65 +3563,69 @@ namespace RealtimeSpreadMonitor.Forms
 
                                     for (int groupAllocCnt = 0; groupAllocCnt < DataCollectionLibrary.portfolioAllocation.accountAllocation.Count; groupAllocCnt++)
                                     {
+                                        if (brokerAccountChosen.Contains(Tuple.Create(DataCollectionLibrary.portfolioAllocation.accountAllocation[groupAllocCnt].broker,
+                                            DataCollectionLibrary.portfolioAllocation.accountAllocation[groupAllocCnt].account)))
+                                        {
 
-                                        string acct = optionSpreadManager.selectAcct(
+                                            string acct = optionSpreadManager.selectAcct(
                                             instrument.exchangesymbol,
                                             DataCollectionLibrary.portfolioAllocation.accountAllocation[groupAllocCnt], true);
 
-                                        int net = clearGridDataRowContractsAndReturnLots(
+                                            int net = clearGridDataRowContractsAndReturnLots(
+                                                DataCollectionLibrary.portfolioAllocation.accountAllocation[groupAllocCnt].broker,
+                                                acct,
+                                                optionArrayTypes.optionSpreadContractTypesArray.GetValue((int)contractBeingReplaced).ToString(),
+                                                strike,
+                                                optionYear,
+                                                optionMonthInt,
+                                                optionYear,
+                                                optionMonthInt);
+
+                                            int[] numberOfContractsToReplace = getSyntheticNumberOfContracts(net,
+                                                optionArrayTypes.optionSpreadContractTypesArray.GetValue((int)contractBeingReplaced).ToString());
+
+
+                                            if (
+                                                fillInGridDataRow(rowCount,
                                             DataCollectionLibrary.portfolioAllocation.accountAllocation[groupAllocCnt].broker,
                                             acct,
-                                            optionArrayTypes.optionSpreadContractTypesArray.GetValue((int)contractBeingReplaced).ToString(),
+                                            syntheticReplacementContract,
                                             strike,
+                                            price,
+                                            optionImplVol * 100,
+                                            0,
+                                            0,
                                             optionYear,
                                             optionMonthInt,
-                                            optionYear,
-                                            optionMonthInt);
+                                            numberOfContractsToReplace[1],
+                                            daysToExpOfOption * 365
+                                            ))
+                                            {
+                                                rowCount++;
+                                            }
 
-                                        int[] numberOfContractsToReplace = getSyntheticNumberOfContracts(net,
-                                            optionArrayTypes.optionSpreadContractTypesArray.GetValue((int)contractBeingReplaced).ToString());
 
 
-                                        if (
-                                            fillInGridDataRow(rowCount,
-                                        DataCollectionLibrary.portfolioAllocation.accountAllocation[groupAllocCnt].broker,
-                                        acct,
-                                        syntheticReplacementContract,
-                                        strike,
-                                        price,
-                                        optionImplVol * 100,
-                                        0,
-                                        0,
-                                        optionYear,
-                                        optionMonthInt,
-                                        numberOfContractsToReplace[1],
-                                        daysToExpOfOption * 365
-                                        ))
-                                        {
-                                            rowCount++;
+                                            if (
+                                                fillInGridDataRow(rowCount,
+                                            DataCollectionLibrary.portfolioAllocation.accountAllocation[groupAllocCnt].broker,
+                                            acct,
+                                            OPTION_SPREAD_CONTRACT_TYPE.FUTURE,
+                                            0,
+                                            futureClose,
+                                            0,
+                                            DataCollectionLibrary.optionSpreadExpressionList[futureExpressionIdx].futureContractYear,
+                                            DataCollectionLibrary.optionSpreadExpressionList[futureExpressionIdx].futureContractMonthInt,
+                                            0,
+                                            0,
+                                            numberOfContractsToReplace[0],
+                                            0
+                                            ))
+                                            {
+                                                rowCount++;
+                                            }
+
                                         }
-
-
-
-                                        if (
-                                            fillInGridDataRow(rowCount,
-                                        DataCollectionLibrary.portfolioAllocation.accountAllocation[groupAllocCnt].broker,
-                                        acct,
-                                        OPTION_SPREAD_CONTRACT_TYPE.FUTURE,
-                                        0,
-                                        futureClose,
-                                        0,
-                                        DataCollectionLibrary.optionSpreadExpressionList[futureExpressionIdx].futureContractYear,
-                                        DataCollectionLibrary.optionSpreadExpressionList[futureExpressionIdx].futureContractMonthInt,
-                                        0,
-                                        0,
-                                        numberOfContractsToReplace[0],
-                                        0
-                                        ))
-                                        {
-                                            rowCount++;
-                                        }
-
 
                                     }
 
@@ -4041,6 +4140,7 @@ namespace RealtimeSpreadMonitor.Forms
 
             }
         }
+
 
     }
 

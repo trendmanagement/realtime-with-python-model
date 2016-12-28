@@ -29,6 +29,7 @@ namespace RealtimeSpreadMonitor.Model
         public Account accountFromMongo { get; set; }
     }
 
+    [BsonIgnoreExtraElements]
     public class PortfolioAllocation_Mongo
     {
         [BsonId]
@@ -56,11 +57,13 @@ namespace RealtimeSpreadMonitor.Model
 
     }
 
+    [BsonIgnoreExtraElements]
     public class AccountInfo
     {
         public double size_factor { get; set; }
     }
 
+    [BsonIgnoreExtraElements]
     public class Account
     {
         [BsonId]
@@ -78,6 +81,7 @@ namespace RealtimeSpreadMonitor.Model
         public AccountInfo info { get; set; }
     }
 
+    [BsonIgnoreExtraElements]
     public class Asset
     {
         [BsonId]
@@ -142,6 +146,7 @@ namespace RealtimeSpreadMonitor.Model
         public DateTime optionExpirationTime { get; set; }
     }
 
+    [BsonIgnoreExtraElements]
     public class Position
     {
         //[BsonId]
@@ -149,6 +154,7 @@ namespace RealtimeSpreadMonitor.Model
 
         public int qty { get; set; }
 
+        [BsonIgnore]
         public int prev_qty { get; set; }
 
         public Asset asset { get; set; }
@@ -164,6 +170,7 @@ namespace RealtimeSpreadMonitor.Model
         public LiveSpreadTotals positionTotals = new LiveSpreadTotals();
     }
 
+    [BsonIgnoreExtraElements]
     public class AccountPosition
     {
         [BsonId]
@@ -187,6 +194,7 @@ namespace RealtimeSpreadMonitor.Model
         public AccountAllocation accountAllocation { get; set; }
     }
 
+    [BsonIgnoreExtraElements]
     public class OrderSummary_AccountPosition
     {
         public AccountPosition accountPosition;
@@ -194,6 +202,7 @@ namespace RealtimeSpreadMonitor.Model
         public bool tested;
     }
 
+    [BsonIgnoreExtraElements]
     public class Contract_mongo
     {
         [BsonId]
@@ -217,6 +226,7 @@ namespace RealtimeSpreadMonitor.Model
         public long idinstrument { get; set; }
     }
 
+    [BsonIgnoreExtraElements]
     public class Option_mongo
     {
         [BsonId]
@@ -246,6 +256,7 @@ namespace RealtimeSpreadMonitor.Model
         public int optionmonthint { get; set; }
     }
 
+    [BsonIgnoreExtraElements]
     public class Instrument_mongo
     {
         [BsonId]
@@ -433,6 +444,7 @@ namespace RealtimeSpreadMonitor.Model
         public double span_maint_fcm_margin = 0;
     }
 
+    [BsonIgnoreExtraElements]
     public class Exchange_mongo
     {
         [BsonId]

@@ -564,6 +564,8 @@ namespace RealtimeSpreadMonitor.Forms
                     treeVal.Append("|");
                     treeVal.Append(DataCollectionLibrary.portfolioAllocation.accountAllocation[groupAllocCnt].account);
                     treeVal.Append("|");
+                    treeVal.Append(DataCollectionLibrary.portfolioAllocation.accountAllocation[groupAllocCnt].accountFromMongo.campaign_name);
+                    treeVal.Append("|");
                     treeVal.Append(DataCollectionLibrary.portfolioAllocation.accountAllocation[groupAllocCnt].FCM_OFFICE);
                     treeVal.Append(DataCollectionLibrary.portfolioAllocation.accountAllocation[groupAllocCnt].FCM_ACCT);
 

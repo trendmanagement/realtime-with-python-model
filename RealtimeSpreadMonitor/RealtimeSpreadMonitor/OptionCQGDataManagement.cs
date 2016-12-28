@@ -445,8 +445,9 @@ namespace RealtimeSpreadMonitor
                                     //    ose.transactionPriceFilled = true;
                                     //}
 
-                                    if (!ose.decisionPriceFilled
-                                        && cqg_TimedBarsIn[timedBarsInCounter].Timestamp
+                                    if (//!ose.decisionPriceFilled
+                                        //&& 
+                                        cqg_TimedBarsIn[timedBarsInCounter].Timestamp
                                         .CompareTo(ose.todayDecisionTime) <= 0)
                                     {
                                         
@@ -568,8 +569,9 @@ namespace RealtimeSpreadMonitor
                             //    ose.transactionPriceFilled = true;
                             //}
 
-                            if (!ose.decisionPriceFilled
-                                && cqg_TimedBarsIn[lastTimedBarInIndex].Timestamp
+                            if (//!ose.decisionPriceFilled
+                                //&& 
+                                cqg_TimedBarsIn[lastTimedBarInIndex].Timestamp
                                 .CompareTo(ose.todayDecisionTime) <= 0)
                             {
                                 //ose.decisionBarIdx = lastTimedBarInIndex;
