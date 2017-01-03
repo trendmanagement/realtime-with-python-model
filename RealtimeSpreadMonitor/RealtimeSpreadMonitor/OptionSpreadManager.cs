@@ -648,24 +648,41 @@ namespace RealtimeSpreadMonitor
                         mose.instrument = DataCollectionLibrary.instrumentHashTable_keyinstrumentid[p.asset.idinstrument];
 
 
-                        DataCollectionLibrary.optionSpreadExpressionList.Add(mose);
-
-                        DataCollectionLibrary.optionSpreadExpressionHashTable_key_Id_Type.TryAdd(key, mose);
-
-                        DataCollectionLibrary.optionSpreadExpressionHashTable_cqgSymbol.TryAdd(mose.asset.cqgsymbol, mose);
+                        
 
                         p.mose = mose;
+
+                        bool safelyAddExpression = true;
 
                         if (isoption)
                         {
                             var futurekey = Tuple.Create(p.asset.idcontract, ASSET_TYPE_MONGO.fut.ToString());
 
-                            MongoDB_OptionSpreadExpression future_mose = DataCollectionLibrary.optionSpreadExpressionHashTable_key_Id_Type[futurekey];
+                            if (DataCollectionLibrary.optionSpreadExpressionHashTable_key_Id_Type.ContainsKey(futurekey))
+                            {
 
-                            future_mose.optionExpressionsThatUseThisFutureAsUnderlying
-                                   .Add(p.mose);
 
-                            p.mose.underlyingFutureExpression = future_mose;
+
+                                MongoDB_OptionSpreadExpression future_mose = DataCollectionLibrary.optionSpreadExpressionHashTable_key_Id_Type[futurekey];
+
+                                future_mose.optionExpressionsThatUseThisFutureAsUnderlying
+                                       .Add(p.mose);
+
+                                p.mose.underlyingFutureExpression = future_mose;
+                            }
+                            else
+                            {
+                                safelyAddExpression = false;
+                            }
+                        }
+
+                        if (safelyAddExpression)
+                        {
+                            DataCollectionLibrary.optionSpreadExpressionList.Add(mose);
+
+                            DataCollectionLibrary.optionSpreadExpressionHashTable_key_Id_Type.TryAdd(key, mose);
+
+                            DataCollectionLibrary.optionSpreadExpressionHashTable_cqgSymbol.TryAdd(mose.asset.cqgsymbol, mose);
                         }
 
                     }

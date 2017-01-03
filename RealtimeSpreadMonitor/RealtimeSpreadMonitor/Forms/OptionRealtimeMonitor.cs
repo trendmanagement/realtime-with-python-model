@@ -1268,7 +1268,11 @@ namespace RealtimeSpreadMonitor.Forms
 
             Instrument_mongo im = DataCollectionLibrary.instrumentHashTable_keyinstrumentid[p.asset.idinstrument];
 
-            DateTime decisionTime = im.customdayboundarytime.AddMinutes(-im.decisionoffsetminutes);
+            DateTime currentTime = DateTime.Now;
+            DateTime decisionTime = new DateTime(currentTime.Year,
+                currentTime.Month, currentTime.Day, 
+                im.customdayboundarytime.AddMinutes(-im.decisionoffsetminutes).Hour,
+                im.customdayboundarytime.AddMinutes(-im.decisionoffsetminutes).Minute,0);
 
             dataTable.Rows.Add();
             dataTable.Rows[dataTable.Rows.Count - 1][(int)ORDER_SUMMARY_COLUMNS.RFRSH_TIME]

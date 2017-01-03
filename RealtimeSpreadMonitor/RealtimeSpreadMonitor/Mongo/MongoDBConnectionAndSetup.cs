@@ -130,7 +130,7 @@ namespace RealtimeSpreadMonitor.Mongo
                     var builder = Builders<Contract_mongo>.Filter;
 
                     var filterForContracts = builder.And(builder.Eq("idinstrument", idinstrument),
-                            builder.Gte("expirationdate", todaysDate.AddDays(-4)));
+                            builder.Gte("expirationdate", todaysDate.AddDays(-10)));
 
                     contractQuery = _contractCollection.Find(filterForContracts)
                         .Sort(Builders<Contract_mongo>.Sort.Ascending("expirationdate"))
