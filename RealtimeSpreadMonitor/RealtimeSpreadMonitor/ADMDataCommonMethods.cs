@@ -829,6 +829,9 @@ namespace RealtimeSpreadMonitor
             asset.yearFraction = copyFromAsset.yearFraction;
             asset._type = copyFromAsset._type;
 
+            asset.optioncode = copyFromAsset.optioncode;
+            asset.productcode = copyFromAsset.productcode;
+
             return asset;
         }
 

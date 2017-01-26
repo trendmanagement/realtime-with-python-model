@@ -19,6 +19,8 @@ namespace RealtimeSpreadMonitor.Mongo
 
         private static IMongoCollection<Instrument_mongo> _instrumentCollection;
 
+        private static IMongoCollection<Instrument_Info> _instrumentInfoCollection;
+
         private static IMongoCollection<Exchange_mongo> _exchangeCollection;
 
         private static IMongoCollection<Account> _accountCollection;
@@ -47,6 +49,9 @@ namespace RealtimeSpreadMonitor.Mongo
 
             _instrumentCollection = _database.GetCollection<Instrument_mongo>(
                 System.Configuration.ConfigurationManager.AppSettings["MongoInstrumentCollection"]);
+
+            _instrumentInfoCollection = _database.GetCollection<Instrument_Info>(
+                System.Configuration.ConfigurationManager.AppSettings["MongoInstrumentInfoCollection"]);
 
             _exchangeCollection = _database.GetCollection<Exchange_mongo>(
                 System.Configuration.ConfigurationManager.AppSettings["MongoExchangeCollection"]);
@@ -109,6 +114,14 @@ namespace RealtimeSpreadMonitor.Mongo
             var filter = builder.In(x => x.idinstrument, instrumentIdList);
 
             return _instrumentCollection.Find(filter).ToList();
+        }
+
+        internal static List<Instrument_Info> GetInstrumentInfoListFromMongo(List<long> instrumentIdList)
+        {
+            var builder = Builders<Instrument_Info>.Filter;
+            var filter = builder.In(x => x.idinstrument, instrumentIdList);
+
+            return _instrumentInfoCollection.Find(filter).ToList();
         }
 
         internal static List<Exchange_mongo> GetExchangeListFromMongo(List<long> exchangeIdList)
@@ -212,7 +225,8 @@ namespace RealtimeSpreadMonitor.Mongo
                         builder.Eq("callorput", PSUBTY),
                         builder.Gte("strikeprice", strikeprice));
 
-                optionQuery = _optionCollection.Find(filterForOptions).First();
+                optionQuery = _optionCollection.Find(filterForOptions) //.First();
+                    .Sort(Builders<Option_mongo>.Sort.Ascending("strikeprice")).First();
 
 
             }

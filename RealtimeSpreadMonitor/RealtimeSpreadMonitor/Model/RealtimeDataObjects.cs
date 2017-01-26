@@ -105,6 +105,11 @@ namespace RealtimeSpreadMonitor.Model
 
         public char callorput { get; set; }
 
+        public string optioncode { get; set; }
+
+        public string productcode { get; set; }
+
+
         public double _hash { get; set; }
 
         /// <summary>
@@ -254,6 +259,10 @@ namespace RealtimeSpreadMonitor.Model
         public string optionname { get; set; }
 
         public int optionmonthint { get; set; }
+
+        public string optioncode { get; set; }
+
+        public string productcode { get; set; }
     }
 
     [BsonIgnoreExtraElements]
@@ -429,6 +438,12 @@ namespace RealtimeSpreadMonitor.Model
         /// used for margin summary values
         /// </summary>
         public Instrument_Summary_Values instrument_summary_values = new Instrument_Summary_Values();
+
+        /// <summary>
+        /// this contains the underlying code used to send the option to the exchange
+        /// </summary>
+        public Dictionary<string, ExchangeCqgSpanCodes> span_cqg_codes_dictionary
+            = new Dictionary<string, ExchangeCqgSpanCodes>();
     }
 
     public class Instrument_Summary_Values
@@ -462,6 +477,31 @@ namespace RealtimeSpreadMonitor.Model
         public string tradingtechnologies_exchange { get; set; }
 
         public string tradingtechnologies_gateway { get; set; }
+    }
+
+    [BsonIgnoreExtraElements]
+    public class ExchangeCqgSpanCodes
+    {
+        public string cqg { get; set; }
+
+        public string span { get; set; }
+
+        public string optcod { get; set; }       
+    }
+
+    [BsonIgnoreExtraElements]
+    public class Instrument_Info
+    {
+        [BsonId]
+        [BsonRepresentation(BsonType.ObjectId)]
+        public ObjectId _id { get; set; }
+
+        public long idinstrument { get; set; }
+
+        public List<ExchangeCqgSpanCodes> span_cqg_codes { get; set; }
+
+        public Dictionary<string, ExchangeCqgSpanCodes> span_cqg_codes_dictionary
+            = new Dictionary<string, ExchangeCqgSpanCodes>();
     }
 
     public class InitializationParms

@@ -311,6 +311,30 @@ namespace RealtimeSpreadMonitor
 
             DataCollectionLibrary.instrumentHashTable_keyadmcode = DataCollectionLibrary.instrumentList.ToDictionary(x => x.admcode, x => x);
 
+            //sets up  
+            DataCollectionLibrary.instrumentInfoList = MongoDBConnectionAndSetup.GetInstrumentInfoListFromMongo(instrumentIdList);
+
+            foreach (Instrument_Info ii in DataCollectionLibrary.instrumentInfoList)
+            {
+                ii.span_cqg_codes_dictionary = ii.span_cqg_codes.ToDictionary(x => x.optcod, x => x);
+            }
+
+            DataCollectionLibrary.instrumentInfoTable_keyinstrumentid 
+                = DataCollectionLibrary.instrumentInfoList.ToDictionary(x => x.idinstrument, x => x);
+
+            foreach(Instrument_mongo instrument in DataCollectionLibrary.instrumentList)
+            {
+                if (DataCollectionLibrary.instrumentInfoTable_keyinstrumentid.ContainsKey(instrument.idinstrument))
+                {
+                    instrument.span_cqg_codes_dictionary = 
+                        DataCollectionLibrary.instrumentInfoTable_keyinstrumentid[instrument.idinstrument].span_cqg_codes_dictionary;
+                }
+            }
+
+            //this is called after the instruments are set up
+            FillProductCodeInPositionsFromModel();
+
+
             SetupInstrumentSummaryList();
 
             /// <summary>
@@ -406,7 +430,17 @@ namespace RealtimeSpreadMonitor
                         if(archive[acctCnt].date_now.DayOfWeek != DayOfWeek.Saturday
                             && archive[acctCnt].date_now.DayOfWeek != DayOfWeek.Sunday)
                         {
+                            //move the values to the prev_qty variable in the archive of positions
+                            foreach (Position p_archive in archive[acctCnt].positions)
+                            {                               
+                                p_archive.prev_qty = p_archive.qty;
+
+                                p_archive.qty = 0;
+                            }
+
                             DataCollectionLibrary.accountPositionsArchiveList.Add(archive[acctCnt]);
+
+                            //
 
                             break;
                         }
@@ -437,10 +471,13 @@ namespace RealtimeSpreadMonitor
                         {
                             Position archive_p = compare_pos_dictionary[p.asset.name];
 
-                            p.prev_qty = archive_p.qty;
+                            //the qty has been moved to the prev_qty in the archive data
+                            //so use the prev_qty from archive to fill the prev_qty in the currently held data
+                            p.prev_qty = archive_p.prev_qty;
 
                             archive_p.comparedTo_Archive_OnInitialization = true;
                         }
+
                     }
                 }
                 else
@@ -450,6 +487,8 @@ namespace RealtimeSpreadMonitor
                         p.prev_qty = 0;
                     }
                 }
+
+                
             }
 
 
@@ -457,23 +496,25 @@ namespace RealtimeSpreadMonitor
             {
                 if (new_pos_dictionary.ContainsKey(ap_archive.name))
                 {
+                    //if(ap_archive.name.CompareTo("CLX60127") == 0)
+                    //{
+                    //    TSErrorCatch.debugWriteOut("TEST");
+                    //}
+
                     AccountPosition acctPos = new_pos_dictionary[ap_archive.name];
 
                     foreach (Position p_archive in ap_archive.positions)
                     {
                         if (!p_archive.comparedTo_Archive_OnInitialization)
                         {
-                            p_archive.prev_qty = p_archive.qty;
+                            //p_archive.prev_qty = p_archive.qty;
 
-                            p_archive.qty = 0;
+                            //p_archive.qty = 0;
 
                             acctPos.positions.Add(p_archive);
                         }
-
-
                     }
                 }
-
 
             }
 
@@ -499,6 +540,8 @@ namespace RealtimeSpreadMonitor
             //AdjustQtyBasedOnDate();
 
             FillAccountPosition(false);
+
+            FillProductCodeInPositionsFromModel();
 
             AppendTo_optionSpreadExpressionHashTable();
 
@@ -544,6 +587,50 @@ namespace RealtimeSpreadMonitor
 
             return instrumentIdList;
         }
+
+
+        /// <summary>
+        /// Fill all AccountPosition with product code using option_code as key for instrument info
+        /// </summary>
+        /// <returns>a list of the instrument ids</returns>
+        private void FillProductCodeInPositionsFromModel()
+        {
+            foreach (AccountPosition ap in DataCollectionLibrary.accountPositionsList)
+            {
+                foreach (Position p in ap.positions)
+                {
+                    FillProductCode(p.asset);
+                }
+            }
+        }
+
+        private void FillProductCode(Asset asset)
+        {
+
+            Instrument_mongo instMongo = DataCollectionLibrary
+                    .instrumentHashTable_keyinstrumentid[asset.idinstrument];
+
+            if (asset._type.CompareTo(ASSET_TYPE_MONGO.fut.ToString()) == 0)
+            {
+                asset.productcode = instMongo.exchangesymbolTT;
+            }
+            else
+            {
+                if (instMongo.span_cqg_codes_dictionary.ContainsKey(asset.optioncode))
+                {
+                    ExchangeCqgSpanCodes exchangeCqgSpanCodes = instMongo.span_cqg_codes_dictionary[asset.optioncode];
+
+                    asset.productcode = exchangeCqgSpanCodes.span;
+
+                }
+                else
+                {
+                    asset.productcode = instMongo.optionexchangesymbolTT;
+                }
+            }
+                        
+        }
+
 
         /// <summary>
         /// sets up the summary p/l memory
@@ -690,11 +777,11 @@ namespace RealtimeSpreadMonitor
                     {
                         p.mose = DataCollectionLibrary.optionSpreadExpressionHashTable_key_Id_Type[key];
 
-                        if (isoption)
-                        {
+                        //if (isoption)
+                        //{
 
-                            TSErrorCatch.debugWriteOut(p.mose.underlyingFutureExpression.asset.cqgsymbol);
-                        }
+                        //    TSErrorCatch.debugWriteOut(p.mose.underlyingFutureExpression.asset.cqgsymbol);
+                        //}
                     }
 
 
@@ -1495,6 +1582,12 @@ namespace RealtimeSpreadMonitor
 
                     int numberOfShortTrans = -fcmPosition.transNetShort;
 
+                    //if(fcmPosition.POFFIC.CompareTo("369")==0 
+                    //    && fcmPosition.MODEL_OFFICE_ACCT.CompareTo("369:17003;") == 0
+                    //    && fcmPosition.asset.cqgsymbol.CompareTo("F.CLEH17") == 0)
+                    //{
+                    //    TSErrorCatch.debugWriteOut("test");
+                    //}
 
                     double currentPLChange = (fcmPosition
                                 .optionSpreadExpression.defaultPrice
@@ -2042,22 +2135,36 @@ namespace RealtimeSpreadMonitor
                 }
             }
 
-            for (int i = 0; i < FCM_DataImportLibrary.FCM_Import_Consolidated.Count; i++)
-            {
-                if (FCM_DataImportLibrary.FCM_Import_Consolidated[i].transNetLong != 0)
-                {
-                    FCM_DataImportLibrary.FCM_Import_Consolidated[i].transAvgLongPrice /= FCM_DataImportLibrary.FCM_Import_Consolidated[i].transNetLong;
-                }
+            
 
-                if (FCM_DataImportLibrary.FCM_Import_Consolidated[i].transNetShort != 0)
-                {
-                    FCM_DataImportLibrary.FCM_Import_Consolidated[i].transAvgShortPrice /= FCM_DataImportLibrary.FCM_Import_Consolidated[i].transNetShort;
-                }
+            //for (int i = 0; i < FCM_DataImportLibrary.FCM_Import_Consolidated.Count; i++)
+            //{
+            //    if (FCM_DataImportLibrary.FCM_Import_Consolidated[i].POFFIC.CompareTo("369") == 0
+            //            && FCM_DataImportLibrary.FCM_Import_Consolidated[i].MODEL_OFFICE_ACCT.CompareTo("369:17003;") == 0)
+            //    {
+            //        TSErrorCatch.debugWriteOut("test");
+            //    }
 
-            }
+            //    if (FCM_DataImportLibrary.FCM_Import_Consolidated[i].transNetLong != 0)
+            //    {
+            //        FCM_DataImportLibrary.FCM_Import_Consolidated[i].transAvgLongPrice /= FCM_DataImportLibrary.FCM_Import_Consolidated[i].transNetLong;
+            //    }
+
+            //    if (FCM_DataImportLibrary.FCM_Import_Consolidated[i].transNetShort != 0)
+            //    {
+            //        FCM_DataImportLibrary.FCM_Import_Consolidated[i].transAvgShortPrice /= FCM_DataImportLibrary.FCM_Import_Consolidated[i].transNetShort;
+            //    }
+
+            //}
 
             foreach (ADMPositionImportWeb fcm_DataImportLib in FCM_DataImportLibrary.FCM_Import_Consolidated)
             {
+                //if (fcm_DataImportLib.POFFIC.CompareTo("369") == 0
+                //        && fcm_DataImportLib.MODEL_OFFICE_ACCT.CompareTo("369:17003;") == 0)
+                //{
+                //    TSErrorCatch.debugWriteOut("test");
+                //}
+
                 if (fcm_DataImportLib.transNetLong != 0)
                 {
                     fcm_DataImportLib.transAvgLongPrice /= fcm_DataImportLib.transNetLong;
@@ -2074,6 +2181,12 @@ namespace RealtimeSpreadMonitor
         private void netOutTypeContractsOfWebImport(ADMPositionImportWeb admPositionImportWeb,
             ADMPositionImportWeb consolidateFromPositionImportWeb)
         {
+            //if (admPositionImportWeb.POFFIC.CompareTo("369") == 0
+            //            && admPositionImportWeb.MODEL_OFFICE_ACCT.CompareTo("369:17003;") == 0)
+            //{
+                //TSErrorCatch.debugWriteOut("test");
+            //}
+
             if (consolidateFromPositionImportWeb.RecordType.Trim().CompareTo("Position") == 0)
             {
                 admPositionImportWeb.LongQuantity += consolidateFromPositionImportWeb.LongQuantity;
@@ -2419,12 +2532,6 @@ namespace RealtimeSpreadMonitor
 
                 if (FCM_DatatImportedRow_Local.callPutOrFuture != OPTION_SPREAD_CONTRACT_TYPE.FUTURE)
                 {
-                    //FCM_DatatImportedRow_Local.contractInfo.optionYear =
-                    //    FCM_DatatImportedRow_Local.PCTYM_dateTime.Year;
-
-                    //FCM_DatatImportedRow_Local.contractInfo.optionMonthInt =
-                    //    FCM_DatatImportedRow_Local.PCTYM_dateTime.Month;
-
 
                     FCM_DatatImportedRow_Local.asset.optionyear =
                         FCM_DatatImportedRow_Local.PCTYM_dateTime.Year;
@@ -2452,6 +2559,10 @@ namespace RealtimeSpreadMonitor
                     FCM_DatatImportedRow_Local.asset.optionname = option_mongo.optionname;
                     FCM_DatatImportedRow_Local.asset.optionmonthint = option_mongo.optionmonthint;
 
+                    FCM_DatatImportedRow_Local.asset.optioncode = option_mongo.optioncode;
+                    FCM_DatatImportedRow_Local.asset.productcode = option_mongo.productcode;
+
+                    
 
                     FCM_DatatImportedRow_Local.asset.name = option_mongo.optionname;
 
@@ -2525,6 +2636,8 @@ namespace RealtimeSpreadMonitor
                     FCM_DatatImportedRow_Local.cqgsymbol = FCM_DatatImportedRow_Local.asset.cqgsymbol;
 
                 }
+
+                FillProductCode(FCM_DatatImportedRow_Local.asset);
 
                 if (FCM_DatatImportedRow_Local.instrument.substitutesymbol_eod == 1)
                 {

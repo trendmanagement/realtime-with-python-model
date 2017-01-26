@@ -93,7 +93,7 @@ namespace RealtimeSpreadMonitor
             //return DateTime.Today.AddDays(-1);
         }
 
-        public DateTime GetContractPreviousDateTime(
+        /*public DateTime GetContractPreviousDateTime(
             long idcontract)
         {
 
@@ -120,7 +120,7 @@ namespace RealtimeSpreadMonitor
             }
 
             return DateTime.Today.AddDays(-1);
-        }
+        }*/
 
 
 

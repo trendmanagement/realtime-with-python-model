@@ -70,6 +70,13 @@ namespace RealtimeSpreadMonitor.Model
             = new Dictionary<string, Instrument_mongo>();
 
 
+        internal static List<Instrument_Info> instrumentInfoList
+            = new List<Instrument_Info>();
+
+        internal static Dictionary<long, Instrument_Info> instrumentInfoTable_keyinstrumentid
+            = new Dictionary<long, Instrument_Info>();
+
+
 
         internal static List<Exchange_mongo> exchangeList
             = new List<Exchange_mongo>();

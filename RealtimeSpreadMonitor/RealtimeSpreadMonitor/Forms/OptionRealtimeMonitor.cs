@@ -3240,7 +3240,8 @@ namespace RealtimeSpreadMonitor.Forms
                                     orderModel.securityType = StageOrdersToTTWPFLibrary.Enums.SECURITY_TYPE.FUTURE;
 
                                     orderModel.underlyingExchangeSymbol =
-                                        optionSpreadExpressionList[expressionCount].instrument.exchangesymbolTT;
+                                        optionSpreadExpressionList[expressionCount].asset.productcode;
+                                        //optionSpreadExpressionList[expressionCount].instrument.exchangesymbolTT;
 
                                     orderModel.maturityMonthYear =
                                         new DateTime(orderModel.contractYear, orderModel.contractMonthint, 1)
@@ -3252,7 +3253,8 @@ namespace RealtimeSpreadMonitor.Forms
                                     orderModel.securityType = StageOrdersToTTWPFLibrary.Enums.SECURITY_TYPE.OPTION;
 
                                     orderModel.underlyingExchangeSymbol =
-                                        optionSpreadExpressionList[expressionCount].instrument.optionexchangesymbolTT;
+                                        optionSpreadExpressionList[expressionCount].asset.productcode;
+                                        //optionSpreadExpressionList[expressionCount].instrument.optionexchangesymbolTT;
 
                                     orderModel.maturityMonthYear =
                                         new DateTime(orderModel.optionYear, orderModel.optionMonthInt, 1)
@@ -3525,7 +3527,8 @@ namespace RealtimeSpreadMonitor.Forms
                                     orderModel.securityType = StageOrdersToTTWPFLibrary.Enums.SECURITY_TYPE.FUTURE;
 
                                     orderModel.underlyingExchangeSymbol =
-                                        optionSpreadExpressionList[expressionCount].instrument.exchangesymbolTT;
+                                        optionSpreadExpressionList[expressionCount].asset.productcode;
+                                        //optionSpreadExpressionList[expressionCount].instrument.exchangesymbolTT;
 
                                     orderModel.maturityMonthYear =
                                         new DateTime(orderModel.contractYear, orderModel.contractMonthint, 1)
@@ -3542,7 +3545,8 @@ namespace RealtimeSpreadMonitor.Forms
                                     orderModel.securityType = StageOrdersToTTWPFLibrary.Enums.SECURITY_TYPE.OPTION;
 
                                     orderModel.underlyingExchangeSymbol =
-                                        optionSpreadExpressionList[expressionCount].instrument.optionexchangesymbolTT;
+                                        optionSpreadExpressionList[expressionCount].asset.productcode;
+                                        //optionSpreadExpressionList[expressionCount].instrument.optionexchangesymbolTT;
 
                                     orderModel.maturityMonthYear =
                                         new DateTime(orderModel.optionYear, orderModel.optionMonthInt, 1)

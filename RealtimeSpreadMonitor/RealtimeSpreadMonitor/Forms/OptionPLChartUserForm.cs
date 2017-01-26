@@ -68,9 +68,9 @@ namespace RealtimeSpreadMonitor.Forms
 
         public enum OPTION_PL_COLUMNS
         {
-
-
             CNTRT_TYPE,
+
+            PRDT_CODE,
 
             STRIKE,
 
@@ -93,8 +93,6 @@ namespace RealtimeSpreadMonitor.Forms
             DEL_ROW,
 
             SEL_ROW
-
-
         };
 
         private void addGridDeleteImg(int row, int cell)
@@ -169,8 +167,8 @@ namespace RealtimeSpreadMonitor.Forms
                 }
             }
 
-            gridViewSpreadGrid.Columns.Insert(8, brokerCboBox);
-            gridViewSpreadGrid.Columns.Insert(9, acctCboBox);
+            gridViewSpreadGrid.Columns.Insert((int)OPTION_PL_COLUMNS.BRKR, brokerCboBox);
+            gridViewSpreadGrid.Columns.Insert((int)OPTION_PL_COLUMNS.ACCT, acctCboBox);
             //*************
 
 
@@ -189,6 +187,7 @@ namespace RealtimeSpreadMonitor.Forms
             rowTotalPortStyle.ForeColor = Color.White;
 
             gridViewSpreadGrid.Columns[(int)OPTION_PL_COLUMNS.CNTRT_TYPE].Width = 55;
+            gridViewSpreadGrid.Columns[(int)OPTION_PL_COLUMNS.PRDT_CODE].Width = 35;
             gridViewSpreadGrid.Columns[(int)OPTION_PL_COLUMNS.STRIKE].Width = 50;
             gridViewSpreadGrid.Columns[(int)OPTION_PL_COLUMNS.AVG_PRC].Width = 50;
             gridViewSpreadGrid.Columns[(int)OPTION_PL_COLUMNS.NET].Width = 30;
@@ -197,8 +196,8 @@ namespace RealtimeSpreadMonitor.Forms
             gridViewSpreadGrid.Columns[(int)OPTION_PL_COLUMNS.YEAR].Width = 40;
             gridViewSpreadGrid.Columns[(int)OPTION_PL_COLUMNS.MTH_AS_INT].Width = 30;
 
-            gridViewSpreadGrid.Columns[(int)OPTION_PL_COLUMNS.BRKR].Width = 50;
-            gridViewSpreadGrid.Columns[(int)OPTION_PL_COLUMNS.ACCT].Width = 100;
+            gridViewSpreadGrid.Columns[(int)OPTION_PL_COLUMNS.BRKR].Width = 40;
+            gridViewSpreadGrid.Columns[(int)OPTION_PL_COLUMNS.ACCT].Width = 80;
 
             gridViewSpreadGrid.Columns[(int)OPTION_PL_COLUMNS.DEL_ROW].Width = 30;
             //gridViewSpreadGrid.Columns[(int)OPTION_PL_COLUMNS.DEL_ROW].DefaultCellStyle.BackColor = Color.Black;
@@ -526,6 +525,7 @@ namespace RealtimeSpreadMonitor.Forms
                                 p.asset.monthint,
                                 p.asset.optionyear,
                                 p.asset.optionmonthint,
+                                p.asset.productcode,
                                 numOfContracts,
                                 p.asset.yearFraction * 365
                                 ))
@@ -674,6 +674,7 @@ namespace RealtimeSpreadMonitor.Forms
                                     admPositionImportWebList[contractCount].asset.monthint,
                                     admPositionImportWebList[contractCount].asset.optionyear,
                                     admPositionImportWebList[contractCount].asset.optionmonthint,
+                                    admPositionImportWebList[contractCount].asset.productcode,
                                     Convert.ToInt32(admPositionImportWebList[contractCount].netContractsEditable
                                         + admPositionImportWebList[contractCount].transNetLong
                                         - admPositionImportWebList[contractCount].transNetShort),
@@ -736,6 +737,7 @@ namespace RealtimeSpreadMonitor.Forms
                                         p.asset.monthint,
                                         p.asset.optionyear,
                                         p.asset.optionmonthint,
+                                        p.asset.productcode,
                                         numOfContracts,
                                         p.asset.yearFraction * 365
                                         ))
@@ -777,8 +779,6 @@ namespace RealtimeSpreadMonitor.Forms
             //List<MongoDB_OptionSpreadExpression> optionSpreadExpressionList,
             Instrument_mongo instrument, bool includeOrders)
         {
-            //this.contractSummaryExpressionListIdx = contractSummaryExpressionListIdx;
-            //this.optionSpreadExpressionList = optionSpreadExpressionList;
 
             this.instrument = instrument;
 
@@ -847,69 +847,131 @@ namespace RealtimeSpreadMonitor.Forms
                         int contractMonth;
                         int optionYear;
                         int optionMonth;
+                        string product_code = "";
+
+
+
+                        callPutOrFuture = FCM_DataImportLibrary.FCM_PostionList_forCompare[contractCount].callPutOrFuture;
+
+                        //strikePrice = FCM_DataImportLibrary.FCM_PostionList_forCompare[contractCount].strikeInDecimal;
+
+                        strikePrice = FCM_DataImportLibrary.FCM_PostionList_forCompare[contractCount].asset.strikeprice;
+
+                        yearFraction = FCM_DataImportLibrary.FCM_PostionList_forCompare[contractCount].asset.yearFraction * 365;
+
+                        /*impliedVol = constantImpliedVol;
+
+                        double riskFreeRate = Convert.ToDouble(riskFreeTextBox.Text) / 100;
+
+                        if (callPutOrFuture == OPTION_SPREAD_CONTRACT_TYPE.FUTURE)
+                        {
+                            defaultPrice = FCM_DataImportLibrary.FCM_PostionList_forCompare[contractCount].futurePriceUsedToCalculateStrikes;
+                        }
+                        else
+                        {
+                            char typeSymbol = 'P';
+
+                            if (callPutOrFuture
+                                == OPTION_SPREAD_CONTRACT_TYPE.CALL)
+                            {
+                                typeSymbol = 'C';
+                            }
+
+
+                            defaultPrice = OptionCalcs.blackScholes(typeSymbol,
+                                FCM_DataImportLibrary.FCM_PostionList_forCompare[contractCount].futurePriceUsedToCalculateStrikes,
+                                        strikePrice,
+                                        yearFraction / 365, riskFreeRate,
+                                        impliedVol / 100);
+                        }*/
+
+
+
+
+
+                        contractYear =
+                            FCM_DataImportLibrary.FCM_PostionList_forCompare[contractCount].asset.year;
+                        contractMonth =
+                            FCM_DataImportLibrary.FCM_PostionList_forCompare[contractCount].asset.monthint;
+                        optionYear =
+                            FCM_DataImportLibrary.FCM_PostionList_forCompare[contractCount].asset.optionyear;
+                        optionMonth =
+                            FCM_DataImportLibrary.FCM_PostionList_forCompare[contractCount].asset.optionmonthint;
+
+                        product_code = FCM_DataImportLibrary.FCM_PostionList_forCompare[contractCount].asset.productcode;
+
+
+
+
 
                         if (FCM_DataImportLibrary.FCM_PostionList_forCompare[contractCount].optionSpreadExpression != null)
                         {
-                            callPutOrFuture = FCM_DataImportLibrary.FCM_PostionList_forCompare[contractCount].optionSpreadExpression.callPutOrFuture;
+                            //callPutOrFuture = FCM_DataImportLibrary.FCM_PostionList_forCompare[contractCount].optionSpreadExpression.callPutOrFuture;
 
                             defaultPrice = FCM_DataImportLibrary.FCM_PostionList_forCompare[contractCount].optionSpreadExpression.defaultPrice;
 
                             impliedVol = FCM_DataImportLibrary.FCM_PostionList_forCompare[contractCount]
                                 .optionSpreadExpression.impliedVol * 100;
 
-                            yearFraction = FCM_DataImportLibrary.FCM_PostionList_forCompare[contractCount].optionSpreadExpression.asset.yearFraction
-                                * 365;
+                            //yearFraction = FCM_DataImportLibrary.FCM_PostionList_forCompare[contractCount].optionSpreadExpression.asset.yearFraction
+                            //    * 365;
 
-                            strikePrice = FCM_DataImportLibrary.FCM_PostionList_forCompare[contractCount].optionSpreadExpression.asset.strikeprice;
+                            
 
-                            contractYear =
-                                FCM_DataImportLibrary.FCM_PostionList_forCompare[contractCount].optionSpreadExpression.futureContractYear;
+                            /*contractYear =
+                                FCM_DataImportLibrary.FCM_PostionList_forCompare[contractCount].optionSpreadExpression.asset.year;  //futureContractYear;
                             contractMonth =
-                                FCM_DataImportLibrary.FCM_PostionList_forCompare[contractCount].optionSpreadExpression.futureContractMonthInt;
+                                FCM_DataImportLibrary.FCM_PostionList_forCompare[contractCount].optionSpreadExpression.asset.monthint; //futureContractMonthInt;
                             optionYear =
-                                FCM_DataImportLibrary.FCM_PostionList_forCompare[contractCount].optionSpreadExpression.optionYear;
+                                FCM_DataImportLibrary.FCM_PostionList_forCompare[contractCount].optionSpreadExpression.asset.optionyear; //optionYear;
                             optionMonth =
-                                FCM_DataImportLibrary.FCM_PostionList_forCompare[contractCount].optionSpreadExpression.optionMonthInt;
+                                FCM_DataImportLibrary.FCM_PostionList_forCompare[contractCount].optionSpreadExpression.asset.optionmonthint; //optionMonthInt;
+
+                            product_code = FCM_DataImportLibrary.FCM_PostionList_forCompare[contractCount].asset.productcode;
+                            */
+
                         }
-                        else if (FCM_DataImportLibrary.FCM_PostionList_forCompare[contractCount] != null &&
-                            FCM_DataImportLibrary.FCM_PostionList_forCompare[contractCount].optionSpreadExpression != null)
-                        {
-                            callPutOrFuture = FCM_DataImportLibrary.FCM_PostionList_forCompare[contractCount]
-                                .optionSpreadExpression.callPutOrFuture;
+                        //else if (FCM_DataImportLibrary.FCM_PostionList_forCompare[contractCount] != null &&
+                        //    FCM_DataImportLibrary.FCM_PostionList_forCompare[contractCount].optionSpreadExpression != null)
+                        //{
+                        //    callPutOrFuture = FCM_DataImportLibrary.FCM_PostionList_forCompare[contractCount]
+                        //        .optionSpreadExpression.callPutOrFuture;
 
-                            defaultPrice = FCM_DataImportLibrary.FCM_PostionList_forCompare[contractCount]
-                                .optionSpreadExpression.defaultPrice;
+                        //    defaultPrice = FCM_DataImportLibrary.FCM_PostionList_forCompare[contractCount]
+                        //        .optionSpreadExpression.defaultPrice;
 
-                            impliedVol = FCM_DataImportLibrary.FCM_PostionList_forCompare[contractCount]
-                                .optionSpreadExpression.impliedVol * 100;
+                        //    impliedVol = FCM_DataImportLibrary.FCM_PostionList_forCompare[contractCount]
+                        //        .optionSpreadExpression.impliedVol * 100;
 
-                            yearFraction = FCM_DataImportLibrary.FCM_PostionList_forCompare[contractCount]
-                                .optionSpreadExpression.asset.yearFraction
-                                * 365;
+                        //    yearFraction = FCM_DataImportLibrary.FCM_PostionList_forCompare[contractCount]
+                        //        .optionSpreadExpression.asset.yearFraction
+                        //        * 365;
 
-                            strikePrice = FCM_DataImportLibrary.FCM_PostionList_forCompare[contractCount]
-                                .optionSpreadExpression.asset.strikeprice;
+                        //    strikePrice = FCM_DataImportLibrary.FCM_PostionList_forCompare[contractCount]
+                        //        .optionSpreadExpression.asset.strikeprice;
 
-                            contractYear =
-                                FCM_DataImportLibrary.FCM_PostionList_forCompare[contractCount]
-                                .optionSpreadExpression.futureContractYear;
-                            contractMonth =
-                                FCM_DataImportLibrary.FCM_PostionList_forCompare[contractCount]
-                                .optionSpreadExpression.futureContractMonthInt;
-                            optionYear =
-                                FCM_DataImportLibrary.FCM_PostionList_forCompare[contractCount]
-                                .optionSpreadExpression.optionYear;
-                            optionMonth =
-                                FCM_DataImportLibrary.FCM_PostionList_forCompare[contractCount]
-                                .optionSpreadExpression.optionMonthInt;
-                        }
+                        //    contractYear =
+                        //        FCM_DataImportLibrary.FCM_PostionList_forCompare[contractCount]
+                        //        .optionSpreadExpression.futureContractYear;
+                        //    contractMonth =
+                        //        FCM_DataImportLibrary.FCM_PostionList_forCompare[contractCount]
+                        //        .optionSpreadExpression.futureContractMonthInt;
+                        //    optionYear =
+                        //        FCM_DataImportLibrary.FCM_PostionList_forCompare[contractCount]
+                        //        .optionSpreadExpression.optionYear;
+                        //    optionMonth =
+                        //        FCM_DataImportLibrary.FCM_PostionList_forCompare[contractCount]
+                        //        .optionSpreadExpression.optionMonthInt;
+
+                        //    product_code = FCM_DataImportLibrary.FCM_PostionList_forCompare[contractCount].asset.productcode;
+                        //}
                         else
                         {
-                            callPutOrFuture = FCM_DataImportLibrary.FCM_PostionList_forCompare[contractCount].callPutOrFuture;
+                            //callPutOrFuture = FCM_DataImportLibrary.FCM_PostionList_forCompare[contractCount].callPutOrFuture;
 
-                            strikePrice = FCM_DataImportLibrary.FCM_PostionList_forCompare[contractCount].strikeInDecimal;
+                            //strikePrice = FCM_DataImportLibrary.FCM_PostionList_forCompare[contractCount].strikeInDecimal;
 
-                            yearFraction = FCM_DataImportLibrary.FCM_PostionList_forCompare[contractCount].asset.yearFraction * 365;
+                            //yearFraction = FCM_DataImportLibrary.FCM_PostionList_forCompare[contractCount].asset.yearFraction * 365;
 
                             impliedVol = constantImpliedVol;
 
@@ -941,14 +1003,16 @@ namespace RealtimeSpreadMonitor.Forms
 
 
 
-                            contractYear =
-                                FCM_DataImportLibrary.FCM_PostionList_forCompare[contractCount].asset.year;
-                            contractMonth =
-                                FCM_DataImportLibrary.FCM_PostionList_forCompare[contractCount].asset.month;
-                            optionYear =
-                                FCM_DataImportLibrary.FCM_PostionList_forCompare[contractCount].asset.optionyear;
-                            optionMonth =
-                                FCM_DataImportLibrary.FCM_PostionList_forCompare[contractCount].asset.optionmonth;
+                            //contractYear =
+                            //    FCM_DataImportLibrary.FCM_PostionList_forCompare[contractCount].asset.year;
+                            //contractMonth =
+                            //    FCM_DataImportLibrary.FCM_PostionList_forCompare[contractCount].asset.monthint;
+                            //optionYear =
+                            //    FCM_DataImportLibrary.FCM_PostionList_forCompare[contractCount].asset.optionyear;
+                            //optionMonth =
+                            //    FCM_DataImportLibrary.FCM_PostionList_forCompare[contractCount].asset.optionmonthint;
+
+                            //product_code = FCM_DataImportLibrary.FCM_PostionList_forCompare[contractCount].asset.productcode;
 
                         }
 
@@ -968,6 +1032,7 @@ namespace RealtimeSpreadMonitor.Forms
                             contractMonth,
                             optionYear,
                             optionMonth,
+                            product_code,
                             netLots,
                             yearFraction
                             ))
@@ -1089,17 +1154,35 @@ namespace RealtimeSpreadMonitor.Forms
                         int contractMonth;
                         int optionYear;
                         int optionMonth;
+                        string product_code;
+
+                        callPutOrFuture = admPositionImportWebListForCompare[contractCount].callPutOrFuture;
+
+                        strikePrice = admPositionImportWebListForCompare[contractCount].strikeInDecimal;
+
+                        yearFraction = admPositionImportWebListForCompare[contractCount].asset.yearFraction * 365;
+
+                        contractYear =
+                                admPositionImportWebListForCompare[contractCount].asset.year;
+                            contractMonth =
+                                admPositionImportWebListForCompare[contractCount].asset.month;
+                            optionYear =
+                                admPositionImportWebListForCompare[contractCount].asset.optionyear;
+                            optionMonth =
+                                admPositionImportWebListForCompare[contractCount].asset.optionmonth;
+
+                            product_code = admPositionImportWebListForCompare[contractCount].asset.productcode;
 
                         if (admPositionImportWebListForCompare[contractCount].optionSpreadExpression != null)
                         {
-                            callPutOrFuture = admPositionImportWebListForCompare[contractCount].optionSpreadExpression.callPutOrFuture;
+                            /*callPutOrFuture = admPositionImportWebListForCompare[contractCount].optionSpreadExpression.callPutOrFuture;
 
-                            defaultPrice = admPositionImportWebListForCompare[contractCount].optionSpreadExpression.defaultPrice;
+                            defaultPrice = admPositionImportWebListForCompare[contractCount].optionSpreadExpression.defaultPrice;*/
 
                             impliedVol = admPositionImportWebListForCompare[contractCount]
                                 .optionSpreadExpression.impliedVol * 100;
 
-                            yearFraction = admPositionImportWebListForCompare[contractCount].optionSpreadExpression.asset.yearFraction
+                            /*yearFraction = admPositionImportWebListForCompare[contractCount].optionSpreadExpression.asset.yearFraction
                                 * 365;
 
                             strikePrice = admPositionImportWebListForCompare[contractCount].optionSpreadExpression.asset.strikeprice;
@@ -1112,8 +1195,10 @@ namespace RealtimeSpreadMonitor.Forms
                                 admPositionImportWebListForCompare[contractCount].optionSpreadExpression.optionYear;
                             optionMonth =
                                 admPositionImportWebListForCompare[contractCount].optionSpreadExpression.optionMonthInt;
+
+                            product_code = admPositionImportWebListForCompare[contractCount].asset.productcode;*/
                         }
-                        else if (admPositionImportWebListForCompare[contractCount].positionTotals != null &&
+                        /*else if (admPositionImportWebListForCompare[contractCount].positionTotals != null &&
                             admPositionImportWebListForCompare[contractCount].optionSpreadExpression != null)
                         {
                             callPutOrFuture = admPositionImportWebListForCompare[contractCount]
@@ -1144,16 +1229,20 @@ namespace RealtimeSpreadMonitor.Forms
                             optionMonth =
                                 admPositionImportWebListForCompare[contractCount]
                                 .optionSpreadExpression.optionMonthInt;
-                        }
+
+                            product_code = admPositionImportWebListForCompare[contractCount].asset.productcode;
+                        }*/
                         else
                         {
 
 
-                            callPutOrFuture = admPositionImportWebListForCompare[contractCount].callPutOrFuture;
 
-                            strikePrice = admPositionImportWebListForCompare[contractCount].strikeInDecimal;
 
-                            yearFraction = admPositionImportWebListForCompare[contractCount].asset.yearFraction * 365;
+                            //callPutOrFuture = admPositionImportWebListForCompare[contractCount].callPutOrFuture;
+
+                            //strikePrice = admPositionImportWebListForCompare[contractCount].strikeInDecimal;
+
+                            //yearFraction = admPositionImportWebListForCompare[contractCount].asset.yearFraction * 365;
 
                             impliedVol = constantImpliedVol;
 
@@ -1180,33 +1269,16 @@ namespace RealtimeSpreadMonitor.Forms
                                             yearFraction / 365, riskFreeRate,
                                             impliedVol / 100);
                             }
-
-
-
-
-
-                            contractYear =
-                                admPositionImportWebListForCompare[contractCount].asset.year;
-                            contractMonth =
-                                admPositionImportWebListForCompare[contractCount].asset.month;
-                            optionYear =
-                                admPositionImportWebListForCompare[contractCount].asset.optionyear;
-                            optionMonth =
-                                admPositionImportWebListForCompare[contractCount].asset.optionmonth;
-
                         }
 
 
 
-                        //
-                        //string acct = optionSpreadManager.selectAcct(
-                        //            admPositionImportWebList[contractCount].instrument.exchangeSymbol,
-                        //                DataCollectionLibrary.portfolioAllocation.accountAllocation[indexOfPortfolioAllocation]);
 
-                        //if (fillInGridDataRow(rowCount,
-                        //    DataCollectionLibrary.portfolioAllocation.accountAllocation[indexOfPortfolioAllocation].broker,
-                        //    acct,
-                        //
+
+                            
+
+                        
+
 
                         string acct = optionSpreadManager.selectAcct(
                                         instrument.exchangesymbol,
@@ -1223,6 +1295,7 @@ namespace RealtimeSpreadMonitor.Forms
                             contractMonth,
                             optionYear,
                             optionMonth,
+                            product_code,
                             netLots,
                             yearFraction
                             ))
@@ -1301,14 +1374,16 @@ namespace RealtimeSpreadMonitor.Forms
                                 .ToString();
 
 
+                gridViewSpreadGrid.Rows[row].Cells[(int)OPTION_PL_COLUMNS.PRDT_CODE].Value =
+                    instrument.exchangesymbolTT;
+
+
                 gridViewSpreadGrid.Rows[row].Cells[(int)OPTION_PL_COLUMNS.STRIKE].Value = 0;
 
 
 
                 gridViewSpreadGrid.Rows[row].Cells[(int)OPTION_PL_COLUMNS.AVG_PRC].Value =
-
-
-                ConversionAndFormatting.convertToTickMovesString(
+                    ConversionAndFormatting.convertToTickMovesString(
                         DataCollectionLibrary.optionSpreadExpressionList[futureExpCnt].defaultPrice,
                         instrument.ticksize,
                         instrument.tickdisplay);
@@ -2382,7 +2457,12 @@ namespace RealtimeSpreadMonitor.Forms
                                     new DateTime(orderModel.contractYear, orderModel.contractMonthint, 1)
                                         .ToString("yyyyMM", DateTimeFormatInfo.InvariantInfo);
 
-                        orderModel.underlyingExchangeSymbol = instrument.exchangesymbolTT;
+                        orderModel.underlyingExchangeSymbol =                             
+                            gridViewSpreadGrid.Rows[rowIdx].Cells[(int)OPTION_PL_COLUMNS.PRDT_CODE].Value.ToString();
+                            //instrument.exchangesymbolTT;
+
+                        //TSErrorCatch.debugWriteOut("future " + instrument.exchangesymbolTT + " " +
+                        //    gridViewSpreadGrid.Rows[rowIdx].Cells[(int)OPTION_PL_COLUMNS.PRDT_CODE].Value.ToString());
 
                     }
                     else
@@ -2390,7 +2470,13 @@ namespace RealtimeSpreadMonitor.Forms
                         orderModel.securityType = StageOrdersToTTWPFLibrary.Enums.SECURITY_TYPE.OPTION;
 
                         orderModel.underlyingExchangeSymbol =
-                                instrument.optionexchangesymbolTT;
+                            gridViewSpreadGrid.Rows[rowIdx].Cells[(int)OPTION_PL_COLUMNS.PRDT_CODE].Value.ToString();
+                            //instrument.optionexchangesymbolTT;
+
+                        //TSErrorCatch.debugWriteOut("option " + instrument.optionexchangesymbolTT + " " +
+                        //    gridViewSpreadGrid.Rows[rowIdx].Cells[(int)OPTION_PL_COLUMNS.PRDT_CODE].Value.ToString());
+
+                        //instrument.span_cqg_codes_dictionary[]
 
                         orderModel.contractYear =
                             Convert.ToInt16(gridViewSpreadGrid.Rows[futureIdx].Cells[(int)OPTION_PL_COLUMNS.YEAR].Value);
@@ -2738,9 +2824,11 @@ namespace RealtimeSpreadMonitor.Forms
             OPTION_SPREAD_CONTRACT_TYPE osct,
             double strikePrice, double defaultPrice,
             double impliedVol, int futureContractYear, int futureContractMonth,
-            int optionYear, int optionMonth,
+            int optionYear, int optionMonth, string product_code,
             int numberOfContracts, double daysToExp)
         {
+
+
             int checkRow = 0;
             bool alreadyIn = false;
             while (checkRow < gridViewSpreadGrid.Rows.Count)
@@ -2807,6 +2895,9 @@ namespace RealtimeSpreadMonitor.Forms
 
                         && Convert.ToInt32(gridViewSpreadGrid.Rows[checkRow].Cells[(int)OPTION_PL_COLUMNS.MTH_AS_INT].Value) ==
                             optionMonth
+
+                        && gridViewSpreadGrid.Rows[checkRow].Cells[(int)OPTION_PL_COLUMNS.PRDT_CODE].Value.ToString().Trim().CompareTo(
+                            product_code.Trim()) == 0
                             )
                         {
                             gridViewSpreadGrid.Rows[checkRow].Cells[(int)OPTION_PL_COLUMNS.NET].Value =
@@ -2836,6 +2927,9 @@ namespace RealtimeSpreadMonitor.Forms
                 gridViewSpreadGrid.Rows[row].Cells[(int)OPTION_PL_COLUMNS.CNTRT_TYPE].Value =
                     optionArrayTypes.optionSpreadContractTypesArray.GetValue((int)osct)
                             .ToString();
+
+                gridViewSpreadGrid.Rows[row].Cells[(int)OPTION_PL_COLUMNS.PRDT_CODE].Value =
+                    product_code;
 
                 gridViewSpreadGrid.Rows[row].Cells[(int)OPTION_PL_COLUMNS.STRIKE].Value =
                     strikePrice;
@@ -2950,8 +3044,12 @@ namespace RealtimeSpreadMonitor.Forms
                 double daysToExpOfOption = 0;
                 bool daysToExpFilled = false;
 
+                bool product_code_Filled = false;
+
                 int optionYear = 0;
                 int optionMonthInt = 0;
+
+                string product_code = "";
 
                 DataGridViewSelectedRowCollection selectedRows = gridViewSpreadGrid.SelectedRows;
 
@@ -2989,6 +3087,14 @@ namespace RealtimeSpreadMonitor.Forms
                                     .Cells[(int)OPTION_PL_COLUMNS.MTH_AS_INT].Value);
 
                             daysToExpFilled = true;
+                        }
+
+                        if (selectedRows[0].Cells[(int)OPTION_PL_COLUMNS.PRDT_CODE].Value != null)
+                        {
+                            product_code = selectedRows[0]
+                                    .Cells[(int)OPTION_PL_COLUMNS.PRDT_CODE].Value.ToString();
+
+                            product_code_Filled = true;
                         }
 
                     }
@@ -3037,6 +3143,16 @@ namespace RealtimeSpreadMonitor.Forms
                                         .Cells[(int)OPTION_PL_COLUMNS.MTH_AS_INT].Value);
 
                                 daysToExpFilled = true;
+                            }
+
+                            if (!product_code_Filled
+                                && gridViewSpreadGrid.Rows[legCount]
+                                        .Cells[(int)OPTION_PL_COLUMNS.PRDT_CODE].Value != null)
+                            {
+                                product_code = gridViewSpreadGrid.Rows[legCount]
+                                        .Cells[(int)OPTION_PL_COLUMNS.PRDT_CODE].Value.ToString();
+
+                                product_code_Filled = true;
                             }
                         }
                     }
@@ -3154,6 +3270,7 @@ namespace RealtimeSpreadMonitor.Forms
                                         0,
                                         optionYear,
                                         optionMonthInt,
+                                        product_code,
                                         Convert.ToInt16(DataCollectionLibrary.accountList[groupAllocCnt].info.size_factor),
                                         daysToExpOfOption * 365
                                         ))
@@ -3241,6 +3358,9 @@ namespace RealtimeSpreadMonitor.Forms
 
                         double strike = Convert.ToDouble(selectedRows[0]
                                     .Cells[(int)OPTION_PL_COLUMNS.STRIKE].Value);
+
+                        string product_code = selectedRows[0]
+                                    .Cells[(int)OPTION_PL_COLUMNS.PRDT_CODE].Value.ToString();
 
 
                         while (legCount < gridViewSpreadGrid.RowCount)
@@ -3369,6 +3489,7 @@ namespace RealtimeSpreadMonitor.Forms
                                             0,
                                             optionYear,
                                             optionMonthInt,
+                                            product_code,
                                             Convert.ToInt16(DataCollectionLibrary.accountList[groupAllocCnt].info.size_factor)
                                                 * optionMultiplier,
                                             daysToExpOfOption * 365
@@ -3391,6 +3512,7 @@ namespace RealtimeSpreadMonitor.Forms
                                             DataCollectionLibrary.optionSpreadExpressionList[futureExpressionIdx].futureContractMonthInt,
                                             0,
                                             0,
+                                            instrument.exchangesymbolTT,
                                             Convert.ToInt16(DataCollectionLibrary.accountList[groupAllocCnt].info.size_factor)
                                                 * futureMultiplier,
                                             0
@@ -3464,6 +3586,9 @@ namespace RealtimeSpreadMonitor.Forms
 
                         double strike = Convert.ToDouble(selectedRows[0]
                                     .Cells[(int)OPTION_PL_COLUMNS.STRIKE].Value);
+
+                        string product_code = selectedRows[0]
+                                    .Cells[(int)OPTION_PL_COLUMNS.PRDT_CODE].Value.ToString();
 
 
                         while (legCount < gridViewSpreadGrid.RowCount)
@@ -3597,6 +3722,7 @@ namespace RealtimeSpreadMonitor.Forms
                                             0,
                                             optionYear,
                                             optionMonthInt,
+                                            product_code,
                                             numberOfContractsToReplace[1],
                                             daysToExpOfOption * 365
                                             ))
@@ -3618,6 +3744,7 @@ namespace RealtimeSpreadMonitor.Forms
                                             DataCollectionLibrary.optionSpreadExpressionList[futureExpressionIdx].futureContractMonthInt,
                                             0,
                                             0,
+                                            instrument.exchangesymbolTT,
                                             numberOfContractsToReplace[0],
                                             0
                                             ))

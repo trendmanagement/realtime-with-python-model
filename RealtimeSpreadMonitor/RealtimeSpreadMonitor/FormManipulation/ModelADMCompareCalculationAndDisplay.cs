@@ -132,34 +132,6 @@ namespace RealtimeSpreadMonitor.FormManipulation
             }
         }
 
-        //private void updateModelADMCompareViewable()
-        //{
-        //    if (optionSpreadManager.contractSummaryInstrumentSelectedIdx == instruments.Length)
-        //    {
-        //        for (int modelADMCompareCntRow = 0;
-        //                        modelADMCompareCntRow < gridViewModelADMCompare.RowCount; modelADMCompareCntRow++)
-        //        {
-        //            hideUnhideSummaryData(gridViewModelADMCompare, modelADMCompareCntRow, true);
-        //        }
-        //    }
-        //    else
-        //    {
-        //        for (int modelADMCompareCntRow = 0;
-        //                modelADMCompareCntRow < gridViewModelADMCompare.RowCount; modelADMCompareCntRow++)
-        //        {
-        //            int instrumentId = Convert.ToInt16(gridViewModelADMCompare.Rows[modelADMCompareCntRow].Cells[(int)ADM_MODEL_POSITION_COMPARE_FIELDS_DISPLAYED.INSTRUMENT_ID].Value);
-
-        //            if (optionSpreadManager.contractSummaryInstrumentSelectedIdx == instrumentId)
-        //            {
-        //                hideUnhideSummaryData(gridViewModelADMCompare, modelADMCompareCntRow, true);
-        //            }
-        //            else
-        //            {
-        //                hideUnhideSummaryData(gridViewModelADMCompare, modelADMCompareCntRow, false);
-        //            }
-        //        }
-        //    }
-        //}
 
 
         delegate void ThreadSafeFillGridModelADMComparison(OptionRealtimeMonitor optionRealtimeMonitor);
@@ -202,9 +174,11 @@ namespace RealtimeSpreadMonitor.FormManipulation
 
                 FCM_DataImportLibrary.FCM_PostionList_forCompare.Clear();// = new List<ADMPositionImportWeb>();
 
-                Dictionary<Tuple<int,string>, ADMPositionImportWeb> modelContractAcctGrpFCMCompareDictionary 
-                    = new Dictionary<Tuple<int, string>, ADMPositionImportWeb>();
+                //Dictionary<Tuple<int,string>, ADMPositionImportWeb> modelContractAcctGrpFCMCompareDictionary 
+                //    = new Dictionary<Tuple<int, string>, ADMPositionImportWeb>();
 
+                Dictionary<Tuple<string, string, string>, ADMPositionImportWeb> modelContractAcctGrpFCMCompareDictionary
+                    = new Dictionary<Tuple<string, string, string>, ADMPositionImportWeb>();
 
                 //****************
                 for (int webPos = 0; webPos < FCM_DataImportLibrary.FCM_Import_Consolidated.Count; webPos++)
@@ -216,11 +190,22 @@ namespace RealtimeSpreadMonitor.FormManipulation
                     optionSpreadManager.aDMDataCommonMethods.copyADMPositionImportWeb(
                         aDMPositionImportWeb, FCM_DataImportLibrary.FCM_Import_Consolidated[webPos]);
 
+                    aDMPositionImportWeb.optionSpreadExpression = FCM_DataImportLibrary.FCM_Import_Consolidated[webPos].optionSpreadExpression;
+
                     //string key = makeDictionaryKeyOfFCMPositionCompare(aDMPositionImportWeb.acctGroup,
                     //    aDMPositionImportWeb.cqgsymbol);
 
-                    var key = Tuple.Create(aDMPositionImportWeb.acctGroup.acctIndex_UsedForTotals_Visibility,
-                        aDMPositionImportWeb.asset.cqgsymbol);
+                    //var key = Tuple.Create(aDMPositionImportWeb.acctGroup.acctIndex_UsedForTotals_Visibility,
+                    //    aDMPositionImportWeb.asset.cqgsymbol);
+
+                    //if (!modelContractAcctGrpFCMCompareDictionary.ContainsKey(key))
+                    //{
+                    //    modelContractAcctGrpFCMCompareDictionary.Add(key, aDMPositionImportWeb);
+                    //}
+
+
+                    var key = Tuple.Create(aDMPositionImportWeb.asset.cqgsymbol,
+                        aDMPositionImportWeb.POFFIC, aDMPositionImportWeb.PACCT);
 
                     if (!modelContractAcctGrpFCMCompareDictionary.ContainsKey(key))
                     {
@@ -252,47 +237,26 @@ namespace RealtimeSpreadMonitor.FormManipulation
 
                     foreach (Position p in ap.positions)
                     {
-                        //ADMPositionImportWeb aDMPositionImportWeb = optionSpreadManager.admPositionImportWebListForCompare[webPos];
+                        var key = Tuple.Create(p.asset.cqgsymbol,
+                            aa.FCM_OFFICE, aa.FCM_ACCT);
 
-                        //optionSpreadManager.admPositionImportWebListForCompare.Add(aDMPositionImportWeb);
-
-                        //optionSpreadManager.aDMDataCommonMethods.copyADMPositionImportWeb(
-                        //    aDMPositionImportWeb, optionSpreadManager.admPositionImportWeb[webPos]);
-
-                        //foreach (ADMPositionImportWeb aDMPositionImportWeb in optionSpreadManager.admPositionImportWebListForCompare)
-                        bool found = false;
-                        int acctPosCount = 0;
-                        while (acctPosCount < FCM_DataImportLibrary.FCM_PostionList_forCompare.Count
-                            && !found)
+                        if(modelContractAcctGrpFCMCompareDictionary.ContainsKey(key))
                         {
-                            ADMPositionImportWeb fcmPositionForCompare
-                                = FCM_DataImportLibrary.FCM_PostionList_forCompare[acctPosCount];
+                            ADMPositionImportWeb fcmPositionForCompare = modelContractAcctGrpFCMCompareDictionary[key];
 
-                            if(p.asset.cqgsymbol.CompareTo(fcmPositionForCompare.asset.cqgsymbol) == 0
-                                && fcmPositionForCompare.POFFIC.CompareTo(aa.FCM_OFFICE) == 0
-                                && fcmPositionForCompare.PACCT.CompareTo(aa.FCM_ACCT) == 0)
-                            {
-                                fcmPositionForCompare.POFFIC = aa.FCM_OFFICE;
+                            fcmPositionForCompare.POFFIC = aa.FCM_OFFICE;
 
-                                fcmPositionForCompare.PACCT = aa.FCM_ACCT;
+                            fcmPositionForCompare.PACCT = aa.FCM_ACCT;
 
-                                fcmPositionForCompare.MODEL_OFFICE_ACCT = aa.FCM_POFFIC_PACCT;
+                            fcmPositionForCompare.MODEL_OFFICE_ACCT = aa.FCM_POFFIC_PACCT;
 
-                                fcmPositionForCompare.modelLots = p.prev_qty;
+                            fcmPositionForCompare.modelLots = p.prev_qty;
 
-                                fcmPositionForCompare.orderLots = p.qty - p.prev_qty;
+                            fcmPositionForCompare.orderLots = p.qty - p.prev_qty;
 
-                                fcmPositionForCompare.acctGroup = aa;
-
-                                found = true;
-
-                                break;
-                            }
-
-                            acctPosCount++;
+                            fcmPositionForCompare.acctGroup = aa;
                         }
-
-                        if(!found)
+                        else
                         {
                             ADMPositionImportWeb fcmPositionForCompare = new ADMPositionImportWeb();
 
@@ -338,189 +302,123 @@ namespace RealtimeSpreadMonitor.FormManipulation
 
                             fcmPositionForCompare.idinstrument = p.asset.idinstrument;
 
+
+                            var keyNew = Tuple.Create(fcmPositionForCompare.asset.cqgsymbol,
+                                fcmPositionForCompare.POFFIC, fcmPositionForCompare.PACCT);
+
+                            if (!modelContractAcctGrpFCMCompareDictionary.ContainsKey(key))
+                            {
+                                modelContractAcctGrpFCMCompareDictionary.Add(key, fcmPositionForCompare);
+                            }
                         }
+                        
+
+                        //bool found = false;
+                        //int acctPosCount = 0;
+                        //while (acctPosCount < FCM_DataImportLibrary.FCM_PostionList_forCompare.Count
+                        //    && !found)
+                        //{
+                        //    ADMPositionImportWeb fcmPositionForCompare
+                        //        = FCM_DataImportLibrary.FCM_PostionList_forCompare[acctPosCount];
+
+                        //    if(p.asset.cqgsymbol.CompareTo(fcmPositionForCompare.asset.cqgsymbol) == 0
+                        //        && fcmPositionForCompare.POFFIC.CompareTo(aa.FCM_OFFICE) == 0
+                        //        && fcmPositionForCompare.PACCT.CompareTo(aa.FCM_ACCT) == 0)
+                        //    {
+                        //        fcmPositionForCompare.POFFIC = aa.FCM_OFFICE;
+
+                        //        fcmPositionForCompare.PACCT = aa.FCM_ACCT;
+
+                        //        fcmPositionForCompare.MODEL_OFFICE_ACCT = aa.FCM_POFFIC_PACCT;
+
+                        //        fcmPositionForCompare.modelLots = p.prev_qty;
+
+                        //        fcmPositionForCompare.orderLots = p.qty - p.prev_qty;
+
+                        //        fcmPositionForCompare.acctGroup = aa;
+
+                        //        //***********************
+                        //       // fcmPositionForCompare.asset = p.asset;
+
+                        //        //fcmPositionForCompare.cqgsymbol =
+                        //        //    p.asset.cqgsymbol;
+
+                        //        //fcmPositionForCompare.optionSpreadExpression = p.mose;
+
+
+                        //        //Instrument_mongo im = DataCollectionLibrary.instrumentHashTable_keyinstrumentid[p.asset.idinstrument];
+
+                        //        //fcmPositionForCompare.strike =
+                        //        //    ConversionAndFormatting.convertToTickMovesString(
+                        //        //       p.asset.strikeprice,
+                        //        //            im.optionstrikeincrement,
+                        //        //            im.optionstrikedisplay);
+
+
+                        //        //fcmPositionForCompare.idinstrument = p.asset.idinstrument;
+                        //        //***********************
+
+                        //        found = true;
+
+                        //        break;
+                        //    }
+
+                        //    acctPosCount++;
+                        //}
+
+                        //if(!found)
+                        //{
+                        //    ADMPositionImportWeb fcmPositionForCompare = new ADMPositionImportWeb();
+
+                        //    FCM_DataImportLibrary.FCM_PostionList_forCompare.Add(fcmPositionForCompare);
+
+                        //    fcmPositionForCompare.POFFIC = aa.FCM_OFFICE;
+
+                        //    fcmPositionForCompare.PACCT = aa.FCM_ACCT;
+
+                        //    fcmPositionForCompare.MODEL_OFFICE_ACCT = aa.FCM_POFFIC_PACCT;
+
+                        //    fcmPositionForCompare.modelLots = p.prev_qty;
+
+                        //    fcmPositionForCompare.orderLots = p.qty - p.prev_qty;
+
+                        //    fcmPositionForCompare.acctGroup = aa;
+
+                        //    fcmPositionForCompare.asset = p.asset;
+
+                        //    fcmPositionForCompare.cqgsymbol =
+                        //        p.asset.cqgsymbol;
+
+                        //    fcmPositionForCompare.optionSpreadExpression = p.mose;
+
+
+                        //    Instrument_mongo im = DataCollectionLibrary.instrumentHashTable_keyinstrumentid[p.asset.idinstrument];
+
+                        //    fcmPositionForCompare.strike =
+                        //        //optionSpreadManager.optionSpreadExpressionList[
+                        //        //    optionSpreadManager.contractSummaryExpressionListIdx[modelContractsCnt]]
+                        //        //        .strikePrice.ToString();
+                        //        ConversionAndFormatting.convertToTickMovesString(
+                        //           p.asset.strikeprice,
+                        //                im.optionstrikeincrement,
+                        //                im.optionstrikedisplay);
+
+                        //    //NOV 11 2014 FIXED FORMAT OF STRIKE
+
+                        //    //aDMPositionImportWeb.strikeInDecimal = optionSpreadManager.optionSpreadExpressionList[
+                        //    //            optionSpreadManager.contractSummaryExpressionListIdx[modelContractsCnt]]
+                        //    //            .strikePrice;
+
+
+                        //    fcmPositionForCompare.idinstrument = p.asset.idinstrument;
+
+                        //}
                     }
 
                 }
 
 
-                ////for (int portfolioGroupCnt = 0; portfolioGroupCnt < DataCollectionLibrary.portfolioAllocation.accountAllocation.Count; portfolioGroupCnt++)
-                //foreach(AccountAllocation ac in DataCollectionLibrary.portfolioAllocation.accountAllocation)
-                //{
-                //    for (int modelContractsCnt = 0; modelContractsCnt < optionSpreadManager.contractSummaryExpressionListIdx.Count; modelContractsCnt++)
-                //    {
-
-                //        StringBuilder modelContractAcctGroupIdentifier = new StringBuilder();
-                //        modelContractAcctGroupIdentifier.Append(ac.acctIndex_UsedForTotals_Visibility);
-                //        modelContractAcctGroupIdentifier.Append(":");
-                //        modelContractAcctGroupIdentifier.Append(optionSpreadManager.contractSummaryExpressionListIdx[modelContractsCnt]);
-
-                //        if (!modelContractsAlreadyExamined.Contains(modelContractAcctGroupIdentifier.ToString()))
-                //        {
-                //            ADMPositionImportWeb aDMPositionImportWeb = new ADMPositionImportWeb();
-
-                //            optionSpreadManager.admPositionImportWebListForCompare.Add(aDMPositionImportWeb);
-
-                            
-
-                //            modelContractsAlreadyExamined.Add(modelContractAcctGroupIdentifier.ToString());
-
-                //            aDMPositionImportWeb.acctGroup = ac;
-
-                //            aDMPositionImportWeb.MODEL_OFFICE_ACCT = ac.FCM_POFFIC_PACCT;
-
-                //            aDMPositionImportWeb.cqgsymbol =
-                //                DataCollectionLibrary.optionSpreadExpressionList[
-                //                optionSpreadManager.contractSummaryExpressionListIdx[modelContractsCnt]].asset.cqgsymbol;
-
-                //            aDMPositionImportWeb.modelLots =
-                //                DataCollectionLibrary.optionSpreadExpressionList[
-                //                    optionSpreadManager.contractSummaryExpressionListIdx[modelContractsCnt]]
-                //                        .numberOfLotsHeldForContractSummary
-                //                         * ac.multiple;
-
-                //            aDMPositionImportWeb.optionSpreadExpression =
-                //                        DataCollectionLibrary.optionSpreadExpressionList[
-                //                            optionSpreadManager.contractSummaryExpressionListIdx[modelContractsCnt]];
-
-                //            //aDMPositionImportWeb.rebalanceLots =
-                //            //    aDMPositionImportWeb.modelLots - aDMPositionImportWeb.Net;
-
-                //            aDMPositionImportWeb.strike =
-                //                //optionSpreadManager.optionSpreadExpressionList[
-                //                //    optionSpreadManager.contractSummaryExpressionListIdx[modelContractsCnt]]
-                //                //        .strikePrice.ToString();
-                //                ConversionAndFormatting.convertToTickMovesString(
-                //                    DataCollectionLibrary.optionSpreadExpressionList[
-                //                        optionSpreadManager.contractSummaryExpressionListIdx[modelContractsCnt]]
-                //                        .strikePrice,
-                //                        DataCollectionLibrary.optionSpreadExpressionList[
-                //                        optionSpreadManager.contractSummaryExpressionListIdx[modelContractsCnt]].instrument.optionstrikeincrement,
-                //                        DataCollectionLibrary.optionSpreadExpressionList[
-                //                        optionSpreadManager.contractSummaryExpressionListIdx[modelContractsCnt]].instrument.optionstrikedisplay);
-
-                //            //NOV 11 2014 FIXED FORMAT OF STRIKE
-
-                //            //aDMPositionImportWeb.strikeInDecimal = optionSpreadManager.optionSpreadExpressionList[
-                //            //            optionSpreadManager.contractSummaryExpressionListIdx[modelContractsCnt]]
-                //            //            .strikePrice;
-
-
-                //            aDMPositionImportWeb.idinstrument =
-                //                DataCollectionLibrary.optionSpreadExpressionList[
-                //                    optionSpreadManager.contractSummaryExpressionListIdx[modelContractsCnt]].instrument.idinstrument;
-
-
-                //            //string key = makeDictionaryKeyOfFCMPositionCompare(aDMPositionImportWeb.acctGroup,
-                //            //    aDMPositionImportWeb.cqgsymbol);
-
-                //            var key = Tuple.Create(aDMPositionImportWeb.acctGroup.acctIndex_UsedForTotals_Visibility,
-                //                aDMPositionImportWeb.cqgsymbol);
-
-                //            if (!modelContractAcctGrpFCMCompareDictionary.ContainsKey(key))
-                //            {
-                //                modelContractAcctGrpFCMCompareDictionary.Add(key, aDMPositionImportWeb);
-                //            }
-
-                //        }
-
-                //        //modelContractsCnt++;
-                //    }
-                //}
-
-
-                ////modelContractsAlreadyExamined.Clear();
-
-                ////for (int portfolioGroupCnt = 0; portfolioGroupCnt < DataCollectionLibrary.portfolioAllocation.accountAllocation.Count; portfolioGroupCnt++)
-                //foreach(AccountAllocation ac in DataCollectionLibrary.portfolioAllocation.accountAllocation)
-                //{
-
-                //    for (int cntExpressionList = 0; cntExpressionList < DataCollectionLibrary.optionSpreadExpressionList.Count; cntExpressionList++)
-                //    {
-
-
-                //        if (DataCollectionLibrary.optionSpreadExpressionList[cntExpressionList].numberOfOrderContracts != 0)
-                //        {
-                //            //string key = makeDictionaryKeyOfFCMPositionCompare(portfolioGroupCnt,
-                //            //    DataCollectionLibrary.optionSpreadExpressionList[cntExpressionList].cqgsymbol);
-
-                //            var key = Tuple.Create(ac.acctIndex_UsedForTotals_Visibility,
-                //                DataCollectionLibrary.optionSpreadExpressionList[cntExpressionList].asset.cqgsymbol);
-
-                //            bool foundContract = false;
-
-                //            if (modelContractAcctGrpFCMCompareDictionary.ContainsKey(key))
-                //            {
-                //                ADMPositionImportWeb admPIW = modelContractAcctGrpFCMCompareDictionary[key];
-
-
-
-
-
-                //                admPIW.orderLots =
-                //                            DataCollectionLibrary.optionSpreadExpressionList[cntExpressionList].numberOfOrderContracts
-                //                             * ac.multiple;
-
-
-                //                foundContract = true;
-                //            }
-
-                            
-
-                //            if (!foundContract)
-                //            {
-                //                ADMPositionImportWeb aDMPositionImportWeb = new ADMPositionImportWeb();
-
-                //                optionSpreadManager.admPositionImportWebListForCompare.Add(aDMPositionImportWeb);
-
-                //                if (!modelContractAcctGrpFCMCompareDictionary.ContainsKey(key))
-                //                {
-                //                    modelContractAcctGrpFCMCompareDictionary.Add(key, aDMPositionImportWeb);
-                //                }
-
-
-                //                aDMPositionImportWeb.acctGroup = ac;
-
-                //                aDMPositionImportWeb.MODEL_OFFICE_ACCT = ac.FCM_POFFIC_PACCT;
-
-                //                aDMPositionImportWeb.cqgsymbol =
-                //                    DataCollectionLibrary.optionSpreadExpressionList[cntExpressionList].asset.cqgsymbol;
-
-                //                aDMPositionImportWeb.orderLots =
-                //                    DataCollectionLibrary.optionSpreadExpressionList[cntExpressionList].numberOfOrderContracts
-                //                     * ac.multiple;
-
-                //                aDMPositionImportWeb.optionSpreadExpression =
-                //                        DataCollectionLibrary.optionSpreadExpressionList[cntExpressionList];
-
-                //                //aDMPositionImportWeb.rebalanceLots =
-                //                //    aDMPositionImportWeb.modelLots - aDMPositionImportWeb.Net;
-
-                //                aDMPositionImportWeb.strike =
-                //                    //optionSpreadManager.optionSpreadExpressionList[cntExpressionList].strikePrice.ToString();
-                //                    ConversionAndFormatting.convertToTickMovesString(
-                //                        DataCollectionLibrary.optionSpreadExpressionList[cntExpressionList].strikePrice,
-                //                            DataCollectionLibrary.optionSpreadExpressionList[cntExpressionList].instrument.optionstrikeincrement,
-                //                            DataCollectionLibrary.optionSpreadExpressionList[cntExpressionList].instrument.optionstrikedisplay);
-                //                //NOV 11 2014 CHG FORMAT STRIKE
-
-                //                //aDMPositionImportWeb.strikeInDecimal = optionSpreadManager.optionSpreadExpressionList[cntExpressionList].strikePrice;
-
-                //                //aDMPositionImportWeb.contractYear = optionSpreadManager.optionSpreadExpressionList[cntExpressionList].futureContractYear;
-                //                //aDMPositionImportWeb.contractMonth = aDMPositionImportWeb.contractInfo.contractMonthInt;
-                //                //aDMPositionImportWeb.optionYear = aDMPositionImportWeb.contractInfo.optionYear;
-                //                //aDMPositionImportWeb.optionMonth = aDMPositionImportWeb.contractInfo.optionMonthInt;
-
-                //                aDMPositionImportWeb.idinstrument =
-                //                    DataCollectionLibrary.optionSpreadExpressionList[cntExpressionList].instrument.idinstrument;
-
-                                
-
-                                
-                //            }
-                //        }
-                //    }
-                //}
+                
 
 
                 modelContractsAlreadyExamined.Clear();
@@ -554,6 +452,15 @@ namespace RealtimeSpreadMonitor.FormManipulation
 
                 for (int admRowCounter = 0; admRowCounter < FCM_DataImportLibrary.FCM_PostionList_forCompare.Count; admRowCounter++)
                 {
+                    //try
+                    //{
+                    //    TSErrorCatch.debugWriteOut(
+                    //    FCM_DataImportLibrary.FCM_PostionList_forCompare[admRowCounter].optionSpreadExpression.asset.cqgsymbol);
+                    //}
+                    //catch(Exception)
+                    //{
+                    //    TSErrorCatch.debugWriteOut("expression error");
+                    //}
 
                     //this calculates the pl for each contract on the compare page
                     //JAN 30 2015
