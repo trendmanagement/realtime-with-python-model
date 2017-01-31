@@ -12,6 +12,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
+using System.Windows.Forms;
 
 namespace RealtimeSpreadMonitor
 {
@@ -311,12 +312,14 @@ namespace RealtimeSpreadMonitor
 
             DataCollectionLibrary.instrumentHashTable_keyadmcode = DataCollectionLibrary.instrumentList.ToDictionary(x => x.admcode, x => x);
 
-            //sets up  
+            //sets up breakdown of instrument info
             DataCollectionLibrary.instrumentInfoList = MongoDBConnectionAndSetup.GetInstrumentInfoListFromMongo(instrumentIdList);
 
             foreach (Instrument_Info ii in DataCollectionLibrary.instrumentInfoList)
             {
-                ii.span_cqg_codes_dictionary = ii.span_cqg_codes.ToDictionary(x => x.optcod, x => x);
+                ii.product_codes_dictionary_optcodkey = ii.product_codes_list.ToDictionary(x => x.optcod, x => x);
+
+                ii.product_codes_dictionary_pfckey = ii.product_codes_list.ToDictionary(x => x.pfc, x => x);
             }
 
             DataCollectionLibrary.instrumentInfoTable_keyinstrumentid 
@@ -327,9 +330,28 @@ namespace RealtimeSpreadMonitor
                 if (DataCollectionLibrary.instrumentInfoTable_keyinstrumentid.ContainsKey(instrument.idinstrument))
                 {
                     instrument.span_cqg_codes_dictionary = 
-                        DataCollectionLibrary.instrumentInfoTable_keyinstrumentid[instrument.idinstrument].span_cqg_codes_dictionary;
-                }
+                        DataCollectionLibrary.instrumentInfoTable_keyinstrumentid[instrument.idinstrument].product_codes_dictionary_optcodkey;
+
+                    instrument.product_codes_dictionary_pfckey =
+                        DataCollectionLibrary.instrumentInfoTable_keyinstrumentid[instrument.idinstrument].product_codes_dictionary_pfckey;
+
+
+                    // get the span cqg pfc(the fcm symbol) from the instrument info and add it as a key to the 
+                    // instrumentHashTable_keyadmcode dictionary
+                    List<ProductCodes> span_cqg_codes =
+                        DataCollectionLibrary.instrumentInfoTable_keyinstrumentid[instrument.idinstrument].product_codes_list;
+
+                    foreach(ProductCodes ecsc in span_cqg_codes)
+                    {
+                        if (!DataCollectionLibrary.instrumentHashTable_keyadmcode.ContainsKey(ecsc.pfc))
+                        {
+                            DataCollectionLibrary.instrumentHashTable_keyadmcode.Add(ecsc.pfc, instrument);
+                        }
+                    }
+                }                
             }
+
+            
 
             //this is called after the instruments are set up
             FillProductCodeInPositionsFromModel();
@@ -618,7 +640,7 @@ namespace RealtimeSpreadMonitor
             {
                 if (instMongo.span_cqg_codes_dictionary.ContainsKey(asset.optioncode))
                 {
-                    ExchangeCqgSpanCodes exchangeCqgSpanCodes = instMongo.span_cqg_codes_dictionary[asset.optioncode];
+                    ProductCodes exchangeCqgSpanCodes = instMongo.span_cqg_codes_dictionary[asset.optioncode];
 
                     asset.productcode = exchangeCqgSpanCodes.span;
 
@@ -2059,6 +2081,23 @@ namespace RealtimeSpreadMonitor
                             instrument.admoptionpricefactor;
                     }
                 }
+                else
+                {
+                    String caption = "Imported FCM file contains " + fcmImport.PFC + " which is not recogized";
+                    String message = fcmImport.PFC + "\nis not recognized";
+                    MessageBoxButtons buttons = MessageBoxButtons.OK;
+                    System.Windows.Forms.DialogResult result;
+
+                    // Displays the MessageBox.
+                    result = MessageBox.Show(message, caption, buttons, MessageBoxIcon.Error);
+
+                    Instrument_mongo instrument = DataCollectionLibrary.instrumentList[0];
+
+                    fcmImport.instrument = instrument;
+
+                    fcmImport.idinstrument = instrument.idinstrument;
+                }
+
 
 
             }
@@ -2524,12 +2563,12 @@ namespace RealtimeSpreadMonitor
                 FCM_DatatImportedRow_Local.PCTYM_dateTime = DateTime.ParseExact(
                     FCM_DatatImportedRow_Local.PCTYM, dateFormat, CultureInfo.InvariantCulture);
 
-
-                //FCM_DatatImportedRow_Local.contractInfo.legContractType = FCM_DatatImportedRow_Local.callPutOrFuture;
-
                 Asset asset = new Asset();
                 FCM_DatatImportedRow_Local.asset = asset;
 
+                //this fills the optioncode, idinstrument and product code in the Asset object
+                
+                
                 if (FCM_DatatImportedRow_Local.callPutOrFuture != OPTION_SPREAD_CONTRACT_TYPE.FUTURE)
                 {
 
@@ -2539,12 +2578,39 @@ namespace RealtimeSpreadMonitor
                     FCM_DatatImportedRow_Local.asset.optionmonthint =
                         FCM_DatatImportedRow_Local.PCTYM_dateTime.Month;
 
+                    Option_mongo option_mongo;
+
+                    if (FCM_DatatImportedRow_Local.instrument.product_codes_dictionary_pfckey.ContainsKey(FCM_DatatImportedRow_Local.PFC))
+                    {
+                        ProductCodes pc = FCM_DatatImportedRow_Local.instrument.product_codes_dictionary_pfckey[
+                            FCM_DatatImportedRow_Local.PFC];
+
+                        FCM_DatatImportedRow_Local.asset.optioncode = pc.optcod;
+
+                        option_mongo = MongoDBConnectionAndSetup.GetOption(FCM_DatatImportedRow_Local.asset.optionmonthint,
+                            FCM_DatatImportedRow_Local.asset.optionyear,
+                            FCM_DatatImportedRow_Local.instrument.idinstrument,
+                            FCM_DatatImportedRow_Local.PSUBTY, FCM_DatatImportedRow_Local.strikeInDecimal,
+                            FCM_DatatImportedRow_Local.asset.optioncode, true);
+
+                    }
+                    else
+                    {
+                        FCM_DatatImportedRow_Local.asset.optioncode = " ";
+
+                        option_mongo = MongoDBConnectionAndSetup.GetOption(FCM_DatatImportedRow_Local.asset.optionmonthint,
+                            FCM_DatatImportedRow_Local.asset.optionyear,
+                            FCM_DatatImportedRow_Local.instrument.idinstrument,
+                            FCM_DatatImportedRow_Local.PSUBTY, FCM_DatatImportedRow_Local.strikeInDecimal,
+                            FCM_DatatImportedRow_Local.asset.optioncode, false);
+                    }
 
 
-                    Option_mongo option_mongo = MongoDBConnectionAndSetup.GetOption(FCM_DatatImportedRow_Local.asset.optionmonthint,
-                        FCM_DatatImportedRow_Local.asset.optionyear,
-                        FCM_DatatImportedRow_Local.instrument.idinstrument,
-                        FCM_DatatImportedRow_Local.PSUBTY, FCM_DatatImportedRow_Local.strikeInDecimal);
+                    //Option_mongo option_mongo = MongoDBConnectionAndSetup.GetOption(FCM_DatatImportedRow_Local.asset.optionmonthint,
+                    //    FCM_DatatImportedRow_Local.asset.optionyear,
+                    //    FCM_DatatImportedRow_Local.instrument.idinstrument,
+                    //    FCM_DatatImportedRow_Local.PSUBTY, FCM_DatatImportedRow_Local.strikeInDecimal,
+                    //    FCM_DatatImportedRow_Local.asset.optioncode);
 
 
                     FCM_DatatImportedRow_Local.asset.cqgsymbol = option_mongo.cqgsymbol;
@@ -2560,7 +2626,7 @@ namespace RealtimeSpreadMonitor
                     FCM_DatatImportedRow_Local.asset.optionmonthint = option_mongo.optionmonthint;
 
                     FCM_DatatImportedRow_Local.asset.optioncode = option_mongo.optioncode;
-                    FCM_DatatImportedRow_Local.asset.productcode = option_mongo.productcode;
+                    //FCM_DatatImportedRow_Local.asset.productcode = option_mongo.productcode;
 
                     
 
@@ -2591,21 +2657,6 @@ namespace RealtimeSpreadMonitor
                         FCM_DatatImportedRow_Local.PCTYM_dateTime.Month;
 
 
-                    //String keyString = getFutureContractIdHashSetKeyString(FCM_DatatImportedRow_Local.contractInfo.contractMonthInt,
-                    //                FCM_DatatImportedRow_Local.contractInfo.contractYear,
-                    //                FCM_DatatImportedRow_Local.instrument.idinstrument);
-
-
-                    //long idContract = 0;
-
-                    //if (futureIdFromInfo.ContainsKey(keyString))
-                    //{
-                    //    idContract = futureIdFromInfo[keyString];
-                    //}
-                    //else
-                    //{
-                    //    idContract = btdb.queryFutureContractId(FCM_DatatImportedRow_Local);
-                    //}
 
                     Contract_mongo contract_mongo = MongoDBConnectionAndSetup.GetContract(
                         FCM_DatatImportedRow_Local.instrument.idinstrument,

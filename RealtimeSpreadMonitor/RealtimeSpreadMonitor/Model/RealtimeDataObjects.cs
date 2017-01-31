@@ -442,8 +442,11 @@ namespace RealtimeSpreadMonitor.Model
         /// <summary>
         /// this contains the underlying code used to send the option to the exchange
         /// </summary>
-        public Dictionary<string, ExchangeCqgSpanCodes> span_cqg_codes_dictionary
-            = new Dictionary<string, ExchangeCqgSpanCodes>();
+        public Dictionary<string, ProductCodes> span_cqg_codes_dictionary
+            = new Dictionary<string, ProductCodes>();
+
+        public Dictionary<string, ProductCodes> product_codes_dictionary_pfckey
+            = new Dictionary<string, ProductCodes>();
     }
 
     public class Instrument_Summary_Values
@@ -480,13 +483,15 @@ namespace RealtimeSpreadMonitor.Model
     }
 
     [BsonIgnoreExtraElements]
-    public class ExchangeCqgSpanCodes
+    public class ProductCodes
     {
         public string cqg { get; set; }
 
         public string span { get; set; }
 
-        public string optcod { get; set; }       
+        public string optcod { get; set; }
+
+        public string pfc { get; set; }
     }
 
     [BsonIgnoreExtraElements]
@@ -498,10 +503,13 @@ namespace RealtimeSpreadMonitor.Model
 
         public long idinstrument { get; set; }
 
-        public List<ExchangeCqgSpanCodes> span_cqg_codes { get; set; }
+        public List<ProductCodes> product_codes_list { get; set; }
 
-        public Dictionary<string, ExchangeCqgSpanCodes> span_cqg_codes_dictionary
-            = new Dictionary<string, ExchangeCqgSpanCodes>();
+        public Dictionary<string, ProductCodes> product_codes_dictionary_optcodkey
+            = new Dictionary<string, ProductCodes>();
+
+        public Dictionary<string, ProductCodes> product_codes_dictionary_pfckey
+            = new Dictionary<string, ProductCodes>();
     }
 
     public class InitializationParms

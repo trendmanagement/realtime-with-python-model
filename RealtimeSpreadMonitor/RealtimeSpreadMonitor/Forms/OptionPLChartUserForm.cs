@@ -4198,65 +4198,64 @@ namespace RealtimeSpreadMonitor.Forms
 
                     double strike = Convert.ToDouble(gridViewSpreadGrid.Rows[row].Cells[(int)OPTION_PL_COLUMNS.STRIKE].Value);
 
-                    int year = (int)gridViewSpreadGrid.Rows[row].Cells[(int)OPTION_PL_COLUMNS.YEAR].Value;
+                    int year = Convert.ToInt16(gridViewSpreadGrid.Rows[row].Cells[(int)OPTION_PL_COLUMNS.YEAR].Value);
 
-                    int monthInt = (int)gridViewSpreadGrid.Rows[row].Cells[(int)OPTION_PL_COLUMNS.MTH_AS_INT].Value;
+                    int monthInt = Convert.ToInt16(gridViewSpreadGrid.Rows[row].Cells[(int)OPTION_PL_COLUMNS.MTH_AS_INT].Value);
 
 
                     int expressionCnt = 0;
 
                     while (expressionCnt < DataCollectionLibrary.optionSpreadExpressionList.Count)
                     {
-
-                        if (currentContractType == DataCollectionLibrary.optionSpreadExpressionList[expressionCnt].callPutOrFuture)
+                        if (DataCollectionLibrary.optionSpreadExpressionList[expressionCnt].instrument != null
+                            && instrument.idinstrument == DataCollectionLibrary.optionSpreadExpressionList[expressionCnt].instrument.idinstrument)
                         {
-                            if (currentContractType == OPTION_SPREAD_CONTRACT_TYPE.FUTURE)
+                            if (currentContractType == DataCollectionLibrary.optionSpreadExpressionList[expressionCnt].callPutOrFuture)
                             {
-                                if (year == DataCollectionLibrary.optionSpreadExpressionList[expressionCnt].futureContractYear
-                                    && monthInt == DataCollectionLibrary.optionSpreadExpressionList[expressionCnt].futureContractMonthInt)
+                                if (currentContractType == OPTION_SPREAD_CONTRACT_TYPE.FUTURE)
                                 {
+                                    if (year == DataCollectionLibrary.optionSpreadExpressionList[expressionCnt].asset.year //.futureContractYear
+                                        && monthInt == DataCollectionLibrary.optionSpreadExpressionList[expressionCnt].asset.monthint) //.futureContractMonthInt)
+                                    {
 
 
-                                    gridViewSpreadGrid.Rows[row].Cells[(int)OPTION_PL_COLUMNS.AVG_PRC].Value =
-                                        ConversionAndFormatting.convertToTickMovesString(
-                                       DataCollectionLibrary.optionSpreadExpressionList[expressionCnt].defaultPrice,
-                                        instrument.ticksize,
-                                        instrument.tickdisplay);
-
-                                    break;
-                                }
-                            }
-                            else
-                            {
-                                if (year == DataCollectionLibrary.optionSpreadExpressionList[expressionCnt].optionYear
-                                    && monthInt == DataCollectionLibrary.optionSpreadExpressionList[expressionCnt].optionMonthInt
-                                    && strike == DataCollectionLibrary.optionSpreadExpressionList[expressionCnt].asset.strikeprice)
-                                {
-                                    double optionticksize = OptionSpreadManager.chooseoptionticksize(
-                                        DataCollectionLibrary.optionSpreadExpressionList[expressionCnt].defaultPrice,
-                                        instrument.optionticksize,
-                                        instrument.secondaryoptionticksize,
-                                        instrument.secondaryoptionticksizerule);
-
-                                    double tickDisplay = OptionSpreadManager.chooseoptionticksize(
-                                        DataCollectionLibrary.optionSpreadExpressionList[expressionCnt].defaultPrice,
-                                        instrument.optiontickdisplay,
-                                        instrument.secondaryoptiontickdisplay,
-                                        instrument.secondaryoptionticksizerule);
-
-                                    gridViewSpreadGrid.Rows[row].Cells[(int)OPTION_PL_COLUMNS.AVG_PRC].Value =
+                                        gridViewSpreadGrid.Rows[row].Cells[(int)OPTION_PL_COLUMNS.AVG_PRC].Value =
                                             ConversionAndFormatting.convertToTickMovesString(
+                                           DataCollectionLibrary.optionSpreadExpressionList[expressionCnt].defaultPrice,
+                                            instrument.ticksize,
+                                            instrument.tickdisplay);
+
+                                        break;
+                                    }
+                                }
+                                else
+                                {
+                                    if (year == DataCollectionLibrary.optionSpreadExpressionList[expressionCnt].asset.optionyear //.optionYear
+                                        && monthInt == DataCollectionLibrary.optionSpreadExpressionList[expressionCnt].asset.optionmonthint //.optionMonthInt
+                                        && strike == DataCollectionLibrary.optionSpreadExpressionList[expressionCnt].asset.strikeprice)
+                                    {
+                                        double optionticksize = OptionSpreadManager.chooseoptionticksize(
                                             DataCollectionLibrary.optionSpreadExpressionList[expressionCnt].defaultPrice,
-                                            optionticksize,
-                                            tickDisplay);
+                                            instrument.optionticksize,
+                                            instrument.secondaryoptionticksize,
+                                            instrument.secondaryoptionticksizerule);
 
-                                    //gridViewSpreadGrid.Rows[row].Cells[(int)OPTION_PL_COLUMNS.AVG_PRC].Value =
-                                    //    optionSpreadExpressionList[expressionCnt].defaultPrice;
+                                        double tickDisplay = OptionSpreadManager.chooseoptionticksize(
+                                            DataCollectionLibrary.optionSpreadExpressionList[expressionCnt].defaultPrice,
+                                            instrument.optiontickdisplay,
+                                            instrument.secondaryoptiontickdisplay,
+                                            instrument.secondaryoptionticksizerule);
 
-                                    break;
+                                        gridViewSpreadGrid.Rows[row].Cells[(int)OPTION_PL_COLUMNS.AVG_PRC].Value =
+                                                ConversionAndFormatting.convertToTickMovesString(
+                                                DataCollectionLibrary.optionSpreadExpressionList[expressionCnt].defaultPrice,
+                                                optionticksize,
+                                                tickDisplay);
+
+                                        break;
+                                    }
                                 }
                             }
-
                         }
 
                         expressionCnt++;

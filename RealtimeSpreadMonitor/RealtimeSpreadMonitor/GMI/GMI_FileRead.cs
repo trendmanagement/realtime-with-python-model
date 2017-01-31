@@ -223,6 +223,8 @@ namespace RealtimeSpreadMonitor.GMI
                 aDMSummaryImport.PCTYM = stringList[20];
 
                 aDMSummaryImport.PCARD = stringList[64];
+
+                return aDMSummaryImport;
             }
 
             return null;

@@ -210,7 +210,7 @@ namespace RealtimeSpreadMonitor.Mongo
         }
 
         public static Option_mongo GetOption(int optionmonthint,
-            int optionyear, long idinstrument, string PSUBTY, double strikeprice)
+            int optionyear, long idinstrument, string PSUBTY, double strikeprice, string optioncode, bool useOptionCode)
         {
             Option_mongo optionQuery = null;
 
@@ -218,12 +218,26 @@ namespace RealtimeSpreadMonitor.Mongo
             {
                 var builder = Builders<Option_mongo>.Filter;
 
-                var filterForOptions = builder.And(
-                        builder.Eq("optionmonthint", optionmonthint),
-                        builder.Eq("optionyear", optionyear),
-                        builder.Eq("idinstrument", idinstrument),
-                        builder.Eq("callorput", PSUBTY),
-                        builder.Gte("strikeprice", strikeprice));
+                FilterDefinition<Option_mongo> filterForOptions;
+                if (useOptionCode)
+                {
+                    filterForOptions = builder.And(
+                            builder.Eq("optionmonthint", optionmonthint),
+                            builder.Eq("optionyear", optionyear),
+                            builder.Eq("idinstrument", idinstrument),
+                            builder.Eq("callorput", PSUBTY),
+                            builder.Eq("optioncode", optioncode),
+                            builder.Gte("strikeprice", strikeprice));
+                }
+                else
+                {
+                    filterForOptions = builder.And(
+                            builder.Eq("optionmonthint", optionmonthint),
+                            builder.Eq("optionyear", optionyear),
+                            builder.Eq("idinstrument", idinstrument),
+                            builder.Eq("callorput", PSUBTY),
+                            builder.Gte("strikeprice", strikeprice));
+                }
 
                 optionQuery = _optionCollection.Find(filterForOptions) //.First();
                     .Sort(Builders<Option_mongo>.Sort.Ascending("strikeprice")).First();
@@ -232,6 +246,7 @@ namespace RealtimeSpreadMonitor.Mongo
             }
             catch (InvalidOperationException)
             {
+                TSErrorCatch.debugWriteOut("Error");
             }
 
             return optionQuery;
