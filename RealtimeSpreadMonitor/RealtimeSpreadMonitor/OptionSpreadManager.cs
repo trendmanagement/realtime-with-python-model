@@ -204,48 +204,52 @@ namespace RealtimeSpreadMonitor
 
             int acctIndex_UsedForTotals = 0;
 
-            foreach (AccountAllocation_Mongo aam in portfolioAllocation_Mongo.accountAllocation)
+            if (portfolioAllocation_Mongo != null)
             {
-                Console.Write(aam.account);
 
-                AccountAllocation accountAllocation = new AccountAllocation();
+                foreach (AccountAllocation_Mongo aam in portfolioAllocation_Mongo.accountAllocation)
+                {
+                    Console.Write(aam.account);
 
-                accountAllocation.broker = aam.broker;
+                    AccountAllocation accountAllocation = new AccountAllocation();
 
-                //if (acctIndex_UsedForTotals == 0)
-                //{
-                //    accountAllocation.account = "new_account1";
-                //}
-                //else
-                //{
-                accountAllocation.account = aam.account;
-                //}
+                    accountAllocation.broker = aam.broker;
 
-                accountAllocation.FCM_OFFICE = aam.FCM_OFFICE;
-                accountAllocation.FCM_ACCT = aam.FCM_ACCT;
-                //accountAllocation.multiple = aam.multiple;
+                    //if (acctIndex_UsedForTotals == 0)
+                    //{
+                    //    accountAllocation.account = "new_account1";
+                    //}
+                    //else
+                    //{
+                    accountAllocation.account = aam.account;
+                    //}
 
-                StringBuilder acaText = new StringBuilder();
-                acaText.Append(accountAllocation.FCM_OFFICE);
-                acaText.Append(":");
-                acaText.Append(accountAllocation.FCM_ACCT);
-                acaText.Append(";");
+                    accountAllocation.FCM_OFFICE = aam.FCM_OFFICE;
+                    accountAllocation.FCM_ACCT = aam.FCM_ACCT;
+                    //accountAllocation.multiple = aam.multiple;
 
-                accountAllocation.FCM_POFFIC_PACCT = acaText.ToString();
-                accountAllocation.visible = true;
-                accountAllocation.acctIndex_UsedForTotals_Visibility = acctIndex_UsedForTotals++;
+                    StringBuilder acaText = new StringBuilder();
+                    acaText.Append(accountAllocation.FCM_OFFICE);
+                    acaText.Append(":");
+                    acaText.Append(accountAllocation.FCM_ACCT);
+                    acaText.Append(";");
 
-                portfolioAllocation.accountAllocation.Add(accountAllocation);
+                    accountAllocation.FCM_POFFIC_PACCT = acaText.ToString();
+                    accountAllocation.visible = true;
+                    accountAllocation.acctIndex_UsedForTotals_Visibility = acctIndex_UsedForTotals++;
 
-                var key = Tuple.Create(accountAllocation.FCM_OFFICE, accountAllocation.FCM_ACCT);
+                    portfolioAllocation.accountAllocation.Add(accountAllocation);
 
-                portfolioAllocation.accountAllocation_KeyOfficAcct.Add(
-                                key,
-                                accountAllocation);
+                    var key = Tuple.Create(accountAllocation.FCM_OFFICE, accountAllocation.FCM_ACCT);
 
-                portfolioAllocation.accountAllocation_KeyAccountname.Add(
-                                accountAllocation.account,
-                                accountAllocation);
+                    portfolioAllocation.accountAllocation_KeyOfficAcct.Add(
+                                    key,
+                                    accountAllocation);
+
+                    portfolioAllocation.accountAllocation_KeyAccountname.Add(
+                                    accountAllocation.account,
+                                    accountAllocation);
+                }
             }
 
 

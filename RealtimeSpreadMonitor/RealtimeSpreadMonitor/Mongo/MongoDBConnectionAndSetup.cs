@@ -85,51 +85,93 @@ namespace RealtimeSpreadMonitor.Mongo
 
         internal static List<Account> GetAccountInfoFromMongo(List<string> accountList)
         {
-            var builder = Builders<Account>.Filter;
-            var filter = builder.In(x => x.name, accountList);
+            try
+            {
+                var builder = Builders<Account>.Filter;
+                var filter = builder.In(x => x.name, accountList);
 
-            return _accountCollection.Find(filter).ToList();
+                return _accountCollection.Find(filter).ToList();
+            }
+            catch
+            {
+                return new List<Account>();
+            }
         }
 
         internal static List<AccountPosition> GetAccountPositionsInfoFromMongo(List<string> accountList)
         {
-            var builder = Builders<AccountPosition>.Filter;
-            var filter = builder.In(x => x.name, accountList);
+            try
+            {
+                var builder = Builders<AccountPosition>.Filter;
+                var filter = builder.In(x => x.name, accountList);
 
-            return _accountPositionCollection.Find(filter).ToList();
+                return _accountPositionCollection.Find(filter).ToList();
+            }
+            catch
+            {
+                return new List<AccountPosition>();
+            }
         }
 
         internal static List<AccountPosition> GetAccountArchivePositionsInfoFromMongo(string accountName)
         {
-            var builder = Builders<AccountPosition>.Filter;
-            var filter = builder.Eq(x => x.name, accountName);
+            try
+            {
+                var builder = Builders<AccountPosition>.Filter;
+                var filter = builder.Eq(x => x.name, accountName);
 
-            return _accountPositionArchiveCollection.Find(filter)
-                .Sort(Builders<AccountPosition>.Sort.Descending("date_now")).Limit(2).ToList();
+                return _accountPositionArchiveCollection.Find(filter)
+                    .Sort(Builders<AccountPosition>.Sort.Descending("date_now")).Limit(2).ToList();
+            }
+            catch
+            {
+                return new List<AccountPosition>();
+            }
         }
 
         internal static List<Instrument_mongo> GetInstrumentListFromMongo(List<long> instrumentIdList)
         {
-            var builder = Builders<Instrument_mongo>.Filter;
-            var filter = builder.In(x => x.idinstrument, instrumentIdList);
+            try
+            {
+                var builder = Builders<Instrument_mongo>.Filter;
+                var filter = builder.In(x => x.idinstrument, instrumentIdList);
 
-            return _instrumentCollection.Find(filter).ToList();
+                return _instrumentCollection.Find(filter).ToList();
+            }
+            catch
+            {
+                return new List<Instrument_mongo>();
+            }
         }
 
         internal static List<Instrument_Info> GetInstrumentInfoListFromMongo(List<long> instrumentIdList)
         {
-            var builder = Builders<Instrument_Info>.Filter;
-            var filter = builder.In(x => x.idinstrument, instrumentIdList);
+            try
+            {
+                var builder = Builders<Instrument_Info>.Filter;
+                var filter = builder.In(x => x.idinstrument, instrumentIdList);
 
-            return _instrumentInfoCollection.Find(filter).ToList();
+                return _instrumentInfoCollection.Find(filter).ToList();
+            }
+            catch
+            {
+                return new List<Instrument_Info>();
+            }
         }
 
         internal static List<Exchange_mongo> GetExchangeListFromMongo(List<long> exchangeIdList)
         {
-            var builder = Builders<Exchange_mongo>.Filter;
-            var filter = builder.In(x => x.idexchange, exchangeIdList);
+            try
+            {
+                var builder = Builders<Exchange_mongo>.Filter;
+                var filter = builder.In(x => x.idexchange, exchangeIdList);
 
-            return _exchangeCollection.Find(filter).ToList();
+                return _exchangeCollection.Find(filter).ToList();
+            }
+            catch
+            {
+                return new List<Exchange_mongo>();
+            }
         }
 
         public static List<Contract_mongo> GetContracts(DateTime todaysDate, long idinstrument)
@@ -259,48 +301,45 @@ namespace RealtimeSpreadMonitor.Mongo
 
             try
             {
-                //foreach (Instrument_mongo instrumentx in DataCollectionLibrary.instrumentList)
-                {
-                    var builder = Builders<PortfolioAllocation_Mongo>.Filter;
 
-                    var filterForPortfolio = builder.Eq("idportfoliogroup", idportfoliogroup);
+                var builder = Builders<PortfolioAllocation_Mongo>.Filter;
 
-                    portfolioAllocation
-                        = _portfolioCollection.Find(filterForPortfolio).First<PortfolioAllocation_Mongo>();
-                    //.ToList<PortfolioAllocation>();
+                var filterForPortfolio = builder.Eq("idportfoliogroup", idportfoliogroup);
+
+                portfolioAllocation
+                    = _portfolioCollection.Find(filterForPortfolio).First<PortfolioAllocation_Mongo>();
 
 
 
+                //Mapper.Initialize(cfg => cfg.CreateMap<Contract_mongo, Asset>());
 
-                    //Mapper.Initialize(cfg => cfg.CreateMap<Contract_mongo, Asset>());
+                //foreach (Contract_mongo contract in contractQuery)
+                //{
+                //    Console.WriteLine(contract.idcontract + " " + contract.idinstrument + " " + contract.contractname
+                //        + " " + contract.expirationdate);
 
-                    //foreach (Contract_mongo contract in contractQuery)
-                    //{
-                    //    Console.WriteLine(contract.idcontract + " " + contract.idinstrument + " " + contract.contractname
-                    //        + " " + contract.expirationdate);
+                //    Asset asset = Mapper.Map<Asset>(contract);
 
-                    //    Asset asset = Mapper.Map<Asset>(contract);
+                //    asset._type = ASSET_TYPE_MONGO.fut.ToString();
 
-                    //    asset._type = ASSET_TYPE_MONGO.fut.ToString();
+                //    MongoDB_OptionSpreadExpression mose = new MongoDB_OptionSpreadExpression(
+                //        OPTION_SPREAD_CONTRACT_TYPE.FUTURE,
+                //            OPTION_EXPRESSION_TYPES.SPREAD_LEG_PRICE);
 
-                    //    MongoDB_OptionSpreadExpression mose = new MongoDB_OptionSpreadExpression(
-                    //        OPTION_SPREAD_CONTRACT_TYPE.FUTURE,
-                    //            OPTION_EXPRESSION_TYPES.SPREAD_LEG_PRICE);
+                //    mose.asset = asset;
 
-                    //    mose.asset = asset;
+                //    DataCollectionLibrary.optionSpreadExpressionList.Add(mose);
 
-                    //    DataCollectionLibrary.optionSpreadExpressionList.Add(mose);
+                //    var key = Tuple.Create(asset.idcontract, asset._type);
 
-                    //    var key = Tuple.Create(asset.idcontract, asset._type);
+                //    DataCollectionLibrary.optionSpreadExpressionHashTable_key_Id_Type
+                //        .TryAdd(key, mose);
 
-                    //    DataCollectionLibrary.optionSpreadExpressionHashTable_key_Id_Type
-                    //        .TryAdd(key, mose);
+                //}
 
-                    //}
-                }
 
             }
-            catch (InvalidOperationException)
+            catch (Exception)
             {
             }
 
@@ -313,7 +352,7 @@ namespace RealtimeSpreadMonitor.Mongo
             {
                 _portfolioCollection.InsertOne(portfolioAllocation_Mongo);
             }
-            catch (Exception e)
+            catch (Exception)
             {
 
             }

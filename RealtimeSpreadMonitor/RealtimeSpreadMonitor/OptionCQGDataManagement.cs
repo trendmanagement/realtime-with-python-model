@@ -155,7 +155,7 @@ namespace RealtimeSpreadMonitor
                     }
 
                     if (!ose.transactionPriceFilled
-                                && new_line_time.CompareTo(ose.todayTransactionTimeBoundary) >= 0)
+                                && new_line_time.CompareTo(ose.todayTransactionTimeBoundary) > 0)
                     {
                         ose.transactionPriceFilled = true;
                     }
@@ -424,8 +424,9 @@ namespace RealtimeSpreadMonitor
                                 while (timedBarsInCounter < cqg_TimedBarsIn.Count)
                                 {
 
-                                    if (!ose.transactionPriceFilled
-                                        && cqg_TimedBarsIn[timedBarsInCounter].Timestamp
+                                    if (//!ose.transactionPriceFilled
+                                        //&& 
+                                        cqg_TimedBarsIn[timedBarsInCounter].Timestamp
                                         .CompareTo(ose.todayTransactionTimeBoundary) <= 0)
                                     {
                                         //ose.transactionBarIdx = timedBarsInCounter;
@@ -549,8 +550,9 @@ namespace RealtimeSpreadMonitor
                         while (lastTimedBarInIndex < cqg_TimedBarsIn.Count)
                         {
 
-                            if (!ose.transactionPriceFilled
-                                && cqg_TimedBarsIn[lastTimedBarInIndex].Timestamp
+                            if (//!ose.transactionPriceFilled
+                                //&& 
+                                cqg_TimedBarsIn[lastTimedBarInIndex].Timestamp
                                 .CompareTo(ose.todayTransactionTimeBoundary) <= 0)
                             {
                                 //ose.transactionBarIdx = lastTimedBarInIndex;
@@ -1008,7 +1010,7 @@ namespace RealtimeSpreadMonitor
                     {
                         generatingGreeksAndImpliedVol(optionSpreadThatUsesFuture);
 
-                        fillEodAnalysisPrices(optionSpreadThatUsesFuture);
+                        fillDecisionAndTransactionPrices(optionSpreadThatUsesFuture);
 
                         fillTheoreticalOptionPrice(optionSpreadThatUsesFuture);
 
@@ -1028,7 +1030,7 @@ namespace RealtimeSpreadMonitor
                 {
                     generatingGreeksAndImpliedVol(optionSpreadExpression);
 
-                    fillEodAnalysisPrices(optionSpreadExpression);
+                    fillDecisionAndTransactionPrices(optionSpreadExpression);
 
                     //fillTheoreticalOptionPrice(optionSpreadExpression);
                 }
@@ -1473,7 +1475,7 @@ namespace RealtimeSpreadMonitor
 
 
 
-        public void fillEodAnalysisPrices(MongoDB_OptionSpreadExpression optionSpreadExpression)
+        public void fillDecisionAndTransactionPrices(MongoDB_OptionSpreadExpression optionSpreadExpression)
         {
             //if (optionSpreadManager.realtimeMonitorSettings.eodAnalysis)
 

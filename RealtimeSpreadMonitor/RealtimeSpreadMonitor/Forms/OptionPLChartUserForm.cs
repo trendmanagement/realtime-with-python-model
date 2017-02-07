@@ -1503,32 +1503,7 @@ namespace RealtimeSpreadMonitor.Forms
 
             int futureIdx = findFutureLeg();
 
-            //while (legCount < gridViewSpreadGrid.RowCount)
-            //{
-            //    if (gridViewSpreadGrid.Rows[legCount]
-            //                .Cells[(int)OPTION_PL_COLUMNS.CONTRACT_TYPE].Value != null)
-            //    {
-            //        String contractType = gridViewSpreadGrid.Rows[legCount]
-            //                    .Cells[(int)OPTION_PL_COLUMNS.CONTRACT_TYPE].Value.ToString();
-
-            //        if (contractType.CompareTo(optionArrayTypes.optionSpreadContractTypesArray.GetValue(
-            //                (int)OPTION_SPREAD_CONTRACT_TYPE.FUTURE)) == 0)
-            //        {
-            //            futureIdx = legCount;
-            //            break;
-            //        }
-            //    }
-
-            //    legCount++;
-            //}
-
-
-
             double futureAvgPrice = returnFuturesAveragePrice(futureIdx);
-
-
-
-
 
             lblFuturePrice.Text = "Future: " +
 
@@ -4155,31 +4130,7 @@ namespace RealtimeSpreadMonitor.Forms
                     && gridViewSpreadGrid.Rows[row].Cells[(int)OPTION_PL_COLUMNS.STRIKE].Value != null
                     && gridViewSpreadGrid.Rows[row].Cells[(int)OPTION_PL_COLUMNS.YEAR].Value != null
                     && gridViewSpreadGrid.Rows[row].Cells[(int)OPTION_PL_COLUMNS.MTH_AS_INT].Value != null)
-                {
-
-                    //        CNTRT_TYPE,
-
-                    //STRIKE,
-
-                    //AVG_PRC,
-
-                    //NET,
-
-                    //IMPL_VOL,
-
-                    //DAYS_TO_EXP,
-
-                    //YEAR,
-
-                    //MTH_AS_INT,
-
-                    //BRKR,
-
-                    //ACCT,
-
-                    //DEL_ROW,
-
-                    //SEL_ROW
+                {                    
 
                     OPTION_SPREAD_CONTRACT_TYPE currentContractType = OPTION_SPREAD_CONTRACT_TYPE.FUTURE;
 
@@ -4201,6 +4152,8 @@ namespace RealtimeSpreadMonitor.Forms
                     int year = Convert.ToInt16(gridViewSpreadGrid.Rows[row].Cells[(int)OPTION_PL_COLUMNS.YEAR].Value);
 
                     int monthInt = Convert.ToInt16(gridViewSpreadGrid.Rows[row].Cells[(int)OPTION_PL_COLUMNS.MTH_AS_INT].Value);
+
+                    string optcode = gridViewSpreadGrid.Rows[row].Cells[(int)OPTION_PL_COLUMNS.PRDT_CODE].Value.ToString();
 
 
                     int expressionCnt = 0;
@@ -4225,6 +4178,8 @@ namespace RealtimeSpreadMonitor.Forms
                                             instrument.ticksize,
                                             instrument.tickdisplay);
 
+
+
                                         break;
                                     }
                                 }
@@ -4232,7 +4187,8 @@ namespace RealtimeSpreadMonitor.Forms
                                 {
                                     if (year == DataCollectionLibrary.optionSpreadExpressionList[expressionCnt].asset.optionyear //.optionYear
                                         && monthInt == DataCollectionLibrary.optionSpreadExpressionList[expressionCnt].asset.optionmonthint //.optionMonthInt
-                                        && strike == DataCollectionLibrary.optionSpreadExpressionList[expressionCnt].asset.strikeprice)
+                                        && strike == DataCollectionLibrary.optionSpreadExpressionList[expressionCnt].asset.strikeprice
+                                        && optcode.CompareTo(DataCollectionLibrary.optionSpreadExpressionList[expressionCnt].asset.productcode) == 0)
                                     {
                                         double optionticksize = OptionSpreadManager.chooseoptionticksize(
                                             DataCollectionLibrary.optionSpreadExpressionList[expressionCnt].defaultPrice,
@@ -4260,6 +4216,17 @@ namespace RealtimeSpreadMonitor.Forms
 
                         expressionCnt++;
                     }
+
+                    int futureIdx = findFutureLeg();
+
+                    double futureAvgPrice = returnFuturesAveragePrice(futureIdx);
+
+                    lblFuturePrice.Text = "Future: " + 
+                        ConversionAndFormatting.convertToTickMovesString(
+                                        futureAvgPrice,
+                                        instrument.ticksize,
+                                        instrument.tickdisplay);
+
                 }
 
 
