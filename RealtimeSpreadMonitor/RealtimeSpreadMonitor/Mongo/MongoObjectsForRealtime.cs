@@ -142,7 +142,7 @@ namespace RealtimeSpreadMonitor.Mongo
         //public bool transactionBarAnalyzed = false;
         public bool transactionPriceFilled = false;
 
-        public bool filledAfterTransactionTimeBoundary = false;
+        //public bool filledAfterTransactionTimeBoundary = false;
 
 
 

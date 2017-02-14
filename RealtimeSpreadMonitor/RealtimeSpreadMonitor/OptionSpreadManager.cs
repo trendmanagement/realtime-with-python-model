@@ -448,30 +448,31 @@ namespace RealtimeSpreadMonitor
             {
                 foreach (string accountName in DataCollectionLibrary.accountNameList)
                 {
-                    List<AccountPosition> archive = MongoDBConnectionAndSetup.GetAccountArchivePositionsInfoFromMongo(accountName);
+                    AccountPosition archive = MongoDBConnectionAndSetup.GetAccountArchivePositionsInfoFromMongo(accountName);
 
-                    int acctCnt = 0;
-                    while(acctCnt < archive.Count)
+                    //int acctCnt = 0;
+                    if(archive != null)
                     {
-                        if(archive[acctCnt].date_now.DayOfWeek != DayOfWeek.Saturday
-                            && archive[acctCnt].date_now.DayOfWeek != DayOfWeek.Sunday)
-                        {
+                        //if(archive[acctCnt].date_now.DayOfWeek != DayOfWeek.Saturday
+                        //    && archive[acctCnt].date_now.DayOfWeek != DayOfWeek.Sunday)
+                        //{
                             //move the values to the prev_qty variable in the archive of positions
-                            foreach (Position p_archive in archive[acctCnt].positions)
+                            //foreach (Position p_archive in archive[acctCnt].positions)
+                            foreach (Position p_archive in archive.positions)
                             {                               
                                 p_archive.prev_qty = p_archive.qty;
 
                                 p_archive.qty = 0;
                             }
 
-                            DataCollectionLibrary.accountPositionsArchiveList.Add(archive[acctCnt]);
+                            DataCollectionLibrary.accountPositionsArchiveList.Add(archive);
 
                             //
 
-                            break;
-                        }
+                            //break;
+                        //}
 
-                        acctCnt++;
+                        //acctCnt++;
                     }                    
                 }
             }

@@ -506,31 +506,35 @@ namespace RealtimeSpreadMonitor.Forms
 
                             var key = Tuple.Create(idkey, p.asset._type);
 
-                            MongoDB_OptionSpreadExpression mose =
-                                    DataCollectionLibrary.optionSpreadExpressionHashTable_key_Id_Type[key];
-
-                            string acct = optionSpreadManager.selectAcct(
-                                    //optionSpreadExpressionList[contractSummaryExpressionListIdx[contractCount]].instrument.exchangeSymbol,
-                                    instrument.exchangesymbol,
-                                    ac, true);
-
-                            if (fillInGridDataRow(rowCount,
-                                ac.broker,
-                                acct,
-                                mose.callPutOrFuture,
-                                p.asset.strikeprice,
-                                mose.defaultPrice,
-                                mose.impliedVol * 100,
-                                p.asset.year,
-                                p.asset.monthint,
-                                p.asset.optionyear,
-                                p.asset.optionmonthint,
-                                p.asset.productcode,
-                                numOfContracts,
-                                p.asset.yearFraction * 365
-                                ))
+                            if (DataCollectionLibrary.optionSpreadExpressionHashTable_key_Id_Type.ContainsKey(key))
                             {
-                                rowCount++;
+
+                                MongoDB_OptionSpreadExpression mose =
+                                        DataCollectionLibrary.optionSpreadExpressionHashTable_key_Id_Type[key];
+
+                                string acct = optionSpreadManager.selectAcct(
+                                        //optionSpreadExpressionList[contractSummaryExpressionListIdx[contractCount]].instrument.exchangeSymbol,
+                                        instrument.exchangesymbol,
+                                        ac, true);
+
+                                if (fillInGridDataRow(rowCount,
+                                    ac.broker,
+                                    acct,
+                                    mose.callPutOrFuture,
+                                    p.asset.strikeprice,
+                                    mose.defaultPrice,
+                                    mose.impliedVol * 100,
+                                    p.asset.year,
+                                    p.asset.monthint,
+                                    p.asset.optionyear,
+                                    p.asset.optionmonthint,
+                                    p.asset.productcode,
+                                    numOfContracts,
+                                    p.asset.yearFraction * 365
+                                    ))
+                                {
+                                    rowCount++;
+                                }
                             }
                         }
                     }
@@ -719,30 +723,33 @@ namespace RealtimeSpreadMonitor.Forms
 
                                     var key = Tuple.Create(idkey, p.asset._type);
 
-                                    MongoDB_OptionSpreadExpression mose =
+                                    if (DataCollectionLibrary.optionSpreadExpressionHashTable_key_Id_Type.ContainsKey(key))
+                                    {
+                                        MongoDB_OptionSpreadExpression mose =
                                             DataCollectionLibrary.optionSpreadExpressionHashTable_key_Id_Type[key];
 
-                                    string acct = optionSpreadManager.selectAcct(
-                                            instrument.exchangesymbol,
-                                            ac, true);
+                                        string acct = optionSpreadManager.selectAcct(
+                                                instrument.exchangesymbol,
+                                                ac, true);
 
-                                    if (fillInGridDataRow(rowCount,
-                                        ac.broker,
-                                        acct,
-                                        mose.callPutOrFuture,
-                                        p.asset.strikeprice,
-                                        mose.defaultPrice,
-                                        mose.impliedVol * 100,
-                                        p.asset.year,
-                                        p.asset.monthint,
-                                        p.asset.optionyear,
-                                        p.asset.optionmonthint,
-                                        p.asset.productcode,
-                                        numOfContracts,
-                                        p.asset.yearFraction * 365
-                                        ))
-                                    {
-                                        rowCount++;
+                                        if (fillInGridDataRow(rowCount,
+                                            ac.broker,
+                                            acct,
+                                            mose.callPutOrFuture,
+                                            p.asset.strikeprice,
+                                            mose.defaultPrice,
+                                            mose.impliedVol * 100,
+                                            p.asset.year,
+                                            p.asset.monthint,
+                                            p.asset.optionyear,
+                                            p.asset.optionmonthint,
+                                            p.asset.productcode,
+                                            numOfContracts,
+                                            p.asset.yearFraction * 365
+                                            ))
+                                        {
+                                            rowCount++;
+                                        }
                                     }
                                 }
                             }

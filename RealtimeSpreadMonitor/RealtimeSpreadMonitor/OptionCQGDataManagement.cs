@@ -1560,7 +1560,7 @@ namespace RealtimeSpreadMonitor
                     else
                     {
 
-                        if (!optionSpreadExpression.filledAfterTransactionTimeBoundary)
+                        //if (!optionSpreadExpression.filledAfterTransactionTimeBoundary)
                         {
                             if (optionSpreadExpression.impliedVolFilled)
                             {
@@ -1574,7 +1574,7 @@ namespace RealtimeSpreadMonitor
 
                                 optionSpreadExpression.transactionPriceFilled = true;
 
-                                optionSpreadExpression.filledAfterTransactionTimeBoundary = true;
+                                //optionSpreadExpression.filledAfterTransactionTimeBoundary = true;
 
                             }
                         }

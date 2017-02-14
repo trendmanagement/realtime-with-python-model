@@ -113,19 +113,26 @@ namespace RealtimeSpreadMonitor.Mongo
             }
         }
 
-        internal static List<AccountPosition> GetAccountArchivePositionsInfoFromMongo(string accountName)
+        internal static AccountPosition GetAccountArchivePositionsInfoFromMongo(string accountName)
         {
             try
             {
                 var builder = Builders<AccountPosition>.Filter;
                 var filter = builder.Eq(x => x.name, accountName);
+                //var filter = builder.And(builder.Eq(x => x.name, accountName), builder.Eq('date_now', '2017-02-10'));
+
+                //var filter = builder.And(builder.Eq("name", accountName),
+                //            builder.Lt("date_now", new DateTime(2017,2,10)));
+
+                //return _accountPositionArchiveCollection.Find(filter)
+                //    .Sort(Builders<AccountPosition>.Sort.Descending("date_now")).Limit(2).ToList();
 
                 return _accountPositionArchiveCollection.Find(filter)
-                    .Sort(Builders<AccountPosition>.Sort.Descending("date_now")).Limit(2).ToList();
+                    .Sort(Builders<AccountPosition>.Sort.Descending("date_now")).Limit(1).First();
             }
             catch
             {
-                return new List<AccountPosition>();
+                return null;
             }
         }
 
