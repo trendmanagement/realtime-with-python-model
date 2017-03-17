@@ -1,3 +1,0 @@
-RealtimeSpreadMonitor.ADMDataCommonMethods System.NullReferenceException: Object reference not set to an instance of an object.
-   at RealtimeSpreadMonitor.ADMDataCommonMethods.setupInstrumentAndfillStrikeInDecimal(ADMPositionImportWeb aDMSummaryImport, Instrument_mongo[] instruments, BrokerImportFiles brokerImportFiles) in D:\RealtimeSpreadWithPythonModel\RealtimeSpreadMonitor\RealtimeSpreadMonitor\ADMDataCommonMethods.cs:line 493
-   at RealtimeSpreadMonitor.ADMDataCommonMethods.readADMDetailedPositionImportWeb(String[] fileNames, List`1 admSummaryFieldsList, ImportFileCheck importFileCheck, Instrument_mongo[] instruments) in D:\RealtimeSpreadWithPythonModel\RealtimeSpreadMonitor\RealtimeSpreadMonitor\ADMDataCommonMethods.cs:line 373

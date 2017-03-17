@@ -1,2 +1,0 @@
-RealtimeSpreadMonitor.FormManipulation.ModelADMCompareCalculationAndDisplay System.NullReferenceException: Object reference not set to an instance of an object.
-   at RealtimeSpreadMonitor.FormManipulation.ModelADMCompareCalculationAndDisplay.threadSafeFillGridModelADMComparison(OptionRealtimeMonitor optionRealtimeMonitor) in D:\RealtimeSpreadWithPythonModel\RealtimeSpreadMonitor\RealtimeSpreadMonitor\FormManipulation\ModelADMCompareCalculationAndDisplay.cs:line 264

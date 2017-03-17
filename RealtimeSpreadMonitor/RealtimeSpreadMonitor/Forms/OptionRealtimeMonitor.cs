@@ -1226,7 +1226,7 @@ namespace RealtimeSpreadMonitor.Forms
             //    os_ap.tested = false;
             //}
 
-            DataCollectionLibrary.orderSummaryDataTable.Rows.Clear();
+            DataCollectionLibrary.orderSummaryDataTable.Clear(); // .Rows.Clear();
 
             //if (test)
             {

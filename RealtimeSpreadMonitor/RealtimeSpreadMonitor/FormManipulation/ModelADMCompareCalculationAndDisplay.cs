@@ -203,13 +203,15 @@ namespace RealtimeSpreadMonitor.FormManipulation
                     //    modelContractAcctGrpFCMCompareDictionary.Add(key, aDMPositionImportWeb);
                     //}
 
-
-                    var key = Tuple.Create(aDMPositionImportWeb.asset.cqgsymbol,
-                        aDMPositionImportWeb.POFFIC, aDMPositionImportWeb.PACCT);
-
-                    if (!modelContractAcctGrpFCMCompareDictionary.ContainsKey(key))
+                    if (aDMPositionImportWeb.asset != null)
                     {
-                        modelContractAcctGrpFCMCompareDictionary.Add(key, aDMPositionImportWeb);
+                        var key = Tuple.Create(aDMPositionImportWeb.asset.cqgsymbol,
+                            aDMPositionImportWeb.POFFIC, aDMPositionImportWeb.PACCT);
+
+                        if (!modelContractAcctGrpFCMCompareDictionary.ContainsKey(key))
+                        {
+                            modelContractAcctGrpFCMCompareDictionary.Add(key, aDMPositionImportWeb);
+                        }
                     }
 
                     //StringBuilder pOfficPAcct = new StringBuilder();
@@ -240,7 +242,7 @@ namespace RealtimeSpreadMonitor.FormManipulation
                         var key = Tuple.Create(p.asset.cqgsymbol,
                             aa.FCM_OFFICE, aa.FCM_ACCT);
 
-                        if(modelContractAcctGrpFCMCompareDictionary.ContainsKey(key))
+                        if (modelContractAcctGrpFCMCompareDictionary.ContainsKey(key))
                         {
                             ADMPositionImportWeb fcmPositionForCompare = modelContractAcctGrpFCMCompareDictionary[key];
 
@@ -311,7 +313,7 @@ namespace RealtimeSpreadMonitor.FormManipulation
                                 modelContractAcctGrpFCMCompareDictionary.Add(key, fcmPositionForCompare);
                             }
                         }
-                        
+
 
                         //bool found = false;
                         //int acctPosCount = 0;
@@ -418,11 +420,11 @@ namespace RealtimeSpreadMonitor.FormManipulation
                 }
 
 
-                
+
 
 
                 modelContractsAlreadyExamined.Clear();
-                
+
 
 
                 gridViewModelADMCompare.RowCount = FCM_DataImportLibrary.FCM_PostionList_forCompare.Count;
@@ -522,8 +524,10 @@ namespace RealtimeSpreadMonitor.FormManipulation
 
                     if (gridViewModelADMCompare.Rows[admRowCounter].HeaderCell.Value == null
                         ||
+                        (FCM_DataImportLibrary.FCM_PostionList_forCompare[admRowCounter].asset != null
+                        &&
                         gridViewModelADMCompare.Rows[admRowCounter].HeaderCell.Value.ToString().CompareTo(
-                            FCM_DataImportLibrary.FCM_PostionList_forCompare[admRowCounter].asset.cqgsymbol) != 0
+                            FCM_DataImportLibrary.FCM_PostionList_forCompare[admRowCounter].asset.cqgsymbol) != 0)
                         )
                     {
                         gridViewModelADMCompare.Rows[admRowCounter]
@@ -534,7 +538,7 @@ namespace RealtimeSpreadMonitor.FormManipulation
                         //        .HeaderCell.Style.BackColor = currentRowColor;
                     }
 
-                    
+
 
                     fillGridViewADMCompareFields(optionRealtimeMonitor, admRowCounter, (int)ADM_MODEL_POSITION_COMPARE_FIELDS_DISPLAYED.MODEL_OFFICE_ACCT,
                                 FCM_DataImportLibrary.FCM_PostionList_forCompare[admRowCounter].MODEL_OFFICE_ACCT,
@@ -692,57 +696,71 @@ namespace RealtimeSpreadMonitor.FormManipulation
 
         internal void setBackgroundZeroPrice_ModelADMCompare(OptionRealtimeMonitor optionRealtimeMonitor, int row, int col)
         {
-            DataGridView gridViewModelADMCompare = optionRealtimeMonitor.getGridViewModelADMCompare;
-
-            if (optionSpreadManager.zeroPriceContractList.Contains(
-                        FCM_DataImportLibrary.FCM_PostionList_forCompare[row].asset.cqgsymbol))
+            try
             {
-                fillGridViewADMCompareFields(optionRealtimeMonitor, row, (int)ADM_MODEL_POSITION_COMPARE_FIELDS_DISPLAYED.ZERO_PRICE,
-                        "true", Color.Red);
+                DataGridView gridViewModelADMCompare = optionRealtimeMonitor.getGridViewModelADMCompare;
 
-                fillGridViewADMCompareFields(optionRealtimeMonitor, row, (int)ADM_MODEL_POSITION_COMPARE_FIELDS_DISPLAYED.EXCEPTIONS,
-                        "false", Color.Cyan);
 
-                //optionSpreadManager.statusAndConnectedUpdates.markLiveAsConnected(gridViewModelADMCompare, row,
-                //    (int)ADM_MODEL_POSITION_COMPARE_FIELDS_DISPLAYED.REBALANCE,
-                //    false, Color.Red);
+                if (FCM_DataImportLibrary.FCM_PostionList_forCompare[row].asset != null
+                    &&
+                    optionSpreadManager.zeroPriceContractList.Contains(
+                            FCM_DataImportLibrary.FCM_PostionList_forCompare[row].asset.cqgsymbol))
+                {
+                    fillGridViewADMCompareFields(optionRealtimeMonitor, row, (int)ADM_MODEL_POSITION_COMPARE_FIELDS_DISPLAYED.ZERO_PRICE,
+                            "true", Color.Red);
+
+                    fillGridViewADMCompareFields(optionRealtimeMonitor, row, (int)ADM_MODEL_POSITION_COMPARE_FIELDS_DISPLAYED.EXCEPTIONS,
+                            "false", Color.Cyan);
+
+                    //optionSpreadManager.statusAndConnectedUpdates.markLiveAsConnected(gridViewModelADMCompare, row,
+                    //    (int)ADM_MODEL_POSITION_COMPARE_FIELDS_DISPLAYED.REBALANCE,
+                    //    false, Color.Red);
+                }
+                else if (FCM_DataImportLibrary.FCM_PostionList_forCompare[row].asset != null
+                    &&
+                    optionSpreadManager.exceptionContractList.Contains(
+                            FCM_DataImportLibrary.FCM_PostionList_forCompare[row].asset.cqgsymbol))
+                {
+                    fillGridViewADMCompareFields(optionRealtimeMonitor, row, (int)ADM_MODEL_POSITION_COMPARE_FIELDS_DISPLAYED.ZERO_PRICE,
+                            "false", Color.LightBlue);
+
+                    fillGridViewADMCompareFields(optionRealtimeMonitor, row, (int)ADM_MODEL_POSITION_COMPARE_FIELDS_DISPLAYED.EXCEPTIONS,
+                            "true", Color.MediumPurple);
+
+                    //optionSpreadManager.statusAndConnectedUpdates.markLiveAsConnected(gridViewModelADMCompare, row,
+                    //    (int)ADM_MODEL_POSITION_COMPARE_FIELDS_DISPLAYED.REBALANCE,
+                    //    false, Color.MediumPurple);
+                }
+                else
+                {
+
+                    fillGridViewADMCompareFields(optionRealtimeMonitor, row, (int)ADM_MODEL_POSITION_COMPARE_FIELDS_DISPLAYED.ZERO_PRICE,
+                            "false", Color.LightBlue);
+
+                    fillGridViewADMCompareFields(optionRealtimeMonitor, row, (int)ADM_MODEL_POSITION_COMPARE_FIELDS_DISPLAYED.EXCEPTIONS,
+                            "false", Color.Cyan);
+
+                    //if (FCM_DataImportLibrary.FCM_PostionList_forCompare != null && row < FCM_DataImportLibrary.FCM_PostionList_forCompare.Count
+                    //    && FCM_DataImportLibrary.FCM_PostionList_forCompare[row].rebalanceLots == 0)
+                    //{
+                    //    optionSpreadManager.statusAndConnectedUpdates.markLiveAsConnected(gridViewModelADMCompare, row,
+                    //        (int)ADM_MODEL_POSITION_COMPARE_FIELDS_DISPLAYED.REBALANCE,
+                    //        false, Color.LightGray);
+                    //}
+                    //else
+                    //{
+                    //    optionSpreadManager.statusAndConnectedUpdates.markLiveAsConnected(gridViewModelADMCompare, row,
+                    //        (int)ADM_MODEL_POSITION_COMPARE_FIELDS_DISPLAYED.REBALANCE,
+                    //        false, Color.Yellow);
+                    //}
+                }
+
             }
-            else if (optionSpreadManager.exceptionContractList.Contains(
-                        FCM_DataImportLibrary.FCM_PostionList_forCompare[row].asset.cqgsymbol))
+            catch (Exception ex)
             {
-                fillGridViewADMCompareFields(optionRealtimeMonitor, row, (int)ADM_MODEL_POSITION_COMPARE_FIELDS_DISPLAYED.ZERO_PRICE,
-                        "false", Color.LightBlue);
-
-                fillGridViewADMCompareFields(optionRealtimeMonitor, row, (int)ADM_MODEL_POSITION_COMPARE_FIELDS_DISPLAYED.EXCEPTIONS,
-                        "true", Color.MediumPurple);
-
-                //optionSpreadManager.statusAndConnectedUpdates.markLiveAsConnected(gridViewModelADMCompare, row,
-                //    (int)ADM_MODEL_POSITION_COMPARE_FIELDS_DISPLAYED.REBALANCE,
-                //    false, Color.MediumPurple);
+                TSErrorCatch.errorCatchOut(Convert.ToString(this), ex);
             }
-            else
-            {
 
-                fillGridViewADMCompareFields(optionRealtimeMonitor, row, (int)ADM_MODEL_POSITION_COMPARE_FIELDS_DISPLAYED.ZERO_PRICE,
-                        "false", Color.LightBlue);
-
-                fillGridViewADMCompareFields(optionRealtimeMonitor, row, (int)ADM_MODEL_POSITION_COMPARE_FIELDS_DISPLAYED.EXCEPTIONS,
-                        "false", Color.Cyan);
-
-                //if (FCM_DataImportLibrary.FCM_PostionList_forCompare != null && row < FCM_DataImportLibrary.FCM_PostionList_forCompare.Count
-                //    && FCM_DataImportLibrary.FCM_PostionList_forCompare[row].rebalanceLots == 0)
-                //{
-                //    optionSpreadManager.statusAndConnectedUpdates.markLiveAsConnected(gridViewModelADMCompare, row,
-                //        (int)ADM_MODEL_POSITION_COMPARE_FIELDS_DISPLAYED.REBALANCE,
-                //        false, Color.LightGray);
-                //}
-                //else
-                //{
-                //    optionSpreadManager.statusAndConnectedUpdates.markLiveAsConnected(gridViewModelADMCompare, row,
-                //        (int)ADM_MODEL_POSITION_COMPARE_FIELDS_DISPLAYED.REBALANCE,
-                //        false, Color.Yellow);
-                //}
-            }
         }
 
 

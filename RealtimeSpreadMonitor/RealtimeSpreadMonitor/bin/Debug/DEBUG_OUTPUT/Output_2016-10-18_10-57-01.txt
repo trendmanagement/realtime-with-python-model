@@ -1,4 +1,0 @@
-RealtimeSpreadMonitor.FormManipulation.GridViewFCMPostionManipulation System.ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection.
-Parameter name: index
-   at System.ThrowHelper.ThrowArgumentOutOfRangeException(ExceptionArgument argument, ExceptionResource resource)
-   at RealtimeSpreadMonitor.FormManipulation.GridViewFCMPostionManipulation.threadsafefillGridLiveADMData(OptionRealtimeMonitor optionRealtimeMonitor) in D:\RealtimeSpreadWithPythonModel\RealtimeSpreadMonitor\RealtimeSpreadMonitor\FormManipulation\GridViewFCMPostionManipulation.cs:line 135

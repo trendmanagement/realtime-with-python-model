@@ -307,7 +307,7 @@ namespace RealtimeSpreadMonitor
             /// </summary>
             /// 
             List<long> instrumentIdList = GetAllInstrumentIds();
-
+            //List<long> instrumentIdList = new List<long> { 2, 11, 21, 23, 31, 32, 33 };
 
 
             DataCollectionLibrary.instrumentList = MongoDBConnectionAndSetup.GetInstrumentListFromMongo(instrumentIdList);
@@ -317,7 +317,8 @@ namespace RealtimeSpreadMonitor
             DataCollectionLibrary.instrumentHashTable_keyadmcode = DataCollectionLibrary.instrumentList.ToDictionary(x => x.admcode, x => x);
 
             //sets up breakdown of instrument info
-            DataCollectionLibrary.instrumentInfoList = MongoDBConnectionAndSetup.GetInstrumentInfoListFromMongo(instrumentIdList);
+            DataCollectionLibrary.instrumentInfoList = MongoDBConnectionAndSetup.
+                GetInstrumentInfoListFromMongo(instrumentIdList);
 
             foreach (Instrument_Info ii in DataCollectionLibrary.instrumentInfoList)
             {
@@ -458,45 +459,64 @@ namespace RealtimeSpreadMonitor
                         //{
                             //move the values to the prev_qty variable in the archive of positions
                             //foreach (Position p_archive in archive[acctCnt].positions)
+
+                        
+
                             foreach (Position p_archive in archive.positions)
                             {                               
                                 p_archive.prev_qty = p_archive.qty;
 
                                 p_archive.qty = 0;
+
+                                if (!archive.compare_pos_dictionary_assetnamekey.ContainsKey(p_archive.asset.name))
+                                {
+                                    archive.compare_pos_dictionary_assetnamekey.Add(p_archive.asset.name, p_archive);
+                                }
                             }
 
                             DataCollectionLibrary.accountPositionsArchiveList.Add(archive);
 
+                        
+
+                            DataCollectionLibrary.archive_pos_dictionary.Add(archive.name, archive);
                             //
 
-                            //break;
+                        //break;
                         //}
 
                         //acctCnt++;
                     }                    
                 }
+
+                
             }
 
-            Dictionary<string, AccountPosition> archive_pos_dictionary = DataCollectionLibrary.accountPositionsArchiveList.ToDictionary(x => x.name, x => x);
+//            Dictionary<string, AccountPosition> archive_pos_dictionary = DataCollectionLibrary.accountPositionsArchiveList.ToDictionary(x => x.name, x => x);
+
 
             List<AccountPosition> new_pos = MongoDBConnectionAndSetup.GetAccountPositionsInfoFromMongo(DataCollectionLibrary.accountNameList);
 
-            Dictionary<string, AccountPosition> new_pos_dictionary = new_pos.ToDictionary(x => x.name, x => x);
+            //Dictionary<string, AccountPosition> new_pos_dictionary = new_pos.ToDictionary(x => x.name, x => x);
 
 
             foreach (AccountPosition ap in new_pos)
             {
-                if (archive_pos_dictionary.ContainsKey(ap.name))
+                if (DataCollectionLibrary.archive_pos_dictionary.ContainsKey(ap.name))
                 {
-                    AccountPosition prev_acctpos = archive_pos_dictionary[ap.name];
+                    AccountPosition prev_acctpos = DataCollectionLibrary.archive_pos_dictionary[ap.name];
 
-                    Dictionary<string, Position> compare_pos_dictionary = prev_acctpos.positions.ToDictionary(x => x.asset.name, x => x);
+                    //Dictionary<string, Position> compare_pos_dictionary = prev_acctpos.positions.ToDictionary(x => x.asset.name, x => x);
+
+                    foreach (Position p_archive in prev_acctpos.positions)
+                    {
+                        p_archive.comparedTo_Archive_OnInitialization = false;
+                    }
 
                     foreach (Position p in ap.positions)
                     {
-                        if (compare_pos_dictionary.ContainsKey(p.asset.name))
+                        if (prev_acctpos.compare_pos_dictionary_assetnamekey.ContainsKey(p.asset.name))
                         {
-                            Position archive_p = compare_pos_dictionary[p.asset.name];
+                            Position archive_p = prev_acctpos.compare_pos_dictionary_assetnamekey[p.asset.name];
 
                             //the qty has been moved to the prev_qty in the archive data
                             //so use the prev_qty from archive to fill the prev_qty in the currently held data
@@ -506,20 +526,28 @@ namespace RealtimeSpreadMonitor
                         }
 
                     }
+
+                    foreach (Position p_archive in prev_acctpos.positions)
+                    {
+                        if (!p_archive.comparedTo_Archive_OnInitialization)
+                        {
+                            ap.positions.Add(p_archive);
+                        }
+                    }
                 }
-                else
+                /*else
                 {
                     foreach (Position p in ap.positions)
                     {
                         p.prev_qty = 0;
                     }
-                }
+                }*/
 
                 
             }
 
 
-            foreach (AccountPosition ap_archive in DataCollectionLibrary.accountPositionsArchiveList)
+            /*foreach (AccountPosition ap_archive in DataCollectionLibrary.accountPositionsArchiveList)
             {
                 if (new_pos_dictionary.ContainsKey(ap_archive.name))
                 {
@@ -543,7 +571,7 @@ namespace RealtimeSpreadMonitor
                     }
                 }
 
-            }
+            }*/
 
 
 
@@ -601,13 +629,14 @@ namespace RealtimeSpreadMonitor
 
             List<long> instrumentIdList = new List<long>();
 
-            foreach (AccountPosition ap in DataCollectionLibrary.accountPositionsList)
+            foreach (Account account in DataCollectionLibrary.accountList)
             {
-                foreach (Position p in ap.positions)
+                foreach (long instrumentid in account.instruments)
                 {
-                    if (!instrumentIdList.Contains(p.asset.idinstrument))
+                    if (!instrumentIdList.Contains(instrumentid))
                     {
-                        instrumentIdList.Add(p.asset.idinstrument);
+                        TSErrorCatch.debugWriteOut(instrumentid + "");
+                        instrumentIdList.Add(instrumentid);
                     }
                 }
             }
@@ -2557,7 +2586,7 @@ namespace RealtimeSpreadMonitor
         internal void fillInRestOfADMWebInputDataFrom_Mongo_AndAzure(
             ADMPositionImportWeb FCM_DatatImportedRow_Local)
         {
-
+            try
             {
                 FCM_DatatImportedRow_Local.dateTime = DateTime.Now.Date;
 
@@ -2596,7 +2625,7 @@ namespace RealtimeSpreadMonitor
                             FCM_DatatImportedRow_Local.asset.optionyear,
                             FCM_DatatImportedRow_Local.instrument.idinstrument,
                             FCM_DatatImportedRow_Local.PSUBTY, FCM_DatatImportedRow_Local.strikeInDecimal,
-                            FCM_DatatImportedRow_Local.asset.optioncode, true);
+                            FCM_DatatImportedRow_Local.asset.optioncode.Trim(), true);
 
                     }
                     else
@@ -2722,6 +2751,11 @@ namespace RealtimeSpreadMonitor
                 }
 
             }
+            catch
+            {
+                TSErrorCatch.debugWriteOut("error filling in FCM data");
+            }
+
         }
 
 

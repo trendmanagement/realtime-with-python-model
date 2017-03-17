@@ -1,14 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MongoDB.Bson;
 using MongoDB.Driver;
-using Newtonsoft.Json;
-using MongoDB.Bson.Serialization;
 using RealtimeSpreadMonitor.Model;
-using AutoMapper;
 
 namespace RealtimeSpreadMonitor.Mongo
 {
@@ -136,12 +130,13 @@ namespace RealtimeSpreadMonitor.Mongo
             }
         }
 
-        internal static List<Instrument_mongo> GetInstrumentListFromMongo(List<long> instrumentIdList)
+        internal static List<Instrument_mongo> GetInstrumentListFromMongo(List<long> instrumentIdList)//List<long> instrumentIdList)
         {
             try
             {
                 var builder = Builders<Instrument_mongo>.Filter;
                 var filter = builder.In(x => x.idinstrument, instrumentIdList);
+                //var filter = builder.In(x => x.exchangesymbol, instrumentExchangeSymbolList);
 
                 return _instrumentCollection.Find(filter).ToList();
             }
@@ -315,34 +310,6 @@ namespace RealtimeSpreadMonitor.Mongo
 
                 portfolioAllocation
                     = _portfolioCollection.Find(filterForPortfolio).First<PortfolioAllocation_Mongo>();
-
-
-
-                //Mapper.Initialize(cfg => cfg.CreateMap<Contract_mongo, Asset>());
-
-                //foreach (Contract_mongo contract in contractQuery)
-                //{
-                //    Console.WriteLine(contract.idcontract + " " + contract.idinstrument + " " + contract.contractname
-                //        + " " + contract.expirationdate);
-
-                //    Asset asset = Mapper.Map<Asset>(contract);
-
-                //    asset._type = ASSET_TYPE_MONGO.fut.ToString();
-
-                //    MongoDB_OptionSpreadExpression mose = new MongoDB_OptionSpreadExpression(
-                //        OPTION_SPREAD_CONTRACT_TYPE.FUTURE,
-                //            OPTION_EXPRESSION_TYPES.SPREAD_LEG_PRICE);
-
-                //    mose.asset = asset;
-
-                //    DataCollectionLibrary.optionSpreadExpressionList.Add(mose);
-
-                //    var key = Tuple.Create(asset.idcontract, asset._type);
-
-                //    DataCollectionLibrary.optionSpreadExpressionHashTable_key_Id_Type
-                //        .TryAdd(key, mose);
-
-                //}
 
 
             }

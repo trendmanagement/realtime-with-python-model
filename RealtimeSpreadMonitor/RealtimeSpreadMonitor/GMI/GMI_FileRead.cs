@@ -234,7 +234,8 @@ namespace RealtimeSpreadMonitor.GMI
         {
             if (stringList.Count > 64
                 &&
-                (stringList[(int)RCG_TRND.FRECID].CompareTo("C") != 0))
+                (stringList[(int)RCG_TRND.FRECID].CompareTo("T") == 0
+                || stringList[(int)RCG_TRND.FRECID].CompareTo("P") == 0))
             {
 
                 ADMPositionImportWeb aDMSummaryImport = new ADMPositionImportWeb();

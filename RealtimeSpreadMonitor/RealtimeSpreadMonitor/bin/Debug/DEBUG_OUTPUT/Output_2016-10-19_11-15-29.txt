@@ -1,8 +1,0 @@
-RealtimeSpreadMonitor.OptionCQGDataManagement System.Runtime.InteropServices.COMException (0x80004005): Failed to process the instrument. Symbol name cannot be empty.
-See CQG OpenAPI Help for more details.
-   at CQG.ICQGCEL.NewInstrument(String symbol_)
-   at RealtimeSpreadMonitor.OptionCQGDataManagement.sendSubscribeRequestRun(Object obj) in D:\RealtimeSpreadWithPythonModel\RealtimeSpreadMonitor\RealtimeSpreadMonitor\OptionCQGDataManagement.cs:line 1130
-RealtimeSpreadMonitor.OptionCQGDataManagement System.Runtime.InteropServices.COMException (0x80004005): Failed to process the instrument. Symbol name cannot be empty.
-See CQG OpenAPI Help for more details.
-   at CQG.ICQGCEL.NewInstrument(String symbol_)
-   at RealtimeSpreadMonitor.OptionCQGDataManagement.sendSubscribeRequestRun(Object obj) in D:\RealtimeSpreadWithPythonModel\RealtimeSpreadMonitor\RealtimeSpreadMonitor\OptionCQGDataManagement.cs:line 1130

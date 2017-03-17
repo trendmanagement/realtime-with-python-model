@@ -1,6 +1,0 @@
-F.CLEZ16
-F.CLEZ16
-F.CLEZ16
-F.CLEZ16
-System.NullReferenceException: Object reference not set to an instance of an object.
-   at RealtimeSpreadMonitor.OptionSpreadManager.setupAdmWebInputDataFromAzure() in D:\RealtimeSpreadWithPythonModel\RealtimeSpreadMonitor\RealtimeSpreadMonitor\OptionSpreadManager.cs:line 2528

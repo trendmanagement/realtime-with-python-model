@@ -1,8 +1,0 @@
-F.CLEZ16
-F.CLEZ16
-F.CLEZ16
-F.CLEZ16
-RealtimeSpreadMonitor.OptionCQGDataManagement System.NullReferenceException: Object reference not set to an instance of an object.
-   at RealtimeSpreadMonitor.OptionSpreadManager.RunADMSpreadTotalCalculations(HashSet`1 admPositionImportWebUpdated) in D:\RealtimeSpreadWithPythonModel\RealtimeSpreadMonitor\RealtimeSpreadMonitor\OptionSpreadManager.cs:line 1508
-   at RealtimeSpreadMonitor.OptionCQGDataManagement.calculateModelValuesAndSummarizeTotals() in D:\RealtimeSpreadWithPythonModel\RealtimeSpreadMonitor\RealtimeSpreadMonitor\OptionCQGDataManagement.cs:line 1978
-   at RealtimeSpreadMonitor.OptionCQGDataManagement.calculateModelValuesAndSummarizeTotalsThreadRun(Object obj) in D:\RealtimeSpreadWithPythonModel\RealtimeSpreadMonitor\RealtimeSpreadMonitor\OptionCQGDataManagement.cs:line 1891

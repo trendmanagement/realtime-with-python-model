@@ -1,9 +1,0 @@
-RealtimeSpreadMonitor.Forms.OptionRealtimeMonitor, Text:   Version:2.0.6135.18659 System.ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection.
-Parameter name: index
-   at System.ThrowHelper.ThrowArgumentOutOfRangeException(ExceptionArgument argument, ExceptionResource resource)
-   at RealtimeSpreadMonitor.Forms.OptionRealtimeMonitor.updateSetupExpressionListGridView() in D:\RealtimeSpreadWithPythonModel\RealtimeSpreadMonitor\RealtimeSpreadMonitor\Forms\OptionRealtimeMonitor.cs:line 832
-RealtimeSpreadMonitor.FormManipulation.GridViewContractSummaryManipulation System.ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection.
-Parameter name: index
-   at System.ThrowHelper.ThrowArgumentOutOfRangeException(ExceptionArgument argument, ExceptionResource resource)
-   at System.Collections.Generic.List`1.get_Item(Int32 index)
-   at RealtimeSpreadMonitor.FormManipulation.GridViewContractSummaryManipulation.setupContractSummaryLiveData(OptionRealtimeMonitor optionRealtimeMonitor) in D:\RealtimeSpreadWithPythonModel\RealtimeSpreadMonitor\RealtimeSpreadMonitor\FormManipulation\GridViewContractSummaryManipulation.cs:line 125

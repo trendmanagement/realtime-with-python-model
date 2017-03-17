@@ -58,7 +58,7 @@ namespace RealtimeSpreadMonitor.Model
         internal static List<AccountPosition> accountPositionsArchiveList
             = new List<AccountPosition>();
 
-
+        internal static Dictionary<string, AccountPosition> archive_pos_dictionary = new Dictionary<string, AccountPosition>();
 
         internal static List<Instrument_mongo> instrumentList
             = new List<Instrument_mongo>();

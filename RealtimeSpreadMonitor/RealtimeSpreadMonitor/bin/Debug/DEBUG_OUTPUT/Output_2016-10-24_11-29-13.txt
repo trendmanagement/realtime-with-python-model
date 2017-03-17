@@ -1,3 +1,0 @@
-RealtimeSpreadMonitor.OptionCQGDataManagement System.Runtime.InteropServices.COMException (0x80004005): Failed to request bars of type 'struct ICQGTimedBars'. The range start is not specified.
-   at CQG.ICQGCEL.RequestTimedBars(CQGTimedBarsRequest cqg_timed_bars_request)
-   at RealtimeSpreadMonitor.OptionCQGDataManagement.requestFutureContractTimeBars(MongoDB_OptionSpreadExpression optionSpreadExpression, Int32 optionSpreadExpressionIdx) in D:\RealtimeSpreadWithPythonModel\RealtimeSpreadMonitor\RealtimeSpreadMonitor\OptionCQGDataManagement.cs:line 896

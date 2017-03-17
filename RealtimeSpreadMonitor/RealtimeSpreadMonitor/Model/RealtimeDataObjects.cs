@@ -79,6 +79,8 @@ namespace RealtimeSpreadMonitor.Model
         public string name { get; set; }
 
         public AccountInfo info { get; set; }
+
+        public List<long> instruments { get; set; }
     }
 
     [BsonIgnoreExtraElements]
@@ -160,7 +162,7 @@ namespace RealtimeSpreadMonitor.Model
         public int qty { get; set; }
 
         [BsonIgnore]
-        public int prev_qty { get; set; }
+        public int prev_qty { get; set; } = 0;
 
         public Asset asset { get; set; }
 
@@ -197,6 +199,8 @@ namespace RealtimeSpreadMonitor.Model
         public List<Position> positions { get; set; }
 
         public AccountAllocation accountAllocation { get; set; }
+
+        public Dictionary<string, Position> compare_pos_dictionary_assetnamekey = new Dictionary<string, Position>();
     }
 
     [BsonIgnoreExtraElements]
