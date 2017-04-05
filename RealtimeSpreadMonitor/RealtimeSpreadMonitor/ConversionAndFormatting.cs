@@ -104,6 +104,12 @@ namespace RealtimeSpreadMonitor
             {
                 return barVal;
             }
+            else if (idinstrument == 2)
+            {
+
+                return barVal;
+                
+            }
             else if (idinstrument == 3)
             {
                 return barVal;

@@ -908,6 +908,23 @@ namespace RealtimeSpreadMonitor.Forms
                         product_code = FCM_DataImportLibrary.FCM_PostionList_forCompare[contractCount].asset.productcode;
 
 
+                        if (FCM_DataImportLibrary.FCM_PostionList_forCompare[contractCount].asset._type.CompareTo("fut") == 0)
+                        {
+                            callPutOrFuture = OPTION_SPREAD_CONTRACT_TYPE.FUTURE;
+                        }
+                        else
+                        {
+                            char typeSymbol = FCM_DataImportLibrary.FCM_PostionList_forCompare[contractCount].asset.callorput;
+
+                            if (typeSymbol.CompareTo('C') == 0)
+                            {
+                                callPutOrFuture = OPTION_SPREAD_CONTRACT_TYPE.CALL;
+                            }
+                            else
+                            {
+                                callPutOrFuture = OPTION_SPREAD_CONTRACT_TYPE.PUT;
+                            }
+                        }
 
 
 
@@ -920,58 +937,9 @@ namespace RealtimeSpreadMonitor.Forms
                             impliedVol = FCM_DataImportLibrary.FCM_PostionList_forCompare[contractCount]
                                 .optionSpreadExpression.impliedVol * 100;
 
-                            //yearFraction = FCM_DataImportLibrary.FCM_PostionList_forCompare[contractCount].optionSpreadExpression.asset.yearFraction
-                            //    * 365;
-
                             
 
-                            /*contractYear =
-                                FCM_DataImportLibrary.FCM_PostionList_forCompare[contractCount].optionSpreadExpression.asset.year;  //futureContractYear;
-                            contractMonth =
-                                FCM_DataImportLibrary.FCM_PostionList_forCompare[contractCount].optionSpreadExpression.asset.monthint; //futureContractMonthInt;
-                            optionYear =
-                                FCM_DataImportLibrary.FCM_PostionList_forCompare[contractCount].optionSpreadExpression.asset.optionyear; //optionYear;
-                            optionMonth =
-                                FCM_DataImportLibrary.FCM_PostionList_forCompare[contractCount].optionSpreadExpression.asset.optionmonthint; //optionMonthInt;
-
-                            product_code = FCM_DataImportLibrary.FCM_PostionList_forCompare[contractCount].asset.productcode;
-                            */
-
-                        }
-                        //else if (FCM_DataImportLibrary.FCM_PostionList_forCompare[contractCount] != null &&
-                        //    FCM_DataImportLibrary.FCM_PostionList_forCompare[contractCount].optionSpreadExpression != null)
-                        //{
-                        //    callPutOrFuture = FCM_DataImportLibrary.FCM_PostionList_forCompare[contractCount]
-                        //        .optionSpreadExpression.callPutOrFuture;
-
-                        //    defaultPrice = FCM_DataImportLibrary.FCM_PostionList_forCompare[contractCount]
-                        //        .optionSpreadExpression.defaultPrice;
-
-                        //    impliedVol = FCM_DataImportLibrary.FCM_PostionList_forCompare[contractCount]
-                        //        .optionSpreadExpression.impliedVol * 100;
-
-                        //    yearFraction = FCM_DataImportLibrary.FCM_PostionList_forCompare[contractCount]
-                        //        .optionSpreadExpression.asset.yearFraction
-                        //        * 365;
-
-                        //    strikePrice = FCM_DataImportLibrary.FCM_PostionList_forCompare[contractCount]
-                        //        .optionSpreadExpression.asset.strikeprice;
-
-                        //    contractYear =
-                        //        FCM_DataImportLibrary.FCM_PostionList_forCompare[contractCount]
-                        //        .optionSpreadExpression.futureContractYear;
-                        //    contractMonth =
-                        //        FCM_DataImportLibrary.FCM_PostionList_forCompare[contractCount]
-                        //        .optionSpreadExpression.futureContractMonthInt;
-                        //    optionYear =
-                        //        FCM_DataImportLibrary.FCM_PostionList_forCompare[contractCount]
-                        //        .optionSpreadExpression.optionYear;
-                        //    optionMonth =
-                        //        FCM_DataImportLibrary.FCM_PostionList_forCompare[contractCount]
-                        //        .optionSpreadExpression.optionMonthInt;
-
-                        //    product_code = FCM_DataImportLibrary.FCM_PostionList_forCompare[contractCount].asset.productcode;
-                        //}
+                        }                        
                         else
                         {
                             //callPutOrFuture = FCM_DataImportLibrary.FCM_PostionList_forCompare[contractCount].callPutOrFuture;
@@ -984,22 +952,36 @@ namespace RealtimeSpreadMonitor.Forms
 
                             double riskFreeRate = Convert.ToDouble(riskFreeTextBox.Text) / 100;
 
-                            if (callPutOrFuture == OPTION_SPREAD_CONTRACT_TYPE.FUTURE)
+                            //                            if (callPutOrFuture == OPTION_SPREAD_CONTRACT_TYPE.FUTURE)
+                            if(FCM_DataImportLibrary.FCM_PostionList_forCompare[contractCount].asset._type.CompareTo("fut") == 0)
                             {
                                 defaultPrice = FCM_DataImportLibrary.FCM_PostionList_forCompare[contractCount].futurePriceUsedToCalculateStrikes;
+
+                                //callPutOrFuture = OPTION_SPREAD_CONTRACT_TYPE.FUTURE;
                             }
                             else
                             {
-                                char typeSymbol = 'P';
+                                //char typeSymbol = 'P';
 
-                                if (callPutOrFuture
-                                    == OPTION_SPREAD_CONTRACT_TYPE.CALL)
-                                {
-                                    typeSymbol = 'C';
-                                }
+                                //if (callPutOrFuture
+                                //    == OPTION_SPREAD_CONTRACT_TYPE.CALL)
+                                //{
+                                //    typeSymbol = 'C';
+                                //}
 
+                                //char typeSymbol = FCM_DataImportLibrary.FCM_PostionList_forCompare[contractCount].asset.callorput;
 
-                                defaultPrice = OptionCalcs.blackScholes(typeSymbol,
+                                //if(typeSymbol.CompareTo('C') == 0)
+                                //{
+                                //    callPutOrFuture = OPTION_SPREAD_CONTRACT_TYPE.CALL;
+                                //}
+                                //else
+                                //{
+                                //    callPutOrFuture = OPTION_SPREAD_CONTRACT_TYPE.PUT;
+                                //}
+
+                                defaultPrice = OptionCalcs.blackScholes(
+                                    FCM_DataImportLibrary.FCM_PostionList_forCompare[contractCount].asset.callorput,
                                     FCM_DataImportLibrary.FCM_PostionList_forCompare[contractCount].futurePriceUsedToCalculateStrikes,
                                             strikePrice,
                                             yearFraction / 365, riskFreeRate,
