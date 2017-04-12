@@ -31,9 +31,6 @@ namespace RealtimeSpreadMonitor
 
         public String strike;
 
-        //public LegInfo contractInfo = new LegInfo();
-        //public LegData contractData = new LegData();
-
         public LiveSpreadTotals positionTotals = new LiveSpreadTotals();
 
         public double modelLots;
@@ -253,41 +250,12 @@ namespace RealtimeSpreadMonitor
         public MongoDB_OptionSpreadExpression optionSpreadExpression;
     }
 
-
-    //public class LiveADMStrategyInfo
-    //{
-    //    public int idStrategy;
-    //    public int idinstrument;
-
-    //    public int indexOfInstrumentInInstrumentsArray;
-
-    //    public bool holdsPosition;
-
-    //    public OptionStrategy optionStrategy = null;
-    //    public Instrument instrument = null;
-
-    //    //public List<ADMLegInfoData> admLegInfo = new List<ADMLegInfoData>(5);
-
-    //    public ADMLegInfoData admLegInfo = new ADMLegInfoData();
-
-    //    public LiveSpreadTotals deltaHedgeADMTotals = new LiveSpreadTotals();
-    //    public LiveSpreadTotals liveSpreadADMTotals = new LiveSpreadTotals();
-
-    //    //public int topRowIdx;
-    //    //public int summaryRowIdx;
-    //}
-
     public class ADMDragOverData
     {
         public ADM_IMPORT_FILE_TYPES fileType;
         public int row;
     }
 
-//     public class ADMGridDataMap
-//     {
-//         public int idStrategy;
-//         public OPTION_LIVE_ADM_DATA_MAP_ROW_TYPE rowType;
-//     }
 
     internal enum BrokerImportFiles
     {

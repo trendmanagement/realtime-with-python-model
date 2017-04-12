@@ -16,23 +16,15 @@ namespace RealtimeSpreadMonitor
     {
         OptionSpreadManager optionSpreadManager;
 
-        //ConcurrentDictionary<string, int> optionSpreadExpressionFutureTimedBarsListIdx = new ConcurrentDictionary<string, int>();
-
-        //ConcurrentDictionary<string, int> optionSpreadExpressionCheckSubscribedListIdx = new ConcurrentDictionary<string, int>();
-        //ConcurrentDictionary<string, int> optionSpreadExpressionListHashTableIdx = new ConcurrentDictionary<string, int>();
-
-
         CQG.CQGCEL m_CEL;
-
-        private bool resetOrderPageOnceAllDataIn = false;
 
 
         private Thread subscriptionThread;
         private bool subscriptionThreadShouldStop = false;
         private const int SUBSCRIPTION_TIMEDELAY_CONSTANT = 125;
 
-        private Thread calculateModelValuesAndSummarizeTotalsThread;
-        private bool calculateModelValuesThreadShouldStop = false;
+        //private Thread calculateModelValuesAndSummarizeTotalsThread;
+        //private bool calculateModelValuesThreadShouldStop = false;
 
 
         public OptionCQGDataManagement(
@@ -49,8 +41,8 @@ namespace RealtimeSpreadMonitor
             if (subscriptionThread != null && subscriptionThread.IsAlive)
                 subscriptionThreadShouldStop = true;
 
-            if (calculateModelValuesAndSummarizeTotalsThread != null && calculateModelValuesAndSummarizeTotalsThread.IsAlive)
-                calculateModelValuesThreadShouldStop = true;
+            //if (calculateModelValuesAndSummarizeTotalsThread != null && calculateModelValuesAndSummarizeTotalsThread.IsAlive)
+            //    calculateModelValuesThreadShouldStop = true;
 
         }
 
@@ -58,7 +50,7 @@ namespace RealtimeSpreadMonitor
         {
             subscriptionThreadShouldStop = false;
 
-            calculateModelValuesThreadShouldStop = false;
+            //calculateModelValuesThreadShouldStop = false;
         }
 
         public void shutDownCQGConn()
@@ -438,13 +430,7 @@ namespace RealtimeSpreadMonitor
 
                                     }
 
-                                    //if (!ose.transactionPriceFilled
-                                    //    && cqg_TimedBarsIn[timedBarsInCounter].Timestamp
-                                    //    .CompareTo(ose.todayTransactionTimeBoundary) >= 0)
-                                    //{
-                                    //    //ose.reachedTransactionTimeBoundary = true;
-                                    //    ose.transactionPriceFilled = true;
-                                    //}
+
 
                                     if (//!ose.decisionPriceFilled
                                         //&& 
@@ -456,29 +442,7 @@ namespace RealtimeSpreadMonitor
 
                                         ose.decisionPriceTime = cqg_TimedBarsIn[timedBarsInCounter].Timestamp;
                                     }
-
-                                    //if (!ose.decisionPriceFilled
-                                    //    && cqg_TimedBarsIn[timedBarsInCounter].Timestamp
-                                    //    .CompareTo(ose.todayDecisionTime) >= 0)
-                                    //{
-                                    //    //ose.reachedDecisionBar = true;
-                                    //    ose.decisionPriceFilled = true;
-                                    //}
-
-                                    //if (!ose.reachedBarAfterDecisionBar
-                                    //    && cqg_TimedBarsIn[timedBarsInCounter].Timestamp
-                                    //    .CompareTo(ose.todayDecisionTime) > 0)
-                                    //{
-                                    //    ose.reachedBarAfterDecisionBar = true;
-                                    //}
-
-                                    //if (!ose.reached1MinAfterDecisionBarUsedForSnapshot
-                                    //    && cqg_TimedBarsIn[timedBarsInCounter].Timestamp
-                                    //    .CompareTo(ose.todayDecisionTime.AddMinutes(1)) > 0)
-                                    //{
-                                    //    ose.reached1MinAfterDecisionBarUsedForSnapshot = true;
-                                    //}
-
+                                    
 
                                     timedBarsInCounter++;
 
@@ -564,12 +528,7 @@ namespace RealtimeSpreadMonitor
 
                             }
 
-                            //if (!ose.transactionPriceFilled
-                            //    && cqg_TimedBarsIn[lastTimedBarInIndex].Timestamp
-                            //    .CompareTo(ose.todayTransactionTimeBoundary) >= 0)
-                            //{
-                            //    ose.transactionPriceFilled = true;
-                            //}
+
 
                             if (//!ose.decisionPriceFilled
                                 //&& 
@@ -582,28 +541,7 @@ namespace RealtimeSpreadMonitor
                                 ose.decisionPrice = cqg_TimedBarsIn[lastTimedBarInIndex].Close;
 
                                 ose.decisionPriceTime = cqg_TimedBarsIn[lastTimedBarInIndex].Timestamp;
-                            }
-
-                            //if (!ose.decisionPriceFilled
-                            //    && cqg_TimedBarsIn[lastTimedBarInIndex].Timestamp
-                            //    .CompareTo(ose.todayDecisionTime) >= 0)
-                            //{
-                            //    ose.decisionPriceFilled = true;
-                            //}
-
-                            //if (!ose.reachedBarAfterDecisionBar
-                            //    && cqg_TimedBarsIn[lastTimedBarInIndex].Timestamp
-                            //    .CompareTo(ose.todayDecisionTime) > 0)
-                            //{
-                            //    ose.reachedBarAfterDecisionBar = true;
-                            //}
-
-                            //if (!ose.reached1MinAfterDecisionBarUsedForSnapshot
-                            //    && cqg_TimedBarsIn[lastTimedBarInIndex].Timestamp
-                            //    .CompareTo(ose.todayDecisionTime.AddMinutes(1)) > 0)
-                            //{
-                            //    ose.reached1MinAfterDecisionBarUsedForSnapshot = true;
-                            //}
+                            }                            
 
 
                             lastTimedBarInIndex++;
@@ -721,24 +659,12 @@ namespace RealtimeSpreadMonitor
             try
 #endif
             {
-                //if (this.InvokeRequired)
-                {
-                    //ThreadSafeSendSubscribeRequestRunDelegate d = new ThreadSafeSendSubscribeRequestRunDelegate(sendSubscribeRequestRun);
 
-                    //optionSpreadExpressionFutureTimedBarsListIdx.Clear();
+                subscriptionThread = new Thread(new ParameterizedThreadStart(sendSubscribeRequestRun));
+                subscriptionThread.IsBackground = true;
+                subscriptionThread.Start(sendOnlyUnsubscribed);
 
-                    subscriptionThread = new Thread(new ParameterizedThreadStart(sendSubscribeRequestRun));
-                    subscriptionThread.IsBackground = true;
-                    subscriptionThread.Start(sendOnlyUnsubscribed);
 
-                    //ThreadPool.QueueUserWorkItem(new WaitCallback(sendSubscribeRequestRun));
-
-                    //this.Invoke(d, sendOnlyUnsubscribed);
-                }
-                //                 else
-                //                 {
-                //                     sendSubscribeRequestRun(sendOnlyUnsubscribed);
-                //                 }
             }
 #if DEBUG
             catch (Exception ex)
@@ -936,17 +862,6 @@ namespace RealtimeSpreadMonitor
 
         public void manageExpressionPriceCalcs(MongoDB_OptionSpreadExpression optionSpreadExpression)
         {
-            //             if (!optionSpreadExpression.riskFreeRateFilled)
-            //             {
-            //                 optionSpreadExpression.riskFreeRate = 0.01;
-            //             }
-
-            //if (!optionSpreadManager.realtimeMonitorSettings.eodAnalysis)
-            //optionSpreadExpression.lastTimeUpdated = DateTime.Now;
-
-            //             fillPricesFromQuote(optionSpreadExpression, quotes);
-            // 
-            //             fillDefaultPrice(optionSpreadExpression);
 
             if (optionSpreadExpression.optionExpressionType == OPTION_EXPRESSION_TYPES.OPTION_EXPRESSION_RISK_FREE_RATE)
             {
@@ -973,39 +888,7 @@ namespace RealtimeSpreadMonitor
 
                     optionSpreadExpression.impliedVol = 0;
                     optionSpreadExpression.delta = 1 * TradingSystemConstants.OPTION_DELTA_MULTIPLIER;
-
-                    ///Below fills decision bar for future and options of future
-                    //if (optionSpreadExpression.decisionBar != null)
-                    //{
-                    //    optionSpreadExpression.decisionPrice 
-                    //        = optionSpreadExpression.futureTimedBars[optionSpreadExpression.decisionBarIdx].Close;
-
-                    //    optionSpreadExpression.decisionPriceTime = optionSpreadExpression.decisionBar.Timestamp;
-
-                    //    if (optionSpreadExpression.reachedDecisionBar)
-                    //    {
-                    //        optionSpreadExpression.decisionPriceFilled = true;
-                    //    }
-                    //}
-
-
-                    //if (optionSpreadExpression.todayTransactionBar != null)
-                    //{
-                    //    optionSpreadExpression.transactionPrice =
-                    //        optionSpreadExpression.todayTransactionBar.Close;
-
-                    //    optionSpreadExpression.transactionPriceTime =
-                    //        optionSpreadExpression.todayTransactionBar.Timestamp;
-
-                    //    if (optionSpreadExpression.reachedTransactionTimeBoundary)
-                    //    {
-                    //        optionSpreadExpression.transactionPriceFilled = true;
-                    //    }
-
-                    //}
-
-                    //TSErrorCatch.debugWriteOut(optionSpreadExpression.asset.cqgsymbol + " " + optionSpreadExpression.optionExpressionsThatUseThisFutureAsUnderlying.Count());
-
+                    
                     foreach (MongoDB_OptionSpreadExpression optionSpreadThatUsesFuture in optionSpreadExpression.optionExpressionsThatUseThisFutureAsUnderlying)
                     {
                         generatingGreeksAndImpliedVol(optionSpreadThatUsesFuture);
@@ -1166,7 +1049,6 @@ namespace RealtimeSpreadMonitor
 
         public void fillEODSubstitutePrices(MongoDB_OptionSpreadExpression optionSpreadExpression)
         {
-            //if (optionSpreadManager.realtimeMonitorSettings.eodAnalysis
             if (optionSpreadExpression.instrument != null
                 && optionSpreadExpression.instrument.eodAnalysisAtInstrument
                 && optionSpreadExpression.substituteSubscriptionRequest)
@@ -1617,21 +1499,6 @@ namespace RealtimeSpreadMonitor
                     //optionSpreadExpression.reachedTransactionTimeBoundary = futureExpression.reachedTransactionTimeBoundary;
                 }
 
-                //optionSpreadExpression.defaultPrice = optionSpreadExpression.theoreticalOptionPrice;
-
-                //CHANGED DEC 30 2015 
-                //if (optionSpreadExpression.instrument.eodAnalysisAtInstrument)
-                //{
-                //    optionSpreadExpression.defaultPrice =
-                //        optionSpreadExpression.transactionPrice;
-
-                //    optionSpreadExpression.minutesSinceLastUpdate = 0;
-
-                //    optionSpreadExpression.lastTimeUpdated =
-                //        optionSpreadExpression.transactionPriceTime;
-
-                //    optionSpreadExpression.defaultPriceFilled = true;
-                //}
             }
         }
 
@@ -1761,56 +1628,7 @@ namespace RealtimeSpreadMonitor
             }
         }
 
-        //        public void setupCalculateModelValuesAndSummarizeTotals()
-        //        {
-
-        //#if DEBUG
-        //            try
-        //#endif
-        //            {
-        //                calculateModelValuesAndSummarizeTotalsThread = new Thread(new ParameterizedThreadStart(calculateModelValuesAndSummarizeTotalsThreadRun));
-        //                calculateModelValuesAndSummarizeTotalsThread.IsBackground = true;
-        //                calculateModelValuesAndSummarizeTotalsThread.Start();
-        //            }
-        //#if DEBUG
-        //            catch (Exception ex)
-        //            {
-        //                TSErrorCatch.errorCatchOut(Convert.ToString(this), ex);
-        //            }
-        //#endif
-
-        //        }
-
-        //private void calculateModelValuesAndSummarizeTotalsThreadRun(Object obj)
-        //{
-        //    ThreadTracker.openThread(null, null);
-
-        //    try
-        //    {
-        //        while (!calculateModelValuesThreadShouldStop)
-        //        {
-        //            calculateModelValuesAndSummarizeTotals();
-
-        //            Thread.Sleep(TradingSystemConstants.MODEL_CALC_TIME_REFRESH);
-
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        TSErrorCatch.errorCatchOut(Convert.ToString(this), ex);
-        //    }
-
-        //    ThreadTracker.closeThread(null, null);
-        //}
-
-        //private void calculateModelValuesAndSummarizeTotals()
-        //{
-
-        //    optionSpreadManager.RunSpreadTotalCalculations();
-
-        //    optionSpreadManager.RunADMSpreadTotalCalculations();
-
-        //}
+       
 
     }
 }

@@ -240,15 +240,25 @@ namespace RealtimeSpreadMonitor
 
                     portfolioAllocation.accountAllocation.Add(accountAllocation);
 
-                    var key = Tuple.Create(accountAllocation.FCM_OFFICE, accountAllocation.FCM_ACCT);
+                    if (accountAllocation.FCM_OFFICE.Length > 0 && accountAllocation.FCM_ACCT.Length > 0)
+                    {
+                        var key = Tuple.Create(accountAllocation.FCM_OFFICE, accountAllocation.FCM_ACCT);
 
-                    portfolioAllocation.accountAllocation_KeyOfficAcct.Add(
-                                    key,
-                                    accountAllocation);
+                        if (!portfolioAllocation.accountAllocation_KeyOfficAcct.ContainsKey(key))
+                        {
+                            portfolioAllocation.accountAllocation_KeyOfficAcct.Add(
+                                            key,
+                                            accountAllocation);
 
-                    portfolioAllocation.accountAllocation_KeyAccountname.Add(
-                                    accountAllocation.account,
-                                    accountAllocation);
+                            portfolioAllocation.accountAllocation_KeyAccountname.Add(
+                                            accountAllocation.account,
+                                            accountAllocation);
+                        }
+                    }
+                    //else
+                    //{
+                    //    Console.Write("test");
+                    //}
                 }
             }
 
@@ -582,7 +592,10 @@ namespace RealtimeSpreadMonitor
             ///
             foreach (AccountPosition ap in DataCollectionLibrary.accountPositionsList)
             {
-                ap.accountAllocation = DataCollectionLibrary.portfolioAllocation.accountAllocation_KeyAccountname[ap.name];
+                if (DataCollectionLibrary.portfolioAllocation.accountAllocation_KeyAccountname.ContainsKey(ap.name))
+                {
+                    ap.accountAllocation = DataCollectionLibrary.portfolioAllocation.accountAllocation_KeyAccountname[ap.name];
+                }
             }
 
             //DataCollectionLibrary.accountPositionsList = new List<AccountPosition>();
@@ -1229,12 +1242,19 @@ namespace RealtimeSpreadMonitor
                         {
                             var futurekey = Tuple.Create(mose_new.asset.idcontract, ASSET_TYPE_MONGO.fut.ToString());
 
-                            MongoDB_OptionSpreadExpression future_mose = DataCollectionLibrary.optionSpreadExpressionHashTable_key_Id_Type[futurekey];
+                            if(DataCollectionLibrary.optionSpreadExpressionHashTable_key_Id_Type.ContainsKey(futurekey))
+                            {
+                                MongoDB_OptionSpreadExpression future_mose = DataCollectionLibrary.optionSpreadExpressionHashTable_key_Id_Type[futurekey];
 
-                            future_mose.optionExpressionsThatUseThisFutureAsUnderlying
+                                future_mose.optionExpressionsThatUseThisFutureAsUnderlying
                                    .Add(mose_new);
 
-                            mose_new.underlyingFutureExpression = future_mose;
+                                mose_new.underlyingFutureExpression = future_mose;
+                            }
+
+                            
+
+                            
                         }
 
 
@@ -1413,11 +1433,6 @@ namespace RealtimeSpreadMonitor
             }
 
             return optiontickvalue;
-        }
-
-        public double getSyntheticClose(OptionStrategy optionStrategy)
-        {
-            return optionStrategy.syntheticClose;
         }
 
 
@@ -2021,19 +2036,19 @@ namespace RealtimeSpreadMonitor
         //    }
         //}
 
-        public String rowHeaderLabelCreate(OptionStrategy optionStrategy)
-        {
-            StringBuilder header = new StringBuilder();
-            header.Append(optionStrategy.idStrategy);
-            header.Append(" (");
-            header.Append(optionStrategy.instrument.cqgsymbol);
-            header.Append(") - ");
+        //public String rowHeaderLabelCreate(OptionStrategy optionStrategy)
+        //{
+        //    StringBuilder header = new StringBuilder();
+        //    header.Append(optionStrategy.idStrategy);
+        //    header.Append(" (");
+        //    header.Append(optionStrategy.instrument.cqgsymbol);
+        //    header.Append(") - ");
 
-            header.Append(optionStrategy.instrument
-                .customdayboundarytime.ToString("HH:mm", DateTimeFormatInfo.InvariantInfo));
+        //    header.Append(optionStrategy.instrument
+        //        .customdayboundarytime.ToString("HH:mm", DateTimeFormatInfo.InvariantInfo));
 
-            return header.ToString().Replace('_', ' ');
-        }
+        //    return header.ToString().Replace('_', ' ');
+        //}
 
 
         internal void fillADMInputWithWebPositions(String[] configFileNames, ImportFileCheck importFileCheck)
@@ -2340,248 +2355,6 @@ namespace RealtimeSpreadMonitor
         }
 
 
-        /*fillInRestOfADMWebInputData used to fill the variables of the ADM data
-         * ADMPositionImportWeb admPositionImportWeb_Local: web import data
-         * TMLModelDBQueries btdb: database connection
-         * 
-         * this fills the CQGSymbol that can be used to compare model contracts and ADM contracts
-         */
-        internal void fillInRestOfADMWebInputDataFromAzure(
-            ADMPositionImportWeb FCM_DatatImportedRow_Local,
-            TMLAzureModelDBQueries btdb)
-        {
-
-            //{
-            //    FCM_DatatImportedRow_Local.dateTime = DateTime.Now.Date;
-
-
-
-            //    String dateFormat = "yyyyMM";
-
-            //    FCM_DatatImportedRow_Local.PCTYM_dateTime = DateTime.ParseExact(
-            //        FCM_DatatImportedRow_Local.PCTYM, dateFormat, CultureInfo.InvariantCulture);
-
-
-            //    FCM_DatatImportedRow_Local.contractInfo.legContractType = FCM_DatatImportedRow_Local.callPutOrFuture;
-
-            //    Asset asset = new Asset();
-            //    FCM_DatatImportedRow_Local.asset = asset;
-
-            //    if (FCM_DatatImportedRow_Local.callPutOrFuture != OPTION_SPREAD_CONTRACT_TYPE.FUTURE)
-            //    {
-            //        FCM_DatatImportedRow_Local.contractInfo.optionYear =
-            //            FCM_DatatImportedRow_Local.PCTYM_dateTime.Year;
-
-            //        FCM_DatatImportedRow_Local.contractInfo.optionMonthInt =
-            //            FCM_DatatImportedRow_Local.PCTYM_dateTime.Month;
-
-
-            //        String keyString = getOptionIdHashSetKeyString(FCM_DatatImportedRow_Local.contractInfo.optionMonthInt,
-            //                        FCM_DatatImportedRow_Local.contractInfo.optionYear,
-            //                        FCM_DatatImportedRow_Local.instrument.idinstrument,
-            //                        FCM_DatatImportedRow_Local.PSUBTY,
-            //                        FCM_DatatImportedRow_Local.strikeInDecimal);
-
-            //        long idOption = 0;
-
-            //        if (optionIdFromInfo.ContainsKey(keyString))
-            //        {
-            //            idOption = optionIdFromInfo[keyString];
-            //        }
-            //        else
-            //        {
-            //            idOption = btdb.queryOptionIDFromInfo(FCM_DatatImportedRow_Local);
-
-            //            optionIdFromInfo.Add(keyString.ToString(), idOption);
-            //        }
-
-
-
-            //        FCM_DatatImportedRow_Local.contractInfo.idOption = idOption;
-
-            //        btdb.queryOptionInfoAndDataFromCloud(
-            //                       FCM_DatatImportedRow_Local.contractInfo.idOption,
-            //                       FCM_DatatImportedRow_Local.instrument.idinstrument,
-            //                       FCM_DatatImportedRow_Local.contractInfo,
-            //                       FCM_DatatImportedRow_Local.contractData,
-            //                       DataCollectionLibrary.initializationParms.modelDateTime,
-            //                       optionArrayTypes,
-            //                       optionDataSetHashSet);
-
-            //        btdb.queryFutureInfoAndDataFromCloud(
-            //            FCM_DatatImportedRow_Local.contractInfo.idUnderlyingContract,
-            //            FCM_DatatImportedRow_Local.contractInfo,
-            //            FCM_DatatImportedRow_Local.contractData,
-            //            DataCollectionLibrary.initializationParms.modelDateTime,
-            //            optionArrayTypes,
-            //            futureDataSetHashSet, true, this, futureIdFromInfo);
-
-            //        FCM_DatatImportedRow_Local.cqgsymbol = FCM_DatatImportedRow_Local.contractInfo.cqgsymbol;
-
-            //        //fill asset object 
-            //        FCM_DatatImportedRow_Local.asset.idoption = idOption;
-            //        FCM_DatatImportedRow_Local.asset.optionname =
-            //            FCM_DatatImportedRow_Local.contractInfo.optionName;
-            //        FCM_DatatImportedRow_Local.asset.optionmonth =
-            //            FCM_DatatImportedRow_Local.contractInfo.optionMonth;
-            //        FCM_DatatImportedRow_Local.asset.optionmonthint =
-            //            FCM_DatatImportedRow_Local.contractInfo.optionMonthInt;
-            //        FCM_DatatImportedRow_Local.asset.optionyear =
-            //            FCM_DatatImportedRow_Local.contractInfo.optionYear;
-            //        FCM_DatatImportedRow_Local.asset.strikeprice =
-            //            FCM_DatatImportedRow_Local.contractInfo.optionStrikePrice;
-
-            //        FCM_DatatImportedRow_Local.asset.callorput =
-            //            FCM_DatatImportedRow_Local.contractInfo.optionCallOrPut;
-
-            //        FCM_DatatImportedRow_Local.asset.contractname =
-            //            FCM_DatatImportedRow_Local.contractInfo.contractName;
-
-            //        FCM_DatatImportedRow_Local.asset.month =
-            //            FCM_DatatImportedRow_Local.contractInfo.contractMonth;
-
-            //        FCM_DatatImportedRow_Local.asset.monthint =
-            //            FCM_DatatImportedRow_Local.contractInfo.contractMonthInt;
-
-            //        FCM_DatatImportedRow_Local.asset.year =
-            //            FCM_DatatImportedRow_Local.contractInfo.contractYear;
-
-            //        FCM_DatatImportedRow_Local.asset.idcontract =
-            //            FCM_DatatImportedRow_Local.contractInfo.idContract;
-
-            //        FCM_DatatImportedRow_Local.asset.name =
-            //            FCM_DatatImportedRow_Local.contractInfo.optionName;
-
-            //        FCM_DatatImportedRow_Local.asset.cqgsymbol =
-            //            FCM_DatatImportedRow_Local.contractInfo.cqgsymbol;
-
-            //        FCM_DatatImportedRow_Local.asset._type =
-            //            ASSET_TYPE_MONGO.opt.ToString();
-
-            //        FCM_DatatImportedRow_Local.asset.expirationdate =
-            //            FCM_DatatImportedRow_Local.contractInfo.expirationDate;
-
-            //        FCM_DatatImportedRow_Local.asset.idinstrument =
-            //            FCM_DatatImportedRow_Local.instrument.idinstrument;
-
-            //        FCM_DatatImportedRow_Local.asset.yearFraction =
-            //            calcYearFrac(FCM_DatatImportedRow_Local.contractInfo.expirationDate,
-            //                DateTime.Now.Date);
-
-
-            //    }
-            //    else // is a future contract
-            //    {
-            //        FCM_DatatImportedRow_Local.contractInfo.contractYear =
-            //            FCM_DatatImportedRow_Local.PCTYM_dateTime.Year;
-
-            //        FCM_DatatImportedRow_Local.contractInfo.contractMonthInt =
-            //            FCM_DatatImportedRow_Local.PCTYM_dateTime.Month;
-
-
-
-
-            //        String keyString = getFutureContractIdHashSetKeyString(FCM_DatatImportedRow_Local.contractInfo.contractMonthInt,
-            //                        FCM_DatatImportedRow_Local.contractInfo.contractYear,
-            //                        FCM_DatatImportedRow_Local.instrument.idinstrument);
-
-
-            //        long idContract = 0;
-
-            //        if (futureIdFromInfo.ContainsKey(keyString))
-            //        {
-            //            idContract = futureIdFromInfo[keyString];
-            //        }
-            //        else
-            //        {
-            //            idContract = btdb.queryFutureContractId(FCM_DatatImportedRow_Local);
-            //        }
-
-
-            //        //int idContract = btdb.queryFutureContractId(admPositionImportWeb_Local);
-
-            //        FCM_DatatImportedRow_Local.contractInfo.idContract = idContract;
-
-            //        btdb.queryFutureInfoAndDataFromCloud(
-            //                        FCM_DatatImportedRow_Local.contractInfo.idContract,
-            //                        FCM_DatatImportedRow_Local.contractInfo,
-            //                        FCM_DatatImportedRow_Local.contractData,
-            //                        FCM_DatatImportedRow_Local.dateTime,
-            //                        optionArrayTypes,
-            //                        futureDataSetHashSet, false, this, futureIdFromInfo);
-
-            //        FCM_DatatImportedRow_Local.cqgsymbol = FCM_DatatImportedRow_Local.contractInfo.cqgsymbol;
-
-
-            //        //fill asset object                     
-
-            //        FCM_DatatImportedRow_Local.asset.contractname =
-            //            FCM_DatatImportedRow_Local.contractInfo.contractName;
-
-            //        FCM_DatatImportedRow_Local.asset.month =
-            //            FCM_DatatImportedRow_Local.contractInfo.contractMonth;
-
-            //        FCM_DatatImportedRow_Local.asset.monthint =
-            //            FCM_DatatImportedRow_Local.contractInfo.contractMonthInt;
-
-            //        FCM_DatatImportedRow_Local.asset.year =
-            //            FCM_DatatImportedRow_Local.contractInfo.contractYear;
-
-            //        FCM_DatatImportedRow_Local.asset.idcontract =
-            //            FCM_DatatImportedRow_Local.contractInfo.idContract;
-
-            //        FCM_DatatImportedRow_Local.asset.name =
-            //            FCM_DatatImportedRow_Local.contractInfo.optionName;
-
-            //        FCM_DatatImportedRow_Local.asset.cqgsymbol =
-            //            FCM_DatatImportedRow_Local.contractInfo.cqgsymbol;
-
-            //        FCM_DatatImportedRow_Local.asset._type =
-            //            ASSET_TYPE_MONGO.fut.ToString();
-
-            //        FCM_DatatImportedRow_Local.asset.expirationdate =
-            //            FCM_DatatImportedRow_Local.contractInfo.expirationDate;
-
-            //        FCM_DatatImportedRow_Local.asset.idinstrument =
-            //            FCM_DatatImportedRow_Local.instrument.idinstrument;
-
-            //        FCM_DatatImportedRow_Local.asset.yearFraction =
-            //            calcYearFrac(FCM_DatatImportedRow_Local.contractInfo.expirationDate,
-            //                DateTime.Now.Date);
-
-
-
-            //    }
-
-            //    if (FCM_DatatImportedRow_Local.instrument.substitutesymbol_eod == 1)
-            //    {
-            //        //sets up data for realtime EOD SPAN symbol
-
-            //        FCM_DatatImportedRow_Local.contractInfo.useSubstitueSymbolEOD = true;
-
-            //        FCM_DatatImportedRow_Local.contractInfo.instrumentSymbolPreEOD =
-            //            FCM_DatatImportedRow_Local.instrument.instrumentsymbol_pre_eod;
-
-            //        FCM_DatatImportedRow_Local.contractInfo.instrumentSymbolEODSubstitute =
-            //            FCM_DatatImportedRow_Local.instrument.instrumentsymboleod_eod;
-
-            //        if (FCM_DatatImportedRow_Local.cqgsymbol != null)
-            //        {
-            //            //admPositionImportWeb_Local.contractInfo.cqgSubstituteSymbol =
-            //            //    admPositionImportWeb_Local.cqgSymbol.Replace(
-            //            //        admPositionImportWeb_Local.contractInfo.instrumentSymbolPreEOD,
-            //            //        admPositionImportWeb_Local.contractInfo.instrumentSymbolEODSubstitute);
-
-            //            generateCQGSymbolForEODSubstitution(
-            //                        FCM_DatatImportedRow_Local.contractInfo, FCM_DatatImportedRow_Local.instrument);
-
-            //            FCM_DatatImportedRow_Local.cqgSubstituteSymbol = FCM_DatatImportedRow_Local.contractInfo.cqgSubstituteSymbol;
-            //        }
-            //    }
-
-            //}
-        }
-
 
         internal void fillInRestOfADMWebInputDataFrom_Mongo_AndAzure(
             ADMPositionImportWeb FCM_DatatImportedRow_Local)
@@ -2875,101 +2648,6 @@ namespace RealtimeSpreadMonitor
             return acct;
         }
 
-        private String generateCQGSymbolForEODSubstitution(LegInfo legInfo, Instrument_mongo instrument)
-        {
-            string cqgSubstitutionSymbol = "";
-
-            if (legInfo.legContractType == OPTION_SPREAD_CONTRACT_TYPE.FUTURE)
-            {
-                legInfo.cqgSubstituteSymbol =
-                                       legInfo.cqgsymbol.Replace(
-                                           legInfo.instrumentSymbolPreEOD,
-                                           legInfo.instrumentSymbolEODSubstitute);
-            }
-            else
-            {
-                //internal Instrument[] instruments { get; set; }
-                //private Instrument_DefaultFutures[] instrument_DefaultFuturesArray;
-
-                //internal Dictionary<int, Instrument> substituteInstrumentHash = new Dictionary<int, Instrument>();
-
-                //int idxCnt = 0;
-                //while(idxCnt < instruments.Length)
-                //{
-                //    if(instruments[idxCnt].idinstrument == legInfo.idUnderlyingContract)
-                //    {
-                //        break;
-                //    }
-
-                //    idxCnt++;
-                //}
-
-                Instrument_mongo instrumentSubstitute =
-                    substituteInstrumentHash[instrument.instrumentid_eod];
-
-                legInfo.cqgSubstituteSymbol =
-                    generateOptionCQGSymbolForEODSubstitution(
-                        legInfo.optionCallOrPut,
-                        legInfo.instrumentSymbolEODSubstitute,
-                        legInfo.optionMonth.ToString(),
-                        legInfo.optionYear,
-                        legInfo.optionStrikePrice,
-                        instrumentSubstitute.optionstrikeincrement,
-                        instrumentSubstitute.optionstrikedisplay,
-                        instrumentSubstitute.idinstrument);
-            }
-
-            //generateOptionCQGSymbolForEODSubstitution(
-            //    optionStrategies[i].rollIntoLegInfo[legCounter].optionCallOrPut,
-            //    optionStrategies[i].rollIntoLegInfo[legCounter].instrumentSymbolEODSubstitute,
-            //    optionStrategies[i].rollIntoLegInfo[legCounter].contractMonth,
-            //    optionStrategies[i].rollIntoLegInfo[legCounter].optionYear,
-            //    optionStrategies[i].rollIntoLegInfo[legCounter].optionStrikePrice,
-            //    optionStrategies[i].rollIntoLegInfo[legCounter].instrumentSymbolEODSubstitute);
-
-
-            return cqgSubstitutionSymbol;
-        }
-
-        private String generateOptionCQGSymbolForEODSubstitution(
-            char contractTypeOptionOrPut,
-            //int contractType, 
-            String underlyingSymbol, String month, int year,
-            double optionStrikePrice, double optionstrikeincrement, double optionStrikeDisplay, long instrumentId)
-        {
-            StringBuilder cqgSymbol = new StringBuilder();
-
-#if DEBUG
-            try
-#endif
-            {
-                //cqgSymbol.Append(contractTypeCharSymbolArray.GetValue(contractType).ToString());
-
-                cqgSymbol.Append(contractTypeOptionOrPut);
-
-                //cqgSymbol.Append(".US.");
-
-                cqgSymbol.Append(".");
-
-                cqgSymbol.Append(underlyingSymbol);
-
-                cqgSymbol.Append(month);
-
-                cqgSymbol.Append((year % 100));
-
-                cqgSymbol.Append(ConversionAndFormatting.convertToStrikeForCQGSymbol(
-                                        optionStrikePrice,
-                                        optionstrikeincrement,
-                                        optionStrikeDisplay, instrumentId));
-            }
-#if DEBUG
-            catch (Exception ex)
-            {
-                TSErrorCatch.errorCatchOut(Convert.ToString(this), ex);
-            }
-#endif
-
-            return cqgSymbol.ToString();
-        }
+        
     }
 }

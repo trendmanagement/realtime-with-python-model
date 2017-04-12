@@ -50,7 +50,7 @@ namespace RealtimeSpreadMonitor
 
 
         private List<MongoDB_OptionSpreadExpression> optionSpreadExpressionList;
-        private OptionStrategy[] optionStrategies;
+        //private OptionStrategy[] optionStrategies;
         private List<Instrument_mongo> instruments;
         
         private OptionRealtimeMonitor optionRealtimeMonitor;
@@ -217,11 +217,11 @@ namespace RealtimeSpreadMonitor
                         {
                             line[5] = optionSpreadExpressionList[i].instrument.spanfuturecode;
 
-                            line[6] = optionStrategies[spreadIdx]
-                            .legInfo[legIdx].contractYear.ToString()
-                            +
-                            optionStrategies[spreadIdx]
-                            .legInfo[legIdx].contractMonthInt.ToString("00");
+                            //line[6] = optionStrategies[spreadIdx]
+                            //.legInfo[legIdx].contractYear.ToString()
+                            //+
+                            //optionStrategies[spreadIdx]
+                            //.legInfo[legIdx].contractMonthInt.ToString("00");
 
                             line[7] = "";
                             line[8] = "";
@@ -231,11 +231,11 @@ namespace RealtimeSpreadMonitor
                         {
                             line[5] = optionSpreadExpressionList[i].instrument.spanoptioncode;
 
-                            line[6] = optionStrategies[spreadIdx]
-                            .legInfo[legIdx].optionYear.ToString()
-                            +
-                            optionStrategies[spreadIdx]
-                            .legInfo[legIdx].optionMonthInt.ToString("00");
+                            //line[6] = optionStrategies[spreadIdx]
+                            //.legInfo[legIdx].optionYear.ToString()
+                            //+
+                            //optionStrategies[spreadIdx]
+                            //.legInfo[legIdx].optionMonthInt.ToString("00");
 
                             if (optionSpreadExpressionList[i].callPutOrFuture == OPTION_SPREAD_CONTRACT_TYPE.CALL)
                             {
@@ -262,11 +262,11 @@ namespace RealtimeSpreadMonitor
                             //    findFutCnt++;
                             //}
 
-                            line[9] = optionStrategies[spreadIdx]
-                            .legInfo[optionStrategies[spreadIdx].idxOfFutureLeg].contractYear.ToString()
-                            +
-                            optionStrategies[spreadIdx]
-                            .legInfo[optionStrategies[spreadIdx].idxOfFutureLeg].contractMonthInt.ToString("00");
+                            //line[9] = optionStrategies[spreadIdx]
+                            //.legInfo[optionStrategies[spreadIdx].idxOfFutureLeg].contractYear.ToString()
+                            //+
+                            //optionStrategies[spreadIdx]
+                            //.legInfo[optionStrategies[spreadIdx].idxOfFutureLeg].contractMonthInt.ToString("00");
                         }
 
 

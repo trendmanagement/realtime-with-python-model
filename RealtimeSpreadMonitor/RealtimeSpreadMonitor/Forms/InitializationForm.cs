@@ -14,7 +14,7 @@ namespace RealtimeSpreadMonitor.Forms
         /// <summary>
         /// The PGS
         /// </summary>
-        PortfolioGroupsStruct[] pgs;
+        //PortfolioGroupsStruct[] pgs;
 
 
         /// <summary>
