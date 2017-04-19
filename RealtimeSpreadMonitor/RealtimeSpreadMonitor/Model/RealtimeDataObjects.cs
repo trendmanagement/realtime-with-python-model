@@ -516,6 +516,56 @@ namespace RealtimeSpreadMonitor.Model
             = new Dictionary<string, ProductCodes>();
     }
 
+    [BsonIgnoreExtraElements]
+    public class Futures_Contract_Settlements
+    {
+        [BsonId]
+        [BsonRepresentation(BsonType.ObjectId)]
+        public ObjectId _id { get; set; }
+
+        public long idcontract { get; set; }
+
+        public DateTime date { get; set; }
+
+        public long volume { get; set; }
+
+        public long openinterest { get; set; }
+
+        public double settlement { get; set; }        
+    }
+
+    [BsonIgnoreExtraElements]
+    public class Options_Data
+    {
+        [BsonId]
+        [BsonRepresentation(BsonType.ObjectId)]
+        public ObjectId _id { get; set; }
+
+        public long idoption { get; set; }
+
+        public DateTime datetime { get; set; }
+
+        public double timetoexpinyears { get; set; }
+
+        public double impliedvol { get; set; }
+
+        public double price { get; set; }
+    }
+
+    [BsonIgnoreExtraElements]
+    public class OptionInputSymbols
+    {
+        [BsonId]
+        [BsonRepresentation(BsonType.ObjectId)]
+        public ObjectId _id { get; set; }
+
+        public long idoptioninputsymbol { get; set; }
+
+        public string optioninputcqgsymbol { get; set; }
+
+        public int idinstrument { get; set; }
+    }
+
     public class InitializationParms
     {
         public int tmlSystemRunType;
@@ -539,6 +589,6 @@ namespace RealtimeSpreadMonitor.Model
 
         public int FIX_OrderPlacementType;
 
-        public bool useCloudDb = false;
+        //public bool useCloudDb = false;
     };
 }

@@ -34,10 +34,10 @@ namespace RealtimeSpreadMonitor.Forms
 
             //getRealtimeSystemResultsFromDatabase();
 
-            if (DataCollectionLibrary.initializationParms.useCloudDb)
-            {
-                runConflictList();
-            }
+            //if (DataCollectionLibrary.initializationParms.useCloudDb)
+            //{
+            //    runConflictList();
+            //}
         }
 
         private void setupSettings()
@@ -283,10 +283,10 @@ namespace RealtimeSpreadMonitor.Forms
 
             //getRealtimeSystemResultsFromDatabase();
 
-            if (DataCollectionLibrary.initializationParms.useCloudDb)
-            {
-                runConflictList();
-            }
+            //if (DataCollectionLibrary.initializationParms.useCloudDb)
+            //{
+            //    runConflictList();
+            //}
         }
 
         private void runConflictList()
@@ -520,10 +520,10 @@ namespace RealtimeSpreadMonitor.Forms
 
         private void btnGetEOD_Click(object sender, EventArgs e)
         {
-            if (DataCollectionLibrary.initializationParms.useCloudDb)
-            {
-                runConflictList();
-            }
+            //if (DataCollectionLibrary.initializationParms.useCloudDb)
+            //{
+            //    runConflictList();
+            //}
         }
 
     }

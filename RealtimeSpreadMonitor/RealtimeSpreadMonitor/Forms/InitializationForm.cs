@@ -76,7 +76,7 @@ namespace RealtimeSpreadMonitor.Forms
                 DataCollectionLibrary.initializationParms.halfDayDecisionOffsetMinutes = (int)decisionMinuteOffset.Value;
 
 
-                DataCollectionLibrary.initializationParms.useCloudDb = checkBoxCloudDB.Checked;
+                //DataCollectionLibrary.initializationParms.useCloudDb = checkBoxCloudDB.Checked;
                 
                 this.Dispose();
 

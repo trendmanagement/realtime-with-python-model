@@ -28,7 +28,7 @@ namespace RealtimeSpreadMonitor.Mongo
 
 
 
-        public OptionInputFieldsFromTblOptionInputSymbols optionInputFieldsFromTblOptionInputSymbols;
+        //public OptionInputFieldsFromTblOptionInputSymbols optionInputFieldsFromTblOptionInputSymbols;
 
 
 

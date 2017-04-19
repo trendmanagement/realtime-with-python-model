@@ -29,6 +29,12 @@ namespace RealtimeSpreadMonitor.Mongo
 
         private static IMongoCollection<PortfolioAllocation_Mongo> _portfolioCollection;
 
+        private static IMongoCollection<Futures_Contract_Settlements> _future_contract_settlements;
+
+        private static IMongoCollection<Options_Data> _option_data;
+
+        private static IMongoCollection<OptionInputSymbols> _option_input_symbols;
+
         //private static IMongoCollection<PortfolioAllocation> _portfolioCollectionQuery;
 
         /// <summary>
@@ -71,7 +77,14 @@ namespace RealtimeSpreadMonitor.Mongo
             _portfolioCollection = _database.GetCollection<PortfolioAllocation_Mongo>(
                 System.Configuration.ConfigurationManager.AppSettings["MongoAccountsPortfolio"]);
 
+            _future_contract_settlements = _database.GetCollection<Futures_Contract_Settlements>(
+                System.Configuration.ConfigurationManager.AppSettings["MongoFuturesContractSettlementsCollection"]);
 
+            _option_data = _database.GetCollection<Options_Data>(
+                System.Configuration.ConfigurationManager.AppSettings["MongoOptionsDataCollection"]);
+
+            _option_input_symbols = _database.GetCollection<OptionInputSymbols>(
+                System.Configuration.ConfigurationManager.AppSettings["MongoOptionsInputSymbolsCollection"]);
 
             //_portfolioCollectionQuery = _database.GetCollection<PortfolioAllocation>(
             //    System.Configuration.ConfigurationManager.AppSettings["MongoAccountsPortfolio"]);
@@ -330,6 +343,77 @@ namespace RealtimeSpreadMonitor.Mongo
             {
 
             }
+        }
+
+        public static Futures_Contract_Settlements GetContractLatestSettlement(long idcontract)
+        {
+            Futures_Contract_Settlements contractSettlement = null;
+
+            try
+            {
+                var builder = Builders<Futures_Contract_Settlements>.Filter;
+
+                FilterDefinition<Futures_Contract_Settlements> filterForContract 
+                    = builder.Eq("idcontract", idcontract);
+
+
+                contractSettlement = _future_contract_settlements.Find(filterForContract)
+                    .Sort(Builders<Futures_Contract_Settlements>.Sort.Descending("date")).First();
+
+            }
+            catch (InvalidOperationException)
+            {
+                TSErrorCatch.debugWriteOut("Error");
+            }
+
+            return contractSettlement;
+        }
+
+        public static Options_Data GetOptionLatestSettlementAndImpliedVol(long idoption)
+        {
+            Options_Data optionSettlements = null;
+
+            try
+            {
+                var builder = Builders<Options_Data>.Filter;
+
+                FilterDefinition<Options_Data> filterForOption
+                    = builder.Eq("idoption", idoption);
+
+
+                optionSettlements = _option_data.Find(filterForOption)
+                    .Sort(Builders<Options_Data>.Sort.Descending("date")).First();
+
+            }
+            catch (InvalidOperationException)
+            {
+                TSErrorCatch.debugWriteOut("Error");
+            }
+
+            return optionSettlements;
+        }
+
+        public static OptionInputSymbols GetOptionInputSymbol(long idoptioninputsymbol)
+        {
+            OptionInputSymbols optionInputSymbols = null;
+
+            try
+            {
+                var builder = Builders<OptionInputSymbols>.Filter;
+
+                FilterDefinition<OptionInputSymbols> filterOptionInputSymbol
+                    = builder.Eq("idoptioninputsymbol", idoptioninputsymbol);
+
+
+                optionInputSymbols = _option_input_symbols.Find(filterOptionInputSymbol).First();
+
+            }
+            catch (InvalidOperationException)
+            {
+                TSErrorCatch.debugWriteOut("Error");
+            }
+
+            return optionInputSymbols;
         }
 
     }

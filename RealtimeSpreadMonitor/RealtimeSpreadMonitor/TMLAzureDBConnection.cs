@@ -15,8 +15,8 @@ namespace RealtimeSpreadMonitor
 
         //public DataClassesTMLDBDataContext Context;
 
-        public DataClassesTMLDBDataContext contextTMLDB = new DataClassesTMLDBDataContext(
-            System.Configuration.ConfigurationManager.ConnectionStrings["RealtimeSpreadMonitor.Properties.Settings.TMLDBConnectionString"].ConnectionString);
+        //public DataClassesTMLDBDataContext contextTMLDB = new DataClassesTMLDBDataContext(
+        //    System.Configuration.ConfigurationManager.ConnectionStrings["RealtimeSpreadMonitor.Properties.Settings.TMLDBConnectionString"].ConnectionString);
 
         public TMLAzureDBConnection()
         {

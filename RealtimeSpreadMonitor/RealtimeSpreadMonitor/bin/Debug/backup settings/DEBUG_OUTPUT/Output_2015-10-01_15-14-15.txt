@@ -1,3 +1,0 @@
-Sessions count in config: 1
-True
-False

@@ -145,11 +145,6 @@
     <Compile Include="CMEMarginENUMS.cs" />
     <Compile Include="CMEMarginObjects.cs" />
     <Compile Include="ConversionAndFormatting.cs" />
-    <Compile Include="DataClassesTMLDB.designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DataClassesTMLDB.dbml</DependentUpon>
-    </Compile>
     <Compile Include="FormManipulation\CommonFormManipulation.cs" />
     <Compile Include="FormManipulation\FTPGetGMI.cs" />
     <Compile Include="FormManipulation\GridViewContractSummaryManipulation.cs" />
@@ -269,9 +264,6 @@
     <Compile Include="TMLModelDBQueries.cs" />
     <Compile Include="TradingSystemConstants.cs" />
     <Compile Include="TSErrorCatch.cs" />
-    <None Include="DataClassesTMLDB.dbml.layout">
-      <DependentUpon>DataClassesTMLDB.dbml</DependentUpon>
-    </None>
     <EmbeddedResource Include="Forms\FCM_ReportSummaryForm.resx">
       <DependentUpon>FCM_ReportSummaryForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -331,11 +323,6 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <None Include="app.config">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="DataClassesTMLDB.dbml">
-      <Generator>MSLinqToSQLGenerator</Generator>
-      <LastGenOutput>DataClassesTMLDB.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
     <None Include="packages.config" />

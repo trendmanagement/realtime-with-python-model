@@ -1,7 +1,24 @@
-20161027-23:11:10.505 : Created session
-20161027-23:11:10.513 : Connecting to 12.41.48.99 on port 10516
-20161027-23:11:10.589 : Connection succeeded
-20161027-23:11:10.601 : Session reset: ResetOnLogon
-20161027-23:11:10.619 : Session reset: ResetSeqNumFlag
-20161027-23:11:10.621 : Initiated logon request
-20161027-23:11:14.485 : Received logon
+20161027-22:16:37.264 : Created session
+20161027-22:16:37.268 : Connecting to 12.41.48.99 on port 10516
+20161027-22:16:37.332 : Connection succeeded
+20161027-22:16:37.359 : Session reset: ResetOnLogon
+20161027-22:16:37.379 : Session reset: ResetSeqNumFlag
+20161027-22:16:37.381 : Initiated logon request
+20161027-22:16:37.726 : Received logon
+20161027-22:19:34.459 : Initiated logout request
+20161027-22:19:34.523 : Received logout response
+20161027-22:19:34.524 : Session FIX.4.2:NJ-PRI00161/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout response
+20161027-22:19:34.536 : Session reset: ResetOnDisconnect
+20161228-16:49:03.942 : Session FIX.4.2:NJ-PRI00161/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ already disconnected: Resetting...
+20161228-16:49:03.968 : Session reset: New session
+20161228-16:49:03.969 : Created session
+20161228-16:49:03.973 : Connecting to 12.41.48.99 on port 10516
+20161228-16:49:04.035 : Connection succeeded
+20161228-16:49:04.052 : Session reset: ResetOnLogon
+20161228-16:49:04.151 : Session reset: ResetSeqNumFlag
+20161228-16:49:04.173 : Initiated logon request
+20161228-16:49:04.315 : Received logon
+20161228-16:49:05.318 : Initiated logout request
+20161228-16:49:05.380 : Received logout response
+20161228-16:49:05.381 : Session FIX.4.2:NJ-PRI00161/TML1/TML NORTH VANCOUVER->MBO:NJoyce111174$ disconnecting: Received logout response
+20161228-16:49:05.394 : Session reset: ResetOnDisconnect

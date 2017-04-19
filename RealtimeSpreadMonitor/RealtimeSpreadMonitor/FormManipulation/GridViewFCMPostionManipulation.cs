@@ -145,8 +145,8 @@ namespace RealtimeSpreadMonitor.FormManipulation
                                                         admpiw.asset.expirationdate.Year,
                                                         admpiw.asset.expirationdate.Month,
                                                         admpiw.asset.expirationdate.Day,
-                                                        admpiw.asset.optionExpirationTime.Hour,
-                                                        admpiw.asset.optionExpirationTime.Minute,
+                                                        0,//admpiw.asset.optionExpirationTime.Hour,
+                                                        0,//admpiw.asset.optionExpirationTime.Minute,
                                                         0
                                                     )
                                                     .ToString("yyyy-MM-dd HH:mm", DateTimeFormatInfo.InvariantInfo);

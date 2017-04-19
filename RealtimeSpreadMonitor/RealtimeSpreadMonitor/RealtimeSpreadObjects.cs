@@ -68,14 +68,14 @@ namespace RealtimeSpreadMonitor
     }
 
 
-    public class OptionInputFieldsFromTblOptionInputSymbols
-    {
-        public int idOptionInputSymbol;
-        public String optionInputCQGSymbol;
-        public int idinstrument;
-        public int idOptionInputType;
-        public double multiplier;
-    }
+    //public class OptionInputFieldsFromTblOptionInputSymbols
+    //{
+    //    public int idOptionInputSymbol;
+    //    public String optionInputCQGSymbol;
+    //    public int idinstrument;
+    //    public int idOptionInputType;
+    //    public double multiplier;
+    //}
 
 
     public class RealtimeMonitorSettings

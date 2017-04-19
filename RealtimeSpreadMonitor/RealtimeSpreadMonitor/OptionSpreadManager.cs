@@ -164,32 +164,32 @@ namespace RealtimeSpreadMonitor
         /// <summary>
         /// this was initially used to set up test accounts
         /// </summary>
-        private void fillMongoWithPortfolioAllocation()
-        {
-            PortfolioAllocation_Mongo portfolioAllocation_Mongo = new PortfolioAllocation_Mongo();
+        //private void fillMongoWithPortfolioAllocation()
+        //{
+        //    PortfolioAllocation_Mongo portfolioAllocation_Mongo = new PortfolioAllocation_Mongo();
 
-            portfolioAllocation_Mongo.idportfoliogroup = 1;
+        //    portfolioAllocation_Mongo.idportfoliogroup = 1;
 
-            portfolioAllocation_Mongo.accountAllocation = new List<AccountAllocation_Mongo>();
+        //    portfolioAllocation_Mongo.accountAllocation = new List<AccountAllocation_Mongo>();
 
-            AccountAllocation_Mongo accountAllocation = new AccountAllocation_Mongo();
-            accountAllocation.broker = "WED";
-            accountAllocation.account = "new_account1";
-            accountAllocation.FCM_OFFICE = "PRI";
-            accountAllocation.FCM_ACCT = "00161";
+        //    AccountAllocation_Mongo accountAllocation = new AccountAllocation_Mongo();
+        //    accountAllocation.broker = "WED";
+        //    accountAllocation.account = "new_account1";
+        //    accountAllocation.FCM_OFFICE = "PRI";
+        //    accountAllocation.FCM_ACCT = "00161";
 
-            portfolioAllocation_Mongo.accountAllocation.Add(accountAllocation);
+        //    portfolioAllocation_Mongo.accountAllocation.Add(accountAllocation);
 
-            AccountAllocation_Mongo accountAllocation2 = new AccountAllocation_Mongo();
-            accountAllocation2.broker = "ADM";
-            accountAllocation2.account = "new_account2";
-            accountAllocation2.FCM_OFFICE = "369";
-            accountAllocation2.FCM_ACCT = "17003";
+        //    AccountAllocation_Mongo accountAllocation2 = new AccountAllocation_Mongo();
+        //    accountAllocation2.broker = "ADM";
+        //    accountAllocation2.account = "new_account2";
+        //    accountAllocation2.FCM_OFFICE = "369";
+        //    accountAllocation2.FCM_ACCT = "17003";
 
-            portfolioAllocation_Mongo.accountAllocation.Add(accountAllocation2);
+        //    portfolioAllocation_Mongo.accountAllocation.Add(accountAllocation2);
 
-            MongoDBConnectionAndSetup.InsertPortfolioToMongo(portfolioAllocation_Mongo);
-        }
+        //    MongoDBConnectionAndSetup.InsertPortfolioToMongo(portfolioAllocation_Mongo);
+        //}
 
         private void fillPortfolioAllocation()
         {
@@ -865,7 +865,7 @@ namespace RealtimeSpreadMonitor
         /// </summary>
         private void FillSettlementsAndImpliedVol()
         {
-            TMLAzureModelDBQueries TMLAzureModelDBQueries = new TMLAzureModelDBQueries();
+            //TMLAzureModelDBQueries TMLAzureModelDBQueries = new TMLAzureModelDBQueries();
 
             foreach (MongoDB_OptionSpreadExpression mose in DataCollectionLibrary.optionSpreadExpressionList)
             {
@@ -873,14 +873,33 @@ namespace RealtimeSpreadMonitor
                 {
                     if (mose.asset._type.CompareTo(ASSET_TYPE_MONGO.fut.ToString()) == 0)
                     {
-                        TMLAzureModelDBQueries.GetContractLatestSettlement(mose);
+                        //TMLAzureModelDBQueries.GetContractLatestSettlement(mose);
+                        Futures_Contract_Settlements fcs
+                            = MongoDBConnectionAndSetup.GetContractLatestSettlement(mose.asset.idcontract);
+
+                        if(fcs != null)
+                        {
+                            mose.yesterdaySettlement = fcs.settlement;
+                            mose.yesterdaySettlementDateTime = fcs.date;
+                            mose.yesterdaySettlementFilled = true;
+                        }
                     }
                     else if (mose.asset._type.CompareTo(ASSET_TYPE_MONGO.opt.ToString()) == 0)
                     {
-                        TMLAzureModelDBQueries.GetOptionLatestSettlementAndImpliedVol(mose);
+                        //TMLAzureModelDBQueries.GetOptionLatestSettlementAndImpliedVol(mose);
+                        Options_Data od =
+                            MongoDBConnectionAndSetup.GetOptionLatestSettlementAndImpliedVol(mose.asset.idoption);
 
-                        mose.asset.optionExpirationTime = 
-                            TMLAzureModelDBQueries.QueryOptionExpirationTimes(mose.instrument.idinstrument, mose.asset.optionmonthint);
+                        if (od != null)
+                        {
+                            mose.yesterdaySettlement = od.price;
+                            mose.yesterdaySettlementDateTime = od.datetime;
+                            mose.impliedVolFromSpan = od.impliedvol;
+                            mose.yesterdaySettlementFilled = true;
+                        }
+
+                        //mose.asset.optionExpirationTime = 
+                        //    TMLAzureModelDBQueries.QueryOptionExpirationTimes(mose.instrument.idinstrument, mose.asset.optionmonthint);
                     }
                 }
             }
@@ -1080,19 +1099,27 @@ namespace RealtimeSpreadMonitor
                     OPTION_EXPRESSION_TYPES.OPTION_EXPRESSION_RISK_FREE_RATE);
 
 
-            if (DataCollectionLibrary.initializationParms.useCloudDb)
-            {
-                TMLAzureModelDBQueries btdb = new TMLAzureModelDBQueries();
+            //if (DataCollectionLibrary.initializationParms.useCloudDb)
+            
+                //TMLAzureModelDBQueries btdb = new TMLAzureModelDBQueries();
 
-                expLstRiskFreeRate.optionInputFieldsFromTblOptionInputSymbols =
-                    btdb.queryOptionInputSymbols(-1,
-                    (int)OPTION_FORMULA_INPUT_TYPES.OPTION_RISK_FREE_RATE);
+                //expLstRiskFreeRate.optionInputFieldsFromTblOptionInputSymbols =
+                    //btdb.queryOptionInputSymbols(-1,
+                    //(int)OPTION_FORMULA_INPUT_TYPES.OPTION_RISK_FREE_RATE);
+
+            OptionInputSymbols ois = MongoDBConnectionAndSetup.GetOptionInputSymbol(15);
+
+            if (ois != null)
+            {
+                expLstRiskFreeRate.asset.cqgsymbol = ois.optioninputcqgsymbol;
             }
 
+            
 
-            expLstRiskFreeRate.asset.cqgsymbol =
-                expLstRiskFreeRate.optionInputFieldsFromTblOptionInputSymbols
-                .optionInputCQGSymbol;
+
+            //expLstRiskFreeRate.asset.cqgsymbol =
+            //    expLstRiskFreeRate.optionInputFieldsFromTblOptionInputSymbols
+            //    .optionInputCQGSymbol;
 
             expLstRiskFreeRate.asset._type = ASSET_TYPE_MONGO.risk_free_rate.ToString();
 
