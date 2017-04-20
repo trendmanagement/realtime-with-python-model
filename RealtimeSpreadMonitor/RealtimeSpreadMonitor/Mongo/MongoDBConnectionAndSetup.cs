@@ -382,7 +382,7 @@ namespace RealtimeSpreadMonitor.Mongo
 
 
                 optionSettlements = _option_data.Find(filterForOption)
-                    .Sort(Builders<Options_Data>.Sort.Descending("date")).First();
+                    .Sort(Builders<Options_Data>.Sort.Descending("datetime")).First();
 
             }
             catch (InvalidOperationException)
