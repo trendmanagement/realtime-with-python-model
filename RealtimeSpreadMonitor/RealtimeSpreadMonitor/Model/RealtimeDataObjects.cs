@@ -7,18 +7,24 @@ using System.Collections.Generic;
 
 namespace RealtimeSpreadMonitor.Model
 {
+    [BsonIgnoreExtraElements]
     public class AccountAllocation_Mongo
     {
-        public string broker { get; set; }
+        //public string broker { get; set; }
         public string account { get; set; }
-        public string FCM_OFFICE { get; set; }
-        public string FCM_ACCT { get; set; }
+        //public string FCM_OFFICE { get; set; }
+        //public string FCM_ACCT { get; set; }
 
         //public int multiple { get; set; } = 1;
     }
 
+    [BsonIgnoreExtraElements]
     public class AccountAllocation : AccountAllocation_Mongo
     {
+        public string broker { get; set; }
+        //public string account { get; set; }
+        public string FCM_OFFICE { get; set; }
+        public string FCM_ACCT { get; set; }
 
         public string FCM_POFFIC_PACCT { get; set; }
 
@@ -81,6 +87,11 @@ namespace RealtimeSpreadMonitor.Model
         public AccountInfo info { get; set; }
 
         public List<long> instruments { get; set; }
+
+        public string broker { get; set; }
+        public string FCM_OFFICE { get; set; }
+        public string FCM_ACCT { get; set; }
+
     }
 
     [BsonIgnoreExtraElements]

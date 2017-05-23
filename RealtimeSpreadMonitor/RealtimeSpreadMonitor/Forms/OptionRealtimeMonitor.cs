@@ -424,7 +424,7 @@ namespace RealtimeSpreadMonitor.Forms
                 {
                     optionSpreadManager.RefreshAccountInfo();
 
-                    TimerThreadInfo.refreshMongoOrders = DateTime.Now.AddMinutes(1).TimeOfDay;
+                    TimerThreadInfo.refreshMongoOrders = DateTime.Now.AddSeconds(30).TimeOfDay;
                 }
 
                 if (DataCollectionLibrary._fxceConnected)

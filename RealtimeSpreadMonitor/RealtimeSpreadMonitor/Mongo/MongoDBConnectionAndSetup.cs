@@ -62,9 +62,16 @@ namespace RealtimeSpreadMonitor.Mongo
             _accountPositionCollection = _database.GetCollection<AccountPosition>(
                 System.Configuration.ConfigurationManager.AppSettings["MongoAccountPositionCollection"]);
 
+            _accountPositionCollection.Indexes.CreateOneAsync(
+                Builders<AccountPosition>
+                .IndexKeys.Ascending(_ => _.name).Ascending(_ => _.date_now));
+
             _accountPositionArchiveCollection = _database.GetCollection<AccountPosition>(
                 System.Configuration.ConfigurationManager.AppSettings["MongoAccountPositionArchiveCollection"]);
 
+            _accountPositionArchiveCollection.Indexes.CreateOneAsync(
+                Builders<AccountPosition>
+                .IndexKeys.Ascending(_ => _.name).Ascending(_ => _.date_now));
 
             _contractCollection = _database.GetCollection<Contract_mongo>(
                 System.Configuration.ConfigurationManager.AppSettings["MongoContractCollection"]);
@@ -322,12 +329,16 @@ namespace RealtimeSpreadMonitor.Mongo
                 var filterForPortfolio = builder.Eq("idportfoliogroup", idportfoliogroup);
 
                 portfolioAllocation
-                    = _portfolioCollection.Find(filterForPortfolio).First<PortfolioAllocation_Mongo>();
+                    = _portfolioCollection.Find(filterForPortfolio)
+                    
+                    .Sort(Builders<PortfolioAllocation_Mongo>.Sort.Ascending("account"))
+                    .First<PortfolioAllocation_Mongo>();
 
 
             }
-            catch (Exception)
+            catch (Exception e)
             {
+                Console.Write(e.Message);
             }
 
             return portfolioAllocation;

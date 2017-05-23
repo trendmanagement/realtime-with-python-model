@@ -191,12 +191,13 @@ namespace RealtimeSpreadMonitor
         //    MongoDBConnectionAndSetup.InsertPortfolioToMongo(portfolioAllocation_Mongo);
         //}
 
-        private void fillPortfolioAllocation()
+        private void fillPortfolioAllocation(PortfolioAllocation_Mongo portfolioAllocation_Mongo,
+            Dictionary<string, Account> accountListDictionary)
         {
-            int idportfoliogroup = 1;
+            //int idportfoliogroup = 1;
 
-            PortfolioAllocation_Mongo portfolioAllocation_Mongo =
-                    MongoDBConnectionAndSetup.GetAccountsPortfolio(idportfoliogroup);
+            //PortfolioAllocation_Mongo portfolioAllocation_Mongo =
+            //        MongoDBConnectionAndSetup.GetAccountsPortfolio(idportfoliogroup);
 
             PortfolioAllocation portfolioAllocation = new PortfolioAllocation();
 
@@ -207,13 +208,15 @@ namespace RealtimeSpreadMonitor
             if (portfolioAllocation_Mongo != null)
             {
 
-                foreach (AccountAllocation_Mongo aam in portfolioAllocation_Mongo.accountAllocation)
+                foreach (AccountAllocation_Mongo accountAllocation_Mongo in portfolioAllocation_Mongo.accountAllocation)
                 {
-                    Console.Write(aam.account);
+                    Console.Write(accountAllocation_Mongo.account);
 
                     AccountAllocation accountAllocation = new AccountAllocation();
 
-                    accountAllocation.broker = aam.broker;
+                    accountAllocation.accountFromMongo = accountListDictionary[accountAllocation_Mongo.account];
+
+                    accountAllocation.broker = accountAllocation.accountFromMongo.broker;
 
                     //if (acctIndex_UsedForTotals == 0)
                     //{
@@ -221,11 +224,11 @@ namespace RealtimeSpreadMonitor
                     //}
                     //else
                     //{
-                    accountAllocation.account = aam.account;
+                    accountAllocation.account = accountAllocation_Mongo.account;
                     //}
 
-                    accountAllocation.FCM_OFFICE = aam.FCM_OFFICE;
-                    accountAllocation.FCM_ACCT = aam.FCM_ACCT;
+                    accountAllocation.FCM_OFFICE = accountAllocation.accountFromMongo.FCM_OFFICE;
+                    accountAllocation.FCM_ACCT = accountAllocation.accountFromMongo.FCM_ACCT;
                     //accountAllocation.multiple = aam.multiple;
 
                     StringBuilder acaText = new StringBuilder();
@@ -284,9 +287,15 @@ namespace RealtimeSpreadMonitor
             /// fill account and position information
             /// </summary>
             ///
-            fillPortfolioAllocation();
+            
 
-            foreach (AccountAllocation ac in DataCollectionLibrary.portfolioAllocation.accountAllocation)
+            int idportfoliogroup = 1;
+
+            PortfolioAllocation_Mongo portfolioAllocation_Mongo =
+                    MongoDBConnectionAndSetup.GetAccountsPortfolio(idportfoliogroup);
+
+            //foreach (AccountAllocation ac in DataCollectionLibrary.portfolioAllocation.accountAllocation)
+            foreach (AccountAllocation_Mongo ac in portfolioAllocation_Mongo.accountAllocation)
             {
                 DataCollectionLibrary.accountNameList.Add(ac.account);
             }
@@ -300,10 +309,13 @@ namespace RealtimeSpreadMonitor
             ///
             /// this adds the Account to the accountAllocation
             ///
-            foreach (AccountAllocation ac in DataCollectionLibrary.portfolioAllocation.accountAllocation)
-            {
-                ac.accountFromMongo = accountListDictionary[ac.account];
-            }
+            //foreach (AccountAllocation ac in DataCollectionLibrary.portfolioAllocation.accountAllocation)
+            //foreach (AccountAllocation ac in portfolioAllocation_Mongo.accountAllocation)
+            //{
+            //    ac.accountFromMongo = accountListDictionary[ac.account];
+            //}
+
+            fillPortfolioAllocation(portfolioAllocation_Mongo, accountListDictionary);
 
 
             //AdjustQtyBasedOnDate();

@@ -47,7 +47,6 @@ D:\RealtimeSpreadWithPythonModel\RealtimeSpreadMonitor\RealtimeSpreadMonitor\bin
 D:\RealtimeSpreadWithPythonModel\RealtimeSpreadMonitor\RealtimeSpreadMonitor\bin\Debug\MongoDB.Bson.dll
 D:\RealtimeSpreadWithPythonModel\RealtimeSpreadMonitor\RealtimeSpreadMonitor\bin\Debug\MongoDB.Driver.Core.dll
 D:\RealtimeSpreadWithPythonModel\RealtimeSpreadMonitor\RealtimeSpreadMonitor\bin\Debug\MongoDB.Driver.dll
-D:\RealtimeSpreadWithPythonModel\RealtimeSpreadMonitor\RealtimeSpreadMonitor\bin\Debug\MySql.Data.dll
 D:\RealtimeSpreadWithPythonModel\RealtimeSpreadMonitor\RealtimeSpreadMonitor\bin\Debug\Newtonsoft.Json.dll
 D:\RealtimeSpreadWithPythonModel\RealtimeSpreadMonitor\RealtimeSpreadMonitor\bin\Debug\StageOrdersToTTWPFLibrary.dll
 D:\RealtimeSpreadWithPythonModel\RealtimeSpreadMonitor\RealtimeSpreadMonitor\bin\Debug\System.Net.Http.Formatting.dll

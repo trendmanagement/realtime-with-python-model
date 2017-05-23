@@ -233,32 +233,35 @@ namespace RealtimeSpreadMonitor.Forms
 
             for (int groupAllocCnt = 0; groupAllocCnt <= DataCollectionLibrary.portfolioAllocation.accountAllocation.Count; groupAllocCnt++)
             {
-
-                if (groupAllocCnt == DataCollectionLibrary.portfolioAllocation.accountAllocation.Count)
+                try
                 {
+                    if (groupAllocCnt == DataCollectionLibrary.portfolioAllocation.accountAllocation.Count)
+                    {
+                        treeViewBrokerAcct.Nodes.Add(groupAllocCnt.ToString(), "ALL ACCTS");
+                        treeViewBrokerAcct.SelectedNode = treeViewBrokerAcct.Nodes[groupAllocCnt];
+                    }
+                    else
+                    {
+                        StringBuilder treeVal = new StringBuilder();
+
+                        treeVal.Append(DataCollectionLibrary.accountPositionsList[groupAllocCnt].client_name);
+                        treeVal.Append("|");
+                        treeVal.Append(DataCollectionLibrary.portfolioAllocation.accountAllocation[groupAllocCnt].broker);
+                        treeVal.Append("|");
+                        treeVal.Append(DataCollectionLibrary.portfolioAllocation.accountAllocation[groupAllocCnt].account);
+                        treeVal.Append("|");
+                        treeVal.Append(DataCollectionLibrary.portfolioAllocation.accountAllocation[groupAllocCnt].accountFromMongo.campaign_name);
+                        treeVal.Append("|");
+                        treeVal.Append(DataCollectionLibrary.portfolioAllocation.accountAllocation[groupAllocCnt].FCM_OFFICE);
+                        treeVal.Append(DataCollectionLibrary.portfolioAllocation.accountAllocation[groupAllocCnt].FCM_ACCT);
 
 
-                    treeViewBrokerAcct.Nodes.Add(groupAllocCnt.ToString(), "ALL ACCTS");
-
-                    treeViewBrokerAcct.SelectedNode = treeViewBrokerAcct.Nodes[groupAllocCnt];
+                        treeViewBrokerAcct.Nodes.Add(groupAllocCnt.ToString(), treeVal.ToString());
+                    }
                 }
-                else
+                catch(Exception e)
                 {
-                    StringBuilder treeVal = new StringBuilder();
-
-                    treeVal.Append(DataCollectionLibrary.accountPositionsList[groupAllocCnt].client_name);
-                    treeVal.Append("|");
-                    treeVal.Append(DataCollectionLibrary.portfolioAllocation.accountAllocation[groupAllocCnt].broker);
-                    treeVal.Append("|");
-                    treeVal.Append(DataCollectionLibrary.portfolioAllocation.accountAllocation[groupAllocCnt].account);
-                    treeVal.Append("|");
-                    treeVal.Append(DataCollectionLibrary.portfolioAllocation.accountAllocation[groupAllocCnt].accountFromMongo.campaign_name);
-                    treeVal.Append("|");
-                    treeVal.Append(DataCollectionLibrary.portfolioAllocation.accountAllocation[groupAllocCnt].FCM_OFFICE);
-                    treeVal.Append(DataCollectionLibrary.portfolioAllocation.accountAllocation[groupAllocCnt].FCM_ACCT);
-
-
-                    treeViewBrokerAcct.Nodes.Add(groupAllocCnt.ToString(), treeVal.ToString());
+                    MessageBox.Show("Error, probably due to inconsistencies in DB", e.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
 
