@@ -1,14 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using MySql.Data.MySqlClient;
 
 namespace RealtimeSpreadMonitor
 {
     public class TMLModelDBConnection
     {
-        public MySqlConnection conn;
+        //public MySqlConnection conn;
 
        
 
@@ -22,8 +18,8 @@ namespace RealtimeSpreadMonitor
                     String.Format("server={0};user id={1}; password={2}; database={3}; pooling=false ", dbServerName,
                     TradingSystemConstants.DB_USERNAME, TradingSystemConstants.DB_PASSWORD, TradingSystemConstants.DB_DATABASENAME);
                 
-                conn = new MySqlConnection(connString);
-                conn.Open();
+                //conn = new MySqlConnection(connString);
+                //conn.Open();
 
                 
 
@@ -38,9 +34,9 @@ namespace RealtimeSpreadMonitor
         {
             try
             {
-                conn.Close();
+                //conn.Close();
 
-                conn.Dispose();
+                //conn.Dispose();
             }
             catch (System.Exception ex)
             {

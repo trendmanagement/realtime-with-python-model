@@ -4,9 +4,7 @@ using RealtimeSpreadMonitor.Forms;
 using RealtimeSpreadMonitor.Model;
 using RealtimeSpreadMonitor.Mongo;
 using System;
-using System.Collections.Concurrent;
 using System.Collections.Generic;
-using System.Data;
 using System.Globalization;
 using System.IO;
 using System.Linq;
@@ -701,7 +699,7 @@ namespace RealtimeSpreadMonitor
                 {
                     ProductCodes exchangeCqgSpanCodes = instMongo.span_cqg_codes_dictionary[asset.optioncode];
 
-                    asset.productcode = exchangeCqgSpanCodes.span;
+                    asset.productcode = exchangeCqgSpanCodes.pfc;
 
                 }
                 else
@@ -2437,7 +2435,8 @@ namespace RealtimeSpreadMonitor
                             FCM_DatatImportedRow_Local.asset.optionyear,
                             FCM_DatatImportedRow_Local.instrument.idinstrument,
                             FCM_DatatImportedRow_Local.PSUBTY, FCM_DatatImportedRow_Local.strikeInDecimal,
-                            FCM_DatatImportedRow_Local.asset.optioncode.Trim(), true);
+                            FCM_DatatImportedRow_Local.asset.optioncode.Trim(),
+                            FCM_DatatImportedRow_Local.asset.optioncode.Trim().Length == 0?false:true);
 
                     }
                     else
@@ -2452,7 +2451,7 @@ namespace RealtimeSpreadMonitor
                     }
 
 
-                    //Option_mongo option_mongo = MongoDBConnectionAndSetup.GetOption(FCM_DatatImportedRow_Local.asset.optionmonthint,
+                    //Option_mongo option_mongo = MongoDBConnectihonAndSetup.GetOption(FCM_DatatImportedRow_Local.asset.optionmonthint,
                     //    FCM_DatatImportedRow_Local.asset.optionyear,
                     //    FCM_DatatImportedRow_Local.instrument.idinstrument,
                     //    FCM_DatatImportedRow_Local.PSUBTY, FCM_DatatImportedRow_Local.strikeInDecimal,

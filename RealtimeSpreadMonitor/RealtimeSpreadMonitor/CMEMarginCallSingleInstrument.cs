@@ -1,17 +1,14 @@
-﻿using System;
+﻿using RealtimeSpreadMonitor.Forms;
+using RealtimeSpreadMonitor.Model;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
-using System.Text;
 using System.Net.Http;
 using System.Net.Http.Headers;
-using System.Threading.Tasks;
-using System.IO;
-using System.Xml.Serialization;
-using System.Xml;
+using System.Text;
 using System.Threading;
-using RealtimeSpreadMonitor.Forms;
-using System.Reflection;
-using RealtimeSpreadMonitor.Model;
+using System.Xml;
 //using XSerializer;
 
 namespace RealtimeSpreadMonitor
@@ -21,7 +18,7 @@ namespace RealtimeSpreadMonitor
     //http://www.cmegroup.com/confluence/display/EPICSANDBOX/Margin+Service+API+-+Onboarding+and+Verification
     //https://www.cmegroup.com/confluence/display/EPICSANDBOX/Margin+Service+API+-+ALL-IN-ONE+Call
 
-    
+
 
     //class MarginRequestRunSingleInstrument
     //{

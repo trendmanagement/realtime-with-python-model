@@ -38,6 +38,7 @@ D:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\obj\x86\Release\Re
 D:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\obj\x86\Release\RealtimeSpreadMonitor.csproj.GenerateResource.Cache
 D:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\obj\x86\Release\RealtimeSpreadMonitor.exe
 D:\RealtimeSpread\RealtimeSpreadMonitor\RealtimeSpreadMonitor\obj\x86\Release\RealtimeSpreadMonitor.pdb
+D:\RealtimeSpreadWithPythonModel\RealtimeSpreadMonitor\RealtimeSpreadMonitor\bin\Release\WinSCP.exe
 D:\RealtimeSpreadWithPythonModel\RealtimeSpreadMonitor\RealtimeSpreadMonitor\bin\Release\RealtimeSpreadMonitor.exe.config
 D:\RealtimeSpreadWithPythonModel\RealtimeSpreadMonitor\RealtimeSpreadMonitor\bin\Release\RealtimeSpreadMonitor.exe
 D:\RealtimeSpreadWithPythonModel\RealtimeSpreadMonitor\RealtimeSpreadMonitor\bin\Release\RealtimeSpreadMonitor.pdb
