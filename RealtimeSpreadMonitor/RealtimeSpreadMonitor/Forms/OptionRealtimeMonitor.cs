@@ -456,9 +456,24 @@ namespace RealtimeSpreadMonitor.Forms
                 fillOrderSummaryList();
                 //*******************
 
+                int saveRow = 0;
+                if (gridViewContractSummary.Rows.Count > 0 && gridViewContractSummary.FirstDisplayedCell != null)
+                    saveRow = gridViewContractSummary.FirstDisplayedCell.RowIndex;
+
                 ContractsModel_Library.gridViewContractSummaryManipulation.FillContractSummary();
 
+                if (saveRow != 0 && saveRow < gridViewContractSummary.Rows.Count)
+                    gridViewContractSummary.FirstDisplayedScrollingRowIndex = saveRow;
+
+
+                saveRow = 0;
+                if (gridLiveFCMData.Rows.Count > 0 && gridLiveFCMData.FirstDisplayedCell != null)
+                    saveRow = gridLiveFCMData.FirstDisplayedCell.RowIndex;
+
                 ContractsModel_Library.gridViewFCMPostionManipulation.Fill_FCM_ContractSummary();
+
+                if (saveRow != 0 && saveRow < gridLiveFCMData.Rows.Count)
+                    gridLiveFCMData.FirstDisplayedScrollingRowIndex = saveRow;
 
 
                 updateLiveDataPage(null);
@@ -1226,6 +1241,14 @@ namespace RealtimeSpreadMonitor.Forms
             //    os_ap.tested = false;
             //}
 
+            int saveRow = 0;
+            if (orderSummaryGrid.Rows.Count > 0 && orderSummaryGrid.FirstDisplayedCell != null)
+                saveRow = orderSummaryGrid.FirstDisplayedCell.RowIndex;
+
+            //dataGridView1.DataSource = dataTable1;
+
+            
+
             DataCollectionLibrary.orderSummaryDataTable.Clear(); // .Rows.Clear();
 
             //if (test)
@@ -1254,6 +1277,9 @@ namespace RealtimeSpreadMonitor.Forms
                     }
                 }
             }
+
+            if (saveRow != 0 && saveRow < orderSummaryGrid.Rows.Count)
+                orderSummaryGrid.FirstDisplayedScrollingRowIndex = saveRow;
 
         }
 
@@ -3845,35 +3871,21 @@ namespace RealtimeSpreadMonitor.Forms
         private void orderSummaryGrid_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
 
-            orderSummaryGrid_CellFormattingDelegate.Invoke(e,
-                orderSummaryGrid, DataCollectionLibrary.orderSummaryDataTable, Color.LightBlue);
+            //orderSummaryGrid_CellFormattingDelegate.Invoke(e,
+            //    orderSummaryGrid, DataCollectionLibrary.orderSummaryDataTable, Color.LightBlue);
 
+            //DataGridView dataGrid = orderSummaryGrid;
 
-        }
+            e.CellStyle.BackColor = Color.LightBlue;
 
-
-
-        private delegate void OrderSummaryGridFormattingDelegate(DataGridViewCellFormattingEventArgs e, DataGridView dataGrid,
-            DataTable dataTable, Color backColor);
-
-        OrderSummaryGridFormattingDelegate orderSummaryGrid_CellFormattingDelegate
-            = new OrderSummaryGridFormattingDelegate(orderSummaryGridFormatting);
-
-
-
-        private static void orderSummaryGridFormatting(DataGridViewCellFormattingEventArgs e, DataGridView dataGrid,
-            DataTable dataTable, Color backColor)
-        {
-            e.CellStyle.BackColor = backColor;
-
-            if (dataGrid.Columns[e.ColumnIndex].Name == ORDER_SUMMARY_COLUMNS.CONTRACT.ToString())
+            if (orderSummaryGrid.Columns[e.ColumnIndex].Name == ORDER_SUMMARY_COLUMNS.CONTRACT.ToString())
             {
-                dataGrid.Columns[e.ColumnIndex].MinimumWidth = 110;
+                orderSummaryGrid.Columns[e.ColumnIndex].MinimumWidth = 110;
             }
 
-            if (dataGrid.Columns[e.ColumnIndex].Name == ORDER_SUMMARY_COLUMNS.QTY.ToString())
+            if (orderSummaryGrid.Columns[e.ColumnIndex].Name == ORDER_SUMMARY_COLUMNS.QTY.ToString())
             {
-                int lots = Convert.ToInt16(dataTable.Rows[e.RowIndex][e.ColumnIndex]);
+                int lots = Convert.ToInt16(e.Value);
 
                 if (lots >= 0)
                 {
@@ -3886,11 +3898,11 @@ namespace RealtimeSpreadMonitor.Forms
             }
 
 
-            if (dataGrid.Columns[e.ColumnIndex].Name == ORDER_SUMMARY_COLUMNS.DECS_FILL.ToString())
+            if (orderSummaryGrid.Columns[e.ColumnIndex].Name == ORDER_SUMMARY_COLUMNS.DECS_FILL.ToString())
             {
-                if (dataTable.Rows[e.RowIndex][e.ColumnIndex].ToString().Length > 0)
+                if (e.Value.ToString().Length > 0)
                 {
-                    bool descisionFilled = Convert.ToBoolean(dataTable.Rows[e.RowIndex][e.ColumnIndex]);
+                    bool descisionFilled = Convert.ToBoolean(e.Value);
 
                     if (descisionFilled)
                     {
@@ -3902,8 +3914,61 @@ namespace RealtimeSpreadMonitor.Forms
                     }
                 }
             }
-
         }
+
+
+
+        //private delegate void OrderSummaryGridFormattingDelegate(DataGridViewCellFormattingEventArgs e, DataGridView dataGrid,
+        //    DataTable dataTable, Color backColor);
+
+        //OrderSummaryGridFormattingDelegate orderSummaryGrid_CellFormattingDelegate
+        //    = new OrderSummaryGridFormattingDelegate(orderSummaryGridFormatting);
+
+
+
+        //private static void orderSummaryGridFormatting(DataGridViewCellFormattingEventArgs e, DataGridView dataGrid,
+        //    DataTable dataTable, Color backColor)
+        //{
+        //    e.CellStyle.BackColor = backColor;
+
+        //    if (dataGrid.Columns[e.ColumnIndex].Name == ORDER_SUMMARY_COLUMNS.CONTRACT.ToString())
+        //    {
+        //        dataGrid.Columns[e.ColumnIndex].MinimumWidth = 110;
+        //    }
+
+        //    if (dataGrid.Columns[e.ColumnIndex].Name == ORDER_SUMMARY_COLUMNS.QTY.ToString())
+        //    {
+        //        int lots = Convert.ToInt16(dataTable.Rows[e.RowIndex][e.ColumnIndex]);
+
+        //        if (lots >= 0)
+        //        {
+        //            e.CellStyle.BackColor = RealtimeColors.positiveBackColor;
+        //        }
+        //        else
+        //        {
+        //            e.CellStyle.BackColor = RealtimeColors.negativeBackColor;
+        //        }
+        //    }
+
+
+        //    if (dataGrid.Columns[e.ColumnIndex].Name == ORDER_SUMMARY_COLUMNS.DECS_FILL.ToString())
+        //    {
+        //        if (dataTable.Rows[e.RowIndex][e.ColumnIndex].ToString().Length > 0)
+        //        {
+        //            bool descisionFilled = Convert.ToBoolean(dataTable.Rows[e.RowIndex][e.ColumnIndex]);
+
+        //            if (descisionFilled)
+        //            {
+        //                e.CellStyle.BackColor = RealtimeColors.positiveBackColor;
+        //            }
+        //            else
+        //            {
+        //                e.CellStyle.BackColor = RealtimeColors.negativeBackColor;
+        //            }
+        //        }
+        //    }
+
+        //}
 
         private void fTPGMIToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -4557,20 +4622,20 @@ namespace RealtimeSpreadMonitor.Forms
 
 
 
-        PlTotalGridFormattingDelegate ContractSummaryFormat_DelegateCall
-            = new PlTotalGridFormattingDelegate(ContractSummaryFormatting);
+        //PlTotalGridFormattingDelegate ContractSummaryFormat_DelegateCall
+        //    = new PlTotalGridFormattingDelegate(ContractSummaryFormatting);
 
         private void gridViewContractSummary_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            ContractSummaryFormat_DelegateCall.Invoke(e, DataCollectionLibrary.contractSummaryDataTable);
-        }
+            //ContractSummaryFormat_DelegateCall.Invoke(e, DataCollectionLibrary.contractSummaryDataTable);
+        //}
 
-        private static void ContractSummaryFormatting(DataGridViewCellFormattingEventArgs e,
-            DataTable dataTable)
-        {
+        //private static void ContractSummaryFormatting(DataGridViewCellFormattingEventArgs e)
+            //DataTable dataTable)
+        //{
 
-            if (dataTable.Rows.Count > 0
-                && dataTable.Rows[e.RowIndex][e.ColumnIndex] != null)
+            //if (dataTable.Rows.Count > 0
+            //    && dataTable.Rows[e.RowIndex][e.ColumnIndex] != null)
             {
 
                 if (
@@ -4588,8 +4653,9 @@ namespace RealtimeSpreadMonitor.Forms
                 )
                 {
 
+                    //dataTable.Rows[e.RowIndex][e.ColumnIndex]
 
-                    string objString = (dataTable.Rows[e.RowIndex][e.ColumnIndex] as string);
+                    string objString = (e.Value as string);
 
                     double cellValue = Convert.ToDouble(string.IsNullOrEmpty(objString) ? "0.0" : objString);
 
@@ -4615,20 +4681,20 @@ namespace RealtimeSpreadMonitor.Forms
 
         }
 
-        PlTotalGridFormattingDelegate FCMContractSummaryFormat_DelegateCall
-            = new PlTotalGridFormattingDelegate(FCM_ContractSummaryFormatting);
+        //PlTotalGridFormattingDelegate FCMContractSummaryFormat_DelegateCall
+        //    = new PlTotalGridFormattingDelegate(FCM_ContractSummaryFormatting);
 
         private void gridLiveFCMData_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            FCMContractSummaryFormat_DelegateCall.Invoke(e, DataCollectionLibrary.FCM_SummaryDataTable);
-        }
+        //    FCMContractSummaryFormat_DelegateCall.Invoke(e, DataCollectionLibrary.FCM_SummaryDataTable);
+        //}
 
-        private static void FCM_ContractSummaryFormatting(DataGridViewCellFormattingEventArgs e,
-            DataTable dataTable)
-        {
+        //private static void FCM_ContractSummaryFormatting(DataGridViewCellFormattingEventArgs e,
+        //    DataTable dataTable)
+        //{
 
-            if (dataTable.Rows.Count > 0
-                && dataTable.Rows[e.RowIndex][e.ColumnIndex] != null)
+        //    if (dataTable.Rows.Count > 0
+        //        && dataTable.Rows[e.RowIndex][e.ColumnIndex] != null)
             {
                 if (
                 e.ColumnIndex == (int)OPTION_LIVE_ADM_DATA_COLUMNS.NET_AT_ADM
@@ -4642,7 +4708,7 @@ namespace RealtimeSpreadMonitor.Forms
                 {
 
 
-                    string objString = (dataTable.Rows[e.RowIndex][e.ColumnIndex] as string);
+                    string objString = (e.Value as string);
 
                     double cellValue = Convert.ToDouble(string.IsNullOrEmpty(objString) ? "0.0" : objString);
 

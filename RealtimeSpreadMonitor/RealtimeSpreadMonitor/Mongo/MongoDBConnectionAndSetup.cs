@@ -1,8 +1,9 @@
-﻿using System;
+﻿using MongoDB.Driver;
+using RealtimeSpreadMonitor.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using MongoDB.Driver;
-using RealtimeSpreadMonitor.Model;
+using System.Windows;
 
 namespace RealtimeSpreadMonitor.Mongo
 {
@@ -338,6 +339,7 @@ namespace RealtimeSpreadMonitor.Mongo
             }
             catch (Exception e)
             {
+                MessageBox.Show("MongoDB error " + e.Message);
                 Console.Write(e.Message);
             }
 

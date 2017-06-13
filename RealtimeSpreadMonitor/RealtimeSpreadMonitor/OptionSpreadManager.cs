@@ -344,7 +344,7 @@ namespace RealtimeSpreadMonitor
             {
                 ii.product_codes_dictionary_optcodkey = ii.product_codes_list.ToDictionary(x => x.optcod, x => x);
 
-                ii.product_codes_dictionary_pfckey = ii.product_codes_list.ToDictionary(x => x.pfc, x => x);
+                ii.product_codes_dictionary_pfckey = ii.product_codes_list.ToDictionary(x => x.trading, x => x);
             }
 
             DataCollectionLibrary.instrumentInfoTable_keyinstrumentid 

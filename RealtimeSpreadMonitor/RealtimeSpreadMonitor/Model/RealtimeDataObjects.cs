@@ -507,6 +507,8 @@ namespace RealtimeSpreadMonitor.Model
         public string optcod { get; set; }
 
         public string pfc { get; set; }
+
+        public string trading { get; set; }
     }
 
     [BsonIgnoreExtraElements]

@@ -62,8 +62,6 @@ namespace RealtimeSpreadMonitor.FormManipulation
 
         private void _FillContractSummary(bool fullRefresh)
         {
-
-
             DataTable dataTable = DataCollectionLibrary.contractSummaryDataTable;
 
             if (fullRefresh)
