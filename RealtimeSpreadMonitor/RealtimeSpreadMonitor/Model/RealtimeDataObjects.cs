@@ -584,9 +584,9 @@ namespace RealtimeSpreadMonitor.Model
         public int tmlSystemRunType;
         public bool runLiveSystem;
         public bool connectToXtrader;
-        public bool initializePersistence;
-        public bool runFromDb;
-        public String dbServerName;
+        //public bool initializePersistence;
+        //public bool runFromDb;
+        //public String dbServerName;
 
         public int idPortfolioGroup;
 

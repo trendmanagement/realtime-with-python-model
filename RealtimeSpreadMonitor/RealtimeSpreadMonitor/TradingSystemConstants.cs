@@ -261,7 +261,7 @@ namespace RealtimeSpreadMonitor
 
     public enum INITIALIZATION_CONFIG_VARS 
     {
-        PORTFOLIOGROUP, DBSERVERNAME //BROKER, ACCOUNT
+        PORTFOLIOGROUP  //, DBSERVERNAME //BROKER, ACCOUNT
     };
 
     public enum REALTIME_CONFIGURATION

@@ -29,6 +29,7 @@ namespace RealtimeSpreadMonitor.Forms
             //this.tmlSystemRunType = tmlSystemRunType;
 
             InitializeComponent();
+
             loadPortfolioGroups();
 
             this.Text = "OPTIONS REALTIME";
@@ -55,18 +56,24 @@ namespace RealtimeSpreadMonitor.Forms
 
                 DataCollectionLibrary.initializationParms.runLiveSystem = true;
 
-                DataCollectionLibrary.initializationParms.dbServerName = (String)(cmbxDatabase.SelectedItem);
-                if (DataCollectionLibrary.initializationParms.dbServerName == null)
+                //DataCollectionLibrary.initializationParms.dbServerName = (String)(cmbxDatabase.SelectedItem);
+                //if (DataCollectionLibrary.initializationParms.dbServerName == null)
+                //{
+                //    DataCollectionLibrary.initializationParms.dbServerName = TradingSystemConstants.DB_DEFAULTSERVERIP;
+                //}
+
+                DataCollectionLibrary.initializationParms.idPortfolioGroup = Convert.ToInt16(cmbxPortfolio.SelectedItem);
+                if (DataCollectionLibrary.initializationParms.idPortfolioGroup == 0)
                 {
-                    DataCollectionLibrary.initializationParms.dbServerName = TradingSystemConstants.DB_DEFAULTSERVERIP;
+                    DataCollectionLibrary.initializationParms.idPortfolioGroup = 1;
                 }
 
                 //if (DataCollectionLibrary.initializationParms.runFromDb)
-                {
+                //{
                 //    DataCollectionLibrary.initializationParms.idPortfolioGroup = pgs[cmbxPortfolio.SelectedIndex].idPortfolioGroup;
 
                 //    DataCollectionLibrary.initializationParms.portfolioGroupName = pgs[cmbxPortfolio.SelectedIndex].portfolioName;
-                }
+                //}
 
 
                 DataCollectionLibrary.initializationParms.modelDateTime = modelDateTimePicker.Value.Date;
@@ -108,8 +115,8 @@ namespace RealtimeSpreadMonitor.Forms
                 sof.writeConfigLineFile(configNames.GetValue((int)INITIALIZATION_CONFIG_VARS.PORTFOLIOGROUP).ToString(),
                     (String)(cmbxPortfolio.SelectedItem));
 
-                sof.writeConfigLineFile(configNames.GetValue((int)INITIALIZATION_CONFIG_VARS.DBSERVERNAME).ToString(),
-                    (String)(cmbxDatabase.SelectedItem));
+                //sof.writeConfigLineFile(configNames.GetValue((int)INITIALIZATION_CONFIG_VARS.DBSERVERNAME).ToString(),
+                //    (String)(cmbxDatabase.SelectedItem));
 
                 //sof.writeConfigLineFile(configNames.GetValue((int)INITIALIZATION_CONFIG_VARS.BROKER).ToString(),
                 //    initializationParms.FIX_Broker_18220);
@@ -173,7 +180,7 @@ namespace RealtimeSpreadMonitor.Forms
                     TradingSystemConstants.REALTIME_CONFIGURATION,
                     (int)REALTIME_CONFIG_FILE_INPUT_TYPE.REALTIME_CONFIGURATION);
 
-
+                
                 //String[] brokerList =
                 //    realtimeConfiguration[(int)REALTIME_CONFIGURATION.MULTIBROKER].Split(',');
 
@@ -187,44 +194,46 @@ namespace RealtimeSpreadMonitor.Forms
 
 
 
-                if (initializationConfigs[(int)INITIALIZATION_CONFIG_VARS.DBSERVERNAME] == null
-                    || initializationConfigs[(int)INITIALIZATION_CONFIG_VARS.DBSERVERNAME].Length == 0)
+                if (initializationConfigs[(int)INITIALIZATION_CONFIG_VARS.PORTFOLIOGROUP] != null)
+                    //|| initializationConfigs[(int)INITIALIZATION_CONFIG_VARS.PORTFOLIOGROUP].Length > 0)
                 {
-                    initializationConfigs[(int)INITIALIZATION_CONFIG_VARS.DBSERVERNAME] =
-                        TradingSystemConstants.DB_DEFAULTSERVERIP;
+                    cmbxPortfolio.Text = initializationConfigs[(int)INITIALIZATION_CONFIG_VARS.PORTFOLIOGROUP];
+
+                    //initializationConfigs[(int)INITIALIZATION_CONFIG_VARS.PORTFOLIOGROUP] =
+                    //    TradingSystemConstants.DB_DEFAULTSERVERIP;
                 }
 
-                String[] dbServerList =
-                    realtimeConfiguration[(int)REALTIME_CONFIGURATION.SERVERNAME].Split(',');
+                //String[] dbServerList =
+                //    realtimeConfiguration[(int)REALTIME_CONFIGURATION.SERVERNAME].Split(',');
 
                 //ArrayList dbServerList = sof.readDBserverListFile();
 
                 //sof.closeAndSaveFile();
 
-                if (dbServerList != null && dbServerList.Length > 0)
-                {
-                    int dbSelectedIndex = 0;
-                    for (int i = 0; i < dbServerList.Length; i++)
-                    {
-                        String serverName = (String)(dbServerList[i]);
-                        cmbxDatabase.Items.Add(serverName);
-                        if (serverName.CompareTo(initializationConfigs[(int)INITIALIZATION_CONFIG_VARS.DBSERVERNAME]) == 0)
-                        {
-                            dbSelectedIndex = i;
-                        }
-                        //itemCounter++;
-                    }
+                //if (dbServerList != null && dbServerList.Length > 0)
+                //{
+                //    int dbSelectedIndex = 0;
+                //    for (int i = 0; i < dbServerList.Length; i++)
+                //    {
+                //        String serverName = (String)(dbServerList[i]);
+                //        cmbxDatabase.Items.Add(serverName);
+                //        if (serverName.CompareTo(initializationConfigs[(int)INITIALIZATION_CONFIG_VARS.DBSERVERNAME]) == 0)
+                //        {
+                //            dbSelectedIndex = i;
+                //        }
+                //        //itemCounter++;
+                //    }
 
-                    if (cmbxDatabase.Items.Count > 0)
-                    {
-                        cmbxDatabase.SelectedIndex = dbSelectedIndex;
-                    }
-                }
-                else
-                {
-                    cmbxDatabase.Items.Add(initializationConfigs[(int)INITIALIZATION_CONFIG_VARS.DBSERVERNAME]);
-                    cmbxDatabase.SelectedIndex = 0;
-                }
+                //    if (cmbxDatabase.Items.Count > 0)
+                //    {
+                //        cmbxDatabase.SelectedIndex = dbSelectedIndex;
+                //    }
+                //}
+                //else
+                //{
+                //    cmbxDatabase.Items.Add(initializationConfigs[(int)INITIALIZATION_CONFIG_VARS.DBSERVERNAME]);
+                //    cmbxDatabase.SelectedIndex = 0;
+                //}
 
                 
 
@@ -304,7 +313,7 @@ namespace RealtimeSpreadMonitor.Forms
                 }
                 */
 
-                DataCollectionLibrary.initializationParms.runFromDb = true;
+                //DataCollectionLibrary.initializationParms.runFromDb = true;
             }
 #if DEBUG
             catch (Exception ex)

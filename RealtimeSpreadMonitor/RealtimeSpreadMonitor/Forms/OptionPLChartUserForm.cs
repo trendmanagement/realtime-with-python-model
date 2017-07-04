@@ -2360,9 +2360,39 @@ namespace RealtimeSpreadMonitor.Forms
                                 //}
 
                                 if (continueToSubmitThisLeg)
-                                {
-                                    contractListToStage.Add(getOrder(futureIdx, rowIdx,
-                                        stageOrderLots));
+                                {                                    
+
+                                    int maxOrderSizeVal = Convert.ToInt16(maxOrderSize.Text);
+                                    if(stageOrderLots < 0)
+                                    {
+                                        maxOrderSizeVal *= -1;
+                                    }
+
+                                    int totalOrdersSent = 0;
+
+                                    while (Math.Abs(totalOrdersSent) < Math.Abs(stageOrderLots))
+                                    {
+                                        if (Math.Abs(stageOrderLots - totalOrdersSent) < Math.Abs(maxOrderSizeVal))
+                                        {
+                                            int finalOrderSize = stageOrderLots - totalOrdersSent;
+
+                                            contractListToStage.Add(getOrder(futureIdx, rowIdx,
+                                                finalOrderSize));
+
+                                            totalOrdersSent += finalOrderSize;
+                                        }
+                                        else
+                                        {
+                                            contractListToStage.Add(getOrder(futureIdx, rowIdx,
+                                                maxOrderSizeVal));
+
+                                            totalOrdersSent += maxOrderSizeVal;
+                                        }
+
+                                    }
+
+                                    //contractListToStage.Add(getOrder(futureIdx, rowIdx,
+                                    //    stageOrderLots));
                                 }
 
                             }

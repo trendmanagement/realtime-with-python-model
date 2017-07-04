@@ -101,6 +101,8 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.strikeIncrLimitTextBox = new System.Windows.Forms.TextBox();
             this.priceLimitTickTextBox = new System.Windows.Forms.TextBox();
+            this.maxOrderSize = new System.Windows.Forms.ComboBox();
+            this.groupBox9 = new System.Windows.Forms.GroupBox();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -130,6 +132,7 @@
             this.groupBox4.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.groupBox9.SuspendLayout();
             this.SuspendLayout();
             // 
             // label4
@@ -829,6 +832,7 @@
             // 
             // groupBox6
             // 
+            this.groupBox6.Controls.Add(this.groupBox9);
             this.groupBox6.Controls.Add(this.groupBox7);
             this.groupBox6.Controls.Add(this.groupBox4);
             this.groupBox6.Controls.Add(this.groupBox5);
@@ -841,12 +845,12 @@
             // groupBox7
             // 
             this.groupBox7.Controls.Add(this.tickOffsetBox);
-            this.groupBox7.Location = new System.Drawing.Point(165, 26);
+            this.groupBox7.Location = new System.Drawing.Point(165, 8);
             this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(55, 53);
+            this.groupBox7.Size = new System.Drawing.Size(65, 46);
             this.groupBox7.TabIndex = 41;
             this.groupBox7.TabStop = false;
-            this.groupBox7.Text = "Price Offset";
+            this.groupBox7.Text = "Prc Ofset";
             // 
             // tickOffsetBox
             // 
@@ -864,7 +868,7 @@
             "8",
             "9",
             "10"});
-            this.tickOffsetBox.Location = new System.Drawing.Point(6, 27);
+            this.tickOffsetBox.Location = new System.Drawing.Point(6, 18);
             this.tickOffsetBox.Name = "tickOffsetBox";
             this.tickOffsetBox.Size = new System.Drawing.Size(44, 21);
             this.tickOffsetBox.TabIndex = 35;
@@ -965,6 +969,42 @@
             this.priceLimitTickTextBox.TabIndex = 14;
             this.priceLimitTickTextBox.Text = "5";
             // 
+            // maxOrderSize
+            // 
+            this.maxOrderSize.FormatString = "N0";
+            this.maxOrderSize.FormattingEnabled = true;
+            this.maxOrderSize.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15"});
+            this.maxOrderSize.Location = new System.Drawing.Point(6, 18);
+            this.maxOrderSize.Name = "maxOrderSize";
+            this.maxOrderSize.Size = new System.Drawing.Size(44, 21);
+            this.maxOrderSize.TabIndex = 35;
+            this.maxOrderSize.Text = "2";
+            // 
+            // groupBox9
+            // 
+            this.groupBox9.Controls.Add(this.maxOrderSize);
+            this.groupBox9.Location = new System.Drawing.Point(165, 58);
+            this.groupBox9.Name = "groupBox9";
+            this.groupBox9.Size = new System.Drawing.Size(65, 46);
+            this.groupBox9.TabIndex = 42;
+            this.groupBox9.TabStop = false;
+            this.groupBox9.Text = "MxOrdSz";
+            // 
             // OptionPLChartUserForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1010,6 +1050,7 @@
             this.groupBox5.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.groupBox9.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1084,5 +1125,7 @@
         private System.Windows.Forms.SplitContainer splitContainer2;
         private System.Windows.Forms.Label lblPayoffChartName;
         private System.Windows.Forms.Button btnRefreshData;
+        private System.Windows.Forms.GroupBox groupBox9;
+        private System.Windows.Forms.ComboBox maxOrderSize;
     }
 }

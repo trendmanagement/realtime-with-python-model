@@ -287,10 +287,10 @@ namespace RealtimeSpreadMonitor
             ///
             
 
-            int idportfoliogroup = 1;
+            //int idportfoliogroup = 1;
 
             PortfolioAllocation_Mongo portfolioAllocation_Mongo =
-                    MongoDBConnectionAndSetup.GetAccountsPortfolio(idportfoliogroup);
+                    MongoDBConnectionAndSetup.GetAccountsPortfolio(DataCollectionLibrary.initializationParms.idPortfolioGroup);
 
             //foreach (AccountAllocation ac in DataCollectionLibrary.portfolioAllocation.accountAllocation)
             foreach (AccountAllocation_Mongo ac in portfolioAllocation_Mongo.accountAllocation)
@@ -1979,10 +1979,13 @@ namespace RealtimeSpreadMonitor
                 Array configNames = Enum.GetNames(configTypes);
 
                 sof.writeConfigLineFile(configNames.GetValue((int)INITIALIZATION_CONFIG_VARS.PORTFOLIOGROUP).ToString(),
-                    DataCollectionLibrary.initializationParms.portfolioGroupName);
+                    DataCollectionLibrary.initializationParms.idPortfolioGroup);
 
-                sof.writeConfigLineFile(configNames.GetValue((int)INITIALIZATION_CONFIG_VARS.DBSERVERNAME).ToString(),
-                    DataCollectionLibrary.initializationParms.dbServerName);
+                //sof.writeConfigLineFile(configNames.GetValue((int)INITIALIZATION_CONFIG_VARS.PORTFOLIOGROUP).ToString(),
+                //    DataCollectionLibrary.initializationParms.portfolioGroupName);
+
+                //sof.writeConfigLineFile(configNames.GetValue((int)INITIALIZATION_CONFIG_VARS.DBSERVERNAME).ToString(),
+                //    DataCollectionLibrary.initializationParms.dbServerName);
 
                 //sof.writeConfigLineFile(configNames.GetValue((int)INITIALIZATION_CONFIG_VARS.BROKER).ToString(),
                 //    initializationParmsSaved.FIX_Broker_18220);

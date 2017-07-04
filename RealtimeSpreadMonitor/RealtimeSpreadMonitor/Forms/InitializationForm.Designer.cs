@@ -29,13 +29,11 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InitializationForm));
-            this.cmbxDatabase = new System.Windows.Forms.ComboBox();
             this.cmbxPortfolio = new System.Windows.Forms.ComboBox();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.btnRunSystem = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.btnExitSystem = new System.Windows.Forms.ToolStripButton();
-            this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.modelDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
@@ -53,21 +51,20 @@
             this.timeGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
-            // cmbxDatabase
-            // 
-            this.cmbxDatabase.FormattingEnabled = true;
-            this.cmbxDatabase.Location = new System.Drawing.Point(101, 3);
-            this.cmbxDatabase.Name = "cmbxDatabase";
-            this.cmbxDatabase.Size = new System.Drawing.Size(191, 21);
-            this.cmbxDatabase.TabIndex = 8;
-            // 
             // cmbxPortfolio
             // 
             this.cmbxPortfolio.FormattingEnabled = true;
+            this.cmbxPortfolio.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5"});
             this.cmbxPortfolio.Location = new System.Drawing.Point(101, 30);
             this.cmbxPortfolio.Name = "cmbxPortfolio";
             this.cmbxPortfolio.Size = new System.Drawing.Size(191, 21);
             this.cmbxPortfolio.TabIndex = 15;
+            this.cmbxPortfolio.Text = "1";
             // 
             // toolStrip1
             // 
@@ -111,17 +108,6 @@
             this.btnExitSystem.Size = new System.Drawing.Size(72, 22);
             this.btnExitSystem.Text = "EXIT SYSTEM";
             this.btnExitSystem.Click += new System.EventHandler(this.btnExitSystem_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(2, 6);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(55, 13);
-            this.label1.TabIndex = 24;
-            this.label1.Text = "Database";
             // 
             // label2
             // 
@@ -253,8 +239,6 @@
             this.Controls.Add(this.modelDateTimePicker);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.cmbxPortfolio);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.cmbxDatabase);
             this.Controls.Add(this.toolStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "InitializationForm";
@@ -272,14 +256,11 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.ComboBox cmbxDatabase;
         private System.Windows.Forms.ComboBox cmbxPortfolio;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton btnRunSystem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripButton btnExitSystem;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DateTimePicker modelDateTimePicker;
         private System.Windows.Forms.Label label3;
