@@ -3241,8 +3241,8 @@ namespace RealtimeSpreadMonitor.Forms
                                     optionSpreadExpressionList[expressionCount].instrument.optionstrikedisplayTT,
                                     optionSpreadExpressionList[expressionCount].instrument.idinstrument);
 
-                                orderModel.contractMonthint = optionSpreadExpressionList[expressionCount].futureContractMonthInt;
-                                orderModel.contractYear = optionSpreadExpressionList[expressionCount].futureContractYear;
+                                orderModel.contractMonthint = optionSpreadExpressionList[expressionCount].asset.monthint;
+                                orderModel.contractYear = optionSpreadExpressionList[expressionCount].asset.year;
 
                                 //orderModel.expirationDate = optionSpreadExpressionList[expressionCount].con;
 
@@ -3524,8 +3524,8 @@ namespace RealtimeSpreadMonitor.Forms
                                     sd,
                                     optionSpreadExpressionList[expressionCount].instrument.idinstrument);
 
-                                orderModel.contractMonthint = optionSpreadExpressionList[expressionCount].futureContractMonthInt;
-                                orderModel.contractYear = optionSpreadExpressionList[expressionCount].futureContractYear;
+                                orderModel.contractMonthint = optionSpreadExpressionList[expressionCount].asset.monthint;
+                                orderModel.contractYear = optionSpreadExpressionList[expressionCount].asset.year;
 
                                 //orderModel.expirationDate = optionSpreadExpressionList[expressionCount].con;
 

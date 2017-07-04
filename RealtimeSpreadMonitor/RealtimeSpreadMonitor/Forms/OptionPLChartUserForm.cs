@@ -1383,13 +1383,14 @@ namespace RealtimeSpreadMonitor.Forms
                 gridViewSpreadGrid.Rows[row].Cells[(int)OPTION_PL_COLUMNS.IMPL_VOL].Value = 0;
 
                 gridViewSpreadGrid.Rows[row].Cells[(int)OPTION_PL_COLUMNS.DAYS_TO_EXP].Value = 0;
+                    //DataCollectionLibrary.optionSpreadExpressionList[futureExpCnt].asset.yearFraction * 365;
 
                 gridViewSpreadGrid.Rows[row].Cells[(int)OPTION_PL_COLUMNS.YEAR].Value =
-                        DataCollectionLibrary.optionSpreadExpressionList[futureExpCnt].futureContractYear;
+                        DataCollectionLibrary.optionSpreadExpressionList[futureExpCnt].asset.year;
                 //optionSpreadExpressionList[contractSummaryExpressionListIdx[contractCount]].futureContractYear;
 
                 gridViewSpreadGrid.Rows[row].Cells[(int)OPTION_PL_COLUMNS.MTH_AS_INT].Value =
-                        DataCollectionLibrary.optionSpreadExpressionList[futureExpCnt].futureContractMonthInt;
+                        DataCollectionLibrary.optionSpreadExpressionList[futureExpCnt].asset.monthint;
 
                 gridViewSpreadGrid.Rows[row].Cells[(int)OPTION_PL_COLUMNS.NET].Value = numberOfLots;
 
@@ -3505,8 +3506,8 @@ namespace RealtimeSpreadMonitor.Forms
                                             0,
                                             futureClose,
                                             0,
-                                            DataCollectionLibrary.optionSpreadExpressionList[futureExpressionIdx].futureContractYear,
-                                            DataCollectionLibrary.optionSpreadExpressionList[futureExpressionIdx].futureContractMonthInt,
+                                            DataCollectionLibrary.optionSpreadExpressionList[futureExpressionIdx].asset.year,
+                                            DataCollectionLibrary.optionSpreadExpressionList[futureExpressionIdx].asset.monthint,
                                             0,
                                             0,
                                             instrument.exchangesymbolTT,
@@ -3737,8 +3738,8 @@ namespace RealtimeSpreadMonitor.Forms
                                             0,
                                             futureClose,
                                             0,
-                                            DataCollectionLibrary.optionSpreadExpressionList[futureExpressionIdx].futureContractYear,
-                                            DataCollectionLibrary.optionSpreadExpressionList[futureExpressionIdx].futureContractMonthInt,
+                                            DataCollectionLibrary.optionSpreadExpressionList[futureExpressionIdx].asset.year,
+                                            DataCollectionLibrary.optionSpreadExpressionList[futureExpressionIdx].asset.monthint,
                                             0,
                                             0,
                                             instrument.exchangesymbolTT,
