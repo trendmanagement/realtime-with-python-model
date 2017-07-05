@@ -18,9 +18,6 @@ namespace RealtimeSpreadMonitor.Forms
         private bool highlightingIntheMoney = false;
 
         private Instrument_mongo instrument;
-        //private Exchange_mongo exchange;
-
-        //private Array optionSpreadContractTypesArray;
 
         private double rRisk;
 
@@ -29,10 +26,6 @@ namespace RealtimeSpreadMonitor.Forms
         private int countOfTest = 1000;
 
         private double constantImpliedVol = 20;
-
-        //private List<int> contractSummaryExpressionListIdx;
-
-        //private List<MongoDB_OptionSpreadExpression> optionSpreadExpressionList;
 
         private OptionArrayTypes optionArrayTypes;
 
@@ -270,53 +263,6 @@ namespace RealtimeSpreadMonitor.Forms
         }
 
 
-        private void treeViewBrokerAcct_AfterSelect(object sender, TreeViewEventArgs e)
-        {
-            //TreeNode x = treeViewBrokerAcct.SelectedNode;
-
-            //if (x != null)
-            //{
-
-            //    brokerAccountChosen = x.Index;
-
-            //    int legCount = 0;
-            //    while (legCount < gridViewSpreadGrid.RowCount)
-            //    {
-            //        gridViewSpreadGrid.Rows[legCount].DefaultCellStyle.BackColor = Color.White;
-
-            //        if (brokerAccountChosen < DataCollectionLibrary.portfolioAllocation.accountAllocation.Count)
-            //        {
-            //            if ((gridViewSpreadGrid.Rows[legCount]
-            //                        .Cells[(int)OPTION_PL_COLUMNS.BRKR].Value != null
-            //                &&
-            //                gridViewSpreadGrid.Rows[legCount]
-            //                        .Cells[(int)OPTION_PL_COLUMNS.ACCT].Value != null)
-            //                &&
-            //                (
-            //                gridViewSpreadGrid.Rows[legCount]
-            //                        .Cells[(int)OPTION_PL_COLUMNS.BRKR].Value.ToString().CompareTo(
-            //                DataCollectionLibrary.portfolioAllocation.accountAllocation[brokerAccountChosen].broker) != 0
-            //                ||
-            //                gridViewSpreadGrid.Rows[legCount]
-            //                        .Cells[(int)OPTION_PL_COLUMNS.ACCT].Value.ToString().CompareTo(
-            //                DataCollectionLibrary.portfolioAllocation.accountAllocation[brokerAccountChosen].account) != 0
-            //                ))
-            //            {
-            //                gridViewSpreadGrid.Rows[legCount].DefaultCellStyle.BackColor = Color.DarkGray;
-            //                //continueThisLeg = false;
-            //            }
-            //        }
-
-            //        legCount++;
-            //    }
-
-            //    fillChart();
-            //}
-        }
-
-
-        
-
         private void treeViewBrokerAcct_AfterCheck(object sender, TreeViewEventArgs e)
         {
             treeViewBrokerAcct.BeginUpdate();
@@ -355,7 +301,7 @@ namespace RealtimeSpreadMonitor.Forms
                 while (legCount < gridViewSpreadGrid.RowCount)
                 {
                     gridViewSpreadGrid.Rows[legCount].DefaultCellStyle.BackColor = Color.White;
-                    //********
+
                     if (gridViewSpreadGrid.Rows[legCount]
                                     .Cells[(int)OPTION_PL_COLUMNS.BRKR].Value != null
                             &&
@@ -371,7 +317,6 @@ namespace RealtimeSpreadMonitor.Forms
                         {
                             gridViewSpreadGrid.Rows[legCount].DefaultCellStyle.BackColor = Color.DarkGray;
                         }
-                        //continueThisLeg = false;
                     }
 
 
@@ -1473,19 +1418,10 @@ namespace RealtimeSpreadMonitor.Forms
             deltaSeriesAtExp.Name = "Delta At Exp";
 
 
-            //if (chartType )
-            {
+            rRiskTextBox.Text = Math.Round(rRisk).ToString();
 
-                //rRiskSeries = new Series();
-
-                //rRiskSeries.ChartType = SeriesChartType.Line;
-
-                //rRiskSeries.Name = "R-Risk";
-
-                rRiskTextBox.Text = Math.Round(rRisk).ToString();
-
-                rRisk = Convert.ToDouble(rRiskTextBox.Text);
-            }
+            rRisk = Convert.ToDouble(rRiskTextBox.Text);
+            
 
             double maxTotal = double.NegativeInfinity;
             double minTotal = double.PositiveInfinity;

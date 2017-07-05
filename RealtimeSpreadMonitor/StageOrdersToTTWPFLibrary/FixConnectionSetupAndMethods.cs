@@ -269,22 +269,25 @@ namespace StageOrdersToTTWPFLibrary
                 if (contractListToStage[i].securityType == Enums.SECURITY_TYPE.FUTURE)
                 {
                     StringBuilder messagId = new StringBuilder();
-                    messagId.Append(contractListToStage[i].broker_18220);
-                    messagId.Append(contractListToStage[i].acct);
+                    //messagId.Append(contractListToStage[i].broker_18220);
+                    //messagId.Append(contractListToStage[i].acct);
+                    ////messagId.Append("_");
+                    //messagId.Append(contractListToStage[i].underlyingExchangeSymbol);
                     //messagId.Append("_");
-                    messagId.Append(contractListToStage[i].underlyingExchangeSymbol);
-                    messagId.Append("_");
-                    messagId.Append(contractListToStage[i].underlyingExchange);
-                    messagId.Append("_");
-                    messagId.Append(contractListToStage[i].securityType);
-                    messagId.Append("_");
-                    messagId.Append(contractListToStage[i].maturityMonthYear);
-                    messagId.Append("_");
+                    //messagId.Append(contractListToStage[i].underlyingExchange);
+                    //messagId.Append("_");
+                    //messagId.Append(contractListToStage[i].securityType);
+                    //messagId.Append("_");
+                    //messagId.Append(contractListToStage[i].maturityMonthYear);
+                    //messagId.Append("_");
 
-                    double tempTimeStamp = DateTime.Now.ToOADate();
-                    int timeStampInt = (int)((tempTimeStamp - Math.Floor(tempTimeStamp)) * 100000000);
-                    String timeStamp = timeStampInt.ToString();
-                    messagId.Append(timeStamp);
+                    //double tempTimeStamp = DateTime.Now.ToOADate();
+                    //int timeStampInt = (int)((tempTimeStamp - Math.Floor(tempTimeStamp)) * 100000000);
+                    //String timeStamp = timeStampInt.ToString();
+
+                    Guid guid = Guid.NewGuid();
+                    string str = guid.ToString();
+                    messagId.Append(str);
 
                     
 
@@ -378,26 +381,30 @@ namespace StageOrdersToTTWPFLibrary
 
 
                     StringBuilder messagId = new StringBuilder();
-                    messagId.Append(contractListToStage[i].broker_18220);
-                    messagId.Append(contractListToStage[i].acct);
+                    //messagId.Append(contractListToStage[i].broker_18220);
+                    //messagId.Append(contractListToStage[i].acct);
+                    ////messagId.Append("_");
+                    //messagId.Append(contractListToStage[i].underlyingExchangeSymbol);
                     //messagId.Append("_");
-                    messagId.Append(contractListToStage[i].underlyingExchangeSymbol);
-                    messagId.Append("_");
-                    messagId.Append(contractListToStage[i].underlyingExchange);
-                    messagId.Append("_");
-                    messagId.Append(contractListToStage[i].securityType);
-                    messagId.Append("_");
-                    messagId.Append(contractListToStage[i].optionType);
-                    messagId.Append("_");
-                    messagId.Append(contractListToStage[i].optionStrikePrice);
-                    messagId.Append("_");
-                    messagId.Append(contractListToStage[i].maturityMonthYear);
-                    messagId.Append("_");
+                    //messagId.Append(contractListToStage[i].underlyingExchange);
+                    //messagId.Append("_");
+                    //messagId.Append(contractListToStage[i].securityType);
+                    //messagId.Append("_");
+                    //messagId.Append(contractListToStage[i].optionType);
+                    //messagId.Append("_");
+                    //messagId.Append(contractListToStage[i].optionStrikePrice);
+                    //messagId.Append("_");
+                    //messagId.Append(contractListToStage[i].maturityMonthYear);
+                    //messagId.Append("_");
 
-                    double tempTimeStamp = DateTime.Now.ToOADate();
-                    int timeStampInt = (int)((tempTimeStamp - Math.Floor(tempTimeStamp)) * 100000000);
-                    String timeStamp = timeStampInt.ToString();
-                    messagId.Append(timeStamp);
+                    //double tempTimeStamp = DateTime.Now.ToOADate();
+                    //int timeStampInt = (int)((tempTimeStamp - Math.Floor(tempTimeStamp)) * 100000000);
+                    //String timeStamp = timeStampInt.ToString();
+
+                    Guid guid = Guid.NewGuid();
+                    string str = guid.ToString();
+                    messagId.Append(str);
+                    //messagId.Append(timeStamp);
 
                     //contractListToStage[i].messageId = messagId.ToString();
 
