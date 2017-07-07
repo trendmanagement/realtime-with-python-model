@@ -36,6 +36,10 @@ namespace RealtimeSpreadMonitor.Forms
 
         private Dictionary<string, int> brokerAcctDictionary = new Dictionary<string, int>();
 
+        private Dictionary<Tuple<int,int>,MongoDB_OptionSpreadExpression> underlyingFuturesDict_optionMonthYearKey = new Dictionary<Tuple<int, int>, MongoDB_OptionSpreadExpression>();
+
+        private List<MongoDB_OptionSpreadExpression> underlyingFutures_List = new List<MongoDB_OptionSpreadExpression>();
+
         public OptionPLChartUserForm()
         {
             InitializeComponent();
@@ -222,7 +226,7 @@ namespace RealtimeSpreadMonitor.Forms
         public void setupTreeViewBrokerAcct()
         {
             //brokerAccountChosen = DataCollectionLibrary.portfolioAllocation.accountAllocation.Count;
-            
+
 
             for (int groupAllocCnt = 0; groupAllocCnt <= DataCollectionLibrary.portfolioAllocation.accountAllocation.Count; groupAllocCnt++)
             {
@@ -252,7 +256,7 @@ namespace RealtimeSpreadMonitor.Forms
                         treeViewBrokerAcct.Nodes.Add(groupAllocCnt.ToString(), treeVal.ToString());
                     }
                 }
-                catch(Exception e)
+                catch (Exception e)
                 {
                     MessageBox.Show("Error, probably due to inconsistencies in DB", e.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
@@ -267,22 +271,22 @@ namespace RealtimeSpreadMonitor.Forms
         {
             treeViewBrokerAcct.BeginUpdate();
 
-            if(e.Node.Index == treeViewBrokerAcct.Nodes.Count - 1)
+            if (e.Node.Index == treeViewBrokerAcct.Nodes.Count - 1)
             {
                 bool allselected = e.Node.Checked;
 
                 //foreach (TreeNode tn in treeViewBrokerAcct.Nodes)
-                for(int i = 0; i < treeViewBrokerAcct.Nodes.Count - 1; i++)
+                for (int i = 0; i < treeViewBrokerAcct.Nodes.Count - 1; i++)
                 {
                     treeViewBrokerAcct.Nodes[i].Checked = allselected;
                 }
             }
             else
             {
-                Tuple<string,string> tuple = Tuple.Create(DataCollectionLibrary.portfolioAllocation.accountAllocation[e.Node.Index].broker,
+                Tuple<string, string> tuple = Tuple.Create(DataCollectionLibrary.portfolioAllocation.accountAllocation[e.Node.Index].broker,
                              DataCollectionLibrary.portfolioAllocation.accountAllocation[e.Node.Index].account);
 
-                if(e.Node.Checked)
+                if (e.Node.Checked)
                 {
                     if (!brokerAccountChosen.Contains(tuple))
                     {
@@ -326,7 +330,7 @@ namespace RealtimeSpreadMonitor.Forms
                 clearChart();
             }
 
-            
+
 
             treeViewBrokerAcct.EndUpdate();
         }
@@ -363,12 +367,51 @@ namespace RealtimeSpreadMonitor.Forms
             PAYOFF_CHART_TYPE chartType)
         {
 
-            //this.optionSpreadManager = optionSpreadManager;
-
-            //this.contractSummaryExpressionListIdx = contractSummaryExpressionListIdx;
-            //this.optionSpreadExpressionList = optionSpreadExpressionList;
-
             this.instrument = instrument;
+
+            foreach (MongoDB_OptionSpreadExpression ose in DataCollectionLibrary.optionSpreadExpressionList)
+            {
+                if (ose.underlyingFutureExpression != null
+                    && ose.asset._type.CompareTo(ASSET_TYPE_MONGO.opt.ToString()) == 0
+                    && ose.underlyingFutureExpression.asset._type.CompareTo(ASSET_TYPE_MONGO.fut.ToString()) == 0
+                    && ose.asset.idinstrument == instrument.idinstrument)
+                {
+                    var key = Tuple.Create(ose.asset.optionmonthint,
+                        ose.asset.optionyear);
+
+                    if (!underlyingFuturesDict_optionMonthYearKey.ContainsKey(key))
+                    {
+                        underlyingFuturesDict_optionMonthYearKey.Add(key, ose.underlyingFutureExpression);
+
+                        underlyingFutures_List.Add(ose.underlyingFutureExpression);
+                    }
+                }
+
+                
+
+            }
+
+            if (underlyingFutures_List.Count == 0)
+            {
+                int moseCnt = 0;
+                while (moseCnt < DataCollectionLibrary.optionSpreadExpressionList.Count)
+                {
+                    if (DataCollectionLibrary.optionSpreadExpressionList[moseCnt] != null
+                        && DataCollectionLibrary.optionSpreadExpressionList[moseCnt].asset._type.CompareTo(ASSET_TYPE_MONGO.opt.ToString()) == 0
+                        && DataCollectionLibrary.optionSpreadExpressionList[moseCnt].asset.idinstrument == instrument.idinstrument)
+                    {
+                        underlyingFutures_List.Add(DataCollectionLibrary.optionSpreadExpressionList[moseCnt]);
+                        break;
+                    }
+
+                    moseCnt++;
+                }
+            }
+
+            underlyingFutures_List = underlyingFutures_List.OrderByDescending(o => o.asset.year).ThenByDescending(o => o.asset.monthint).ToList();
+
+
+
 
             //this.rRisk = rRisk;
 
@@ -630,9 +673,7 @@ namespace RealtimeSpreadMonitor.Forms
                                     Convert.ToInt32(admPositionImportWebList[contractCount].netContractsEditable
                                         + admPositionImportWebList[contractCount].transNetLong
                                         - admPositionImportWebList[contractCount].transNetShort),
-                                    admPositionImportWebList[contractCount].optionSpreadExpression.asset.yearFraction
-                                    * 365
-                                    ))
+                                    admPositionImportWebList[contractCount].optionSpreadExpression.asset.yearFraction * 365))
                                 {
                                     rowCount++;
                                 }
@@ -885,9 +926,9 @@ namespace RealtimeSpreadMonitor.Forms
                             impliedVol = FCM_DataImportLibrary.FCM_PostionList_forCompare[contractCount]
                                 .optionSpreadExpression.impliedVol * 100;
 
-                            
 
-                        }                        
+
+                        }
                         else
                         {
                             //callPutOrFuture = FCM_DataImportLibrary.FCM_PostionList_forCompare[contractCount].callPutOrFuture;
@@ -901,7 +942,7 @@ namespace RealtimeSpreadMonitor.Forms
                             double riskFreeRate = Convert.ToDouble(riskFreeTextBox.Text) / 100;
 
                             //                            if (callPutOrFuture == OPTION_SPREAD_CONTRACT_TYPE.FUTURE)
-                            if(FCM_DataImportLibrary.FCM_PostionList_forCompare[contractCount].asset._type.CompareTo("fut") == 0)
+                            if (FCM_DataImportLibrary.FCM_PostionList_forCompare[contractCount].asset._type.CompareTo("fut") == 0)
                             {
                                 defaultPrice = FCM_DataImportLibrary.FCM_PostionList_forCompare[contractCount].futurePriceUsedToCalculateStrikes;
 
@@ -990,23 +1031,6 @@ namespace RealtimeSpreadMonitor.Forms
                     riskFreeTextBox.Text = rfr.ToString();
                 }
 
-                //int expCount = 0;
-
-                //while (expCount < DataCollectionLibrary.optionSpreadExpressionList.Count())
-                //{
-                //    if (DataCollectionLibrary.optionSpreadExpressionList[expCount].optionExpressionType ==
-                //            OPTION_EXPRESSION_TYPES.OPTION_EXPRESSION_RISK_FREE_RATE)
-                //    {
-                //        double rfr = DataCollectionLibrary.optionSpreadExpressionList[expCount].riskFreeRate
-                //            * 100;
-
-                //        riskFreeTextBox.Text = rfr.ToString();
-
-                //        break;
-                //    }
-
-                //    expCount++;
-                //}
 
                 int futureIndexLeg = findFutureLeg();
 
@@ -1101,14 +1125,14 @@ namespace RealtimeSpreadMonitor.Forms
 
                         contractYear =
                                 admPositionImportWebListForCompare[contractCount].asset.year;
-                            contractMonth =
-                                admPositionImportWebListForCompare[contractCount].asset.month;
-                            optionYear =
-                                admPositionImportWebListForCompare[contractCount].asset.optionyear;
-                            optionMonth =
-                                admPositionImportWebListForCompare[contractCount].asset.optionmonth;
+                        contractMonth =
+                            admPositionImportWebListForCompare[contractCount].asset.month;
+                        optionYear =
+                            admPositionImportWebListForCompare[contractCount].asset.optionyear;
+                        optionMonth =
+                            admPositionImportWebListForCompare[contractCount].asset.optionmonth;
 
-                            product_code = admPositionImportWebListForCompare[contractCount].asset.productcode;
+                        product_code = admPositionImportWebListForCompare[contractCount].asset.productcode;
 
                         if (admPositionImportWebListForCompare[contractCount].optionSpreadExpression != null)
                         {
@@ -1134,41 +1158,7 @@ namespace RealtimeSpreadMonitor.Forms
                                 admPositionImportWebListForCompare[contractCount].optionSpreadExpression.optionMonthInt;
 
                             product_code = admPositionImportWebListForCompare[contractCount].asset.productcode;*/
-                        }
-                        /*else if (admPositionImportWebListForCompare[contractCount].positionTotals != null &&
-                            admPositionImportWebListForCompare[contractCount].optionSpreadExpression != null)
-                        {
-                            callPutOrFuture = admPositionImportWebListForCompare[contractCount]
-                                .optionSpreadExpression.callPutOrFuture;
-
-                            defaultPrice = admPositionImportWebListForCompare[contractCount]
-                                .optionSpreadExpression.defaultPrice;
-
-                            impliedVol = admPositionImportWebListForCompare[contractCount]
-                                .optionSpreadExpression.impliedVol * 100;
-
-                            yearFraction = admPositionImportWebListForCompare[contractCount]
-                                .optionSpreadExpression.asset.yearFraction
-                                * 365;
-
-                            strikePrice = admPositionImportWebListForCompare[contractCount]
-                                .optionSpreadExpression.asset.strikeprice;
-
-                            contractYear =
-                                admPositionImportWebListForCompare[contractCount]
-                                .optionSpreadExpression.futureContractYear;
-                            contractMonth =
-                                admPositionImportWebListForCompare[contractCount]
-                                .optionSpreadExpression.futureContractMonthInt;
-                            optionYear =
-                                admPositionImportWebListForCompare[contractCount]
-                                .optionSpreadExpression.optionYear;
-                            optionMonth =
-                                admPositionImportWebListForCompare[contractCount]
-                                .optionSpreadExpression.optionMonthInt;
-
-                            product_code = admPositionImportWebListForCompare[contractCount].asset.productcode;
-                        }*/
+                        }                    
                         else
                         {
 
@@ -1212,9 +1202,9 @@ namespace RealtimeSpreadMonitor.Forms
 
 
 
-                            
 
-                        
+
+
 
 
                         string acct = optionSpreadManager.selectAcct(
@@ -1261,6 +1251,22 @@ namespace RealtimeSpreadMonitor.Forms
 
         }
 
+        private MongoDB_OptionSpreadExpression getFutureExpression(int optionMonthInt, int optionYear)
+        {
+            var key = Tuple.Create(optionMonthInt,
+                        optionYear);
+
+            if (underlyingFuturesDict_optionMonthYearKey.ContainsKey(key))
+            {
+                return underlyingFuturesDict_optionMonthYearKey[key];
+            }
+            else
+            {
+                return underlyingFutures_List[0];
+            }                
+        }
+
+        
 
         private int getFutureExpressionIdx()
         {
@@ -1297,9 +1303,10 @@ namespace RealtimeSpreadMonitor.Forms
             {
 
 
-                int futureExpCnt = getFutureExpressionIdx();
+                //int futureExpCnt = getFutureExpressionIdx();
+                MongoDB_OptionSpreadExpression mongo_ose = getFutureExpression(0, 0);
 
-                
+
 
                 int row = gridViewSpreadGrid.Rows.Add();
 
@@ -1321,21 +1328,24 @@ namespace RealtimeSpreadMonitor.Forms
 
                 gridViewSpreadGrid.Rows[row].Cells[(int)OPTION_PL_COLUMNS.AVG_PRC].Value =
                     ConversionAndFormatting.convertToTickMovesString(
-                        DataCollectionLibrary.optionSpreadExpressionList[futureExpCnt].defaultPrice,
+                        mongo_ose.defaultPrice,
+                        //DataCollectionLibrary.optionSpreadExpressionList[futureExpCnt].defaultPrice,
                         instrument.ticksize,
                         instrument.tickdisplay);
 
                 gridViewSpreadGrid.Rows[row].Cells[(int)OPTION_PL_COLUMNS.IMPL_VOL].Value = 0;
 
                 gridViewSpreadGrid.Rows[row].Cells[(int)OPTION_PL_COLUMNS.DAYS_TO_EXP].Value = 0;
-                    //DataCollectionLibrary.optionSpreadExpressionList[futureExpCnt].asset.yearFraction * 365;
+                //DataCollectionLibrary.optionSpreadExpressionList[futureExpCnt].asset.yearFraction * 365;
 
                 gridViewSpreadGrid.Rows[row].Cells[(int)OPTION_PL_COLUMNS.YEAR].Value =
-                        DataCollectionLibrary.optionSpreadExpressionList[futureExpCnt].asset.year;
+                    mongo_ose.asset.year;
+                //DataCollectionLibrary.optionSpreadExpressionList[futureExpCnt].asset.year;
                 //optionSpreadExpressionList[contractSummaryExpressionListIdx[contractCount]].futureContractYear;
 
                 gridViewSpreadGrid.Rows[row].Cells[(int)OPTION_PL_COLUMNS.MTH_AS_INT].Value =
-                        DataCollectionLibrary.optionSpreadExpressionList[futureExpCnt].asset.monthint;
+                    mongo_ose.asset.monthint;
+                        //DataCollectionLibrary.optionSpreadExpressionList[futureExpCnt].asset.monthint;
 
                 gridViewSpreadGrid.Rows[row].Cells[(int)OPTION_PL_COLUMNS.NET].Value = numberOfLots;
 
@@ -1421,7 +1431,7 @@ namespace RealtimeSpreadMonitor.Forms
             rRiskTextBox.Text = Math.Round(rRisk).ToString();
 
             rRisk = Convert.ToDouble(rRiskTextBox.Text);
-            
+
 
             double maxTotal = double.NegativeInfinity;
             double minTotal = double.PositiveInfinity;
@@ -2297,10 +2307,10 @@ namespace RealtimeSpreadMonitor.Forms
                                 //}
 
                                 if (continueToSubmitThisLeg)
-                                {                                    
+                                {
 
                                     int maxOrderSizeVal = Convert.ToInt16(maxOrderSize.Text);
-                                    if(stageOrderLots < 0)
+                                    if (stageOrderLots < 0)
                                     {
                                         maxOrderSizeVal *= -1;
                                     }
@@ -2350,185 +2360,174 @@ namespace RealtimeSpreadMonitor.Forms
             int stageOrderLots)
         {
 
-            //for (int i = 0; i < gridViewSpreadGrid.Rows.Count; i++)
+
+            StageOrdersToTTWPFLibrary.Model.OrderModel orderModel =
+                        new StageOrdersToTTWPFLibrary.Model.OrderModel();
+
+            orderModel.cqgsymbol = "";
+
+
+            orderModel.underlyingExchange = instrument.exchange.tradingtechnologies_exchange;
+
+            orderModel.underlyingGateway = instrument.exchange.tradingtechnologies_gateway;
+
+
+
+            orderModel.orderQty = Math.Abs(stageOrderLots);
+
+            //orderModel.underlyingExchangeSymbol = instrument.exchangeSymbolTT;
+
+            String contractType = gridViewSpreadGrid.Rows[rowIdx]
+                        .Cells[(int)OPTION_PL_COLUMNS.CNTRT_TYPE].Value.ToString();
+
+            if (contractType.CompareTo(optionArrayTypes.optionSpreadContractTypesArray.GetValue(
+                (int)OPTION_SPREAD_CONTRACT_TYPE.FUTURE)) == 0)
             {
-                //int stageOrderLots = Convert.ToInt16(gridViewSpreadGrid.Rows[i].Cells[(int)OPTION_PL_COLUMNS.NET].Value);
+                orderModel.securityType = StageOrdersToTTWPFLibrary.Enums.SECURITY_TYPE.FUTURE;
 
-                //if (stageOrderLots != 0)
-                {
+                orderModel.contractMonthint =
+                    Convert.ToInt16(gridViewSpreadGrid.Rows[rowIdx].Cells[(int)OPTION_PL_COLUMNS.MTH_AS_INT].Value);
 
-                    StageOrdersToTTWPFLibrary.Model.OrderModel orderModel =
-                                new StageOrdersToTTWPFLibrary.Model.OrderModel();
+                orderModel.contractYear =
+                    Convert.ToInt16(gridViewSpreadGrid.Rows[rowIdx].Cells[(int)OPTION_PL_COLUMNS.YEAR].Value);
 
-                    orderModel.cqgsymbol = "";
-
-
-                    orderModel.underlyingExchange = instrument.exchange.tradingtechnologies_exchange;
-
-                    orderModel.underlyingGateway = instrument.exchange.tradingtechnologies_gateway;
-
-
-
-                    orderModel.orderQty = Math.Abs(stageOrderLots);
-
-                    //orderModel.underlyingExchangeSymbol = instrument.exchangeSymbolTT;
-
-                    String contractType = gridViewSpreadGrid.Rows[rowIdx]
-                                .Cells[(int)OPTION_PL_COLUMNS.CNTRT_TYPE].Value.ToString();
-
-                    if (contractType.CompareTo(optionArrayTypes.optionSpreadContractTypesArray.GetValue(
-                        (int)OPTION_SPREAD_CONTRACT_TYPE.FUTURE)) == 0)
-                    {
-                        orderModel.securityType = StageOrdersToTTWPFLibrary.Enums.SECURITY_TYPE.FUTURE;
-
-                        orderModel.contractMonthint =
-                            Convert.ToInt16(gridViewSpreadGrid.Rows[rowIdx].Cells[(int)OPTION_PL_COLUMNS.MTH_AS_INT].Value);
-
-                        orderModel.contractYear =
-                            Convert.ToInt16(gridViewSpreadGrid.Rows[rowIdx].Cells[(int)OPTION_PL_COLUMNS.YEAR].Value);
-
-                        orderModel.maturityMonthYear =
-                                    new DateTime(orderModel.contractYear, orderModel.contractMonthint, 1)
-                                        .ToString("yyyyMM", DateTimeFormatInfo.InvariantInfo);
-
-                        orderModel.underlyingExchangeSymbol =                             
-                            gridViewSpreadGrid.Rows[rowIdx].Cells[(int)OPTION_PL_COLUMNS.PRDT_CODE].Value.ToString();
-                            //instrument.exchangesymbolTT;
-
-                        //TSErrorCatch.debugWriteOut("future " + instrument.exchangesymbolTT + " " +
-                        //    gridViewSpreadGrid.Rows[rowIdx].Cells[(int)OPTION_PL_COLUMNS.PRDT_CODE].Value.ToString());
-
-                    }
-                    else
-                    {
-                        orderModel.securityType = StageOrdersToTTWPFLibrary.Enums.SECURITY_TYPE.OPTION;
-
-                        orderModel.underlyingExchangeSymbol =
-                            gridViewSpreadGrid.Rows[rowIdx].Cells[(int)OPTION_PL_COLUMNS.PRDT_CODE].Value.ToString();
-                            //instrument.optionexchangesymbolTT;
-
-                        //TSErrorCatch.debugWriteOut("option " + instrument.optionexchangesymbolTT + " " +
-                        //    gridViewSpreadGrid.Rows[rowIdx].Cells[(int)OPTION_PL_COLUMNS.PRDT_CODE].Value.ToString());
-
-                        //instrument.span_cqg_codes_dictionary[]
-
-                        orderModel.contractYear =
-                            Convert.ToInt16(gridViewSpreadGrid.Rows[futureIdx].Cells[(int)OPTION_PL_COLUMNS.YEAR].Value);
-
-                        orderModel.contractMonthint =
-                            Convert.ToInt16(gridViewSpreadGrid.Rows[futureIdx].Cells[(int)OPTION_PL_COLUMNS.MTH_AS_INT].Value);
-
-                        orderModel.optionYear =
-                            Convert.ToInt16(gridViewSpreadGrid.Rows[rowIdx].Cells[(int)OPTION_PL_COLUMNS.YEAR].Value);
-
-                        orderModel.optionMonthInt =
-                            Convert.ToInt16(gridViewSpreadGrid.Rows[rowIdx].Cells[(int)OPTION_PL_COLUMNS.MTH_AS_INT].Value);
-
-                        orderModel.maturityMonthYear =
-                            new DateTime(orderModel.optionYear, orderModel.optionMonthInt, 1)
+                orderModel.maturityMonthYear =
+                            new DateTime(orderModel.contractYear, orderModel.contractMonthint, 1)
                                 .ToString("yyyyMM", DateTimeFormatInfo.InvariantInfo);
 
-                        if (contractType.CompareTo(optionArrayTypes.optionSpreadContractTypesArray.GetValue(
-                           (int)OPTION_SPREAD_CONTRACT_TYPE.CALL)) == 0)
-                        {
-                            orderModel.optionType = StageOrdersToTTWPFLibrary.Enums.OPTION_TYPE.CALL;
-                        }
-                        else if (contractType.CompareTo(optionArrayTypes.optionSpreadContractTypesArray.GetValue(
-                            (int)OPTION_SPREAD_CONTRACT_TYPE.PUT)) == 0)
-                        {
-                            orderModel.optionType = StageOrdersToTTWPFLibrary.Enums.OPTION_TYPE.PUT;
-                        }
+                orderModel.underlyingExchangeSymbol =
+                    gridViewSpreadGrid.Rows[rowIdx].Cells[(int)OPTION_PL_COLUMNS.PRDT_CODE].Value.ToString();
+                //instrument.exchangesymbolTT;
 
-                        double sd = instrument.optionstrikedisplayTT;
-
-                        orderModel.optionStrikePrice =
-                                (decimal)ConversionAndFormatting.convertToStrikeForTT(
-                                Convert.ToDouble(gridViewSpreadGrid.Rows[rowIdx].Cells[(int)OPTION_PL_COLUMNS.STRIKE].Value),
-                                instrument.optionstrikeincrement,
-                                sd,
-                                instrument.idinstrument);
-                    }
-
-                    if (stageOrderLots > 0)
-                    {
-                        orderModel.side = StageOrdersToTTWPFLibrary.Enums.Side.Buy;
-                    }
-                    else
-                    {
-                        orderModel.side = StageOrdersToTTWPFLibrary.Enums.Side.Sell;
-                    }
-
-                    orderModel.stagedOrderMessage = "SIGNAL TRIGGER ORDER FROM PAYOFF";
-
-
-
-                    orderModel.orderPrice = findLimitPrice(
-                                    orderModel.side,
-                                    orderModel.securityType,
-                                    gridViewSpreadGrid.Rows[rowIdx].Cells[(int)OPTION_PL_COLUMNS.AVG_PRC].Value.ToString(),
-                                    instrument);
-
-                    orderModel.orderPlacementType = DataCollectionLibrary.initializationParms.FIX_OrderPlacementType;
-
-
-
-                    string brkrFromGrid = gridViewSpreadGrid.Rows[rowIdx]
-                                                    .Cells[(int)OPTION_PL_COLUMNS.BRKR].Value.ToString();
-
-                    string acctFromGrid = gridViewSpreadGrid.Rows[rowIdx]
-                                    .Cells[(int)OPTION_PL_COLUMNS.ACCT].Value.ToString();
-
-                    string brkAndAcct = brkrFromGrid.Trim() + acctFromGrid.Trim();
-
-                    int brokerAcctIdx = 0;
-
-                    if (brokerAcctDictionary.ContainsKey(brkAndAcct))
-                    {
-                        brokerAcctIdx = brokerAcctDictionary[brkAndAcct];
-                    }
-
-                    string acct =
-                        optionSpreadManager.selectAcct(instrument.exchangesymbol,
-                        DataCollectionLibrary.portfolioAllocation.accountAllocation[brokerAcctIdx], false);
-
-
-                    orderModel.broker_18220 = brkrFromGrid;
-
-                    orderModel.acct = acct;
-
-
-                    string instrumentSpecificFieldKey = optionSpreadManager.getInstrumentSpecificFieldKey(orderModel);
-
-
-                    if (DataCollectionLibrary.instrumentSpecificFIXFieldHashSet.ContainsKey(instrumentSpecificFieldKey))
-                    {
-                        InstrumentSpecificFIXFields instrumentSpecificFIXFields
-                            = DataCollectionLibrary.instrumentSpecificFIXFieldHashSet[instrumentSpecificFieldKey];
-
-                        orderModel.TAG47_Rule80A.useTag = true;
-                        orderModel.TAG47_Rule80A.tagCharValue = instrumentSpecificFIXFields.TAG_47_Rule80A;
-
-                        orderModel.TAG204_CustomerOrFirm.useTag = true;
-                        orderModel.TAG204_CustomerOrFirm.tagIntValue = instrumentSpecificFIXFields.TAG_204_CustomerOrFirm;
-
-                        orderModel.TAG18205_TTAccountType.useTag = true;
-                        orderModel.TAG18205_TTAccountType.tagStringValue = instrumentSpecificFIXFields.TAG_18205_TTAccountType;
-
-                        orderModel.TAG440_ClearingAccount.useTag = true;
-                        orderModel.TAG440_ClearingAccount.tagStringValue = instrumentSpecificFIXFields.TAG_440_ClearingAccount;
-
-                        orderModel.TAG16102_FFT2.useTag = true;
-                        orderModel.TAG16102_FFT2.tagStringValue = orderModel.acct;
-                    }
-
-
-                    return orderModel;
-
-                    //contractListToStage.Add(orderModel);
-
-                }
+                //TSErrorCatch.debugWriteOut("future " + instrument.exchangesymbolTT + " " +
+                //    gridViewSpreadGrid.Rows[rowIdx].Cells[(int)OPTION_PL_COLUMNS.PRDT_CODE].Value.ToString());
 
             }
+            else
+            {
+                orderModel.securityType = StageOrdersToTTWPFLibrary.Enums.SECURITY_TYPE.OPTION;
+
+                orderModel.underlyingExchangeSymbol =
+                    gridViewSpreadGrid.Rows[rowIdx].Cells[(int)OPTION_PL_COLUMNS.PRDT_CODE].Value.ToString();
+                //instrument.optionexchangesymbolTT;
+
+                //TSErrorCatch.debugWriteOut("option " + instrument.optionexchangesymbolTT + " " +
+                //    gridViewSpreadGrid.Rows[rowIdx].Cells[(int)OPTION_PL_COLUMNS.PRDT_CODE].Value.ToString());
+
+                //instrument.span_cqg_codes_dictionary[]
+
+                orderModel.contractYear =
+                    Convert.ToInt16(gridViewSpreadGrid.Rows[futureIdx].Cells[(int)OPTION_PL_COLUMNS.YEAR].Value);
+
+                orderModel.contractMonthint =
+                    Convert.ToInt16(gridViewSpreadGrid.Rows[futureIdx].Cells[(int)OPTION_PL_COLUMNS.MTH_AS_INT].Value);
+
+                orderModel.optionYear =
+                    Convert.ToInt16(gridViewSpreadGrid.Rows[rowIdx].Cells[(int)OPTION_PL_COLUMNS.YEAR].Value);
+
+                orderModel.optionMonthInt =
+                    Convert.ToInt16(gridViewSpreadGrid.Rows[rowIdx].Cells[(int)OPTION_PL_COLUMNS.MTH_AS_INT].Value);
+
+                orderModel.maturityMonthYear =
+                    new DateTime(orderModel.optionYear, orderModel.optionMonthInt, 1)
+                        .ToString("yyyyMM", DateTimeFormatInfo.InvariantInfo);
+
+                if (contractType.CompareTo(optionArrayTypes.optionSpreadContractTypesArray.GetValue(
+                   (int)OPTION_SPREAD_CONTRACT_TYPE.CALL)) == 0)
+                {
+                    orderModel.optionType = StageOrdersToTTWPFLibrary.Enums.OPTION_TYPE.CALL;
+                }
+                else if (contractType.CompareTo(optionArrayTypes.optionSpreadContractTypesArray.GetValue(
+                    (int)OPTION_SPREAD_CONTRACT_TYPE.PUT)) == 0)
+                {
+                    orderModel.optionType = StageOrdersToTTWPFLibrary.Enums.OPTION_TYPE.PUT;
+                }
+
+                double sd = instrument.optionstrikedisplayTT;
+
+                orderModel.optionStrikePrice =
+                        (decimal)ConversionAndFormatting.convertToStrikeForTT(
+                        Convert.ToDouble(gridViewSpreadGrid.Rows[rowIdx].Cells[(int)OPTION_PL_COLUMNS.STRIKE].Value),
+                        instrument.optionstrikeincrement,
+                        sd,
+                        instrument.idinstrument);
+            }
+
+            if (stageOrderLots > 0)
+            {
+                orderModel.side = StageOrdersToTTWPFLibrary.Enums.Side.Buy;
+            }
+            else
+            {
+                orderModel.side = StageOrdersToTTWPFLibrary.Enums.Side.Sell;
+            }
+
+            orderModel.stagedOrderMessage = "SIGNAL TRIGGER ORDER FROM PAYOFF";
+
+
+
+            orderModel.orderPrice = findLimitPrice(
+                            orderModel.side,
+                            orderModel.securityType,
+                            gridViewSpreadGrid.Rows[rowIdx].Cells[(int)OPTION_PL_COLUMNS.AVG_PRC].Value.ToString(),
+                            instrument);
+
+            orderModel.orderPlacementType = DataCollectionLibrary.initializationParms.FIX_OrderPlacementType;
+
+
+
+            string brkrFromGrid = gridViewSpreadGrid.Rows[rowIdx]
+                                            .Cells[(int)OPTION_PL_COLUMNS.BRKR].Value.ToString();
+
+            string acctFromGrid = gridViewSpreadGrid.Rows[rowIdx]
+                            .Cells[(int)OPTION_PL_COLUMNS.ACCT].Value.ToString();
+
+            string brkAndAcct = brkrFromGrid.Trim() + acctFromGrid.Trim();
+
+            int brokerAcctIdx = 0;
+
+            if (brokerAcctDictionary.ContainsKey(brkAndAcct))
+            {
+                brokerAcctIdx = brokerAcctDictionary[brkAndAcct];
+            }
+
+            string acct =
+                optionSpreadManager.selectAcct(instrument.exchangesymbol,
+                DataCollectionLibrary.portfolioAllocation.accountAllocation[brokerAcctIdx], false);
+
+
+            orderModel.broker_18220 = brkrFromGrid;
+
+            orderModel.acct = acct;
+
+
+            string instrumentSpecificFieldKey = optionSpreadManager.getInstrumentSpecificFieldKey(orderModel);
+
+
+            if (DataCollectionLibrary.instrumentSpecificFIXFieldHashSet.ContainsKey(instrumentSpecificFieldKey))
+            {
+                InstrumentSpecificFIXFields instrumentSpecificFIXFields
+                    = DataCollectionLibrary.instrumentSpecificFIXFieldHashSet[instrumentSpecificFieldKey];
+
+                orderModel.TAG47_Rule80A.useTag = true;
+                orderModel.TAG47_Rule80A.tagCharValue = instrumentSpecificFIXFields.TAG_47_Rule80A;
+
+                orderModel.TAG204_CustomerOrFirm.useTag = true;
+                orderModel.TAG204_CustomerOrFirm.tagIntValue = instrumentSpecificFIXFields.TAG_204_CustomerOrFirm;
+
+                orderModel.TAG18205_TTAccountType.useTag = true;
+                orderModel.TAG18205_TTAccountType.tagStringValue = instrumentSpecificFIXFields.TAG_18205_TTAccountType;
+
+                orderModel.TAG440_ClearingAccount.useTag = true;
+                orderModel.TAG440_ClearingAccount.tagStringValue = instrumentSpecificFIXFields.TAG_440_ClearingAccount;
+
+                orderModel.TAG16102_FFT2.useTag = true;
+                orderModel.TAG16102_FFT2.tagStringValue = orderModel.acct;
+            }
+
+
+            return orderModel;
+
 
 
 
@@ -3268,7 +3267,7 @@ namespace RealtimeSpreadMonitor.Forms
 
 
 
-                        int futureIdx = -1;
+                        //int futureIdx = -1;
                         int legCount = 0;
 
                         double optionImplVol = 0;
@@ -3290,6 +3289,8 @@ namespace RealtimeSpreadMonitor.Forms
                         int optionMonthInt = Convert.ToInt16(selectedRows[0]
                                     .Cells[(int)OPTION_PL_COLUMNS.MTH_AS_INT].Value);
 
+                        MongoDB_OptionSpreadExpression future_ose = getFutureExpression(optionMonthInt, optionYear);
+
                         double strike = Convert.ToDouble(selectedRows[0]
                                     .Cells[(int)OPTION_PL_COLUMNS.STRIKE].Value);
 
@@ -3305,14 +3306,25 @@ namespace RealtimeSpreadMonitor.Forms
                                 String contractType = gridViewSpreadGrid.Rows[legCount]
                                             .Cells[(int)OPTION_PL_COLUMNS.CNTRT_TYPE].Value.ToString();
 
+                                //if (contractType.CompareTo(
+                                //    optionArrayTypes.optionSpreadContractTypesArray.GetValue(
+                                //        (int)OPTION_SPREAD_CONTRACT_TYPE.FUTURE)) == 0
+                                //        && futureIdx < 0)
+                                //{
+                                //    if (Convert.ToInt16(gridViewSpreadGrid.Rows[legCount]
+                                //        .Cells[(int)OPTION_PL_COLUMNS.YEAR].Value) == future_ose.futureContractYear
+                                //        &&
+                                //        Convert.ToInt16(gridViewSpreadGrid.Rows[legCount]
+                                //        .Cells[(int)OPTION_PL_COLUMNS.MTH_AS_INT].Value) == future_ose.futureContractMonthInt)
+                                //    {
+                                //        futureIdx = legCount;
+                                //    }
+
+                                //}
+                                //else
                                 if (contractType.CompareTo(
                                     optionArrayTypes.optionSpreadContractTypesArray.GetValue(
-                                        (int)OPTION_SPREAD_CONTRACT_TYPE.FUTURE)) == 0)
-                                {
-                                    futureIdx = legCount;
-                                    //break;
-                                }
-                                else
+                                        (int)OPTION_SPREAD_CONTRACT_TYPE.FUTURE)) != 0)
                                 {
                                     if (gridViewSpreadGrid.Rows[legCount]
                                         .Cells[(int)OPTION_PL_COLUMNS.IMPL_VOL].Value != null)
@@ -3337,16 +3349,21 @@ namespace RealtimeSpreadMonitor.Forms
                             optionImplVol /= 100;
                         }
 
-                        if (futureIdx > -1)
+                        //if (futureIdx > -1)
                         {
-                            if (gridViewSpreadGrid.Rows[futureIdx]
-                                        .Cells[(int)OPTION_PL_COLUMNS.AVG_PRC].Value != null)
+                            //if (gridViewSpreadGrid.Rows[futureIdx]
+                            //            .Cells[(int)OPTION_PL_COLUMNS.AVG_PRC].Value != null)
                             {
 
-                                double futureClose = ConversionAndFormatting.convertToTickMovesDouble(
-                                            gridViewSpreadGrid.Rows[futureIdx]
-                                                .Cells[(int)OPTION_PL_COLUMNS.AVG_PRC].Value.ToString(),
-                                            instrument.ticksize, instrument.tickdisplay);
+                                double futureClose =
+                                    ConversionAndFormatting.convertToTickMovesDouble(
+                                        future_ose.defaultPrice,
+                                        instrument.ticksize, instrument.tickdisplay);
+
+                                //ConversionAndFormatting.convertToTickMovesDouble(
+                                //        gridViewSpreadGrid.Rows[futureIdx]
+                                //            .Cells[(int)OPTION_PL_COLUMNS.AVG_PRC].Value.ToString(),
+                                //        instrument.ticksize, instrument.tickdisplay);
 
 
                                 double futurePriceFactorForAllLegs = futureClose / instrument.optionstrikeincrement;
@@ -3357,7 +3374,9 @@ namespace RealtimeSpreadMonitor.Forms
 
                                 int refStartOfFuturePriceCount = -TradingSystemConstants.STRIKE_PRICE_REFERENCE_COUNT / 2;
 
-                                int futureExpressionIdx = getFutureExpressionIdx();
+                                //int futureExpressionIdx = getFutureExpressionIdx();
+
+                                //getFutureExpression();
 
                                 //int strikeCount = 0;
 
@@ -3442,8 +3461,8 @@ namespace RealtimeSpreadMonitor.Forms
                                             0,
                                             futureClose,
                                             0,
-                                            DataCollectionLibrary.optionSpreadExpressionList[futureExpressionIdx].asset.year,
-                                            DataCollectionLibrary.optionSpreadExpressionList[futureExpressionIdx].asset.monthint,
+                                            future_ose.asset.year,
+                                            future_ose.asset.monthint,
                                             0,
                                             0,
                                             instrument.exchangesymbolTT,
@@ -3502,7 +3521,7 @@ namespace RealtimeSpreadMonitor.Forms
 
 
 
-                        int futureIdx = -1;
+                        //int futureIdx = -1;
                         int legCount = 0;
 
                         double optionImplVol = 0;
@@ -3518,11 +3537,19 @@ namespace RealtimeSpreadMonitor.Forms
                         int optionMonthInt = Convert.ToInt16(selectedRows[0]
                                     .Cells[(int)OPTION_PL_COLUMNS.MTH_AS_INT].Value);
 
+                        MongoDB_OptionSpreadExpression future_ose = getFutureExpression(optionMonthInt, optionYear);
+
                         double strike = Convert.ToDouble(selectedRows[0]
                                     .Cells[(int)OPTION_PL_COLUMNS.STRIKE].Value);
 
                         string product_code = selectedRows[0]
                                     .Cells[(int)OPTION_PL_COLUMNS.PRDT_CODE].Value.ToString();
+
+                        string acct = selectedRows[0]
+                                    .Cells[(int)OPTION_PL_COLUMNS.ACCT].Value.ToString();
+
+                        string broker = selectedRows[0]
+                                    .Cells[(int)OPTION_PL_COLUMNS.BRKR].Value.ToString();
 
 
                         while (legCount < gridViewSpreadGrid.RowCount)
@@ -3533,14 +3560,16 @@ namespace RealtimeSpreadMonitor.Forms
                                 String contractType = gridViewSpreadGrid.Rows[legCount]
                                             .Cells[(int)OPTION_PL_COLUMNS.CNTRT_TYPE].Value.ToString();
 
+                                //if (contractType.CompareTo(
+                                //    optionArrayTypes.optionSpreadContractTypesArray.GetValue(
+                                //        (int)OPTION_SPREAD_CONTRACT_TYPE.FUTURE)) == 0)
+                                //{
+                                //    futureIdx = legCount;
+                                //    //break;
+                                //}
                                 if (contractType.CompareTo(
                                     optionArrayTypes.optionSpreadContractTypesArray.GetValue(
-                                        (int)OPTION_SPREAD_CONTRACT_TYPE.FUTURE)) == 0)
-                                {
-                                    futureIdx = legCount;
-                                    //break;
-                                }
-                                else
+                                        (int)OPTION_SPREAD_CONTRACT_TYPE.FUTURE)) != 0)
                                 {
                                     if (gridViewSpreadGrid.Rows[legCount]
                                         .Cells[(int)OPTION_PL_COLUMNS.IMPL_VOL].Value != null)
@@ -3565,16 +3594,21 @@ namespace RealtimeSpreadMonitor.Forms
                             optionImplVol /= 100;
                         }
 
-                        if (futureIdx > -1)
+                        //if (futureIdx > -1)
                         {
-                            if (gridViewSpreadGrid.Rows[futureIdx]
-                                        .Cells[(int)OPTION_PL_COLUMNS.AVG_PRC].Value != null)
+                            //if (gridViewSpreadGrid.Rows[futureIdx]
+                            //            .Cells[(int)OPTION_PL_COLUMNS.AVG_PRC].Value != null)
                             {
 
-                                double futureClose = ConversionAndFormatting.convertToTickMovesDouble(
-                                            gridViewSpreadGrid.Rows[futureIdx]
-                                                .Cells[(int)OPTION_PL_COLUMNS.AVG_PRC].Value.ToString(),
-                                            instrument.ticksize, instrument.tickdisplay);
+                                //double futureClose = ConversionAndFormatting.convertToTickMovesDouble(
+                                //            gridViewSpreadGrid.Rows[futureIdx]
+                                //                .Cells[(int)OPTION_PL_COLUMNS.AVG_PRC].Value.ToString(),
+                                //            instrument.ticksize, instrument.tickdisplay);
+
+                                double futureClose =
+                                    ConversionAndFormatting.convertToTickMovesDouble(
+                                        future_ose.defaultPrice,
+                                        instrument.ticksize, instrument.tickdisplay);
 
 
                                 double futurePriceFactorForAllLegs = futureClose / instrument.optionstrikeincrement;
@@ -3585,7 +3619,7 @@ namespace RealtimeSpreadMonitor.Forms
 
                                 int refStartOfFuturePriceCount = -TradingSystemConstants.STRIKE_PRICE_REFERENCE_COUNT / 2;
 
-                                int futureExpressionIdx = getFutureExpressionIdx();
+                                //int futureExpressionIdx = getFutureExpressionIdx();
 
 
                                 //while (strikeCount <= strikeCountLimit)
@@ -3620,20 +3654,23 @@ namespace RealtimeSpreadMonitor.Forms
 
                                     int rowCount = gridViewSpreadGrid.Rows.Count;
 
-                                    for (int groupAllocCnt = 0; groupAllocCnt < DataCollectionLibrary.portfolioAllocation.accountAllocation.Count; groupAllocCnt++)
+                                    //for (int groupAllocCnt = 0; groupAllocCnt < DataCollectionLibrary.portfolioAllocation.accountAllocation.Count; groupAllocCnt++)
                                     {
-                                        if (brokerAccountChosen.Contains(Tuple.Create(DataCollectionLibrary.portfolioAllocation.accountAllocation[groupAllocCnt].broker,
-                                            DataCollectionLibrary.portfolioAllocation.accountAllocation[groupAllocCnt].account)))
+                                        //if (brokerAccountChosen.Contains(Tuple.Create(DataCollectionLibrary.portfolioAllocation.accountAllocation[groupAllocCnt].broker,
+                                        //    DataCollectionLibrary.portfolioAllocation.accountAllocation[groupAllocCnt].account)))
                                         {
 
-                                            string acct = optionSpreadManager.selectAcct(
-                                            instrument.exchangesymbol,
-                                            DataCollectionLibrary.portfolioAllocation.accountAllocation[groupAllocCnt], true);
+                                            //string acct = optionSpreadManager.selectAcct(
+                                            //instrument.exchangesymbol,
+                                            //DataCollectionLibrary.portfolioAllocation.accountAllocation[groupAllocCnt], true);
 
                                             int net = clearGridDataRowContractsAndReturnLots(
-                                                DataCollectionLibrary.portfolioAllocation.accountAllocation[groupAllocCnt].broker,
+                                                //DataCollectionLibrary.portfolioAllocation.accountAllocation[groupAllocCnt].broker,
+                                                //acct,
+                                                
+                                                broker,
                                                 acct,
-                                                optionArrayTypes.optionSpreadContractTypesArray.GetValue((int)contractBeingReplaced).ToString(),
+                                                optionArrayTypes.optionSpreadContractTypesArray.GetValue((int)contractBeingReplaced).ToString(),        
                                                 strike,
                                                 optionYear,
                                                 optionMonthInt,
@@ -3646,7 +3683,9 @@ namespace RealtimeSpreadMonitor.Forms
 
                                             if (
                                                 fillInGridDataRow(rowCount,
-                                            DataCollectionLibrary.portfolioAllocation.accountAllocation[groupAllocCnt].broker,
+                                            //DataCollectionLibrary.portfolioAllocation.accountAllocation[groupAllocCnt].broker,
+                                            //acct,
+                                            broker,
                                             acct,
                                             syntheticReplacementContract,
                                             strike,
@@ -3668,14 +3707,16 @@ namespace RealtimeSpreadMonitor.Forms
 
                                             if (
                                                 fillInGridDataRow(rowCount,
-                                            DataCollectionLibrary.portfolioAllocation.accountAllocation[groupAllocCnt].broker,
+                                            //DataCollectionLibrary.portfolioAllocation.accountAllocation[groupAllocCnt].broker,
+                                            //acct,
+                                            broker,
                                             acct,
                                             OPTION_SPREAD_CONTRACT_TYPE.FUTURE,
                                             0,
                                             futureClose,
                                             0,
-                                            DataCollectionLibrary.optionSpreadExpressionList[futureExpressionIdx].asset.year,
-                                            DataCollectionLibrary.optionSpreadExpressionList[futureExpressionIdx].asset.monthint,
+                                            future_ose.asset.year,
+                                            future_ose.asset.monthint,
                                             0,
                                             0,
                                             instrument.exchangesymbolTT,
@@ -4089,7 +4130,7 @@ namespace RealtimeSpreadMonitor.Forms
                     && gridViewSpreadGrid.Rows[row].Cells[(int)OPTION_PL_COLUMNS.STRIKE].Value != null
                     && gridViewSpreadGrid.Rows[row].Cells[(int)OPTION_PL_COLUMNS.YEAR].Value != null
                     && gridViewSpreadGrid.Rows[row].Cells[(int)OPTION_PL_COLUMNS.MTH_AS_INT].Value != null)
-                {                    
+                {
 
                     OPTION_SPREAD_CONTRACT_TYPE currentContractType = OPTION_SPREAD_CONTRACT_TYPE.FUTURE;
 
@@ -4180,7 +4221,7 @@ namespace RealtimeSpreadMonitor.Forms
 
                     double futureAvgPrice = returnFuturesAveragePrice(futureIdx);
 
-                    lblFuturePrice.Text = "Future: " + 
+                    lblFuturePrice.Text = "Future: " +
                         ConversionAndFormatting.convertToTickMovesString(
                                         futureAvgPrice,
                                         instrument.ticksize,
