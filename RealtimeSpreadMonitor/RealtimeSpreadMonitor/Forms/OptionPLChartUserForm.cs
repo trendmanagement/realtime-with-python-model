@@ -353,6 +353,53 @@ namespace RealtimeSpreadMonitor.Forms
                 );
         }
 
+        public void fillUnderlyingFutureExpression()
+        {
+            if (underlyingFutures_List.Count() == 0)
+            {
+                foreach (MongoDB_OptionSpreadExpression ose in DataCollectionLibrary.optionSpreadExpressionList)
+                {
+                    if (ose.underlyingFutureExpression != null
+                        && ose.asset._type.CompareTo(ASSET_TYPE_MONGO.opt.ToString()) == 0
+                        && ose.underlyingFutureExpression.asset._type.CompareTo(ASSET_TYPE_MONGO.fut.ToString()) == 0
+                        && ose.asset.idinstrument == instrument.idinstrument)
+                    {
+                        var key = Tuple.Create(ose.asset.optionmonthint,
+                            ose.asset.optionyear);
+
+                        if (!underlyingFuturesDict_optionMonthYearKey.ContainsKey(key))
+                        {
+                            underlyingFuturesDict_optionMonthYearKey.Add(key, ose.underlyingFutureExpression);
+
+                            underlyingFutures_List.Add(ose.underlyingFutureExpression);
+                        }
+                    }
+
+
+
+                }
+
+                if (underlyingFutures_List.Count == 0)
+                {
+                    int moseCnt = 0;
+                    while (moseCnt < DataCollectionLibrary.optionSpreadExpressionList.Count)
+                    {
+                        if (DataCollectionLibrary.optionSpreadExpressionList[moseCnt] != null
+                            && DataCollectionLibrary.optionSpreadExpressionList[moseCnt].asset._type.CompareTo(ASSET_TYPE_MONGO.opt.ToString()) == 0
+                            && DataCollectionLibrary.optionSpreadExpressionList[moseCnt].asset.idinstrument == instrument.idinstrument)
+                        {
+                            underlyingFutures_List.Add(DataCollectionLibrary.optionSpreadExpressionList[moseCnt]);
+                            break;
+                        }
+
+                        moseCnt++;
+                    }
+                }
+
+                underlyingFutures_List = underlyingFutures_List.OrderByDescending(o => o.asset.year).ThenByDescending(o => o.asset.monthint).ToList();
+            }
+        }
+
         /// <summary>
         /// Fills the grid.
         /// </summary>
@@ -369,48 +416,8 @@ namespace RealtimeSpreadMonitor.Forms
 
             this.instrument = instrument;
 
-            foreach (MongoDB_OptionSpreadExpression ose in DataCollectionLibrary.optionSpreadExpressionList)
-            {
-                if (ose.underlyingFutureExpression != null
-                    && ose.asset._type.CompareTo(ASSET_TYPE_MONGO.opt.ToString()) == 0
-                    && ose.underlyingFutureExpression.asset._type.CompareTo(ASSET_TYPE_MONGO.fut.ToString()) == 0
-                    && ose.asset.idinstrument == instrument.idinstrument)
-                {
-                    var key = Tuple.Create(ose.asset.optionmonthint,
-                        ose.asset.optionyear);
 
-                    if (!underlyingFuturesDict_optionMonthYearKey.ContainsKey(key))
-                    {
-                        underlyingFuturesDict_optionMonthYearKey.Add(key, ose.underlyingFutureExpression);
-
-                        underlyingFutures_List.Add(ose.underlyingFutureExpression);
-                    }
-                }
-
-                
-
-            }
-
-            if (underlyingFutures_List.Count == 0)
-            {
-                int moseCnt = 0;
-                while (moseCnt < DataCollectionLibrary.optionSpreadExpressionList.Count)
-                {
-                    if (DataCollectionLibrary.optionSpreadExpressionList[moseCnt] != null
-                        && DataCollectionLibrary.optionSpreadExpressionList[moseCnt].asset._type.CompareTo(ASSET_TYPE_MONGO.opt.ToString()) == 0
-                        && DataCollectionLibrary.optionSpreadExpressionList[moseCnt].asset.idinstrument == instrument.idinstrument)
-                    {
-                        underlyingFutures_List.Add(DataCollectionLibrary.optionSpreadExpressionList[moseCnt]);
-                        break;
-                    }
-
-                    moseCnt++;
-                }
-            }
-
-            underlyingFutures_List = underlyingFutures_List.OrderByDescending(o => o.asset.year).ThenByDescending(o => o.asset.monthint).ToList();
-
-
+            fillUnderlyingFutureExpression();
 
 
             //this.rRisk = rRisk;
@@ -588,6 +595,8 @@ namespace RealtimeSpreadMonitor.Forms
                 //this.optionSpreadExpressionList = optionSpreadExpressionList;
 
                 this.instrument = instrument;
+
+                fillUnderlyingFutureExpression();
 
                 this.rRisk = rRisk;
 
@@ -778,7 +787,7 @@ namespace RealtimeSpreadMonitor.Forms
 
             this.instrument = instrument;
 
-            //this.chartType = chartType;
+            fillUnderlyingFutureExpression();
 
             StringBuilder title = new StringBuilder();
             title.Append(instrument.cqgsymbol);
