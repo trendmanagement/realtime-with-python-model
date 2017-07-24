@@ -16,5 +16,11 @@ namespace RealtimeSpreadMonitor.Forms
         {
             InitializeComponent();
         }
+
+        private void OptionPayoffChart_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Dispose();
+            GC.Collect();
+        }
     }
 }

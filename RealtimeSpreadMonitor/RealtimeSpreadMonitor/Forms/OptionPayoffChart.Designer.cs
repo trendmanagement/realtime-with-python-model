@@ -49,6 +49,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "OptionPayoffChart";
             this.Text = "OptionPayoffChart";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.OptionPayoffChart_FormClosed);
             this.ResumeLayout(false);
 
         }
