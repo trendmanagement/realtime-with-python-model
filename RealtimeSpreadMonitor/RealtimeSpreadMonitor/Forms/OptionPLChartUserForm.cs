@@ -241,7 +241,8 @@ namespace RealtimeSpreadMonitor.Forms
                     {
                         StringBuilder treeVal = new StringBuilder();
 
-                        treeVal.Append(DataCollectionLibrary.accountPositionsList[groupAllocCnt].client_name);
+                        //treeVal.Append(DataCollectionLibrary.accountPositionsList[groupAllocCnt].client_name);
+                        treeVal.Append(DataCollectionLibrary.portfolioAllocation.accountAllocation[groupAllocCnt].accountFromMongo.client_name);
                         treeVal.Append("|");
                         treeVal.Append(DataCollectionLibrary.portfolioAllocation.accountAllocation[groupAllocCnt].broker);
                         treeVal.Append("|");
