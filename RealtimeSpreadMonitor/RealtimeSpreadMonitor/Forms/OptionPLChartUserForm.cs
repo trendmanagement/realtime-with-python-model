@@ -703,7 +703,7 @@ namespace RealtimeSpreadMonitor.Forms
 
                                 if ((p.asset.idinstrument == DataCollectionLibrary.instrumentSelectedInTreeGui
                                     || DataCollectionLibrary.instrumentSelectedInTreeGui == TradingSystemConstants.ALL_INSTRUMENTS_SELECTED)
-                                    && numOfContracts > 0)
+                                    && numOfContracts != 0)
                                 {
 
                                     AccountAllocation ac =
