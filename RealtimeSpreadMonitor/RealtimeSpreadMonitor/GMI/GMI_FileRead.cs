@@ -49,7 +49,7 @@ namespace RealtimeSpreadMonitor.GMI
 
                 aDMSummaryImport.Currency = stringList[(int)ADM_DETAIL_FIELDS.Currency];
                 aDMSummaryImport.PSUBTY = stringList[(int)ADM_DETAIL_FIELDS.PSUBTY];
-                aDMSummaryImport.PEXCH = getIntOutOfStringList(stringList, ADM_DETAIL_FIELDS.PEXCH);
+                aDMSummaryImport.PEXCH = stringList[(int)ADM_DETAIL_FIELDS.PEXCH]; //Oct 6 2017 getIntOutOfStringList(stringList, ADM_DETAIL_FIELDS.PEXCH);
                 aDMSummaryImport.PFC = stringList[(int)ADM_DETAIL_FIELDS.PFC];
                 aDMSummaryImport.aDMStrike = stringList[(int)ADM_DETAIL_FIELDS.Strike];
 
@@ -105,7 +105,7 @@ namespace RealtimeSpreadMonitor.GMI
 
                 aDMSummaryImport.Currency = stringList[283];
                 aDMSummaryImport.PSUBTY = stringList[10];
-                aDMSummaryImport.PEXCH = Convert.ToInt32(stringList[97]);
+                aDMSummaryImport.PEXCH = stringList[97]; //Oct 6 2017 Convert.ToInt32(stringList[97]);
                 aDMSummaryImport.PFC = stringList[98];
                 aDMSummaryImport.aDMStrike = stringList[12];
 
@@ -161,7 +161,7 @@ namespace RealtimeSpreadMonitor.GMI
 
                 aDMSummaryImport.Currency = stringList[(int)RCG_POS.CSY];
                 aDMSummaryImport.PSUBTY = stringList[(int)RCG_POS.SUBTY];
-                aDMSummaryImport.PEXCH = Convert.ToInt32(stringList[(int)RCG_POS.EX]);
+                aDMSummaryImport.PEXCH = stringList[(int)RCG_POS.EX]; // Oct 6 2017 Convert.ToInt32(stringList[(int)RCG_POS.EX]);
                 aDMSummaryImport.PFC = stringList[(int)RCG_POS.FC];
                 aDMSummaryImport.aDMStrike = stringList[(int)RCG_POS.STRIK];
 
@@ -216,7 +216,7 @@ namespace RealtimeSpreadMonitor.GMI
 
                 aDMSummaryImport.Currency = stringList[36];
                 aDMSummaryImport.PSUBTY = stringList[23];
-                aDMSummaryImport.PEXCH = Convert.ToInt32(stringList[14]);
+                aDMSummaryImport.PEXCH = stringList[14]; //Oct 6 2017 Convert.ToInt32(stringList[14]);
                 aDMSummaryImport.PFC = stringList[16];
                 aDMSummaryImport.aDMStrike = stringList[24];
 
@@ -272,7 +272,7 @@ namespace RealtimeSpreadMonitor.GMI
 
                 aDMSummaryImport.Currency = stringList[(int)RCG_TRND.FCURSY];
                 aDMSummaryImport.PSUBTY = stringList[(int)RCG_TRND.FSUBTY];
-                aDMSummaryImport.PEXCH = Convert.ToInt32(stringList[(int)RCG_TRND.FEXCH]);
+                aDMSummaryImport.PEXCH = stringList[(int)RCG_TRND.FEXCH];// Oct 6 2017 Convert.ToInt32(stringList[(int)RCG_TRND.FEXCH]);
                 aDMSummaryImport.PFC = stringList[(int)RCG_TRND.FFC];
                 aDMSummaryImport.aDMStrike = stringList[(int)RCG_TRND.FSTRIK];
 
@@ -331,7 +331,7 @@ namespace RealtimeSpreadMonitor.GMI
 
                 aDMSummaryImport.Currency = stringList[76];
                 aDMSummaryImport.PSUBTY = stringList[9];
-                aDMSummaryImport.PEXCH = Convert.ToInt32(stringList[29]);
+                aDMSummaryImport.PEXCH = stringList[29]; //Oct 6 2017 Convert.ToInt32(stringList[29]);
                 aDMSummaryImport.PFC = stringList[30];
                 aDMSummaryImport.aDMStrike = stringList[11];
 
@@ -419,7 +419,7 @@ namespace RealtimeSpreadMonitor.GMI
 
                     aDMSummaryImport.Currency = stringList[32];
                     aDMSummaryImport.PSUBTY = stringList[7];
-                    aDMSummaryImport.PEXCH = Convert.ToInt32(stringList[27]);
+                    aDMSummaryImport.PEXCH = stringList[27]; //Oct 6 2017 Convert.ToInt32(stringList[27]);
                     aDMSummaryImport.PFC = stringList[26];
 
                     if (stringList[8].Trim().Length > 0)

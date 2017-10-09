@@ -109,7 +109,7 @@ namespace RealtimeSpreadMonitor
         public double SettledValue;
         public String Currency;
         public String PSUBTY;
-        public int PEXCH;
+        public String PEXCH; //changed to string Oct 6 2017 public int PEXCH;
         public String PFC;
 
         public String aDMStrike;

@@ -2247,7 +2247,8 @@ namespace RealtimeSpreadMonitor
                             if (admPositionImportWeb.POFFIC.CompareTo(FCM_DataImportLibrary.FCM_positionImportNotConsolidated[j].POFFIC) == 0
                                 && admPositionImportWeb.PACCT.CompareTo(FCM_DataImportLibrary.FCM_positionImportNotConsolidated[j].PACCT) == 0
 
-                                && admPositionImportWeb.PEXCH == FCM_DataImportLibrary.FCM_positionImportNotConsolidated[j].PEXCH
+                                //&& admPositionImportWeb.PEXCH == FCM_DataImportLibrary.FCM_positionImportNotConsolidated[j].PEXCH Oct 6 2017
+                                && admPositionImportWeb.PEXCH.CompareTo(FCM_DataImportLibrary.FCM_positionImportNotConsolidated[j].PEXCH) == 0
                                 && admPositionImportWeb.PFC.CompareTo(FCM_DataImportLibrary.FCM_positionImportNotConsolidated[j].PFC) == 0
                                 && admPositionImportWeb.PCTYM.CompareTo(FCM_DataImportLibrary.FCM_positionImportNotConsolidated[j].PCTYM) == 0
                                 && admPositionImportWeb.PSUBTY.CompareTo(FCM_DataImportLibrary.FCM_positionImportNotConsolidated[j].PSUBTY) == 0
