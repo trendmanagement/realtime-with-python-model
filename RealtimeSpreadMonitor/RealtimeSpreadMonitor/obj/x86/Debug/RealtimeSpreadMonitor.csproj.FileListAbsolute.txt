@@ -79,3 +79,44 @@ D:\RealtimeSpreadWithPythonModel\RealtimeSpreadMonitor\RealtimeSpreadMonitor\obj
 D:\RealtimeSpreadWithPythonModel\RealtimeSpreadMonitor\RealtimeSpreadMonitor\obj\x86\Debug\RealtimeSpreadMonitor.csproj.GenerateResource.Cache
 D:\RealtimeSpreadWithPythonModel\RealtimeSpreadMonitor\RealtimeSpreadMonitor\obj\x86\Debug\RealtimeSpreadMonitor.exe
 D:\RealtimeSpreadWithPythonModel\RealtimeSpreadMonitor\RealtimeSpreadMonitor\obj\x86\Debug\RealtimeSpreadMonitor.pdb
+C:\Users\Steve Pickering\Desktop\MAIN TMQR FRAMEWORK\RealtimeSpreadWithPythonModel\RealtimeSpreadMonitor\RealtimeSpreadMonitor\bin\Debug\WinSCP.exe
+C:\Users\Steve Pickering\Desktop\MAIN TMQR FRAMEWORK\RealtimeSpreadWithPythonModel\RealtimeSpreadMonitor\RealtimeSpreadMonitor\bin\Debug\RealtimeSpreadMonitor.exe.config
+C:\Users\Steve Pickering\Desktop\MAIN TMQR FRAMEWORK\RealtimeSpreadWithPythonModel\RealtimeSpreadMonitor\RealtimeSpreadMonitor\bin\Debug\RealtimeSpreadMonitor.exe
+C:\Users\Steve Pickering\Desktop\MAIN TMQR FRAMEWORK\RealtimeSpreadWithPythonModel\RealtimeSpreadMonitor\RealtimeSpreadMonitor\bin\Debug\RealtimeSpreadMonitor.pdb
+C:\Users\Steve Pickering\Desktop\MAIN TMQR FRAMEWORK\RealtimeSpreadWithPythonModel\RealtimeSpreadMonitor\RealtimeSpreadMonitor\bin\Debug\AutoMapper.dll
+C:\Users\Steve Pickering\Desktop\MAIN TMQR FRAMEWORK\RealtimeSpreadWithPythonModel\RealtimeSpreadMonitor\RealtimeSpreadMonitor\bin\Debug\MongoDB.Bson.dll
+C:\Users\Steve Pickering\Desktop\MAIN TMQR FRAMEWORK\RealtimeSpreadWithPythonModel\RealtimeSpreadMonitor\RealtimeSpreadMonitor\bin\Debug\MongoDB.Driver.Core.dll
+C:\Users\Steve Pickering\Desktop\MAIN TMQR FRAMEWORK\RealtimeSpreadWithPythonModel\RealtimeSpreadMonitor\RealtimeSpreadMonitor\bin\Debug\MongoDB.Driver.dll
+C:\Users\Steve Pickering\Desktop\MAIN TMQR FRAMEWORK\RealtimeSpreadWithPythonModel\RealtimeSpreadMonitor\RealtimeSpreadMonitor\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Steve Pickering\Desktop\MAIN TMQR FRAMEWORK\RealtimeSpreadWithPythonModel\RealtimeSpreadMonitor\RealtimeSpreadMonitor\bin\Debug\StageOrdersToTTWPFLibrary.dll
+C:\Users\Steve Pickering\Desktop\MAIN TMQR FRAMEWORK\RealtimeSpreadWithPythonModel\RealtimeSpreadMonitor\RealtimeSpreadMonitor\bin\Debug\System.Net.Http.Formatting.dll
+C:\Users\Steve Pickering\Desktop\MAIN TMQR FRAMEWORK\RealtimeSpreadWithPythonModel\RealtimeSpreadMonitor\RealtimeSpreadMonitor\bin\Debug\WinSCPnet.dll
+C:\Users\Steve Pickering\Desktop\MAIN TMQR FRAMEWORK\RealtimeSpreadWithPythonModel\RealtimeSpreadMonitor\RealtimeSpreadMonitor\bin\Debug\QuickFix.dll
+C:\Users\Steve Pickering\Desktop\MAIN TMQR FRAMEWORK\RealtimeSpreadWithPythonModel\RealtimeSpreadMonitor\RealtimeSpreadMonitor\bin\Debug\StageOrdersToTTWPFLibrary.pdb
+C:\Users\Steve Pickering\Desktop\MAIN TMQR FRAMEWORK\RealtimeSpreadWithPythonModel\RealtimeSpreadMonitor\RealtimeSpreadMonitor\bin\Debug\AutoMapper.xml
+C:\Users\Steve Pickering\Desktop\MAIN TMQR FRAMEWORK\RealtimeSpreadWithPythonModel\RealtimeSpreadMonitor\RealtimeSpreadMonitor\bin\Debug\MongoDB.Bson.xml
+C:\Users\Steve Pickering\Desktop\MAIN TMQR FRAMEWORK\RealtimeSpreadWithPythonModel\RealtimeSpreadMonitor\RealtimeSpreadMonitor\bin\Debug\MongoDB.Driver.xml
+C:\Users\Steve Pickering\Desktop\MAIN TMQR FRAMEWORK\RealtimeSpreadWithPythonModel\RealtimeSpreadMonitor\RealtimeSpreadMonitor\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Steve Pickering\Desktop\MAIN TMQR FRAMEWORK\RealtimeSpreadWithPythonModel\RealtimeSpreadMonitor\RealtimeSpreadMonitor\bin\Debug\System.Net.Http.Formatting.xml
+C:\Users\Steve Pickering\Desktop\MAIN TMQR FRAMEWORK\RealtimeSpreadWithPythonModel\RealtimeSpreadMonitor\RealtimeSpreadMonitor\obj\x86\Debug\RealtimeSpreadMonitor.csprojResolveAssemblyReference.cache
+C:\Users\Steve Pickering\Desktop\MAIN TMQR FRAMEWORK\RealtimeSpreadWithPythonModel\RealtimeSpreadMonitor\RealtimeSpreadMonitor\obj\x86\Debug\Interop.CQG.dll
+C:\Users\Steve Pickering\Desktop\MAIN TMQR FRAMEWORK\RealtimeSpreadWithPythonModel\RealtimeSpreadMonitor\RealtimeSpreadMonitor\obj\x86\Debug\RealtimeSpreadMonitor.csproj.ResolveComReference.cache
+C:\Users\Steve Pickering\Desktop\MAIN TMQR FRAMEWORK\RealtimeSpreadWithPythonModel\RealtimeSpreadMonitor\RealtimeSpreadMonitor\obj\x86\Debug\RealtimeSpreadMonitor.Forms.FCM_ReportSummaryForm.resources
+C:\Users\Steve Pickering\Desktop\MAIN TMQR FRAMEWORK\RealtimeSpreadWithPythonModel\RealtimeSpreadMonitor\RealtimeSpreadMonitor\obj\x86\Debug\RealtimeSpreadMonitor.Forms.ChartForm.resources
+C:\Users\Steve Pickering\Desktop\MAIN TMQR FRAMEWORK\RealtimeSpreadWithPythonModel\RealtimeSpreadMonitor\RealtimeSpreadMonitor\obj\x86\Debug\RealtimeSpreadMonitor.Forms.EODPayoffs.resources
+C:\Users\Steve Pickering\Desktop\MAIN TMQR FRAMEWORK\RealtimeSpreadWithPythonModel\RealtimeSpreadMonitor\RealtimeSpreadMonitor\obj\x86\Debug\RealtimeSpreadMonitor.Forms.FileLoadList.resources
+C:\Users\Steve Pickering\Desktop\MAIN TMQR FRAMEWORK\RealtimeSpreadWithPythonModel\RealtimeSpreadMonitor\RealtimeSpreadMonitor\obj\x86\Debug\RealtimeSpreadMonitor.Forms.InitializationForm.resources
+C:\Users\Steve Pickering\Desktop\MAIN TMQR FRAMEWORK\RealtimeSpreadWithPythonModel\RealtimeSpreadMonitor\RealtimeSpreadMonitor\obj\x86\Debug\RealtimeSpreadMonitor.Forms.OptionPayoffChart.resources
+C:\Users\Steve Pickering\Desktop\MAIN TMQR FRAMEWORK\RealtimeSpreadWithPythonModel\RealtimeSpreadMonitor\RealtimeSpreadMonitor\obj\x86\Debug\RealtimeSpreadMonitor.Forms.OptionPayoffComparison.resources
+C:\Users\Steve Pickering\Desktop\MAIN TMQR FRAMEWORK\RealtimeSpreadWithPythonModel\RealtimeSpreadMonitor\RealtimeSpreadMonitor\obj\x86\Debug\RealtimeSpreadMonitor.Forms.OptionPayoffComparisonUserControl.resources
+C:\Users\Steve Pickering\Desktop\MAIN TMQR FRAMEWORK\RealtimeSpreadWithPythonModel\RealtimeSpreadMonitor\RealtimeSpreadMonitor\obj\x86\Debug\RealtimeSpreadMonitor.Forms.OptionPLChartUserForm.resources
+C:\Users\Steve Pickering\Desktop\MAIN TMQR FRAMEWORK\RealtimeSpreadWithPythonModel\RealtimeSpreadMonitor\RealtimeSpreadMonitor\obj\x86\Debug\RealtimeSpreadMonitor.Forms.OptionRealtimeMonitor.resources
+C:\Users\Steve Pickering\Desktop\MAIN TMQR FRAMEWORK\RealtimeSpreadWithPythonModel\RealtimeSpreadMonitor\RealtimeSpreadMonitor\obj\x86\Debug\RealtimeSpreadMonitor.Forms.OptionRealtimeStartup.resources
+C:\Users\Steve Pickering\Desktop\MAIN TMQR FRAMEWORK\RealtimeSpreadWithPythonModel\RealtimeSpreadMonitor\RealtimeSpreadMonitor\obj\x86\Debug\RealtimeSpreadMonitor.Forms.OptionStartupProgress.resources
+C:\Users\Steve Pickering\Desktop\MAIN TMQR FRAMEWORK\RealtimeSpreadWithPythonModel\RealtimeSpreadMonitor\RealtimeSpreadMonitor\obj\x86\Debug\RealtimeSpreadMonitor.Forms.Settings.resources
+C:\Users\Steve Pickering\Desktop\MAIN TMQR FRAMEWORK\RealtimeSpreadWithPythonModel\RealtimeSpreadMonitor\RealtimeSpreadMonitor\obj\x86\Debug\RealtimeSpreadMonitor.Forms.ShuttingDownMessageForm.resources
+C:\Users\Steve Pickering\Desktop\MAIN TMQR FRAMEWORK\RealtimeSpreadWithPythonModel\RealtimeSpreadMonitor\RealtimeSpreadMonitor\obj\x86\Debug\RealtimeSpreadMonitor.Forms.TML_TradingSystemAboutBox.resources
+C:\Users\Steve Pickering\Desktop\MAIN TMQR FRAMEWORK\RealtimeSpreadWithPythonModel\RealtimeSpreadMonitor\RealtimeSpreadMonitor\obj\x86\Debug\RealtimeSpreadMonitor.Properties.Resources.resources
+C:\Users\Steve Pickering\Desktop\MAIN TMQR FRAMEWORK\RealtimeSpreadWithPythonModel\RealtimeSpreadMonitor\RealtimeSpreadMonitor\obj\x86\Debug\RealtimeSpreadMonitor.csproj.GenerateResource.Cache
+C:\Users\Steve Pickering\Desktop\MAIN TMQR FRAMEWORK\RealtimeSpreadWithPythonModel\RealtimeSpreadMonitor\RealtimeSpreadMonitor\obj\x86\Debug\RealtimeSpreadMonitor.exe
+C:\Users\Steve Pickering\Desktop\MAIN TMQR FRAMEWORK\RealtimeSpreadWithPythonModel\RealtimeSpreadMonitor\RealtimeSpreadMonitor\obj\x86\Debug\RealtimeSpreadMonitor.pdb

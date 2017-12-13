@@ -424,7 +424,19 @@ namespace RealtimeSpreadMonitor
                                         //ose.transactionBarIdx = timedBarsInCounter;
                                         //ose.todayTransactionBar = cqg_TimedBarsIn[timedBarsInCounter];
 
-                                        ose.transactionPrice = cqg_TimedBarsIn[timedBarsInCounter].Close;
+                                        //int temp_idx = timedBarsInCounter;
+
+                                        //while (temp_idx > 0 &&
+                                        //    cqg_TimedBarsIn[temp_idx].Close
+                                        //    == -TradingSystemConstants.CQG_DATA_ERROR_CODE)
+                                        //{
+                                        //    temp_idx--;
+                                        //}
+
+                                        if (cqg_TimedBarsIn[timedBarsInCounter].Close != -TradingSystemConstants.CQG_DATA_ERROR_CODE)
+                                        {
+                                            ose.transactionPrice = cqg_TimedBarsIn[timedBarsInCounter].Close;
+                                        }
 
                                         ose.transactionPriceTime = cqg_TimedBarsIn[timedBarsInCounter].Timestamp;
 
@@ -437,8 +449,19 @@ namespace RealtimeSpreadMonitor
                                         cqg_TimedBarsIn[timedBarsInCounter].Timestamp
                                         .CompareTo(ose.todayDecisionTime) <= 0)
                                     {
-                                        
-                                        ose.decisionPrice = cqg_TimedBarsIn[timedBarsInCounter].Close;
+                                        //int temp_idx = timedBarsInCounter;
+
+                                        //while (temp_idx > 0 &&
+                                        //    cqg_TimedBarsIn[temp_idx].Close
+                                        //    == -TradingSystemConstants.CQG_DATA_ERROR_CODE)
+                                        //{
+                                        //    temp_idx--;
+                                        //}
+
+                                        if (cqg_TimedBarsIn[timedBarsInCounter].Close != -TradingSystemConstants.CQG_DATA_ERROR_CODE)
+                                        {
+                                            ose.decisionPrice = cqg_TimedBarsIn[timedBarsInCounter].Close;
+                                        }
 
                                         ose.decisionPriceTime = cqg_TimedBarsIn[timedBarsInCounter].Timestamp;
                                     }
@@ -522,9 +545,22 @@ namespace RealtimeSpreadMonitor
                                 //ose.transactionBarIdx = lastTimedBarInIndex;
                                 //ose.todayTransactionBar = cqg_TimedBarsIn[lastTimedBarInIndex];
 
-                                ose.transactionPrice = cqg_TimedBarsIn[lastTimedBarInIndex].Close;
+                                //int temp_idx = lastTimedBarInIndex;
+
+                                //while (temp_idx > 0 &&
+                                //    cqg_TimedBarsIn[temp_idx].Close
+                                //    == -TradingSystemConstants.CQG_DATA_ERROR_CODE)
+                                //{
+                                //    temp_idx--;
+                                //}
+
+                                if (cqg_TimedBarsIn[lastTimedBarInIndex].Close != -TradingSystemConstants.CQG_DATA_ERROR_CODE)
+                                {
+                                    ose.transactionPrice = cqg_TimedBarsIn[lastTimedBarInIndex].Close;
+                                }
 
                                 ose.transactionPriceTime = cqg_TimedBarsIn[lastTimedBarInIndex].Timestamp;
+                                
 
                             }
 
@@ -538,7 +574,19 @@ namespace RealtimeSpreadMonitor
                                 //ose.decisionBarIdx = lastTimedBarInIndex;
                                 //ose.decisionBar = cqg_TimedBarsIn[lastTimedBarInIndex];
 
-                                ose.decisionPrice = cqg_TimedBarsIn[lastTimedBarInIndex].Close;
+                                //int temp_idx = lastTimedBarInIndex;
+
+                                //while (temp_idx > 0 &&
+                                //    cqg_TimedBarsIn[temp_idx].Close
+                                //    == -TradingSystemConstants.CQG_DATA_ERROR_CODE)
+                                //{
+                                //    temp_idx--;
+                                //}
+
+                                if (cqg_TimedBarsIn[lastTimedBarInIndex].Close != -TradingSystemConstants.CQG_DATA_ERROR_CODE)
+                                {
+                                    ose.decisionPrice = cqg_TimedBarsIn[lastTimedBarInIndex].Close;
+                                }
 
                                 ose.decisionPriceTime = cqg_TimedBarsIn[lastTimedBarInIndex].Timestamp;
                             }                            
