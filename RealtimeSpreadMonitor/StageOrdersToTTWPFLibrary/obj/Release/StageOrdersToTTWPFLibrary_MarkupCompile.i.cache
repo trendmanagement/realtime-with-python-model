@@ -4,7 +4,7 @@
 library
 C#
 .cs
-C:\Users\Steve Pickering\Desktop\MAIN TMQR FRAMEWORK\RealtimeSpreadWithPythonModel\RealtimeSpreadMonitor\StageOrdersToTTWPFLibrary\obj\Release\
+C:\Users\Steve Pickering\Desktop\MAIN TMQR FRAMEWORK\RealtimeMonitor_Iqfeed\realtime-with-python-model\RealtimeSpreadMonitor\StageOrdersToTTWPFLibrary\obj\Release\
 StageOrdersToTTWPFLibrary
 none
 false
@@ -13,8 +13,8 @@ TRACE
 52124145738
 
 311653432214
-181586575506
+181617183298
 Themes\Generic.xaml;View\ExecutionView.xaml;View\FIXMessageView.xaml;View\OrderView.xaml;View\StageOrdersMainView.xaml;
 
-True
+False
 

@@ -1,14 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.6
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RealtimeSpreadMonitor", "RealtimeSpreadMonitor\RealtimeSpreadMonitor.csproj", "{57C0D404-2B2F-41C5-A787-CFE8A2A9E370}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StageOrdersToTTWPFLibrary", "StageOrdersToTTWPFLibrary\StageOrdersToTTWPFLibrary.csproj", "{E7FA304F-8529-4064-BC01-15F7D526B010}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RealtimeSpreadMonitorTests", "RealtimeSpreadMonitorTests\RealtimeSpreadMonitorTests.csproj", "{4A217A96-8C31-4919-A913-FAEDEE62CBD3}"
+EndProject
 Global
-
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Debug|Mixed Platforms = Debug|Mixed Platforms
@@ -38,6 +39,18 @@ Global
 		{E7FA304F-8529-4064-BC01-15F7D526B010}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{E7FA304F-8529-4064-BC01-15F7D526B010}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{E7FA304F-8529-4064-BC01-15F7D526B010}.Release|x86.ActiveCfg = Release|Any CPU
+		{4A217A96-8C31-4919-A913-FAEDEE62CBD3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A217A96-8C31-4919-A913-FAEDEE62CBD3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A217A96-8C31-4919-A913-FAEDEE62CBD3}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{4A217A96-8C31-4919-A913-FAEDEE62CBD3}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{4A217A96-8C31-4919-A913-FAEDEE62CBD3}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{4A217A96-8C31-4919-A913-FAEDEE62CBD3}.Debug|x86.Build.0 = Debug|Any CPU
+		{4A217A96-8C31-4919-A913-FAEDEE62CBD3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A217A96-8C31-4919-A913-FAEDEE62CBD3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4A217A96-8C31-4919-A913-FAEDEE62CBD3}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{4A217A96-8C31-4919-A913-FAEDEE62CBD3}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{4A217A96-8C31-4919-A913-FAEDEE62CBD3}.Release|x86.ActiveCfg = Release|Any CPU
+		{4A217A96-8C31-4919-A913-FAEDEE62CBD3}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

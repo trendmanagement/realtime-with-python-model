@@ -154,12 +154,7 @@
             this.toolStripStatusLabelUsingSupplementContract = new System.Windows.Forms.ToolStripStatusLabel();
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mainRealtimeMenuStrip = new System.Windows.Forms.MenuStrip();
-            this.btnCallAllInstruments = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator17 = new System.Windows.Forms.ToolStripSeparator();
-            this.btnCallUnsubscribed = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator18 = new System.Windows.Forms.ToolStripSeparator();
-            this.btnCQGRecon = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton3 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripSeparator20 = new System.Windows.Forms.ToolStripSeparator();
             this.aDMDataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.showADMWebImportedDataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -286,6 +281,7 @@
             // 
             this.splitContainer4.Panel1.BackColor = System.Drawing.Color.GreenYellow;
             this.splitContainer4.Panel1.Controls.Add(this.label1);
+            this.splitContainer4.Panel1Collapsed = true;
             this.splitContainer4.Panel1MinSize = 0;
             // 
             // splitContainer4.Panel2
@@ -322,8 +318,8 @@
             // splitContainer6.Panel2
             // 
             this.splitContainer6.Panel2.Controls.Add(this.statusStripOptionMonitor);
-            this.splitContainer6.Size = new System.Drawing.Size(1165, 665);
-            this.splitContainer6.SplitterDistance = 639;
+            this.splitContainer6.Size = new System.Drawing.Size(1165, 716);
+            this.splitContainer6.SplitterDistance = 690;
             this.splitContainer6.SplitterWidth = 1;
             this.splitContainer6.TabIndex = 6;
             // 
@@ -342,7 +338,7 @@
             // splitContainer8.Panel2
             // 
             this.splitContainer8.Panel2.Controls.Add(this.splitContainer12);
-            this.splitContainer8.Size = new System.Drawing.Size(1165, 639);
+            this.splitContainer8.Size = new System.Drawing.Size(1165, 690);
             this.splitContainer8.SplitterDistance = 164;
             this.splitContainer8.TabIndex = 4;
             // 
@@ -475,7 +471,7 @@
             // splitContainer12.Panel2
             // 
             this.splitContainer12.Panel2.Controls.Add(this.realtimeTabControl);
-            this.splitContainer12.Size = new System.Drawing.Size(1165, 471);
+            this.splitContainer12.Size = new System.Drawing.Size(1165, 522);
             this.splitContainer12.SplitterDistance = 170;
             this.splitContainer12.TabIndex = 14;
             // 
@@ -495,8 +491,8 @@
             // 
             this.splitContainer10.Panel2.Controls.Add(this.label3);
             this.splitContainer10.Panel2.Controls.Add(this.cmbxOrderPlacementType);
-            this.splitContainer10.Size = new System.Drawing.Size(170, 471);
-            this.splitContainer10.SplitterDistance = 417;
+            this.splitContainer10.Size = new System.Drawing.Size(170, 522);
+            this.splitContainer10.SplitterDistance = 468;
             this.splitContainer10.TabIndex = 32;
             // 
             // splitContainer18
@@ -514,8 +510,8 @@
             // splitContainer18.Panel2
             // 
             this.splitContainer18.Panel2.Controls.Add(this.treeViewBrokerAcct);
-            this.splitContainer18.Size = new System.Drawing.Size(170, 417);
-            this.splitContainer18.SplitterDistance = 181;
+            this.splitContainer18.Size = new System.Drawing.Size(170, 468);
+            this.splitContainer18.SplitterDistance = 203;
             this.splitContainer18.TabIndex = 14;
             // 
             // treeViewInstruments
@@ -527,7 +523,7 @@
             this.treeViewInstruments.HideSelection = false;
             this.treeViewInstruments.Location = new System.Drawing.Point(0, 0);
             this.treeViewInstruments.Name = "treeViewInstruments";
-            this.treeViewInstruments.Size = new System.Drawing.Size(170, 181);
+            this.treeViewInstruments.Size = new System.Drawing.Size(170, 203);
             this.treeViewInstruments.TabIndex = 13;
             this.treeViewInstruments.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeViewInstrumentsContractSummary_AfterSelect_1);
             // 
@@ -540,7 +536,7 @@
             this.treeViewBrokerAcct.HideSelection = false;
             this.treeViewBrokerAcct.Location = new System.Drawing.Point(0, 0);
             this.treeViewBrokerAcct.Name = "treeViewBrokerAcct";
-            this.treeViewBrokerAcct.Size = new System.Drawing.Size(170, 232);
+            this.treeViewBrokerAcct.Size = new System.Drawing.Size(170, 261);
             this.treeViewBrokerAcct.TabIndex = 32;
             this.treeViewBrokerAcct.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeViewBrokerAcct_AfterSelect);
             // 
@@ -580,7 +576,7 @@
             this.realtimeTabControl.Multiline = true;
             this.realtimeTabControl.Name = "realtimeTabControl";
             this.realtimeTabControl.SelectedIndex = 0;
-            this.realtimeTabControl.Size = new System.Drawing.Size(991, 471);
+            this.realtimeTabControl.Size = new System.Drawing.Size(991, 522);
             this.realtimeTabControl.TabIndex = 3;
             // 
             // tabPageOrderSummary
@@ -589,7 +585,7 @@
             this.tabPageOrderSummary.Location = new System.Drawing.Point(4, 22);
             this.tabPageOrderSummary.Name = "tabPageOrderSummary";
             this.tabPageOrderSummary.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageOrderSummary.Size = new System.Drawing.Size(983, 445);
+            this.tabPageOrderSummary.Size = new System.Drawing.Size(983, 496);
             this.tabPageOrderSummary.TabIndex = 9;
             this.tabPageOrderSummary.Text = "Order Summary";
             this.tabPageOrderSummary.UseVisualStyleBackColor = true;
@@ -609,7 +605,7 @@
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.Controls.Add(this.orderSummaryGrid);
-            this.splitContainer2.Size = new System.Drawing.Size(977, 439);
+            this.splitContainer2.Size = new System.Drawing.Size(977, 490);
             this.splitContainer2.SplitterDistance = 25;
             this.splitContainer2.TabIndex = 12;
             // 
@@ -844,7 +840,7 @@
             this.orderSummaryGrid.ReadOnly = true;
             this.orderSummaryGrid.RowHeadersVisible = false;
             this.orderSummaryGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
-            this.orderSummaryGrid.Size = new System.Drawing.Size(977, 410);
+            this.orderSummaryGrid.Size = new System.Drawing.Size(977, 461);
             this.orderSummaryGrid.TabIndex = 6;
             this.orderSummaryGrid.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.orderSummaryGrid_CellFormatting);
             // 
@@ -1651,12 +1647,7 @@
             // 
             this.mainRealtimeMenuStrip.BackColor = System.Drawing.Color.Black;
             this.mainRealtimeMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.btnCallAllInstruments,
-            this.toolStripSeparator17,
-            this.btnCallUnsubscribed,
             this.toolStripSeparator18,
-            this.btnCQGRecon,
-            this.toolStripButton3,
             this.settingsToolStripMenuItem,
             this.toolStripSeparator20,
             this.aDMDataToolStripMenuItem,
@@ -1676,59 +1667,10 @@
             this.mainRealtimeMenuStrip.TabIndex = 6;
             this.mainRealtimeMenuStrip.Text = "menuStrip1";
             // 
-            // btnCallAllInstruments
-            // 
-            this.btnCallAllInstruments.BackColor = System.Drawing.Color.Transparent;
-            this.btnCallAllInstruments.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.btnCallAllInstruments.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCallAllInstruments.ForeColor = System.Drawing.Color.White;
-            this.btnCallAllInstruments.Image = ((System.Drawing.Image)(resources.GetObject("btnCallAllInstruments.Image")));
-            this.btnCallAllInstruments.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnCallAllInstruments.Name = "btnCallAllInstruments";
-            this.btnCallAllInstruments.Size = new System.Drawing.Size(72, 20);
-            this.btnCallAllInstruments.Text = "CQG Call All";
-            this.btnCallAllInstruments.Click += new System.EventHandler(this.btnCallAllInstruments_Click);
-            // 
-            // toolStripSeparator17
-            // 
-            this.toolStripSeparator17.Name = "toolStripSeparator17";
-            this.toolStripSeparator17.Size = new System.Drawing.Size(6, 23);
-            // 
-            // btnCallUnsubscribed
-            // 
-            this.btnCallUnsubscribed.BackColor = System.Drawing.Color.Transparent;
-            this.btnCallUnsubscribed.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.btnCallUnsubscribed.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCallUnsubscribed.ForeColor = System.Drawing.Color.White;
-            this.btnCallUnsubscribed.Image = ((System.Drawing.Image)(resources.GetObject("btnCallUnsubscribed.Image")));
-            this.btnCallUnsubscribed.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnCallUnsubscribed.Name = "btnCallUnsubscribed";
-            this.btnCallUnsubscribed.Size = new System.Drawing.Size(96, 20);
-            this.btnCallUnsubscribed.Text = "CQG Call Unsub.";
-            this.btnCallUnsubscribed.ToolTipText = "CQG Call Unsub.";
-            this.btnCallUnsubscribed.Click += new System.EventHandler(this.btnCallUnsubscribed_Click);
-            // 
             // toolStripSeparator18
             // 
             this.toolStripSeparator18.Name = "toolStripSeparator18";
             this.toolStripSeparator18.Size = new System.Drawing.Size(6, 23);
-            // 
-            // btnCQGRecon
-            // 
-            this.btnCQGRecon.BackColor = System.Drawing.Color.Transparent;
-            this.btnCQGRecon.ForeColor = System.Drawing.Color.White;
-            this.btnCQGRecon.Image = ((System.Drawing.Image)(resources.GetObject("btnCQGRecon.Image")));
-            this.btnCQGRecon.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnCQGRecon.Name = "btnCQGRecon";
-            this.btnCQGRecon.Size = new System.Drawing.Size(83, 20);
-            this.btnCQGRecon.Text = "CQG Reset";
-            this.btnCQGRecon.ToolTipText = "CQG Reset";
-            this.btnCQGRecon.Click += new System.EventHandler(this.btnCQGRecon_Click);
-            // 
-            // toolStripButton3
-            // 
-            this.toolStripButton3.Name = "toolStripButton3";
-            this.toolStripButton3.Size = new System.Drawing.Size(6, 23);
             // 
             // toolStripSeparator20
             // 
@@ -2015,12 +1957,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox cmbxOrderPlacementType;
         private System.Windows.Forms.ToolStripContainer toolStripContainer1;
-        private System.Windows.Forms.ToolStripButton btnCallAllInstruments;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator17;
-        private System.Windows.Forms.ToolStripButton btnCallUnsubscribed;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator18;
-        private System.Windows.Forms.ToolStripSeparator toolStripButton3;
-        private System.Windows.Forms.ToolStripButton btnCQGRecon;
         private System.Windows.Forms.TreeView treeViewBrokerAcct;
         private System.Windows.Forms.SplitContainer splitContainer10;
         private System.Windows.Forms.ToolStripMenuItem fTPGMIToolStripMenuItem;

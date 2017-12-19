@@ -2,6 +2,7 @@
 using RealtimeSpreadMonitor.Model;
 using System;
 using System.Windows.Forms;
+using log4net.Config;
 
 namespace RealtimeSpreadMonitor
 {
@@ -13,6 +14,8 @@ namespace RealtimeSpreadMonitor
         [STAThread]
         static void Main()
         {
+            XmlConfigurator.Configure();
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 

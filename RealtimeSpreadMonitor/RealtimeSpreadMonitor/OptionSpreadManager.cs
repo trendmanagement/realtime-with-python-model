@@ -33,7 +33,8 @@ namespace RealtimeSpreadMonitor
 
 
 
-        internal OptionCQGDataManagement optionCQGDataManagement;
+        internal DataManagement dataManagement = new DataManagement();
+        //internal OptionCQGDataManagement optionCQGDataManagement;
 
 
         //private Instrument_DefaultFutures[] instrument_DefaultFuturesArray;
@@ -89,32 +90,7 @@ namespace RealtimeSpreadMonitor
         {
             get { return _fxce; }
             set { _fxce = value; }
-        }
-
-        //private bool _fxceConnected = false;
-        //public bool fxceConnected
-        //{
-        //    get { return _fxceConnected; }
-        //    set { _fxceConnected = value; }
-        //}
-
-        //private Dictionary<string, string>[] sInstrumentAcctHashSet;
-        //public Dictionary<string, string>[] instrumentAcctHashSet
-        //{
-        //    get { return sInstrumentAcctHashSet; }
-        //}
-
-        //private StatusAndConnectedUpdates sStatusAndConnectedUpdates;
-        //internal StatusAndConnectedUpdates statusAndConnectedUpdates
-        //{
-        //    get { return sStatusAndConnectedUpdates; }
-        //}
-
-        //private GridViewContractSummaryManipulation sGridViewContractSummaryManipulation;
-        //internal GridViewContractSummaryManipulation gridViewContractSummaryManipulation
-        //{
-        //    get { return sGridViewContractSummaryManipulation; }
-        //}
+        }        
 
         private ModelADMCompareCalculationAndDisplay sModelADMCompareCalculationAndDisplay;
         internal ModelADMCompareCalculationAndDisplay modelADMCompareCalculationAndDisplay
@@ -149,45 +125,19 @@ namespace RealtimeSpreadMonitor
 
             fillStaticObjectsFromMongo();
 
+
+            
+
             readADMExludeContractFile();
 
             fillADMStrategyObjectsFromSavedFiles();
 
-            createCQGconnection();
+            //createCQGconnection();
 
             optionRealtimeStartup.finishedInitializing(true);
 
         }
 
-        /// <summary>
-        /// this was initially used to set up test accounts
-        /// </summary>
-        //private void fillMongoWithPortfolioAllocation()
-        //{
-        //    PortfolioAllocation_Mongo portfolioAllocation_Mongo = new PortfolioAllocation_Mongo();
-
-        //    portfolioAllocation_Mongo.idportfoliogroup = 1;
-
-        //    portfolioAllocation_Mongo.accountAllocation = new List<AccountAllocation_Mongo>();
-
-        //    AccountAllocation_Mongo accountAllocation = new AccountAllocation_Mongo();
-        //    accountAllocation.broker = "WED";
-        //    accountAllocation.account = "new_account1";
-        //    accountAllocation.FCM_OFFICE = "PRI";
-        //    accountAllocation.FCM_ACCT = "00161";
-
-        //    portfolioAllocation_Mongo.accountAllocation.Add(accountAllocation);
-
-        //    AccountAllocation_Mongo accountAllocation2 = new AccountAllocation_Mongo();
-        //    accountAllocation2.broker = "ADM";
-        //    accountAllocation2.account = "new_account2";
-        //    accountAllocation2.FCM_OFFICE = "369";
-        //    accountAllocation2.FCM_ACCT = "17003";
-
-        //    portfolioAllocation_Mongo.accountAllocation.Add(accountAllocation2);
-
-        //    MongoDBConnectionAndSetup.InsertPortfolioToMongo(portfolioAllocation_Mongo);
-        //}
 
         private void fillPortfolioAllocation(PortfolioAllocation_Mongo portfolioAllocation_Mongo,
             Dictionary<string, Account> accountListDictionary)
@@ -458,7 +408,31 @@ namespace RealtimeSpreadMonitor
             AppendTo_optionSpreadExpressionHashTable();
 
 
+            //set transaction time and decision time
+            foreach (MongoDB_OptionSpreadExpression ose in DataCollectionLibrary.optionSpreadExpressionList)
+            {
+                if (ose.callPutOrFuture == OPTION_SPREAD_CONTRACT_TYPE.FUTURE)
+                {
+                    ose.todayTransactionTimeBoundary
+                                            = DataCollectionLibrary.initializationParms.modelDateTime.Date
+                                        //.AddHours(15)
+                                        //.AddMinutes(11);
+                                        .AddHours(
+                                            ose.instrument.customdayboundarytime.Hour)
+                                        .AddMinutes(
+                                            ose.instrument.customdayboundarytime.Minute);
 
+                    ose.todayDecisionTime
+                        = DataCollectionLibrary.initializationParms.modelDateTime.Date
+                    //.AddHours(15)
+                    //.AddMinutes(11);
+                    .AddHours(
+                            ose.instrument.customdayboundarytime.Hour)
+                        .AddMinutes(
+                            ose.instrument.customdayboundarytime.Minute
+                            - ose.instrument.decisionoffsetminutes);
+                }
+            }
         }
 
         internal void FillAccountPosition(bool initializing)
@@ -625,6 +599,38 @@ namespace RealtimeSpreadMonitor
 
             DataCollectionLibrary.performFullContractRefresh = true;
         }
+
+        internal void RefreshFuturesData()
+        {
+            //DataCollectionLibrary.accountPositionsList = MongoDBConnectionAndSetup.GetAccountPositionsInfoFromMongo(DataCollectionLibrary.accountNameList);
+
+            //AdjustQtyBasedOnDate();
+            List<long> idcontractList = new List<long>();
+            //idcontractList.Add(4722);
+            //idcontractList.Add(4723);
+
+            foreach (MongoDB_OptionSpreadExpression ose in DataCollectionLibrary.optionSpreadExpressionList)
+            {
+                if (ose.callPutOrFuture == OPTION_SPREAD_CONTRACT_TYPE.FUTURE)
+                {
+                    idcontractList.Add(ose.asset.idcontract);
+                }
+            }
+
+
+
+            dataManagement.fillFutureDataAfterRealtimeMongoRequest(MongoDBConnectionAndSetup.GetFuturesContractMinutebars(idcontractList, DateTime.Now.Date));
+
+            //FillAccountPosition(false);
+
+            //FillProductCodeInPositionsFromModel();
+
+            //AppendTo_optionSpreadExpressionHashTable();
+
+            //DataCollectionLibrary.performFullContractRefresh = true;
+        }
+
+        
 
         private void AdjustQtyBasedOnDate()
         {
@@ -915,25 +921,25 @@ namespace RealtimeSpreadMonitor
             }
         }
 
-        private void createCQGconnection()
-        {
-#if DEBUG
-            try
-#endif
-            {
-                optionCQGDataManagement = new OptionCQGDataManagement(this,
-                    optionRealtimeStartup);
-                //optionRealtimeStartup, dataErrorCheck, optionSpreadExpressionList,
-                //currentDateContractListMainIdx, optionBuildCommonMethods);
-                //optionCQGDataManagement.initializeCQGAndCallbacks();
-            }
-#if DEBUG
-            catch (Exception ex)
-            {
-                TSErrorCatch.errorCatchOut(Convert.ToString(this), ex);
-            }
-#endif
-        }
+//        private void createCQGconnection()
+//        {
+//#if DEBUG
+//            try
+//#endif
+//            {
+//                optionCQGDataManagement = new OptionCQGDataManagement(this,
+//                    optionRealtimeStartup);
+//                //optionRealtimeStartup, dataErrorCheck, optionSpreadExpressionList,
+//                //currentDateContractListMainIdx, optionBuildCommonMethods);
+//                //optionCQGDataManagement.initializeCQGAndCallbacks();
+//            }
+//#if DEBUG
+//            catch (Exception ex)
+//            {
+//                TSErrorCatch.errorCatchOut(Convert.ToString(this), ex);
+//            }
+//#endif
+//        }
 
 
 
@@ -972,9 +978,9 @@ namespace RealtimeSpreadMonitor
 
             //fillADMExpressionOptionList();
 
-            fillAllExpressionsForCQGData();
+            fillRiskFreeRate();
 
-
+            sOptionRealtimeMonitor.updateSetupExpressionListGridView();
 
             sOptionRealtimeMonitor.realtimeMonitorStartupBackgroundUpdateLoop();
 
@@ -1084,23 +1090,8 @@ namespace RealtimeSpreadMonitor
         }
 
 
-        private void fillAllExpressionsForCQGData()
+        private void fillRiskFreeRate()
         {
-
-
-            //fillExpressionOptionList();
-
-            //fillSubstituteEODExpressionOptionList();
-
-
-
-            if (FCM_DataImportLibrary.FCM_Import_Consolidated != null)
-            {
-                //fillADMExpressionOptionList();
-
-                //fillSubstitueEODADMExpressionOptionList();
-            }
-
 
             // add risk free rate to expressions
 
@@ -1110,21 +1101,26 @@ namespace RealtimeSpreadMonitor
 
 
             //if (DataCollectionLibrary.initializationParms.useCloudDb)
-            
-                //TMLAzureModelDBQueries btdb = new TMLAzureModelDBQueries();
 
-                //expLstRiskFreeRate.optionInputFieldsFromTblOptionInputSymbols =
-                    //btdb.queryOptionInputSymbols(-1,
-                    //(int)OPTION_FORMULA_INPUT_TYPES.OPTION_RISK_FREE_RATE);
+            //TMLAzureModelDBQueries btdb = new TMLAzureModelDBQueries();
 
-            OptionInputSymbols ois = MongoDBConnectionAndSetup.GetOptionInputSymbol(15);
+            //expLstRiskFreeRate.optionInputFieldsFromTblOptionInputSymbols =
+            //btdb.queryOptionInputSymbols(-1,
+            //(int)OPTION_FORMULA_INPUT_TYPES.OPTION_RISK_FREE_RATE);
+
+            OptionInputData ois = MongoDBConnectionAndSetup.GetRiskFreeRate(15);
 
             if (ois != null)
             {
-                expLstRiskFreeRate.asset.cqgsymbol = ois.optioninputcqgsymbol;
+                expLstRiskFreeRate.riskFreeRate = ois.optioninputclose / 100;
+            }
+            else
+            {
+                expLstRiskFreeRate.riskFreeRate = 0.01;
             }
 
-            
+            expLstRiskFreeRate.riskFreeRateFilled = true;
+
 
 
             //expLstRiskFreeRate.asset.cqgsymbol =
@@ -1139,15 +1135,9 @@ namespace RealtimeSpreadMonitor
 
             DataCollectionLibrary.riskFreeRateExpression = expLstRiskFreeRate;
 
-            //var key = Tuple.Create()
-
-            //DataCollectionLibrary.optionSpreadExpressionHashTable_key_Id_Type.TryAdd(key, mose_new);
-
-            //DataCollectionLibrary.optionSpreadExpressionHashTable_cqgSymbol.TryAdd(expLstRiskFreeRate.asset.cqgsymbol, expLstRiskFreeRate);
 
 
-
-            sOptionRealtimeMonitor.updateSetupExpressionListGridView();
+            //sOptionRealtimeMonitor.updateSetupExpressionListGridView();
         }
 
 
@@ -1354,33 +1344,8 @@ namespace RealtimeSpreadMonitor
             return yearFrac;
         }
 
-        public void callOptionRealTimeData(bool sendOnlyUnsubscribed)
-        {
-#if DEBUG
-            try
-#endif
-            {
-                //dataErrorCheck.dataInError = false;
+        
 
-                if (optionCQGDataManagement != null)
-                {
-                    optionCQGDataManagement.sendSubscribeRequest(sendOnlyUnsubscribed);
-
-                    sOptionRealtimeMonitor.hideMessageToReconnect();
-                }
-            }
-#if DEBUG
-            catch (Exception ex)
-            {
-                TSErrorCatch.errorCatchOut(Convert.ToString(this), ex);
-            }
-#endif
-        }
-
-        public void reInitializeCQG()
-        {
-            optionCQGDataManagement.resetCQG();
-        }
 
         public void fullReConnectCQG()
         {
@@ -1390,18 +1355,18 @@ namespace RealtimeSpreadMonitor
             {
                 //dataErrorCheck.dataInError = false;
 
-                if (optionCQGDataManagement != null)
-                {
-                    optionCQGDataManagement.shutDownCQGConn();
+                //if (optionCQGDataManagement != null)
+                //{
+                //    optionCQGDataManagement.shutDownCQGConn();
 
-                    Thread.Sleep(1000);
+                //    Thread.Sleep(1000);
 
-                    optionCQGDataManagement.connectCQG();
+                //    optionCQGDataManagement.connectCQG();
 
-                    sOptionRealtimeMonitor.displayMessageToReConnect();
+                //    sOptionRealtimeMonitor.displayMessageToReConnect();
 
-                    optionRealtimeStartup.BringToFront();
-                }
+                //    optionRealtimeStartup.BringToFront();
+                //}
             }
 #if DEBUG
             catch (Exception ex)
@@ -1415,20 +1380,22 @@ namespace RealtimeSpreadMonitor
 
         public void resetDataUpdatesWithLatestExpressions()
         {
-            if (optionCQGDataManagement != null)
-            {
-                optionCQGDataManagement.stopDataManagementAndTotalCalcThreads();
-            }
+            //if (optionCQGDataManagement != null)
+            //{
+            //    optionCQGDataManagement.stopDataManagementAndTotalCalcThreads();
+            //}
 
             //DataCollectionLibrary.optionSpreadExpressionList.Clear();
 
             sOptionRealtimeMonitor.displayMessageToReConnect();
 
-            fillAllExpressionsForCQGData();
+            //fillAllExpressionsForCQGData();
+
+            sOptionRealtimeMonitor.updateSetupExpressionListGridView();
 
             //sOptionRealtimeMonitor.setupExpressionListGridView();
 
-            optionCQGDataManagement.resetThreadStopVariables();
+            //optionCQGDataManagement.resetThreadStopVariables();
 
             //optionCQGDataManagement.setupCalculateModelValuesAndSummarizeTotals();
 
@@ -1940,12 +1907,12 @@ namespace RealtimeSpreadMonitor
 
 
 
-                if (optionCQGDataManagement != null)
-                {
-                    optionCQGDataManagement.stopDataManagementAndTotalCalcThreads();
+                //if (optionCQGDataManagement != null)
+                //{
+                //    optionCQGDataManagement.stopDataManagementAndTotalCalcThreads();
 
-                    optionCQGDataManagement.shutDownCQGConn();
-                }
+                //    optionCQGDataManagement.shutDownCQGConn();
+                //}
 
                 int loopCounter = 0;
 
@@ -2026,14 +1993,14 @@ namespace RealtimeSpreadMonitor
                     if (ope.optionExpressionType != OPTION_EXPRESSION_TYPES.OPTION_EXPRESSION_RISK_FREE_RATE
                         && ope.instrument.substitutesymbol_eod == 1)
                     {
-                        optionCQGDataManagement.fillEODSubstitutePrices(ope);
+                        //optionCQGDataManagement.fillEODSubstitutePrices(ope);
                     }
                 }
             }
 
             sOptionRealtimeMonitor.updateSetupExpressionListGridView();
 
-            optionCQGDataManagement.sendSubscribeRequest(sendOnlyUnsubscribed);
+            //optionCQGDataManagement.sendSubscribeRequest(sendOnlyUnsubscribed);
 
             updatedRealtimeMonitorSettings(null);
 
@@ -2055,10 +2022,10 @@ namespace RealtimeSpreadMonitor
             sOptionRealtimeMonitor.updateStatusStripOptionMonitor();
 
 
-            for (int i = 0; i < DataCollectionLibrary.optionSpreadExpressionList.Count; i++)
-            {
-                optionCQGDataManagement.manageExpressionPriceCalcs(DataCollectionLibrary.optionSpreadExpressionList[i]);
-            }
+            //for (int i = 0; i < DataCollectionLibrary.optionSpreadExpressionList.Count; i++)
+            //{
+            //    optionCQGDataManagement.manageExpressionPriceCalcs(DataCollectionLibrary.optionSpreadExpressionList[i]);
+            //}
 
             ThreadTracker.closeThread(null, null);
         }

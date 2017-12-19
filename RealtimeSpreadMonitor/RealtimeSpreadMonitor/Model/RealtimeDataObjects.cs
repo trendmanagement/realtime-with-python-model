@@ -566,7 +566,26 @@ namespace RealtimeSpreadMonitor.Model
     }
 
     [BsonIgnoreExtraElements]
-    public class OptionInputSymbols
+    public class Futures_Contract_Minutebars
+    {
+        [BsonId]
+        [BsonRepresentation(BsonType.ObjectId)]
+        public ObjectId _id { get; set; }
+
+        public long idcontract { get; set; }
+
+        public DateTime bartime { get; set; }
+
+        public long volume { get; set; }
+
+        public double open { get; set; }
+        public double high { get; set; }
+        public double low { get; set; }
+        public double close { get; set; }
+    }
+
+    [BsonIgnoreExtraElements]
+    public class OptionInputData
     {
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
@@ -574,9 +593,12 @@ namespace RealtimeSpreadMonitor.Model
 
         public long idoptioninputsymbol { get; set; }
 
-        public string optioninputcqgsymbol { get; set; }
+        public DateTime optioninputdatetime { get; set; }
 
-        public int idinstrument { get; set; }
+        public double optioninputopen { get; set; }
+        public double optioninputhigh { get; set; }
+        public double optioninputlow { get; set; }
+        public double optioninputclose { get; set; }
     }
 
     public class InitializationParms

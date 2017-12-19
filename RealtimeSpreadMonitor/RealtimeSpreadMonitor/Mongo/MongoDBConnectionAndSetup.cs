@@ -1,4 +1,5 @@
-﻿using MongoDB.Driver;
+﻿using MongoDB.Bson;
+using MongoDB.Driver;
 using RealtimeSpreadMonitor.Model;
 using System;
 using System.Collections.Generic;
@@ -7,10 +8,13 @@ using System.Windows;
 
 namespace RealtimeSpreadMonitor.Mongo
 {
-    class MongoDBConnectionAndSetup
+    public class MongoDBConnectionAndSetup
     {
         protected static IMongoClient _client;
         protected static IMongoDatabase _database;
+
+        protected static IMongoClient _client_live_futures;
+        protected static IMongoDatabase _database_live_futures;
 
         private static IMongoCollection<Instrument_mongo> _instrumentCollection;
 
@@ -34,7 +38,9 @@ namespace RealtimeSpreadMonitor.Mongo
 
         private static IMongoCollection<Options_Data> _option_data;
 
-        private static IMongoCollection<OptionInputSymbols> _option_input_symbols;
+        private static IMongoCollection<OptionInputData> _option_input_data;
+
+        private static IMongoCollection<Futures_Contract_Minutebars> _futures_live_data;
 
         //private static IMongoCollection<PortfolioAllocation> _portfolioCollectionQuery;
 
@@ -47,6 +53,13 @@ namespace RealtimeSpreadMonitor.Mongo
                 System.Configuration.ConfigurationManager.ConnectionStrings["DefaultMongoConnection"].ConnectionString);
 
             _database = _client.GetDatabase(System.Configuration.ConfigurationManager.AppSettings["MongoDbName"]);
+
+
+            _client_live_futures = new MongoClient(
+                System.Configuration.ConfigurationManager.ConnectionStrings["MongoConnection_Live"].ConnectionString);
+
+            _database_live_futures = _client_live_futures.GetDatabase(System.Configuration.ConfigurationManager.AppSettings["MongoDbName_V1_LIVE"]);
+
 
             _instrumentCollection = _database.GetCollection<Instrument_mongo>(
                 System.Configuration.ConfigurationManager.AppSettings["MongoInstrumentCollection"]);
@@ -91,11 +104,14 @@ namespace RealtimeSpreadMonitor.Mongo
             _option_data = _database.GetCollection<Options_Data>(
                 System.Configuration.ConfigurationManager.AppSettings["MongoOptionsDataCollection"]);
 
-            _option_input_symbols = _database.GetCollection<OptionInputSymbols>(
-                System.Configuration.ConfigurationManager.AppSettings["MongoOptionsInputSymbolsCollection"]);
+            _option_input_data = _database.GetCollection<OptionInputData>(
+                System.Configuration.ConfigurationManager.AppSettings["MongoOptionsInputDataCollection"]);
 
             //_portfolioCollectionQuery = _database.GetCollection<PortfolioAllocation>(
             //    System.Configuration.ConfigurationManager.AppSettings["MongoAccountsPortfolio"]);
+
+            _futures_live_data = _database_live_futures.GetCollection<Futures_Contract_Minutebars>(
+                System.Configuration.ConfigurationManager.AppSettings["Mongo_live_contract_minute_bars_collection"]);
         }
 
         internal static List<Account> GetAccountInfoFromMongo(List<string> accountList)
@@ -331,7 +347,7 @@ namespace RealtimeSpreadMonitor.Mongo
 
                 portfolioAllocation
                     = _portfolioCollection.Find(filterForPortfolio)
-                    
+
                     .Sort(Builders<PortfolioAllocation_Mongo>.Sort.Ascending("account"))
                     .First<PortfolioAllocation_Mongo>();
 
@@ -366,7 +382,7 @@ namespace RealtimeSpreadMonitor.Mongo
             {
                 var builder = Builders<Futures_Contract_Settlements>.Filter;
 
-                FilterDefinition<Futures_Contract_Settlements> filterForContract 
+                FilterDefinition<Futures_Contract_Settlements> filterForContract
                     = builder.Eq("idcontract", idcontract);
 
 
@@ -406,19 +422,20 @@ namespace RealtimeSpreadMonitor.Mongo
             return optionSettlements;
         }
 
-        public static OptionInputSymbols GetOptionInputSymbol(long idoptioninputsymbol)
+        public static OptionInputData GetRiskFreeRate(long idoptioninputsymbol)
         {
-            OptionInputSymbols optionInputSymbols = null;
+            OptionInputData riskFreeRate = null;
 
             try
             {
-                var builder = Builders<OptionInputSymbols>.Filter;
+                var builder = Builders<OptionInputData>.Filter;
 
-                FilterDefinition<OptionInputSymbols> filterOptionInputSymbol
+                FilterDefinition<OptionInputData> filterOptionInputSymbol
                     = builder.Eq("idoptioninputsymbol", idoptioninputsymbol);
 
 
-                optionInputSymbols = _option_input_symbols.Find(filterOptionInputSymbol).First();
+                riskFreeRate = _option_input_data.Find(filterOptionInputSymbol)
+                    .Sort(Builders<OptionInputData>.Sort.Descending("optioninputdatetime")).First();
 
             }
             catch (InvalidOperationException)
@@ -426,7 +443,67 @@ namespace RealtimeSpreadMonitor.Mongo
                 TSErrorCatch.debugWriteOut("Error");
             }
 
-            return optionInputSymbols;
+            return riskFreeRate;
+        }
+
+        public static List<BsonDocument> GetFuturesContractMinutebars(List<long> contractId_List, DateTime start)
+        {
+            try
+            {
+                var builder = Builders<Futures_Contract_Minutebars>.Filter;
+
+                //var start = new DateTime(2017, 11, 15);
+                //var start = DateTime.Now.Date;
+
+                FilterDefinition<Futures_Contract_Minutebars> filterOptionInputSymbol
+                    = builder.And(
+                        builder.Gte("bartime", start),
+                        builder.In("idcontract", contractId_List));
+
+                
+
+                var group = new BsonDocument
+                 {
+                    {"_id", "$idcontract"},
+                    {"bartime",new BsonDocument{
+
+                                {"$last", "$bartime"}
+
+                        }
+                    },
+                    {"close",new BsonDocument{
+                            
+                                {"$last", "$close"}
+                            
+                        }
+                    }
+                 };
+
+                var sort_1 = new BsonDocument { { "bartime", 1 } };
+                var sort_2 = new BsonDocument { { "idcontract", 1 } };
+
+                var aggregate = _futures_live_data.Aggregate().Match(filterOptionInputSymbol).Sort(sort_1)
+                    .Sort(sort_2).Group(group);
+
+                return aggregate.ToListAsync().Result;
+                
+            }
+            catch (Exception error)
+            {
+                TSErrorCatch.debugWriteOut(error.ToString());
+            }
+
+            return null;
+        }
+
+
+
+
+
+
+        public double SquareRoot(double input)
+        {
+            return input / 5;
         }
 
     }

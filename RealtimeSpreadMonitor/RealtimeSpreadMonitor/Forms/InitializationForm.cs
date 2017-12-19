@@ -23,6 +23,8 @@ namespace RealtimeSpreadMonitor.Forms
         /// <param name="initializationParms">The initialization parms.</param>
         public InitializationForm() //InitializationParms initializationParms)
         {
+            
+
             //this.initializationParms = initializationParms;
             DataCollectionLibrary.initializationParms.portfolioGroupName = "";
 
@@ -37,7 +39,9 @@ namespace RealtimeSpreadMonitor.Forms
             transactionTime.Value = new DateTime(2014, 1, 1, 9, 30, 0);
 
 #if DEBUG
-            TSErrorCatch.errorCatchSetup();
+            //TSErrorCatch.ErrorCatchSetup();
+
+            TSErrorCatch.debugWriteOut(DateTime.Now.ToString());
 #endif
         }
 

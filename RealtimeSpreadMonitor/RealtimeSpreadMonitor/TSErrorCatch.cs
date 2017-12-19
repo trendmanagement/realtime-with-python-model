@@ -5,11 +5,19 @@ using System.Text;
 using System.Diagnostics;
 using System.IO;
 using System.Globalization;
+using log4net;
 
 namespace RealtimeSpreadMonitor
 {
     public class TSErrorCatch
     {
+        //public TSErrorCatch()
+        //{
+        //    XmlConfigurator.Configure();
+        //}
+
+        private static readonly ILog log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+
         public static void errorCatchOut(Exception ex)
         {
 #if DEBUG
@@ -49,10 +57,12 @@ namespace RealtimeSpreadMonitor
 #if DEBUG
             try
 #endif
-	        {
+            {
                 Trace.WriteLine(stringOut);
-		        //Debug.WriteLine(stringOut);
-	        }
+                //Debug.WriteLine(stringOut);
+                //log.Info("Info message");
+                log.Debug(stringOut);
+            }
 #if DEBUG
             catch (Exception ex2)
             {
@@ -61,25 +71,39 @@ namespace RealtimeSpreadMonitor
 #endif
         }
 
-        public static void errorCatchSetup()
+        public static void ErrorCatchSetup()
         {
 #if DEBUG
             try
 #endif
             {
-                TextWriterTraceListener tr1 = new TextWriterTraceListener(System.Console.Out);
-                Trace.Listeners.Add(tr1);
-                String dir = Directory.GetCurrentDirectory() + "\\DEBUG_OUTPUT\\";
-                if (!Directory.Exists(dir))
-                {
-                    Directory.CreateDirectory(dir);
-                }
-                String dateTimeFileMarker = dir + "Output_" + System.DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss", DateTimeFormatInfo.InvariantInfo) + ".txt";
-                Trace.WriteLine(dateTimeFileMarker);
-                TextWriterTraceListener tr2 = new TextWriterTraceListener(System.IO.File.CreateText(dateTimeFileMarker));
-                Trace.Listeners.Add(tr2);
+               
 
-                Trace.AutoFlush = true;
+                //XmlConfigurator.Configure();
+
+                //ILoggerFactory loggerFactory = new LoggerFactory()
+                //    .AddConsole()
+                //    .AddDebug();
+                //                ILogger logger = loggerFactory.CreateLogger<Program>();
+                //                logger.LogInformation(
+                //                  "This is a test of the emergency broadcast system.");
+
+                //LoggingConfiguration loggingConfiguration = BuildProgrammaticConfig();
+                //LogWriter defaultWriter = new LogWriter(loggingConfiguration);
+
+                //TextWriterTraceListener tr1 = new TextWriterTraceListener(System.Console.Out);
+                //Trace.Listeners.Add(tr1);
+                //String dir = Directory.GetCurrentDirectory() + "\\DEBUG_OUTPUT\\";
+                //if (!Directory.Exists(dir))
+                //{
+                //    Directory.CreateDirectory(dir);
+                //}
+                //String dateTimeFileMarker = dir + "Output_" + System.DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss", DateTimeFormatInfo.InvariantInfo) + ".txt";
+                //Trace.WriteLine(dateTimeFileMarker);
+                //TextWriterTraceListener tr2 = new TextWriterTraceListener(System.IO.File.CreateText(dateTimeFileMarker));
+                //Trace.Listeners.Add(tr2);
+
+                //Trace.AutoFlush = true;
             }
 #if DEBUG
             catch (Exception ex2)

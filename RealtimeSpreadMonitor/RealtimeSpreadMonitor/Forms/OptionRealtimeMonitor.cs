@@ -357,24 +357,10 @@ namespace RealtimeSpreadMonitor.Forms
 
         private void resetConnectionToCQGAtTimeInvoke(object StateObj)
         {
-            //TSErrorCatch.debugWriteOut("test************************");
 
-            if (this.InvokeRequired)
-            {
-                this.Invoke(new MethodInvoker(resetConnectionToCQGAtTime));
-            }
-            else
-            {
-                resetConnectionToCQGAtTime();
-            }
         }
 
-        private void resetConnectionToCQGAtTime()
-        {
-            optionSpreadManager.fullReConnectCQG();
-            Thread.Sleep(2000);
-            optionSpreadManager.callOptionRealTimeData(false);
-        }
+        
 
 
 
@@ -425,6 +411,14 @@ namespace RealtimeSpreadMonitor.Forms
                     optionSpreadManager.RefreshAccountInfo();
 
                     TimerThreadInfo.refreshMongoOrders = DateTime.Now.AddSeconds(30).TimeOfDay;
+                }
+
+                TimeSpan timeToGo_data = TimerThreadInfo.refreshFuturesData - DateTime.Now.TimeOfDay;
+                if (timeToGo_data < TimeSpan.Zero)
+                {
+                    optionSpreadManager.RefreshFuturesData();
+
+                    TimerThreadInfo.refreshFuturesData = DateTime.Now.AddSeconds(30).TimeOfDay;
                 }
 
                 if (DataCollectionLibrary._fxceConnected)
@@ -3752,27 +3746,8 @@ namespace RealtimeSpreadMonitor.Forms
             }
         }
 
-        private void btnCallAllInstruments_Click(object sender, EventArgs e)
-        {
-            optionSpreadManager.callOptionRealTimeData(false);
-        }
-
-        private void btnCallUnsubscribed_Click(object sender, EventArgs e)
-        {
-            optionSpreadManager.callOptionRealTimeData(true);
-        }
-
-
-
-        private void btnCQGRecon_Click(object sender, EventArgs e)
-        {
-            optionSpreadManager.reInitializeCQG();
-        }
 
         delegate void ThreadSafeUpdateCQGReconnectBtn(bool enabled);
-
-
-
 
 
         public void threadSafeUpdateCQGConnectionStatus(String connectStatus, Color connColor,
@@ -4608,7 +4583,7 @@ namespace RealtimeSpreadMonitor.Forms
 
         private void OptionRealtimeMonitor_Shown(object sender, EventArgs e)
         {
-            optionSpreadManager.optionCQGDataManagement.initializeCQGAndCallbacks();
+            //optionSpreadManager.optionCQGDataManagement.initializeCQGAndCallbacks();
 
             updateStatusStripOptionMonitor();
 

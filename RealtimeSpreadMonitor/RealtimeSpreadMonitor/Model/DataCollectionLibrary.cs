@@ -197,6 +197,8 @@ namespace RealtimeSpreadMonitor.Model
         internal static TimeSpan _dataResetTime2 = new TimeSpan(8, 30, 0);
 
         internal static TimeSpan refreshMongoOrders = new TimeSpan(0, 0, 0);
+
+        internal static TimeSpan refreshFuturesData = new TimeSpan(0, 0, 0);
     }
 
     
