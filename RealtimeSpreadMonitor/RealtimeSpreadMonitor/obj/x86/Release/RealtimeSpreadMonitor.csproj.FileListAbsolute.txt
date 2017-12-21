@@ -161,3 +161,10 @@ C:\Users\Steve Pickering\Desktop\MAIN TMQR FRAMEWORK\RealtimeMonitor_Iqfeed\real
 C:\Users\Steve Pickering\Desktop\MAIN TMQR FRAMEWORK\RealtimeMonitor_Iqfeed\realtime-with-python-model\RealtimeSpreadMonitor\RealtimeSpreadMonitor\obj\x86\Release\RealtimeSpreadMonitor.csproj.GenerateResource.Cache
 C:\Users\Steve Pickering\Desktop\MAIN TMQR FRAMEWORK\RealtimeMonitor_Iqfeed\realtime-with-python-model\RealtimeSpreadMonitor\RealtimeSpreadMonitor\obj\x86\Release\RealtimeSpreadMonitor.exe
 C:\Users\Steve Pickering\Desktop\MAIN TMQR FRAMEWORK\RealtimeMonitor_Iqfeed\realtime-with-python-model\RealtimeSpreadMonitor\RealtimeSpreadMonitor\obj\x86\Release\RealtimeSpreadMonitor.pdb
+C:\Users\Steve Pickering\Desktop\MAIN TMQR FRAMEWORK\RealtimeMonitor_Iqfeed\realtime-with-python-model\RealtimeSpreadMonitor\RealtimeSpreadMonitor\bin\Release\log4net.dll
+C:\Users\Steve Pickering\Desktop\MAIN TMQR FRAMEWORK\RealtimeMonitor_Iqfeed\realtime-with-python-model\RealtimeSpreadMonitor\RealtimeSpreadMonitor\bin\Release\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+C:\Users\Steve Pickering\Desktop\MAIN TMQR FRAMEWORK\RealtimeMonitor_Iqfeed\realtime-with-python-model\RealtimeSpreadMonitor\RealtimeSpreadMonitor\bin\Release\Typemock.ArrangeActAssert.dll
+C:\Users\Steve Pickering\Desktop\MAIN TMQR FRAMEWORK\RealtimeMonitor_Iqfeed\realtime-with-python-model\RealtimeSpreadMonitor\RealtimeSpreadMonitor\bin\Release\TypeMock.dll
+C:\Users\Steve Pickering\Desktop\MAIN TMQR FRAMEWORK\RealtimeMonitor_Iqfeed\realtime-with-python-model\RealtimeSpreadMonitor\RealtimeSpreadMonitor\bin\Release\log4net.xml
+C:\Users\Steve Pickering\Desktop\MAIN TMQR FRAMEWORK\RealtimeMonitor_Iqfeed\realtime-with-python-model\RealtimeSpreadMonitor\RealtimeSpreadMonitor\bin\Release\TypeMock.xml
+C:\Users\Steve Pickering\Desktop\MAIN TMQR FRAMEWORK\RealtimeMonitor_Iqfeed\realtime-with-python-model\RealtimeSpreadMonitor\RealtimeSpreadMonitor\bin\Release\Typemock.ArrangeActAssert.xml

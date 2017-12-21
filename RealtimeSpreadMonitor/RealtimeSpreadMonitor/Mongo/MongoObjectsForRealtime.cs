@@ -15,7 +15,7 @@ namespace RealtimeSpreadMonitor.Mongo
 
     public class MongoDB_OptionSpreadExpression
     {
-        public CQG.CQGInstrument cqgInstrument;
+        //public CQG.CQGInstrument cqgInstrument;
         public CQG.CQGTimedBars futureTimedBars;
 
         public int lastTimedBarInIndex = 0;

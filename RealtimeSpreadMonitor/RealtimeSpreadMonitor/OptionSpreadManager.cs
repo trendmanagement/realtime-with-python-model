@@ -600,26 +600,88 @@ namespace RealtimeSpreadMonitor
             DataCollectionLibrary.performFullContractRefresh = true;
         }
 
+
+        class IdAndBarTime
+        {
+            public IdAndBarTime(long idcontract, DateTime stopTime)
+            {
+                this.idcontract = idcontract;
+                this.stopTime = stopTime;
+            }
+
+            public long idcontract;
+            public DateTime stopTime;
+        }
+
         internal void RefreshFuturesData()
         {
             //DataCollectionLibrary.accountPositionsList = MongoDBConnectionAndSetup.GetAccountPositionsInfoFromMongo(DataCollectionLibrary.accountNameList);
 
             //AdjustQtyBasedOnDate();
+            
+
+            List<IdAndBarTime> idcontractDecisionTimeList = new List<IdAndBarTime>();
+            List<IdAndBarTime> idcontractTransactionTimeList = new List<IdAndBarTime>();
+
             List<long> idcontractList = new List<long>();
             //idcontractList.Add(4722);
             //idcontractList.Add(4723);
+
+            DateTime currentTime = DateTime.Now;
 
             foreach (MongoDB_OptionSpreadExpression ose in DataCollectionLibrary.optionSpreadExpressionList)
             {
                 if (ose.callPutOrFuture == OPTION_SPREAD_CONTRACT_TYPE.FUTURE)
                 {
+                    if (!ose.decisionPriceFilled
+                                && currentTime.CompareTo(ose.todayDecisionTime) > 0)
+                    {
+                        ose.decisionPriceFilled = true;                        
+
+                        idcontractDecisionTimeList.Add(new IdAndBarTime(ose.asset.idcontract, ose.todayDecisionTime));
+                    }
+
+                    if (!ose.transactionPriceFilled
+                                && currentTime.CompareTo(ose.todayTransactionTimeBoundary) > 0)
+                    {
+                        ose.transactionPriceFilled = true;
+
+                        idcontractTransactionTimeList.Add(new IdAndBarTime(ose.asset.idcontract, ose.todayDecisionTime));
+                    }
+
                     idcontractList.Add(ose.asset.idcontract);
                 }
             }
 
+            DateTime barqueryStartDate = currentTime.Date.AddDays(-1);
 
+            if (idcontractDecisionTimeList.Count > 0)
+            {
+                foreach (IdAndBarTime idBarTime in idcontractDecisionTimeList)
+                {
 
-            dataManagement.fillFutureDataAfterRealtimeMongoRequest(MongoDBConnectionAndSetup.GetFuturesContractMinutebars(idcontractList, DateTime.Now.Date));
+                    Futures_Contract_Minutebars futuresContractMinutebars =
+                        MongoDBConnectionAndSetup.GetFuturesContractDecisionTransactionMinutebars(
+                            idBarTime.idcontract, barqueryStartDate, idBarTime.stopTime);
+
+                    dataManagement.fillFutureDecisionTransactionDataAfterRealtimeMongoRequest(futuresContractMinutebars, true);
+                }
+            }
+
+            if (idcontractTransactionTimeList.Count > 0)
+            {
+                foreach (IdAndBarTime idBarTime in idcontractTransactionTimeList)
+                {
+
+                    Futures_Contract_Minutebars futuresContractMinutebars =
+                        MongoDBConnectionAndSetup.GetFuturesContractDecisionTransactionMinutebars(
+                            idBarTime.idcontract, barqueryStartDate, idBarTime.stopTime);
+
+                    dataManagement.fillFutureDecisionTransactionDataAfterRealtimeMongoRequest(futuresContractMinutebars, false);
+                }
+            }
+
+            dataManagement.fillFutureDataAfterRealtimeMongoRequest(MongoDBConnectionAndSetup.GetFuturesContractMinutebars(idcontractList, barqueryStartDate));
 
             //FillAccountPosition(false);
 

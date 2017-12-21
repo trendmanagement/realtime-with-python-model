@@ -117,6 +117,11 @@ namespace RealtimeSpreadMonitor.FormManipulation
                                     dataTable.Rows[rowCount][(int)CONTRACTSUMMARY_DATA_COLUMNS.STRIKE_PRICE] = p.asset.strikeprice;
                                 }
 
+                                if(p.mose.asset.idcontract == 4838)
+                                {
+                                    TSErrorCatch.debugWriteOut("test");
+                                }
+
                                 UpdateCell(rowCount, (int)CONTRACTSUMMARY_DATA_COLUMNS.RFRSH_TIME,
                                     dataTable, ap.date_now.ToString("MM-dd HH:mm", DateTimeFormatInfo.InvariantInfo));
                                 //dataTable.Rows[rowCount][(int)CONTRACTSUMMARY_DATA_COLUMNS.RFRSH_TIME]

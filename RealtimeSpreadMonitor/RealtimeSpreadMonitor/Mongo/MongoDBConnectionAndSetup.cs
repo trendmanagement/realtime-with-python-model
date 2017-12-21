@@ -496,7 +496,32 @@ namespace RealtimeSpreadMonitor.Mongo
             return null;
         }
 
+        public static Futures_Contract_Minutebars GetFuturesContractDecisionTransactionMinutebars(long contractId, DateTime start, DateTime stop)
+        {
+            try
+            {
+                var builder = Builders<Futures_Contract_Minutebars>.Filter;
 
+                //var start = new DateTime(2017, 11, 15);
+                //var start = DateTime.Now.Date;
+
+                FilterDefinition<Futures_Contract_Minutebars> filterOptionInputSymbol
+                    = builder.And(
+                        builder.Gte("bartime", start),
+                        builder.Lte("bartime", stop),
+                        builder.Eq("idcontract", contractId));
+
+                return _futures_live_data.Find(filterOptionInputSymbol)
+                    .Sort(Builders<Futures_Contract_Minutebars>.Sort.Descending("bartime")).First();
+
+            }
+            catch (Exception error)
+            {
+                TSErrorCatch.debugWriteOut(error.ToString());
+            }
+
+            return null;
+        }
 
 
 

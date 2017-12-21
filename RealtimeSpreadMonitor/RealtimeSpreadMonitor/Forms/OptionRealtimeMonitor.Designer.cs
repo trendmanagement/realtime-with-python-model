@@ -47,16 +47,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
             this.splitContainer4 = new System.Windows.Forms.SplitContainer();
             this.label1 = new System.Windows.Forms.Label();
             this.splitContainer6 = new System.Windows.Forms.SplitContainer();
@@ -119,18 +109,6 @@
             this.gridViewModelADMCompare = new System.Windows.Forms.DataGridView();
             this.tabPageInstrumentSummary = new System.Windows.Forms.TabPage();
             this.instrumentSummaryGrid = new System.Windows.Forms.DataGridView();
-            this.tabPageStrategyRRisk = new System.Windows.Forms.TabPage();
-            this.dataGridStrategyRRiskSummary = new System.Windows.Forms.DataGridView();
-            this.tabPagePreviousPL = new System.Windows.Forms.TabPage();
-            this.splitContainer13 = new System.Windows.Forms.SplitContainer();
-            this.dateTimePreviousPL = new System.Windows.Forms.DateTimePicker();
-            this.splitContainer16 = new System.Windows.Forms.SplitContainer();
-            this.splitContainer15 = new System.Windows.Forms.SplitContainer();
-            this.dataGridPreviousModelPL = new System.Windows.Forms.DataGridView();
-            this.dataGridPreviousFCMPL = new System.Windows.Forms.DataGridView();
-            this.splitContainer14 = new System.Windows.Forms.SplitContainer();
-            this.dataGridPreviousModelPriceCompare = new System.Windows.Forms.DataGridView();
-            this.dataGridPreviousFCMPriceCompare = new System.Windows.Forms.DataGridView();
             this.tabPageExpressionList = new System.Windows.Forms.TabPage();
             this.splitContainer17 = new System.Windows.Forms.SplitContainer();
             this.toolStripExpressionList = new System.Windows.Forms.ToolStrip();
@@ -233,29 +211,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridViewModelADMCompare)).BeginInit();
             this.tabPageInstrumentSummary.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.instrumentSummaryGrid)).BeginInit();
-            this.tabPageStrategyRRisk.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridStrategyRRiskSummary)).BeginInit();
-            this.tabPagePreviousPL.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer13)).BeginInit();
-            this.splitContainer13.Panel1.SuspendLayout();
-            this.splitContainer13.Panel2.SuspendLayout();
-            this.splitContainer13.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer16)).BeginInit();
-            this.splitContainer16.Panel1.SuspendLayout();
-            this.splitContainer16.Panel2.SuspendLayout();
-            this.splitContainer16.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer15)).BeginInit();
-            this.splitContainer15.Panel1.SuspendLayout();
-            this.splitContainer15.Panel2.SuspendLayout();
-            this.splitContainer15.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridPreviousModelPL)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridPreviousFCMPL)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer14)).BeginInit();
-            this.splitContainer14.Panel1.SuspendLayout();
-            this.splitContainer14.Panel2.SuspendLayout();
-            this.splitContainer14.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridPreviousModelPriceCompare)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridPreviousFCMPriceCompare)).BeginInit();
             this.tabPageExpressionList.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer17)).BeginInit();
             this.splitContainer17.Panel1.SuspendLayout();
@@ -567,8 +522,6 @@
             this.realtimeTabControl.Controls.Add(this.tabPageFCMData);
             this.realtimeTabControl.Controls.Add(this.tabPageModelADMCompare);
             this.realtimeTabControl.Controls.Add(this.tabPageInstrumentSummary);
-            this.realtimeTabControl.Controls.Add(this.tabPageStrategyRRisk);
-            this.realtimeTabControl.Controls.Add(this.tabPagePreviousPL);
             this.realtimeTabControl.Controls.Add(this.tabPageExpressionList);
             this.realtimeTabControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.realtimeTabControl.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -849,7 +802,7 @@
             this.tabPageContractSummary.Controls.Add(this.splitContainer5);
             this.tabPageContractSummary.Location = new System.Drawing.Point(4, 22);
             this.tabPageContractSummary.Name = "tabPageContractSummary";
-            this.tabPageContractSummary.Size = new System.Drawing.Size(983, 445);
+            this.tabPageContractSummary.Size = new System.Drawing.Size(983, 496);
             this.tabPageContractSummary.TabIndex = 10;
             this.tabPageContractSummary.Text = "Contract Summary";
             this.tabPageContractSummary.UseVisualStyleBackColor = true;
@@ -869,7 +822,7 @@
             // splitContainer5.Panel2
             // 
             this.splitContainer5.Panel2.Controls.Add(this.gridViewContractSummary);
-            this.splitContainer5.Size = new System.Drawing.Size(983, 445);
+            this.splitContainer5.Size = new System.Drawing.Size(983, 496);
             this.splitContainer5.SplitterDistance = 25;
             this.splitContainer5.TabIndex = 13;
             // 
@@ -937,7 +890,7 @@
             this.gridViewContractSummary.ReadOnly = true;
             this.gridViewContractSummary.RowHeadersVisible = false;
             this.gridViewContractSummary.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
-            this.gridViewContractSummary.Size = new System.Drawing.Size(983, 416);
+            this.gridViewContractSummary.Size = new System.Drawing.Size(983, 467);
             this.gridViewContractSummary.TabIndex = 7;
             this.gridViewContractSummary.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.gridViewContractSummary_CellFormatting);
             // 
@@ -947,7 +900,7 @@
             this.tabPageFCMData.Location = new System.Drawing.Point(4, 22);
             this.tabPageFCMData.Name = "tabPageFCMData";
             this.tabPageFCMData.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageFCMData.Size = new System.Drawing.Size(983, 445);
+            this.tabPageFCMData.Size = new System.Drawing.Size(983, 496);
             this.tabPageFCMData.TabIndex = 8;
             this.tabPageFCMData.Text = "FCM Positions";
             this.tabPageFCMData.UseVisualStyleBackColor = true;
@@ -967,7 +920,7 @@
             // splitContainer7.Panel2
             // 
             this.splitContainer7.Panel2.Controls.Add(this.gridLiveFCMData);
-            this.splitContainer7.Size = new System.Drawing.Size(977, 439);
+            this.splitContainer7.Size = new System.Drawing.Size(977, 490);
             this.splitContainer7.SplitterDistance = 25;
             this.splitContainer7.TabIndex = 14;
             // 
@@ -1035,7 +988,7 @@
             this.gridLiveFCMData.ReadOnly = true;
             this.gridLiveFCMData.RowHeadersVisible = false;
             this.gridLiveFCMData.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
-            this.gridLiveFCMData.Size = new System.Drawing.Size(977, 410);
+            this.gridLiveFCMData.Size = new System.Drawing.Size(977, 461);
             this.gridLiveFCMData.TabIndex = 8;
             this.gridLiveFCMData.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.gridLiveFCMData_CellFormatting);
             // 
@@ -1044,7 +997,7 @@
             this.tabPageModelADMCompare.Controls.Add(this.splitContainer11);
             this.tabPageModelADMCompare.Location = new System.Drawing.Point(4, 22);
             this.tabPageModelADMCompare.Name = "tabPageModelADMCompare";
-            this.tabPageModelADMCompare.Size = new System.Drawing.Size(983, 445);
+            this.tabPageModelADMCompare.Size = new System.Drawing.Size(983, 496);
             this.tabPageModelADMCompare.TabIndex = 13;
             this.tabPageModelADMCompare.Text = "Model ADM Compare";
             this.tabPageModelADMCompare.UseVisualStyleBackColor = true;
@@ -1064,7 +1017,7 @@
             // splitContainer11.Panel2
             // 
             this.splitContainer11.Panel2.Controls.Add(this.gridViewModelADMCompare);
-            this.splitContainer11.Size = new System.Drawing.Size(983, 445);
+            this.splitContainer11.Size = new System.Drawing.Size(983, 496);
             this.splitContainer11.SplitterDistance = 25;
             this.splitContainer11.TabIndex = 15;
             // 
@@ -1127,7 +1080,7 @@
             this.gridViewModelADMCompare.Location = new System.Drawing.Point(0, 0);
             this.gridViewModelADMCompare.Name = "gridViewModelADMCompare";
             this.gridViewModelADMCompare.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            this.gridViewModelADMCompare.Size = new System.Drawing.Size(983, 416);
+            this.gridViewModelADMCompare.Size = new System.Drawing.Size(983, 467);
             this.gridViewModelADMCompare.TabIndex = 6;
             this.gridViewModelADMCompare.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridViewModelADMCompare_CellContentClick);
             this.gridViewModelADMCompare.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridViewModelADMCompare_CellEndEdit);
@@ -1137,7 +1090,7 @@
             this.tabPageInstrumentSummary.Controls.Add(this.instrumentSummaryGrid);
             this.tabPageInstrumentSummary.Location = new System.Drawing.Point(4, 22);
             this.tabPageInstrumentSummary.Name = "tabPageInstrumentSummary";
-            this.tabPageInstrumentSummary.Size = new System.Drawing.Size(983, 445);
+            this.tabPageInstrumentSummary.Size = new System.Drawing.Size(983, 496);
             this.tabPageInstrumentSummary.TabIndex = 11;
             this.tabPageInstrumentSummary.Text = "Instrument Summary";
             this.tabPageInstrumentSummary.UseVisualStyleBackColor = true;
@@ -1170,263 +1123,15 @@
             this.instrumentSummaryGrid.Name = "instrumentSummaryGrid";
             this.instrumentSummaryGrid.ReadOnly = true;
             this.instrumentSummaryGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
-            this.instrumentSummaryGrid.Size = new System.Drawing.Size(983, 445);
+            this.instrumentSummaryGrid.Size = new System.Drawing.Size(983, 496);
             this.instrumentSummaryGrid.TabIndex = 6;
-            // 
-            // tabPageStrategyRRisk
-            // 
-            this.tabPageStrategyRRisk.Controls.Add(this.dataGridStrategyRRiskSummary);
-            this.tabPageStrategyRRisk.Location = new System.Drawing.Point(4, 22);
-            this.tabPageStrategyRRisk.Name = "tabPageStrategyRRisk";
-            this.tabPageStrategyRRisk.Size = new System.Drawing.Size(983, 445);
-            this.tabPageStrategyRRisk.TabIndex = 12;
-            this.tabPageStrategyRRisk.Text = "Strategy RRisk";
-            this.tabPageStrategyRRisk.UseVisualStyleBackColor = true;
-            // 
-            // dataGridStrategyRRiskSummary
-            // 
-            this.dataGridStrategyRRiskSummary.AllowUserToAddRows = false;
-            this.dataGridStrategyRRiskSummary.AllowUserToDeleteRows = false;
-            this.dataGridStrategyRRiskSummary.AllowUserToResizeRows = false;
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridStrategyRRiskSummary.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
-            this.dataGridStrategyRRiskSummary.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridStrategyRRiskSummary.DefaultCellStyle = dataGridViewCellStyle18;
-            this.dataGridStrategyRRiskSummary.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridStrategyRRiskSummary.Location = new System.Drawing.Point(0, 0);
-            this.dataGridStrategyRRiskSummary.Name = "dataGridStrategyRRiskSummary";
-            this.dataGridStrategyRRiskSummary.ReadOnly = true;
-            this.dataGridStrategyRRiskSummary.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            this.dataGridStrategyRRiskSummary.Size = new System.Drawing.Size(983, 445);
-            this.dataGridStrategyRRiskSummary.TabIndex = 4;
-            // 
-            // tabPagePreviousPL
-            // 
-            this.tabPagePreviousPL.Controls.Add(this.splitContainer13);
-            this.tabPagePreviousPL.Location = new System.Drawing.Point(4, 22);
-            this.tabPagePreviousPL.Name = "tabPagePreviousPL";
-            this.tabPagePreviousPL.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPagePreviousPL.Size = new System.Drawing.Size(983, 445);
-            this.tabPagePreviousPL.TabIndex = 15;
-            this.tabPagePreviousPL.Text = "Previous P/L";
-            this.tabPagePreviousPL.UseVisualStyleBackColor = true;
-            // 
-            // splitContainer13
-            // 
-            this.splitContainer13.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer13.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
-            this.splitContainer13.Location = new System.Drawing.Point(3, 3);
-            this.splitContainer13.Name = "splitContainer13";
-            this.splitContainer13.Orientation = System.Windows.Forms.Orientation.Horizontal;
-            // 
-            // splitContainer13.Panel1
-            // 
-            this.splitContainer13.Panel1.Controls.Add(this.dateTimePreviousPL);
-            // 
-            // splitContainer13.Panel2
-            // 
-            this.splitContainer13.Panel2.Controls.Add(this.splitContainer16);
-            this.splitContainer13.Size = new System.Drawing.Size(977, 439);
-            this.splitContainer13.SplitterDistance = 25;
-            this.splitContainer13.TabIndex = 16;
-            // 
-            // dateTimePreviousPL
-            // 
-            this.dateTimePreviousPL.Location = new System.Drawing.Point(3, 3);
-            this.dateTimePreviousPL.Name = "dateTimePreviousPL";
-            this.dateTimePreviousPL.Size = new System.Drawing.Size(200, 21);
-            this.dateTimePreviousPL.TabIndex = 15;
-            this.dateTimePreviousPL.ValueChanged += new System.EventHandler(this.dateTimePreviousPL_ValueChanged);
-            // 
-            // splitContainer16
-            // 
-            this.splitContainer16.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer16.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
-            this.splitContainer16.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer16.Name = "splitContainer16";
-            // 
-            // splitContainer16.Panel1
-            // 
-            this.splitContainer16.Panel1.Controls.Add(this.splitContainer15);
-            // 
-            // splitContainer16.Panel2
-            // 
-            this.splitContainer16.Panel2.Controls.Add(this.splitContainer14);
-            this.splitContainer16.Size = new System.Drawing.Size(977, 410);
-            this.splitContainer16.SplitterDistance = 339;
-            this.splitContainer16.TabIndex = 19;
-            // 
-            // splitContainer15
-            // 
-            this.splitContainer15.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer15.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer15.Name = "splitContainer15";
-            this.splitContainer15.Orientation = System.Windows.Forms.Orientation.Horizontal;
-            // 
-            // splitContainer15.Panel1
-            // 
-            this.splitContainer15.Panel1.Controls.Add(this.dataGridPreviousModelPL);
-            // 
-            // splitContainer15.Panel2
-            // 
-            this.splitContainer15.Panel2.Controls.Add(this.dataGridPreviousFCMPL);
-            this.splitContainer15.Size = new System.Drawing.Size(339, 410);
-            this.splitContainer15.SplitterDistance = 192;
-            this.splitContainer15.TabIndex = 18;
-            // 
-            // dataGridPreviousModelPL
-            // 
-            this.dataGridPreviousModelPL.AllowUserToAddRows = false;
-            this.dataGridPreviousModelPL.AllowUserToDeleteRows = false;
-            this.dataGridPreviousModelPL.AllowUserToResizeRows = false;
-            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle19.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle19.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle19.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridPreviousModelPL.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle19;
-            this.dataGridPreviousModelPL.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle20.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle20.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle20.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridPreviousModelPL.DefaultCellStyle = dataGridViewCellStyle20;
-            this.dataGridPreviousModelPL.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridPreviousModelPL.Location = new System.Drawing.Point(0, 0);
-            this.dataGridPreviousModelPL.Name = "dataGridPreviousModelPL";
-            this.dataGridPreviousModelPL.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            this.dataGridPreviousModelPL.Size = new System.Drawing.Size(339, 192);
-            this.dataGridPreviousModelPL.TabIndex = 6;
-            // 
-            // dataGridPreviousFCMPL
-            // 
-            this.dataGridPreviousFCMPL.AllowUserToAddRows = false;
-            this.dataGridPreviousFCMPL.AllowUserToDeleteRows = false;
-            this.dataGridPreviousFCMPL.AllowUserToResizeRows = false;
-            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle21.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle21.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle21.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridPreviousFCMPL.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle21;
-            this.dataGridPreviousFCMPL.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle22.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle22.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle22.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridPreviousFCMPL.DefaultCellStyle = dataGridViewCellStyle22;
-            this.dataGridPreviousFCMPL.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridPreviousFCMPL.Location = new System.Drawing.Point(0, 0);
-            this.dataGridPreviousFCMPL.Name = "dataGridPreviousFCMPL";
-            this.dataGridPreviousFCMPL.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            this.dataGridPreviousFCMPL.Size = new System.Drawing.Size(339, 214);
-            this.dataGridPreviousFCMPL.TabIndex = 6;
-            // 
-            // splitContainer14
-            // 
-            this.splitContainer14.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer14.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer14.Name = "splitContainer14";
-            this.splitContainer14.Orientation = System.Windows.Forms.Orientation.Horizontal;
-            // 
-            // splitContainer14.Panel1
-            // 
-            this.splitContainer14.Panel1.Controls.Add(this.dataGridPreviousModelPriceCompare);
-            // 
-            // splitContainer14.Panel2
-            // 
-            this.splitContainer14.Panel2.Controls.Add(this.dataGridPreviousFCMPriceCompare);
-            this.splitContainer14.Size = new System.Drawing.Size(634, 410);
-            this.splitContainer14.SplitterDistance = 192;
-            this.splitContainer14.TabIndex = 17;
-            // 
-            // dataGridPreviousModelPriceCompare
-            // 
-            this.dataGridPreviousModelPriceCompare.AllowUserToAddRows = false;
-            this.dataGridPreviousModelPriceCompare.AllowUserToDeleteRows = false;
-            this.dataGridPreviousModelPriceCompare.AllowUserToResizeRows = false;
-            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle23.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle23.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle23.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridPreviousModelPriceCompare.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle23;
-            this.dataGridPreviousModelPriceCompare.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle24.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle24.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle24.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle24.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle24.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridPreviousModelPriceCompare.DefaultCellStyle = dataGridViewCellStyle24;
-            this.dataGridPreviousModelPriceCompare.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridPreviousModelPriceCompare.Location = new System.Drawing.Point(0, 0);
-            this.dataGridPreviousModelPriceCompare.Name = "dataGridPreviousModelPriceCompare";
-            this.dataGridPreviousModelPriceCompare.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            this.dataGridPreviousModelPriceCompare.Size = new System.Drawing.Size(634, 192);
-            this.dataGridPreviousModelPriceCompare.TabIndex = 6;
-            // 
-            // dataGridPreviousFCMPriceCompare
-            // 
-            this.dataGridPreviousFCMPriceCompare.AllowUserToAddRows = false;
-            this.dataGridPreviousFCMPriceCompare.AllowUserToDeleteRows = false;
-            this.dataGridPreviousFCMPriceCompare.AllowUserToResizeRows = false;
-            dataGridViewCellStyle25.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle25.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle25.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle25.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle25.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle25.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle25.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridPreviousFCMPriceCompare.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle25;
-            this.dataGridPreviousFCMPriceCompare.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle26.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle26.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle26.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle26.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle26.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle26.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridPreviousFCMPriceCompare.DefaultCellStyle = dataGridViewCellStyle26;
-            this.dataGridPreviousFCMPriceCompare.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridPreviousFCMPriceCompare.Location = new System.Drawing.Point(0, 0);
-            this.dataGridPreviousFCMPriceCompare.Name = "dataGridPreviousFCMPriceCompare";
-            this.dataGridPreviousFCMPriceCompare.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            this.dataGridPreviousFCMPriceCompare.Size = new System.Drawing.Size(634, 214);
-            this.dataGridPreviousFCMPriceCompare.TabIndex = 6;
             // 
             // tabPageExpressionList
             // 
             this.tabPageExpressionList.Controls.Add(this.splitContainer17);
             this.tabPageExpressionList.Location = new System.Drawing.Point(4, 22);
             this.tabPageExpressionList.Name = "tabPageExpressionList";
-            this.tabPageExpressionList.Size = new System.Drawing.Size(983, 445);
+            this.tabPageExpressionList.Size = new System.Drawing.Size(983, 496);
             this.tabPageExpressionList.TabIndex = 16;
             this.tabPageExpressionList.Text = "Expression List";
             this.tabPageExpressionList.UseVisualStyleBackColor = true;
@@ -1446,7 +1151,7 @@
             // splitContainer17.Panel2
             // 
             this.splitContainer17.Panel2.Controls.Add(this.dataGridViewExpressionList);
-            this.splitContainer17.Size = new System.Drawing.Size(983, 445);
+            this.splitContainer17.Size = new System.Drawing.Size(983, 496);
             this.splitContainer17.SplitterDistance = 25;
             this.splitContainer17.TabIndex = 17;
             // 
@@ -1523,28 +1228,28 @@
             this.dataGridViewExpressionList.AllowUserToAddRows = false;
             this.dataGridViewExpressionList.AllowUserToDeleteRows = false;
             this.dataGridViewExpressionList.AllowUserToResizeRows = false;
-            dataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle27.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle27.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle27.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle27.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle27.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle27.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewExpressionList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle27;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewExpressionList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
             this.dataGridViewExpressionList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle28.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle28.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle28.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle28.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle28.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle28.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle28.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewExpressionList.DefaultCellStyle = dataGridViewCellStyle28;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewExpressionList.DefaultCellStyle = dataGridViewCellStyle18;
             this.dataGridViewExpressionList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewExpressionList.Location = new System.Drawing.Point(0, 0);
             this.dataGridViewExpressionList.Name = "dataGridViewExpressionList";
             this.dataGridViewExpressionList.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            this.dataGridViewExpressionList.Size = new System.Drawing.Size(983, 416);
+            this.dataGridViewExpressionList.Size = new System.Drawing.Size(983, 467);
             this.dataGridViewExpressionList.TabIndex = 5;
             this.dataGridViewExpressionList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewExpressionList_CellContentClick);
             this.dataGridViewExpressionList.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewExpressionList_CellEndEdit);
@@ -1890,29 +1595,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridViewModelADMCompare)).EndInit();
             this.tabPageInstrumentSummary.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.instrumentSummaryGrid)).EndInit();
-            this.tabPageStrategyRRisk.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridStrategyRRiskSummary)).EndInit();
-            this.tabPagePreviousPL.ResumeLayout(false);
-            this.splitContainer13.Panel1.ResumeLayout(false);
-            this.splitContainer13.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer13)).EndInit();
-            this.splitContainer13.ResumeLayout(false);
-            this.splitContainer16.Panel1.ResumeLayout(false);
-            this.splitContainer16.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer16)).EndInit();
-            this.splitContainer16.ResumeLayout(false);
-            this.splitContainer15.Panel1.ResumeLayout(false);
-            this.splitContainer15.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer15)).EndInit();
-            this.splitContainer15.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridPreviousModelPL)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridPreviousFCMPL)).EndInit();
-            this.splitContainer14.Panel1.ResumeLayout(false);
-            this.splitContainer14.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer14)).EndInit();
-            this.splitContainer14.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridPreviousModelPriceCompare)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridPreviousFCMPriceCompare)).EndInit();
             this.tabPageExpressionList.ResumeLayout(false);
             this.splitContainer17.Panel1.ResumeLayout(false);
             this.splitContainer17.Panel1.PerformLayout();
@@ -2020,18 +1702,6 @@
         private System.Windows.Forms.ToolStripButton btnEOD;
         private System.Windows.Forms.TabPage tabPageInstrumentSummary;
         private System.Windows.Forms.DataGridView instrumentSummaryGrid;
-        private System.Windows.Forms.TabPage tabPageStrategyRRisk;
-        private System.Windows.Forms.DataGridView dataGridStrategyRRiskSummary;
-        private System.Windows.Forms.TabPage tabPagePreviousPL;
-        private System.Windows.Forms.SplitContainer splitContainer13;
-        private System.Windows.Forms.DateTimePicker dateTimePreviousPL;
-        private System.Windows.Forms.SplitContainer splitContainer16;
-        private System.Windows.Forms.SplitContainer splitContainer15;
-        private System.Windows.Forms.DataGridView dataGridPreviousModelPL;
-        private System.Windows.Forms.DataGridView dataGridPreviousFCMPL;
-        private System.Windows.Forms.SplitContainer splitContainer14;
-        private System.Windows.Forms.DataGridView dataGridPreviousModelPriceCompare;
-        private System.Windows.Forms.DataGridView dataGridPreviousFCMPriceCompare;
         private System.Windows.Forms.TabPage tabPageExpressionList;
         private System.Windows.Forms.SplitContainer splitContainer17;
         private System.Windows.Forms.ToolStrip toolStripExpressionList;

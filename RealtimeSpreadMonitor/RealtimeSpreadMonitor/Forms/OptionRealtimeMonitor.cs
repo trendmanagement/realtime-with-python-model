@@ -196,17 +196,9 @@ namespace RealtimeSpreadMonitor.Forms
 
             setupOrderSummaryList();
 
-
-            //gridViewFCMPostionManipulation.SetupFCMSummaryData(this);
-
             optionSpreadManager.modelADMCompareCalculationAndDisplay.setupGridModelADMComparison(this);
 
             setupExpressionListGridView();
-
-            setupPreviousPLAnalysis(dataGridPreviousModelPriceCompare, dataGridPreviousModelPL, true);
-
-            setupPreviousPLAnalysis(dataGridPreviousFCMPriceCompare, dataGridPreviousFCMPL, false);
-
 
         }
 
@@ -298,17 +290,17 @@ namespace RealtimeSpreadMonitor.Forms
 
 
         //used for running the reconnect to CQG timers
-        private System.Threading.Timer timer1SetupTimeForCQGData;
-        private System.Threading.Timer timer2SetupTimeForCQGData;
+        //private System.Threading.Timer timer1SetupTimeForCQGData;
+        //private System.Threading.Timer timer2SetupTimeForCQGData;
 
         public void realtimeMonitorStartupBackgroundUpdateLoop()
         {
 
 
-            setUpTimerForCQGDataReset(TimerThreadInfo._dataResetTime1, 0);
+            //setUpTimerForCQGDataReset(TimerThreadInfo._dataResetTime1, 0);
 
 
-            setUpTimerForCQGDataReset(TimerThreadInfo._dataResetTime2, 1);
+            //setUpTimerForCQGDataReset(TimerThreadInfo._dataResetTime2, 1);
 
 
             backgroundWorkerOptionRealtimeMonitor = new BackgroundWorker();
@@ -328,29 +320,29 @@ namespace RealtimeSpreadMonitor.Forms
 
         private void setUpTimerForCQGDataReset(TimeSpan alertTime, int timerToUse)
         {
-            DateTime current = DateTime.Now;
-            TimeSpan timeToGo = alertTime - current.TimeOfDay;
-            if (timeToGo < TimeSpan.Zero)
-            {
-                return;//time already passed
-            }
+            //DateTime current = DateTime.Now;
+            //TimeSpan timeToGo = alertTime - current.TimeOfDay;
+            //if (timeToGo < TimeSpan.Zero)
+            //{
+            //    return;//time already passed
+            //}
 
 
-            System.Threading.TimerCallback timerDelegate = resetConnectionToCQGAtTimeInvoke;
-            //new System.Threading.TimerCallback(resetConnectionToCQGAtTimeInvoke);
+            //System.Threading.TimerCallback timerDelegate = resetConnectionToCQGAtTimeInvoke;
+            ////new System.Threading.TimerCallback(resetConnectionToCQGAtTimeInvoke);
 
-            System.Threading.Timer timer = new System.Threading.Timer(
-                timerDelegate, null, timeToGo, Timeout.InfiniteTimeSpan);
+            //System.Threading.Timer timer = new System.Threading.Timer(
+            //    timerDelegate, null, timeToGo, Timeout.InfiniteTimeSpan);
 
-            switch (timerToUse)
-            {
-                case 0:
-                    timer1SetupTimeForCQGData = timer;
-                    break;
-                case 1:
-                    timer2SetupTimeForCQGData = timer;
-                    break;
-            }
+            //switch (timerToUse)
+            //{
+            //    case 0:
+            //        timer1SetupTimeForCQGData = timer;
+            //        break;
+            //    case 1:
+            //        timer2SetupTimeForCQGData = timer;
+            //        break;
+            //}
 
 
         }
@@ -360,7 +352,7 @@ namespace RealtimeSpreadMonitor.Forms
 
         }
 
-        
+
 
 
 
@@ -1067,124 +1059,124 @@ namespace RealtimeSpreadMonitor.Forms
             }
         }
 
-        public void setupPreviousPLAnalysis(DataGridView dataGridViewPriceCompare, DataGridView dataGridViewPL,
-             bool model)
-        {
-#if DEBUG
-            try
-#endif
-            {
-                Type previousPriceGridRowTypes = typeof(PREVIOUS_PRICE_COMPARE_ANALYSIS);
-                Array previousPriceGridRowTypesArray = Enum.GetNames(previousPriceGridRowTypes);
+//        public void setupPreviousPLAnalysis(DataGridView dataGridViewPriceCompare, DataGridView dataGridViewPL,
+//             bool model)
+//        {
+//#if DEBUG
+//            try
+//#endif
+//            {
+//                Type previousPriceGridRowTypes = typeof(PREVIOUS_PRICE_COMPARE_ANALYSIS);
+//                Array previousPriceGridRowTypesArray = Enum.GetNames(previousPriceGridRowTypes);
 
-                dataGridViewPriceCompare.ColumnCount = previousPriceGridRowTypesArray.Length;
+//                dataGridViewPriceCompare.ColumnCount = previousPriceGridRowTypesArray.Length;
 
-                dataGridViewPriceCompare.EnableHeadersVisualStyles = false;
+//                dataGridViewPriceCompare.EnableHeadersVisualStyles = false;
 
-                DataGridViewCellStyle colTotalPortStyle = dataGridViewPriceCompare.ColumnHeadersDefaultCellStyle;
-                colTotalPortStyle.BackColor = Color.Black;
-                colTotalPortStyle.ForeColor = Color.White;
+//                DataGridViewCellStyle colTotalPortStyle = dataGridViewPriceCompare.ColumnHeadersDefaultCellStyle;
+//                colTotalPortStyle.BackColor = Color.Black;
+//                colTotalPortStyle.ForeColor = Color.White;
 
-                DataGridViewCellStyle rowTotalPortStyle = dataGridViewPriceCompare.RowHeadersDefaultCellStyle;
-                rowTotalPortStyle.BackColor = Color.Black;
-                rowTotalPortStyle.ForeColor = Color.White;
-
-
-                dataGridViewPriceCompare.Columns[0].Frozen = true;
-
-                for (int i = 0; i < dataGridViewPriceCompare.ColumnCount; i++)
-                {
-                    dataGridViewPriceCompare.Columns[i].SortMode = DataGridViewColumnSortMode.NotSortable;
-                }
-
-                StringBuilder sb = new StringBuilder();
-
-                for (int i = 0; i < previousPriceGridRowTypesArray.Length; i++)
-                {
-                    sb.Clear();
-
-                    sb.Append(previousPriceGridRowTypesArray.GetValue(i).ToString());
-
-                    dataGridViewPriceCompare
-                        .Columns[i]
-                        .HeaderCell.Value = sb.ToString().Replace('_', ' ');
-
-                    dataGridViewPriceCompare.Columns[i].Width = 60;
-                }
-
-                if (model)
-                {
-                    dataGridViewPriceCompare.TopLeftHeaderCell.Value = "MODEL";
-                }
-                else
-                {
-                    dataGridViewPriceCompare.TopLeftHeaderCell.Value = "FCM";
-                }
-
-                dataGridViewPriceCompare.RowCount = 0;
+//                DataGridViewCellStyle rowTotalPortStyle = dataGridViewPriceCompare.RowHeadersDefaultCellStyle;
+//                rowTotalPortStyle.BackColor = Color.Black;
+//                rowTotalPortStyle.ForeColor = Color.White;
 
 
+//                dataGridViewPriceCompare.Columns[0].Frozen = true;
+
+//                for (int i = 0; i < dataGridViewPriceCompare.ColumnCount; i++)
+//                {
+//                    dataGridViewPriceCompare.Columns[i].SortMode = DataGridViewColumnSortMode.NotSortable;
+//                }
+
+//                StringBuilder sb = new StringBuilder();
+
+//                for (int i = 0; i < previousPriceGridRowTypesArray.Length; i++)
+//                {
+//                    sb.Clear();
+
+//                    sb.Append(previousPriceGridRowTypesArray.GetValue(i).ToString());
+
+//                    dataGridViewPriceCompare
+//                        .Columns[i]
+//                        .HeaderCell.Value = sb.ToString().Replace('_', ' ');
+
+//                    dataGridViewPriceCompare.Columns[i].Width = 60;
+//                }
+
+//                if (model)
+//                {
+//                    dataGridViewPriceCompare.TopLeftHeaderCell.Value = "MODEL";
+//                }
+//                else
+//                {
+//                    dataGridViewPriceCompare.TopLeftHeaderCell.Value = "FCM";
+//                }
+
+//                dataGridViewPriceCompare.RowCount = 0;
 
 
 
 
-                Type previousPLGridRowTypes = typeof(PREVIOUS_PL_COMPARE_ANALYSIS);
-                Array previousPLGridRowTypesArray = Enum.GetNames(previousPLGridRowTypes);
-
-                dataGridViewPL.ColumnCount = previousPLGridRowTypesArray.Length;
-
-                dataGridViewPL.EnableHeadersVisualStyles = false;
-
-                colTotalPortStyle = dataGridViewPL.ColumnHeadersDefaultCellStyle;
-                colTotalPortStyle.BackColor = Color.Black;
-                colTotalPortStyle.ForeColor = Color.White;
-
-                rowTotalPortStyle = dataGridViewPL.RowHeadersDefaultCellStyle;
-                rowTotalPortStyle.BackColor = Color.Black;
-                rowTotalPortStyle.ForeColor = Color.White;
 
 
-                dataGridViewPL.Columns[0].Frozen = true;
+//                Type previousPLGridRowTypes = typeof(PREVIOUS_PL_COMPARE_ANALYSIS);
+//                Array previousPLGridRowTypesArray = Enum.GetNames(previousPLGridRowTypes);
 
-                for (int i = 0; i < dataGridViewPL.ColumnCount; i++)
-                {
-                    dataGridViewPL.Columns[i].SortMode = DataGridViewColumnSortMode.NotSortable;
-                }
+//                dataGridViewPL.ColumnCount = previousPLGridRowTypesArray.Length;
 
-                //StringBuilder sb = new StringBuilder();
+//                dataGridViewPL.EnableHeadersVisualStyles = false;
 
-                for (int i = 0; i < previousPLGridRowTypesArray.Length; i++)
-                {
-                    sb.Clear();
+//                colTotalPortStyle = dataGridViewPL.ColumnHeadersDefaultCellStyle;
+//                colTotalPortStyle.BackColor = Color.Black;
+//                colTotalPortStyle.ForeColor = Color.White;
 
-                    sb.Append(previousPLGridRowTypesArray.GetValue(i).ToString());
+//                rowTotalPortStyle = dataGridViewPL.RowHeadersDefaultCellStyle;
+//                rowTotalPortStyle.BackColor = Color.Black;
+//                rowTotalPortStyle.ForeColor = Color.White;
 
-                    dataGridViewPL
-                        .Columns[i]
-                        .HeaderCell.Value = sb.ToString().Replace('_', ' ');
 
-                    dataGridViewPL.Columns[i].Width = 80;
-                }
+//                dataGridViewPL.Columns[0].Frozen = true;
 
-                if (model)
-                {
-                    dataGridViewPL.TopLeftHeaderCell.Value = "MODEL";
-                }
-                else
-                {
-                    dataGridViewPL.TopLeftHeaderCell.Value = "FCM";
-                }
+//                for (int i = 0; i < dataGridViewPL.ColumnCount; i++)
+//                {
+//                    dataGridViewPL.Columns[i].SortMode = DataGridViewColumnSortMode.NotSortable;
+//                }
 
-                dataGridViewPL.RowCount = instruments.Count() + 1;
+//                //StringBuilder sb = new StringBuilder();
 
-            }
-#if DEBUG
-            catch (Exception ex)
-            {
-                TSErrorCatch.errorCatchOut(Convert.ToString(this), ex);
-            }
-#endif
-        }
+//                for (int i = 0; i < previousPLGridRowTypesArray.Length; i++)
+//                {
+//                    sb.Clear();
+
+//                    sb.Append(previousPLGridRowTypesArray.GetValue(i).ToString());
+
+//                    dataGridViewPL
+//                        .Columns[i]
+//                        .HeaderCell.Value = sb.ToString().Replace('_', ' ');
+
+//                    dataGridViewPL.Columns[i].Width = 80;
+//                }
+
+//                if (model)
+//                {
+//                    dataGridViewPL.TopLeftHeaderCell.Value = "MODEL";
+//                }
+//                else
+//                {
+//                    dataGridViewPL.TopLeftHeaderCell.Value = "FCM";
+//                }
+
+//                dataGridViewPL.RowCount = instruments.Count() + 1;
+
+//            }
+//#if DEBUG
+//            catch (Exception ex)
+//            {
+//                TSErrorCatch.errorCatchOut(Convert.ToString(this), ex);
+//            }
+//#endif
+//        }
 
 
 
@@ -1207,22 +1199,6 @@ namespace RealtimeSpreadMonitor.Forms
             DataCollectionLibrary.orderSummaryDataTable.Columns.Add(ORDER_SUMMARY_COLUMNS.FCM_OFFICE.ToString());
             DataCollectionLibrary.orderSummaryDataTable.Columns.Add(ORDER_SUMMARY_COLUMNS.FCM_ACCT.ToString());
 
-
-
-            //DataCollectionLibrary.orderSummaryDataTable.Columns.Add(ORDER_SUMMARY_COLUMNS.INST.ToString());
-            //DataCollectionLibrary.orderSummaryDataTable.Columns.Add("Contract");
-            //DataCollectionLibrary.orderSummaryDataTable.Columns.Add("#");
-            //DataCollectionLibrary.orderSummaryDataTable.Columns.Add("Decs T");
-            //DataCollectionLibrary.orderSummaryDataTable.Columns.Add("Tran T");
-            //DataCollectionLibrary.orderSummaryDataTable.Columns.Add("Decs P");
-            //DataCollectionLibrary.orderSummaryDataTable.Columns.Add("Tran P");
-            //DataCollectionLibrary.orderSummaryDataTable.Columns.Add("Decs Filled");
-            //DataCollectionLibrary.orderSummaryDataTable.Columns.Add("InsId");
-            //DataCollectionLibrary.orderSummaryDataTable.Columns.Add("Acct");
-            //DataCollectionLibrary.orderSummaryDataTable.Columns.Add("OFFICE");
-            //DataCollectionLibrary.orderSummaryDataTable.Columns.Add("FCM_ACCOUNT");
-
-
         }
 
 
@@ -1241,7 +1217,7 @@ namespace RealtimeSpreadMonitor.Forms
 
             //dataGridView1.DataSource = dataTable1;
 
-            
+
 
             DataCollectionLibrary.orderSummaryDataTable.Clear(); // .Rows.Clear();
 
@@ -1290,9 +1266,9 @@ namespace RealtimeSpreadMonitor.Forms
 
             DateTime currentTime = DateTime.Now;
             DateTime decisionTime = new DateTime(currentTime.Year,
-                currentTime.Month, currentTime.Day, 
+                currentTime.Month, currentTime.Day,
                 im.customdayboundarytime.AddMinutes(-im.decisionoffsetminutes).Hour,
-                im.customdayboundarytime.AddMinutes(-im.decisionoffsetminutes).Minute,0);
+                im.customdayboundarytime.AddMinutes(-im.decisionoffsetminutes).Minute, 0);
 
             dataTable.Rows.Add();
             dataTable.Rows[dataTable.Rows.Count - 1][(int)ORDER_SUMMARY_COLUMNS.RFRSH_TIME]
@@ -1308,11 +1284,8 @@ namespace RealtimeSpreadMonitor.Forms
 
             if (p.mose.decisionPriceFilled)
             {
-                if (p.mose.cqgInstrument != null)
-                {
-                    dataTable.Rows[dataTable.Rows.Count - 1][(int)ORDER_SUMMARY_COLUMNS.DECS_P] =
-                        p.mose.cqgInstrument.ToDisplayPrice(p.mose.decisionPrice);
-                }
+                dataTable.Rows[dataTable.Rows.Count - 1][(int)ORDER_SUMMARY_COLUMNS.DECS_P] =
+                    p.mose.decisionPrice;
             }
             else
             {
@@ -1321,11 +1294,8 @@ namespace RealtimeSpreadMonitor.Forms
 
             if (p.mose.transactionPriceFilled)
             {
-                if (p.mose.cqgInstrument != null)
-                {
-                    dataTable.Rows[dataTable.Rows.Count - 1][(int)ORDER_SUMMARY_COLUMNS.TRANS_P] =
-                    p.mose.cqgInstrument.ToDisplayPrice(p.mose.transactionPrice);
-                }
+                dataTable.Rows[dataTable.Rows.Count - 1][(int)ORDER_SUMMARY_COLUMNS.TRANS_P] =
+                    p.mose.transactionPrice;
             }
             else
             {
@@ -1487,128 +1457,118 @@ namespace RealtimeSpreadMonitor.Forms
                         &&
                         ose.dataGridExpressionListRow <= dataGridViewExpressionList.Rows.Count)
                     {
-                        //ose.dataGridExpressionListRow = rowIdx;
-                        CQGInstrument cqgInstrument = ose.cqgInstrument;
 
-                        if (cqgInstrument != null)  // && CQG. cqgInstrument)
+                        if (ose.instrument.eodAnalysisAtInstrument)
                         {
-                            //MongoDB_OptionSpreadExpression optionSpreadExpressionList = optionStrategies[optionSpreadCounter].legData[legCounter].optionSpreadExpression;
-
-                            //optionSpreadManager.statusAndConnectedUpdates.checkUpdateStatus(dataGridViewExpressionList, ose.dataGridExpressionListRow,
-                            //    (int)EXPRESSION_LIST_VIEW.TIME, ose);
-
-                            //if (optionSpreadManager.realtimeMonitorSettings.eodAnalysis)
-                            if (ose.instrument.eodAnalysisAtInstrument)
-                            {
-                                //dataGridViewExpressionList.Columns[(int)EXPRESSION_LIST_VIEW.TIME].DefaultCellStyle.Font = new Font("Tahoma", 6);
-
-                                fillDataGridViewExpressionListPage(ose.dataGridExpressionListRow,
-                                        (int)EXPRESSION_LIST_VIEW.TIME,
-                                        ose.lastTimeUpdated.ToString("yyyy-MM-dd HH:mm", DateTimeFormatInfo.InvariantInfo),
-                                        false, 0);
-                            }
-                            else
-                            {
-                                //dataGridViewExpressionList.Columns[(int)EXPRESSION_LIST_VIEW.TIME].DefaultCellStyle.Font = new Font("Tahoma", 8);
-
-                                fillDataGridViewExpressionListPage(ose.dataGridExpressionListRow,
-                                        (int)EXPRESSION_LIST_VIEW.TIME,
-                                        ose.lastTimeUpdated.ToString("HH:mm", DateTimeFormatInfo.InvariantInfo),
-                                        false, 0);
-                            }
+                            //dataGridViewExpressionList.Columns[(int)EXPRESSION_LIST_VIEW.TIME].DefaultCellStyle.Font = new Font("Tahoma", 6);
 
                             fillDataGridViewExpressionListPage(ose.dataGridExpressionListRow,
-                                    (int)EXPRESSION_LIST_VIEW.DELTA,
-                                    Math.Round(ose.delta, 2).ToString(), true, ose.delta);
-
-                            //************************************************
-                            fillDataGridViewExpressionListPage(ose.dataGridExpressionListRow,
-                                    (int)EXPRESSION_LIST_VIEW.TRANS_PRICE,
-                                    ose.transactionPrice.ToString(), false, ose.transactionPrice);
-
-                            //if (optionSpreadManager.realtimeMonitorSettings.eodAnalysis)
-                            //if (ose.instrument.eodAnalysisAtInstrument)
-                            //{
-                            //    fillDataGridViewExpressionListPage(ose.dataGridExpressionListRow,
-                            //            (int)EXPRESSION_LIST_VIEW.ORDER_PL,
-                            //            Math.Round(ose.plChgOrdersToSettlement, 2).ToString(), true, ose.plChgOrdersToSettlement);
-                            //}
-                            //else
-                            //{
-                            //    fillDataGridViewExpressionListPage(ose.dataGridExpressionListRow,
-                            //            (int)EXPRESSION_LIST_VIEW.ORDER_PL,
-                            //            Math.Round(ose.plChgOrders, 2).ToString(), true, ose.plChgOrders);
-                            //}
-                            //************************************************
-
-
-                            fillDataGridViewExpressionListPage(ose.dataGridExpressionListRow,
-                                    (int)EXPRESSION_LIST_VIEW.DFLT_PRICE,
-                                    ose.defaultPrice.ToString(), false, ose.defaultPrice);
-
-                            //if (ose.decisionPriceFilled != null)
-                            //{
-                            //    fillDataGridViewExpressionListPage(ose.dataGridExpressionListRow,
-                            //            (int)EXPRESSION_LIST_VIEW.CUM_VOL,
-                            //            "0", false,
-                            //            0);
-                            //}
-
-                            fillDataGridViewExpressionListPage(ose.dataGridExpressionListRow,
-                                    (int)EXPRESSION_LIST_VIEW.THEOR_PRICE,
-                                    ose.theoreticalOptionPrice.ToString(), false, ose.theoreticalOptionPrice);
-
-                            fillDataGridViewExpressionListPage(ose.dataGridExpressionListRow,
-                                    (int)EXPRESSION_LIST_VIEW.SPAN_IMPL_VOL,
-                                    Math.Round(ose.impliedVolFromSpan, 2).ToString(), false, ose.impliedVolFromSpan);
-
-                            fillDataGridViewExpressionListPage(ose.dataGridExpressionListRow,
-                                    (int)EXPRESSION_LIST_VIEW.SETL_IMPL_VOL,
-                                    Math.Round(ose.settlementImpliedVol, 2).ToString(), false, ose.settlementImpliedVol);
-
-                            fillDataGridViewExpressionListPage(ose.dataGridExpressionListRow,
-                                    (int)EXPRESSION_LIST_VIEW.IMPL_VOL,
-                                    Math.Round(ose.impliedVol, 2).ToString(), false, ose.impliedVol);
-
-
-
-                            fillDataGridViewExpressionListPage(ose.dataGridExpressionListRow,
-                                    (int)EXPRESSION_LIST_VIEW.BID,
-                                    ose.bid.ToString(), false, ose.bid);
-
-                            fillDataGridViewExpressionListPage(ose.dataGridExpressionListRow,
-                                    (int)EXPRESSION_LIST_VIEW.ASK,
-                                    ose.ask.ToString(), false, ose.ask);
-
-                            fillDataGridViewExpressionListPage(ose.dataGridExpressionListRow,
-                                    (int)EXPRESSION_LIST_VIEW.LAST,
-                                    ose.trade.ToString(), false, ose.trade);
-
-                            fillDataGridViewExpressionListPage(ose.dataGridExpressionListRow,
-                                    (int)EXPRESSION_LIST_VIEW.STTLE,
-                                    ose.settlement.ToString(), false, ose.settlement);
-
-                            if (ose.settlementDateTime.Date.CompareTo(DateTime.Now.Date) >= 0)
-                            {
-                                fillDataGridViewExpressionListPage(ose.dataGridExpressionListRow,
-                                        (int)EXPRESSION_LIST_VIEW.SETL_TIME,
-                                        ose.settlementDateTime.ToString("yyyy-MM-dd HH:mm", DateTimeFormatInfo.InvariantInfo),
-                                            true, 1);
-                            }
-                            else
-                            {
-                                fillDataGridViewExpressionListPage(ose.dataGridExpressionListRow,
-                                        (int)EXPRESSION_LIST_VIEW.SETL_TIME,
-                                        ose.settlementDateTime.ToString("yyyy-MM-dd HH:mm", DateTimeFormatInfo.InvariantInfo),
-                                            true, -1);
-                            }
-
-                            fillDataGridViewExpressionListPage(ose.dataGridExpressionListRow,
-                                    (int)EXPRESSION_LIST_VIEW.YEST_STTLE,
-                                    ose.yesterdaySettlement.ToString(), false, ose.yesterdaySettlement);
-
-
+                                    (int)EXPRESSION_LIST_VIEW.TIME,
+                                    ose.lastTimeUpdated.ToString("yyyy-MM-dd HH:mm", DateTimeFormatInfo.InvariantInfo),
+                                    false, 0);
                         }
+                        else
+                        {
+                            //dataGridViewExpressionList.Columns[(int)EXPRESSION_LIST_VIEW.TIME].DefaultCellStyle.Font = new Font("Tahoma", 8);
+
+                            fillDataGridViewExpressionListPage(ose.dataGridExpressionListRow,
+                                    (int)EXPRESSION_LIST_VIEW.TIME,
+                                    ose.lastTimeUpdated.ToString("HH:mm", DateTimeFormatInfo.InvariantInfo),
+                                    false, 0);
+                        }
+
+                        fillDataGridViewExpressionListPage(ose.dataGridExpressionListRow,
+                                (int)EXPRESSION_LIST_VIEW.DELTA,
+                                Math.Round(ose.delta, 2).ToString(), true, ose.delta);
+
+                        //************************************************
+                        fillDataGridViewExpressionListPage(ose.dataGridExpressionListRow,
+                                (int)EXPRESSION_LIST_VIEW.TRANS_PRICE,
+                                ose.transactionPrice.ToString(), false, ose.transactionPrice);
+
+                        //if (optionSpreadManager.realtimeMonitorSettings.eodAnalysis)
+                        //if (ose.instrument.eodAnalysisAtInstrument)
+                        //{
+                        //    fillDataGridViewExpressionListPage(ose.dataGridExpressionListRow,
+                        //            (int)EXPRESSION_LIST_VIEW.ORDER_PL,
+                        //            Math.Round(ose.plChgOrdersToSettlement, 2).ToString(), true, ose.plChgOrdersToSettlement);
+                        //}
+                        //else
+                        //{
+                        //    fillDataGridViewExpressionListPage(ose.dataGridExpressionListRow,
+                        //            (int)EXPRESSION_LIST_VIEW.ORDER_PL,
+                        //            Math.Round(ose.plChgOrders, 2).ToString(), true, ose.plChgOrders);
+                        //}
+                        //************************************************
+
+
+                        fillDataGridViewExpressionListPage(ose.dataGridExpressionListRow,
+                                (int)EXPRESSION_LIST_VIEW.DFLT_PRICE,
+                                ose.defaultPrice.ToString(), false, ose.defaultPrice);
+
+                        //if (ose.decisionPriceFilled != null)
+                        //{
+                        //    fillDataGridViewExpressionListPage(ose.dataGridExpressionListRow,
+                        //            (int)EXPRESSION_LIST_VIEW.CUM_VOL,
+                        //            "0", false,
+                        //            0);
+                        //}
+
+                        fillDataGridViewExpressionListPage(ose.dataGridExpressionListRow,
+                                (int)EXPRESSION_LIST_VIEW.THEOR_PRICE,
+                                ose.theoreticalOptionPrice.ToString(), false, ose.theoreticalOptionPrice);
+
+                        fillDataGridViewExpressionListPage(ose.dataGridExpressionListRow,
+                                (int)EXPRESSION_LIST_VIEW.SPAN_IMPL_VOL,
+                                Math.Round(ose.impliedVolFromSpan, 2).ToString(), false, ose.impliedVolFromSpan);
+
+                        fillDataGridViewExpressionListPage(ose.dataGridExpressionListRow,
+                                (int)EXPRESSION_LIST_VIEW.SETL_IMPL_VOL,
+                                Math.Round(ose.settlementImpliedVol, 2).ToString(), false, ose.settlementImpliedVol);
+
+                        fillDataGridViewExpressionListPage(ose.dataGridExpressionListRow,
+                                (int)EXPRESSION_LIST_VIEW.IMPL_VOL,
+                                Math.Round(ose.impliedVol, 2).ToString(), false, ose.impliedVol);
+
+
+
+                        fillDataGridViewExpressionListPage(ose.dataGridExpressionListRow,
+                                (int)EXPRESSION_LIST_VIEW.BID,
+                                ose.bid.ToString(), false, ose.bid);
+
+                        fillDataGridViewExpressionListPage(ose.dataGridExpressionListRow,
+                                (int)EXPRESSION_LIST_VIEW.ASK,
+                                ose.ask.ToString(), false, ose.ask);
+
+                        fillDataGridViewExpressionListPage(ose.dataGridExpressionListRow,
+                                (int)EXPRESSION_LIST_VIEW.LAST,
+                                ose.trade.ToString(), false, ose.trade);
+
+                        fillDataGridViewExpressionListPage(ose.dataGridExpressionListRow,
+                                (int)EXPRESSION_LIST_VIEW.STTLE,
+                                ose.settlement.ToString(), false, ose.settlement);
+
+                        if (ose.settlementDateTime.Date.CompareTo(DateTime.Now.Date) >= 0)
+                        {
+                            fillDataGridViewExpressionListPage(ose.dataGridExpressionListRow,
+                                    (int)EXPRESSION_LIST_VIEW.SETL_TIME,
+                                    ose.settlementDateTime.ToString("yyyy-MM-dd HH:mm", DateTimeFormatInfo.InvariantInfo),
+                                        true, 1);
+                        }
+                        else
+                        {
+                            fillDataGridViewExpressionListPage(ose.dataGridExpressionListRow,
+                                    (int)EXPRESSION_LIST_VIEW.SETL_TIME,
+                                    ose.settlementDateTime.ToString("yyyy-MM-dd HH:mm", DateTimeFormatInfo.InvariantInfo),
+                                        true, -1);
+                        }
+
+                        fillDataGridViewExpressionListPage(ose.dataGridExpressionListRow,
+                                (int)EXPRESSION_LIST_VIEW.YEST_STTLE,
+                                ose.yesterdaySettlement.ToString(), false, ose.yesterdaySettlement);
+
+
+
                     }
 
                     optionSpreadCounter++;
@@ -3261,7 +3221,7 @@ namespace RealtimeSpreadMonitor.Forms
 
                                     orderModel.underlyingExchangeSymbol =
                                         optionSpreadExpressionList[expressionCount].asset.productcode;
-                                        //optionSpreadExpressionList[expressionCount].instrument.exchangesymbolTT;
+                                    //optionSpreadExpressionList[expressionCount].instrument.exchangesymbolTT;
 
                                     orderModel.maturityMonthYear =
                                         new DateTime(orderModel.contractYear, orderModel.contractMonthint, 1)
@@ -3274,7 +3234,7 @@ namespace RealtimeSpreadMonitor.Forms
 
                                     orderModel.underlyingExchangeSymbol =
                                         optionSpreadExpressionList[expressionCount].asset.productcode;
-                                        //optionSpreadExpressionList[expressionCount].instrument.optionexchangesymbolTT;
+                                    //optionSpreadExpressionList[expressionCount].instrument.optionexchangesymbolTT;
 
                                     orderModel.maturityMonthYear =
                                         new DateTime(orderModel.optionYear, orderModel.optionMonthInt, 1)
@@ -3548,7 +3508,7 @@ namespace RealtimeSpreadMonitor.Forms
 
                                     orderModel.underlyingExchangeSymbol =
                                         optionSpreadExpressionList[expressionCount].asset.productcode;
-                                        //optionSpreadExpressionList[expressionCount].instrument.exchangesymbolTT;
+                                    //optionSpreadExpressionList[expressionCount].instrument.exchangesymbolTT;
 
                                     orderModel.maturityMonthYear =
                                         new DateTime(orderModel.contractYear, orderModel.contractMonthint, 1)
@@ -3566,7 +3526,7 @@ namespace RealtimeSpreadMonitor.Forms
 
                                     orderModel.underlyingExchangeSymbol =
                                         optionSpreadExpressionList[expressionCount].asset.productcode;
-                                        //optionSpreadExpressionList[expressionCount].instrument.optionexchangesymbolTT;
+                                    //optionSpreadExpressionList[expressionCount].instrument.optionexchangesymbolTT;
 
                                     orderModel.maturityMonthYear =
                                         new DateTime(orderModel.optionYear, orderModel.optionMonthInt, 1)
@@ -4603,11 +4563,11 @@ namespace RealtimeSpreadMonitor.Forms
         private void gridViewContractSummary_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
             //ContractSummaryFormat_DelegateCall.Invoke(e, DataCollectionLibrary.contractSummaryDataTable);
-        //}
+            //}
 
-        //private static void ContractSummaryFormatting(DataGridViewCellFormattingEventArgs e)
+            //private static void ContractSummaryFormatting(DataGridViewCellFormattingEventArgs e)
             //DataTable dataTable)
-        //{
+            //{
 
             //if (dataTable.Rows.Count > 0
             //    && dataTable.Rows[e.RowIndex][e.ColumnIndex] != null)
@@ -4661,15 +4621,15 @@ namespace RealtimeSpreadMonitor.Forms
 
         private void gridLiveFCMData_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-        //    FCMContractSummaryFormat_DelegateCall.Invoke(e, DataCollectionLibrary.FCM_SummaryDataTable);
-        //}
+            //    FCMContractSummaryFormat_DelegateCall.Invoke(e, DataCollectionLibrary.FCM_SummaryDataTable);
+            //}
 
-        //private static void FCM_ContractSummaryFormatting(DataGridViewCellFormattingEventArgs e,
-        //    DataTable dataTable)
-        //{
+            //private static void FCM_ContractSummaryFormatting(DataGridViewCellFormattingEventArgs e,
+            //    DataTable dataTable)
+            //{
 
-        //    if (dataTable.Rows.Count > 0
-        //        && dataTable.Rows[e.RowIndex][e.ColumnIndex] != null)
+            //    if (dataTable.Rows.Count > 0
+            //        && dataTable.Rows[e.RowIndex][e.ColumnIndex] != null)
             {
                 if (
                 e.ColumnIndex == (int)OPTION_LIVE_ADM_DATA_COLUMNS.NET_AT_ADM
