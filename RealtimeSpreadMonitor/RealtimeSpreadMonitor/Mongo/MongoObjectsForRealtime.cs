@@ -16,13 +16,13 @@ namespace RealtimeSpreadMonitor.Mongo
     public class MongoDB_OptionSpreadExpression
     {
         //public CQG.CQGInstrument cqgInstrument;
-        public CQG.CQGTimedBars futureTimedBars;
+        //public CQG.CQGTimedBars futureTimedBars;
 
         public int lastTimedBarInIndex = 0;
 
         public Asset asset;
 
-        public bool continueUpdate = true;
+        //public bool continueUpdate = true;
 
         public Instrument_mongo instrument;
 
@@ -132,14 +132,14 @@ namespace RealtimeSpreadMonitor.Mongo
         public DateTime todayDecisionTime;
         public double decisionPrice;
         public DateTime decisionPriceTime;
-        //public bool decisionBarAnalyzed = false;
+        public bool decisionPriceTimePassed = false;
         public bool decisionPriceFilled = false;
 
 
         public DateTime todayTransactionTimeBoundary;
         public double transactionPrice;
         public DateTime transactionPriceTime;
-        //public bool transactionBarAnalyzed = false;
+        public bool transactionPriceTimePassed = false;
         public bool transactionPriceFilled = false;
 
         //public bool filledAfterTransactionTimeBoundary = false;

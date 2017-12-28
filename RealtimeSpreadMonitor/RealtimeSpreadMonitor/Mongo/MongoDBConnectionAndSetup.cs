@@ -150,7 +150,7 @@ namespace RealtimeSpreadMonitor.Mongo
             {
                 var builder = Builders<AccountPosition>.Filter;
                 var filter = builder.Eq(x => x.name, accountName);
-                //var filter = builder.And(builder.Eq(x => x.name, accountName), builder.Eq('date_now', '2017-02-10'));
+                //var filter = builder.And(builder.Eq(x => x.name, accountName), builder.Eq("date_now", new DateTime(2017 ,12,19)));
 
                 //var filter = builder.And(builder.Eq("name", accountName),
                 //            builder.Lt("date_now", new DateTime(2017,2,10)));
@@ -511,8 +511,16 @@ namespace RealtimeSpreadMonitor.Mongo
                         builder.Lte("bartime", stop),
                         builder.Eq("idcontract", contractId));
 
-                return _futures_live_data.Find(filterOptionInputSymbol)
-                    .Sort(Builders<Futures_Contract_Minutebars>.Sort.Descending("bartime")).First();
+                var x = _futures_live_data.Find(filterOptionInputSymbol)
+                    .Sort(Builders<Futures_Contract_Minutebars>.Sort.Descending("bartime")).ToListAsync();
+
+                if (x.Result.Count > 0)
+                {
+                    return x.Result[0];
+                }
+
+                //return _futures_live_data.Find(filterOptionInputSymbol)
+                //    .Sort(Builders<Futures_Contract_Minutebars>.Sort.Descending("bartime")).First();
 
             }
             catch (Exception error)

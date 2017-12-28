@@ -140,8 +140,6 @@ C:\Users\Steve Pickering\Desktop\MAIN TMQR FRAMEWORK\RealtimeMonitor_Iqfeed\real
 C:\Users\Steve Pickering\Desktop\MAIN TMQR FRAMEWORK\RealtimeMonitor_Iqfeed\realtime-with-python-model\RealtimeSpreadMonitor\RealtimeSpreadMonitor\bin\Debug\Newtonsoft.Json.xml
 C:\Users\Steve Pickering\Desktop\MAIN TMQR FRAMEWORK\RealtimeMonitor_Iqfeed\realtime-with-python-model\RealtimeSpreadMonitor\RealtimeSpreadMonitor\bin\Debug\System.Net.Http.Formatting.xml
 C:\Users\Steve Pickering\Desktop\MAIN TMQR FRAMEWORK\RealtimeMonitor_Iqfeed\realtime-with-python-model\RealtimeSpreadMonitor\RealtimeSpreadMonitor\obj\x86\Debug\RealtimeSpreadMonitor.csprojResolveAssemblyReference.cache
-C:\Users\Steve Pickering\Desktop\MAIN TMQR FRAMEWORK\RealtimeMonitor_Iqfeed\realtime-with-python-model\RealtimeSpreadMonitor\RealtimeSpreadMonitor\obj\x86\Debug\Interop.CQG.dll
-C:\Users\Steve Pickering\Desktop\MAIN TMQR FRAMEWORK\RealtimeMonitor_Iqfeed\realtime-with-python-model\RealtimeSpreadMonitor\RealtimeSpreadMonitor\obj\x86\Debug\RealtimeSpreadMonitor.csproj.ResolveComReference.cache
 C:\Users\Steve Pickering\Desktop\MAIN TMQR FRAMEWORK\RealtimeMonitor_Iqfeed\realtime-with-python-model\RealtimeSpreadMonitor\RealtimeSpreadMonitor\obj\x86\Debug\RealtimeSpreadMonitor.Forms.FCM_ReportSummaryForm.resources
 C:\Users\Steve Pickering\Desktop\MAIN TMQR FRAMEWORK\RealtimeMonitor_Iqfeed\realtime-with-python-model\RealtimeSpreadMonitor\RealtimeSpreadMonitor\obj\x86\Debug\RealtimeSpreadMonitor.Forms.ChartForm.resources
 C:\Users\Steve Pickering\Desktop\MAIN TMQR FRAMEWORK\RealtimeMonitor_Iqfeed\realtime-with-python-model\RealtimeSpreadMonitor\RealtimeSpreadMonitor\obj\x86\Debug\RealtimeSpreadMonitor.Forms.EODPayoffs.resources

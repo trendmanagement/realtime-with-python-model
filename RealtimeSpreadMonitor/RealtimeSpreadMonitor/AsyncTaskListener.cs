@@ -9,9 +9,9 @@ namespace RealtimeSpreadMonitor
     public enum STATUS_TYPE
     {
         NO_STATUS,
-        DATA_FILLING_COUNT,
-        CQG_CONNECTION_STATUS,
-        DATA_SUBSCRIPTION_STATUS,
+        //DATA_FILLING_COUNT,
+        //CQG_CONNECTION_STATUS,
+        ORDER_DATA_STATUS,
         DATA_STATUS,
         TT_FIX_CONNECTION,
         PRICE_TYPE,

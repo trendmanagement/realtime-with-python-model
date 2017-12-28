@@ -1,11 +1,8 @@
-﻿using CQG;
-using RealtimeSpreadMonitor.Forms;
+﻿using RealtimeSpreadMonitor.Forms;
 using RealtimeSpreadMonitor.Model;
-using RealtimeSpreadMonitor.Mongo;
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Drawing;
 using System.Globalization;
 using System.Text;
 using System.Windows.Forms;
@@ -14,6 +11,7 @@ namespace RealtimeSpreadMonitor.FormManipulation
 {
     internal class GridViewFCMPostionManipulation
     {
+        DataGridView gridLiveFCMData;
 
         internal GridViewFCMPostionManipulation()
         //StatusAndConnectedUpdates statusAndConnectedUpdates)
@@ -25,7 +23,7 @@ namespace RealtimeSpreadMonitor.FormManipulation
         internal void SetupFCMSummaryData(OptionRealtimeMonitor optionRealtimeMonitor)
         {
 
-            DataGridView gridLiveFCMData = optionRealtimeMonitor.getGridLiveFCMData;
+            gridLiveFCMData = optionRealtimeMonitor.getGridLiveFCMData;
 
             gridLiveFCMData.DataSource = DataCollectionLibrary.FCM_SummaryDataTable;
 
@@ -72,12 +70,17 @@ namespace RealtimeSpreadMonitor.FormManipulation
         {
             try
             {
-                DataTable dataTable = DataCollectionLibrary.FCM_SummaryDataTable;
+                DataTable dataTable = DataCollectionLibrary.FCM_SummaryDataTable.Copy();
 
-                if (fullRefresh)
+                foreach (DataRow r in dataTable.Rows)
                 {
-                    dataTable.Rows.Clear();
+                    r[(int)OPTION_LIVE_ADM_DATA_COLUMNS.UPDATED] = false;
                 }
+
+                //if (fullRefresh)
+                //{
+                //    dataTable.Rows.Clear();
+                //}
 
                 int rowIdx = 0;
 
@@ -86,195 +89,223 @@ namespace RealtimeSpreadMonitor.FormManipulation
 
 
 
+                foreach (ADMPositionImportWeb admpiw in admPositionImportWeb)
                 {
-
-                    foreach (ADMPositionImportWeb admpiw in admPositionImportWeb)
+                    //if (admPositionImportWeb[admWebPositionCounter].instrument.idinstrument 
+                    //        == DataCollectionLibrary.instrumentList[instrumentCnt].idinstrument)
+                    if ((admpiw.instrument.idinstrument == DataCollectionLibrary.instrumentSelectedInTreeGui
+                            || DataCollectionLibrary.instrumentSelectedInTreeGui == TradingSystemConstants.ALL_INSTRUMENTS_SELECTED)
+                            &&
+                            admpiw.acctGroup.visible)
                     {
-                        //if (admPositionImportWeb[admWebPositionCounter].instrument.idinstrument 
-                        //        == DataCollectionLibrary.instrumentList[instrumentCnt].idinstrument)
-                        if ((admpiw.instrument.idinstrument == DataCollectionLibrary.instrumentSelectedInTreeGui
-                                || DataCollectionLibrary.instrumentSelectedInTreeGui == TradingSystemConstants.ALL_INSTRUMENTS_SELECTED)
-                                &&
-                                admpiw.acctGroup.visible)
+                        string dataRowId = admpiw.POFFIC + admpiw.PACCT + admpiw.Description;
+
+                        DataRow[] fcmSummary_resultId = dataTable.Select(OPTION_LIVE_ADM_DATA_COLUMNS.ID.ToString() + "='" + dataRowId + "'");
+
+                        DataRow rowToUpdate;
+                        if (fcmSummary_resultId.Length > 0)
                         {
-                            if (fullRefresh)
-                            {
-                                dataTable.Rows.Add();
+                            rowToUpdate = fcmSummary_resultId[0];
+                        }
+                        else
+                        {
+                            dataTable.Rows.Add();
+                            rowIdx = dataTable.Rows.Count - 1;
+                            rowToUpdate = dataTable.Rows[rowIdx];
 
-                                rowIdx = dataTable.Rows.Count - 1;
+                            admpiw.liveADMRowIdx = rowIdx;
 
+                            rowToUpdate[(int)OPTION_LIVE_ADM_DATA_COLUMNS.ID] =
+                                            dataRowId;
 
-                                admpiw.liveADMRowIdx = rowIdx;
-
-
-                                dataTable.Rows[rowIdx][(int)OPTION_LIVE_ADM_DATA_COLUMNS.CONTRACT] =
+                            rowToUpdate[(int)OPTION_LIVE_ADM_DATA_COLUMNS.CONTRACT] =
                                             admpiw.asset.cqgsymbol;
 
+                            DateTime currentDate = DateTime.Now;
 
-                                DateTime currentDate = DateTime.Now;
-
-
-                                dataTable.Rows[rowIdx][(int)OPTION_LIVE_ADM_DATA_COLUMNS.POFFIC] =
+                            rowToUpdate[(int)OPTION_LIVE_ADM_DATA_COLUMNS.POFFIC] =
                                     admpiw.POFFIC;
 
-                                dataTable.Rows[rowIdx][(int)OPTION_LIVE_ADM_DATA_COLUMNS.PACCT] =
+                            rowToUpdate[(int)OPTION_LIVE_ADM_DATA_COLUMNS.PACCT] =
                                     admpiw.PACCT;
 
 
-                                dataTable.Rows[rowIdx][(int)OPTION_LIVE_ADM_DATA_COLUMNS.NET_EDITABLE] =
-                                    admpiw.netContractsEditable;
+                            rowToUpdate[(int)OPTION_LIVE_ADM_DATA_COLUMNS.NET_EDITABLE] =
+                                admpiw.netContractsEditable;
 
-                                dataTable.Rows[rowIdx][(int)OPTION_LIVE_ADM_DATA_COLUMNS.NET_AT_ADM] =
-                                    admpiw.Net;
-
-
-                                dataTable.Rows[rowIdx][(int)OPTION_LIVE_ADM_DATA_COLUMNS.LONG_TRANS] =
-                                    admpiw.transNetLong;
-
-                                dataTable.Rows[rowIdx][(int)OPTION_LIVE_ADM_DATA_COLUMNS.SHORT_TRANS] =
-                                    admpiw.transNetShort;
+                            rowToUpdate[(int)OPTION_LIVE_ADM_DATA_COLUMNS.NET_AT_ADM] =
+                                admpiw.Net;
 
 
-                                TimeSpan span = admpiw.asset.expirationdate.Date - currentDate.Date;
+                            rowToUpdate[(int)OPTION_LIVE_ADM_DATA_COLUMNS.LONG_TRANS] =
+                                admpiw.transNetLong;
 
-                                dataTable.Rows[rowIdx][(int)OPTION_LIVE_ADM_DATA_COLUMNS.CNTDN] =
-                                                    span.Days;
-
-                                dataTable.Rows[rowIdx][(int)OPTION_LIVE_ADM_DATA_COLUMNS.EXPR] =
-                                    new DateTime(
-                                                        admpiw.asset.expirationdate.Year,
-                                                        admpiw.asset.expirationdate.Month,
-                                                        admpiw.asset.expirationdate.Day,
-                                                        0,//admpiw.asset.optionExpirationTime.Hour,
-                                                        0,//admpiw.asset.optionExpirationTime.Minute,
-                                                        0
-                                                    )
-                                                    .ToString("yyyy-MM-dd HH:mm", DateTimeFormatInfo.InvariantInfo);
-
-                                dataTable.Rows[rowIdx][(int)OPTION_LIVE_ADM_DATA_COLUMNS.AVG_LONG_TRANS_PRC] =
-                                    admpiw.transAvgLongPrice;
-
-                                dataTable.Rows[rowIdx][(int)OPTION_LIVE_ADM_DATA_COLUMNS.AVG_SHORT_TRANS_PRC] =
-                                    admpiw.transAvgShortPrice;
-
-                                dataTable.Rows[rowIdx][(int)OPTION_LIVE_ADM_DATA_COLUMNS.STRIKE] =
-                                    admpiw.strike;
-
-                                dataTable.Rows[rowIdx][(int)OPTION_LIVE_ADM_DATA_COLUMNS.DESCRIP] =
-                                    admpiw.Description;
-
-                                dataTable.Rows[rowIdx][(int)OPTION_LIVE_ADM_DATA_COLUMNS.CUSIP] =
-                                    admpiw.PCUSIP;
-
-                                //dataTable.Rows[rowIdx][(int)OPTION_LIVE_ADM_DATA_COLUMNS.ADMPOSWEB_IDX] =
-                                //    admWebPositionCounter;
-
-                                dataTable.Rows[rowIdx][(int)OPTION_LIVE_ADM_DATA_COLUMNS.INSTRUMENT_ID] =
-                                    admpiw.instrument.idinstrument;
-
-                            }
-
-                            if (dataTable != null && dataTable.Rows.Count > 0 && admpiw.optionSpreadExpression != null)
-                            {
-                                UpdateCell(rowIdx, (int)OPTION_LIVE_ADM_DATA_COLUMNS.TIME,
-                                    dataTable, admpiw.optionSpreadExpression.lastTimeUpdated.ToString("yyyy-MM-dd HH:mm", DateTimeFormatInfo.InvariantInfo));
-                                //dataTable.Rows[rowIdx][(int)OPTION_LIVE_ADM_DATA_COLUMNS.TIME] =
-                                //        admpiw.optionSpreadExpression.lastTimeUpdated.ToString("yyyy-MM-dd HH:mm", DateTimeFormatInfo.InvariantInfo);
-
-                                //if (admpiw.optionSpreadExpression.cqgInstrument != null)
-
-                                UpdateCell(rowIdx, (int)OPTION_LIVE_ADM_DATA_COLUMNS.ASK,
-                                    dataTable, admpiw.optionSpreadExpression.ask.ToString());
-                                //dataTable.Rows[rowIdx][(int)OPTION_LIVE_ADM_DATA_COLUMNS.ASK] =
-                                //    (admpiw.optionSpreadExpression.ask);
-
-                                UpdateCell(rowIdx, (int)OPTION_LIVE_ADM_DATA_COLUMNS.BID,
-                                    dataTable, admpiw.optionSpreadExpression.bid.ToString());
-                                //dataTable.Rows[rowIdx][(int)OPTION_LIVE_ADM_DATA_COLUMNS.BID] =
-                                //    (admpiw.optionSpreadExpression.bid);
-
-                                UpdateCell(rowIdx, (int)OPTION_LIVE_ADM_DATA_COLUMNS.LAST,
-                                    dataTable, admpiw.optionSpreadExpression.trade.ToString());
-                                //dataTable.Rows[rowIdx][(int)OPTION_LIVE_ADM_DATA_COLUMNS.LAST] =
-                                //    (admpiw.optionSpreadExpression.trade);
-
-                                UpdateCell(rowIdx, (int)OPTION_LIVE_ADM_DATA_COLUMNS.DFLT_PRICE,
-                                    dataTable, admpiw.optionSpreadExpression.defaultPrice.ToString());
-                                //dataTable.Rows[rowIdx][(int)OPTION_LIVE_ADM_DATA_COLUMNS.DFLT_PRICE] =
-                                //    (admpiw.optionSpreadExpression.defaultPrice);
-
-                                UpdateCell(rowIdx, (int)OPTION_LIVE_ADM_DATA_COLUMNS.STTLE,
-                                    dataTable, admpiw.optionSpreadExpression.settlement.ToString());
-                                //dataTable.Rows[rowIdx][(int)OPTION_LIVE_ADM_DATA_COLUMNS.STTLE] =
-                                //    (admpiw.optionSpreadExpression.settlement);
-
-                                UpdateCell(rowIdx, (int)OPTION_LIVE_ADM_DATA_COLUMNS.THEOR_PRICE,
-                                    dataTable, admpiw.optionSpreadExpression.theoreticalOptionPrice.ToString());
-                                //dataTable.Rows[rowIdx][(int)OPTION_LIVE_ADM_DATA_COLUMNS.THEOR_PRICE] =
-                                //    (admpiw.optionSpreadExpression.theoreticalOptionPrice);
-
-                                UpdateCell(rowIdx, (int)OPTION_LIVE_ADM_DATA_COLUMNS.SETL_TIME,
-                                    dataTable, admpiw.optionSpreadExpression.settlementDateTime.ToString("yyyy-MM-dd HH:mm", DateTimeFormatInfo.InvariantInfo));
-                                //dataTable.Rows[rowIdx][(int)OPTION_LIVE_ADM_DATA_COLUMNS.SETL_TIME] =
-                                //        admpiw.optionSpreadExpression.settlementDateTime.ToString("yyyy-MM-dd HH:mm", DateTimeFormatInfo.InvariantInfo);
-
-                                UpdateCell(rowIdx, (int)OPTION_LIVE_ADM_DATA_COLUMNS.YEST_STTLE,
-                                    dataTable, admpiw.optionSpreadExpression.yesterdaySettlementDateTime.ToString("yyyy-MM-dd HH:mm", DateTimeFormatInfo.InvariantInfo));
-                                //dataTable.Rows[rowIdx][(int)OPTION_LIVE_ADM_DATA_COLUMNS.YEST_STTLE] =
-                                //        admpiw.optionSpreadExpression.yesterdaySettlementDateTime.ToString("yyyy-MM-dd HH:mm", DateTimeFormatInfo.InvariantInfo);
-
-                                UpdateCell(rowIdx, (int)OPTION_LIVE_ADM_DATA_COLUMNS.IMPL_VOL,
-                                    dataTable, Math.Round(admpiw.optionSpreadExpression.impliedVol, 2).ToString());
-                                //dataTable.Rows[rowIdx][(int)OPTION_LIVE_ADM_DATA_COLUMNS.IMPL_VOL] =
-                                //        Math.Round(admpiw.optionSpreadExpression.impliedVol, 2);
-
-                                UpdateCell(rowIdx, (int)OPTION_LIVE_ADM_DATA_COLUMNS.SPAN_IMPL_VOL,
-                                    dataTable, Math.Round(admpiw.optionSpreadExpression.impliedVolFromSpan, 2).ToString());
-                                //dataTable.Rows[rowIdx][(int)OPTION_LIVE_ADM_DATA_COLUMNS.SPAN_IMPL_VOL] =
-                                //        Math.Round(admpiw.optionSpreadExpression.impliedVolFromSpan, 2);
-
-                                UpdateCell(rowIdx, (int)OPTION_LIVE_ADM_DATA_COLUMNS.SETL_IMPL_VOL,
-                                    dataTable, Math.Round(admpiw.optionSpreadExpression.settlementImpliedVol, 2).ToString());
-                                //dataTable.Rows[rowIdx][(int)OPTION_LIVE_ADM_DATA_COLUMNS.SETL_IMPL_VOL] =
-                                //        Math.Round(admpiw.optionSpreadExpression.settlementImpliedVol, 2);
-
-                                UpdateCell(rowIdx, (int)OPTION_LIVE_ADM_DATA_COLUMNS.RFR,
-                                    dataTable, admpiw.optionSpreadExpression.riskFreeRate.ToString());
-                                //dataTable.Rows[rowIdx][(int)OPTION_LIVE_ADM_DATA_COLUMNS.RFR] =
-                                //        admpiw.optionSpreadExpression.riskFreeRate;
-
-                                UpdateCell(rowIdx, (int)OPTION_LIVE_ADM_DATA_COLUMNS.PL_DAY_CHG,
-                                    dataTable, Math.Round(admpiw.positionTotals.pAndLDay, 2).ToString());
-                                //dataTable.Rows[rowIdx][(int)OPTION_LIVE_ADM_DATA_COLUMNS.PL_DAY_CHG] =
-                                //        Math.Round(admpiw.positionTotals.pAndLDay, 2);
-
-                                UpdateCell(rowIdx, (int)OPTION_LIVE_ADM_DATA_COLUMNS.PL_TRANS,
-                                    dataTable, Math.Round(admpiw.positionTotals.pAndLDayOrders, 2).ToString());
-                                //dataTable.Rows[rowIdx][(int)OPTION_LIVE_ADM_DATA_COLUMNS.PL_TRANS] =
-                                //        Math.Round(admpiw.positionTotals.pAndLDayOrders, 2);
-
-                                UpdateCell(rowIdx, (int)OPTION_LIVE_ADM_DATA_COLUMNS.DELTA,
-                                    dataTable, Math.Round(admpiw.positionTotals.delta, 2).ToString());
-                                //dataTable.Rows[rowIdx][(int)OPTION_LIVE_ADM_DATA_COLUMNS.DELTA] =
-                                //        Math.Round(admpiw.positionTotals.delta, 2);
+                            rowToUpdate[(int)OPTION_LIVE_ADM_DATA_COLUMNS.SHORT_TRANS] =
+                                admpiw.transNetShort;
 
 
-                            }
+                            TimeSpan span = admpiw.asset.expirationdate.Date - currentDate.Date;
 
-                            //*********************************
+                            rowToUpdate[(int)OPTION_LIVE_ADM_DATA_COLUMNS.CNTDN] =
+                                                span.Days;
 
+                            rowToUpdate[(int)OPTION_LIVE_ADM_DATA_COLUMNS.EXPR] =
+                                new DateTime(
+                                                    admpiw.asset.expirationdate.Year,
+                                                    admpiw.asset.expirationdate.Month,
+                                                    admpiw.asset.expirationdate.Day,
+                                                    0,//admpiw.asset.optionExpirationTime.Hour,
+                                                    0,//admpiw.asset.optionExpirationTime.Minute,
+                                                    0
+                                                )
+                                                .ToString("yyyy-MM-dd HH:mm", DateTimeFormatInfo.InvariantInfo);
 
-                            rowIdx++;
+                            rowToUpdate[(int)OPTION_LIVE_ADM_DATA_COLUMNS.AVG_LONG_TRANS_PRC] =
+                                admpiw.transAvgLongPrice;
 
-                            //rowIdx += liveADMStrategyInfoList[stratCounter].admLegInfo.Count + 1;
+                            rowToUpdate[(int)OPTION_LIVE_ADM_DATA_COLUMNS.AVG_SHORT_TRANS_PRC] =
+                                admpiw.transAvgShortPrice;
 
+                            rowToUpdate[(int)OPTION_LIVE_ADM_DATA_COLUMNS.STRIKE] =
+                                admpiw.strike;
+
+                            rowToUpdate[(int)OPTION_LIVE_ADM_DATA_COLUMNS.DESCRIP] =
+                                admpiw.Description;
+
+                            rowToUpdate[(int)OPTION_LIVE_ADM_DATA_COLUMNS.CUSIP] =
+                                admpiw.PCUSIP;
+
+                            rowToUpdate[(int)OPTION_LIVE_ADM_DATA_COLUMNS.INSTRUMENT_ID] =
+                                admpiw.instrument.idinstrument;
+
+                        }
+
+                        rowToUpdate[(int)OPTION_LIVE_ADM_DATA_COLUMNS.UPDATED] = true;
+
+                        if (dataTable != null && dataTable.Rows.Count > 0 && admpiw.optionSpreadExpression != null)
+                        {
+                            UpdateCell(rowIdx, (int)OPTION_LIVE_ADM_DATA_COLUMNS.TIME,
+                                dataTable, admpiw.optionSpreadExpression.lastTimeUpdated.ToString("yyyy-MM-dd HH:mm", DateTimeFormatInfo.InvariantInfo));
+                            //rowToUpdate[(int)OPTION_LIVE_ADM_DATA_COLUMNS.TIME] =
+                            //        admpiw.optionSpreadExpression.lastTimeUpdated.ToString("yyyy-MM-dd HH:mm", DateTimeFormatInfo.InvariantInfo);
+
+                            //if (admpiw.optionSpreadExpression.cqgInstrument != null)
+
+                            UpdateCell(rowIdx, (int)OPTION_LIVE_ADM_DATA_COLUMNS.ASK,
+                                dataTable, admpiw.optionSpreadExpression.ask.ToString());
+                            //rowToUpdate[(int)OPTION_LIVE_ADM_DATA_COLUMNS.ASK] =
+                            //    (admpiw.optionSpreadExpression.ask);
+
+                            UpdateCell(rowIdx, (int)OPTION_LIVE_ADM_DATA_COLUMNS.BID,
+                                dataTable, admpiw.optionSpreadExpression.bid.ToString());
+                            //rowToUpdate[(int)OPTION_LIVE_ADM_DATA_COLUMNS.BID] =
+                            //    (admpiw.optionSpreadExpression.bid);
+
+                            UpdateCell(rowIdx, (int)OPTION_LIVE_ADM_DATA_COLUMNS.LAST,
+                                dataTable, admpiw.optionSpreadExpression.trade.ToString());
+                            //rowToUpdate[(int)OPTION_LIVE_ADM_DATA_COLUMNS.LAST] =
+                            //    (admpiw.optionSpreadExpression.trade);
+
+                            UpdateCell(rowIdx, (int)OPTION_LIVE_ADM_DATA_COLUMNS.DFLT_PRICE,
+                                dataTable, admpiw.optionSpreadExpression.defaultPrice.ToString());
+                            //rowToUpdate[(int)OPTION_LIVE_ADM_DATA_COLUMNS.DFLT_PRICE] =
+                            //    (admpiw.optionSpreadExpression.defaultPrice);
+
+                            UpdateCell(rowIdx, (int)OPTION_LIVE_ADM_DATA_COLUMNS.STTLE,
+                                dataTable, admpiw.optionSpreadExpression.settlement.ToString());
+                            //rowToUpdate[(int)OPTION_LIVE_ADM_DATA_COLUMNS.STTLE] =
+                            //    (admpiw.optionSpreadExpression.settlement);
+
+                            UpdateCell(rowIdx, (int)OPTION_LIVE_ADM_DATA_COLUMNS.THEOR_PRICE,
+                                dataTable, admpiw.optionSpreadExpression.theoreticalOptionPrice.ToString());
+                            //rowToUpdate[(int)OPTION_LIVE_ADM_DATA_COLUMNS.THEOR_PRICE] =
+                            //    (admpiw.optionSpreadExpression.theoreticalOptionPrice);
+
+                            UpdateCell(rowIdx, (int)OPTION_LIVE_ADM_DATA_COLUMNS.SETL_TIME,
+                                dataTable, admpiw.optionSpreadExpression.settlementDateTime.ToString("yyyy-MM-dd HH:mm", DateTimeFormatInfo.InvariantInfo));
+                            //rowToUpdate[(int)OPTION_LIVE_ADM_DATA_COLUMNS.SETL_TIME] =
+                            //        admpiw.optionSpreadExpression.settlementDateTime.ToString("yyyy-MM-dd HH:mm", DateTimeFormatInfo.InvariantInfo);
+
+                            UpdateCell(rowIdx, (int)OPTION_LIVE_ADM_DATA_COLUMNS.YEST_STTLE,
+                                dataTable, admpiw.optionSpreadExpression.yesterdaySettlementDateTime.ToString("yyyy-MM-dd HH:mm", DateTimeFormatInfo.InvariantInfo));
+                            //rowToUpdate[(int)OPTION_LIVE_ADM_DATA_COLUMNS.YEST_STTLE] =
+                            //        admpiw.optionSpreadExpression.yesterdaySettlementDateTime.ToString("yyyy-MM-dd HH:mm", DateTimeFormatInfo.InvariantInfo);
+
+                            UpdateCell(rowIdx, (int)OPTION_LIVE_ADM_DATA_COLUMNS.IMPL_VOL,
+                                dataTable, Math.Round(admpiw.optionSpreadExpression.impliedVol, 2).ToString());
+                            //rowToUpdate[(int)OPTION_LIVE_ADM_DATA_COLUMNS.IMPL_VOL] =
+                            //        Math.Round(admpiw.optionSpreadExpression.impliedVol, 2);
+
+                            UpdateCell(rowIdx, (int)OPTION_LIVE_ADM_DATA_COLUMNS.SPAN_IMPL_VOL,
+                                dataTable, Math.Round(admpiw.optionSpreadExpression.impliedVolFromSpan, 2).ToString());
+                            //rowToUpdate[(int)OPTION_LIVE_ADM_DATA_COLUMNS.SPAN_IMPL_VOL] =
+                            //        Math.Round(admpiw.optionSpreadExpression.impliedVolFromSpan, 2);
+
+                            UpdateCell(rowIdx, (int)OPTION_LIVE_ADM_DATA_COLUMNS.SETL_IMPL_VOL,
+                                dataTable, Math.Round(admpiw.optionSpreadExpression.settlementImpliedVol, 2).ToString());
+                            //rowToUpdate[(int)OPTION_LIVE_ADM_DATA_COLUMNS.SETL_IMPL_VOL] =
+                            //        Math.Round(admpiw.optionSpreadExpression.settlementImpliedVol, 2);
+
+                            UpdateCell(rowIdx, (int)OPTION_LIVE_ADM_DATA_COLUMNS.RFR,
+                                dataTable, admpiw.optionSpreadExpression.riskFreeRate.ToString());
+                            //rowToUpdate[(int)OPTION_LIVE_ADM_DATA_COLUMNS.RFR] =
+                            //        admpiw.optionSpreadExpression.riskFreeRate;
+
+                            UpdateCell(rowIdx, (int)OPTION_LIVE_ADM_DATA_COLUMNS.PL_DAY_CHG,
+                                dataTable, Math.Round(admpiw.positionTotals.pAndLDay, 2).ToString());
+                            //rowToUpdate[(int)OPTION_LIVE_ADM_DATA_COLUMNS.PL_DAY_CHG] =
+                            //        Math.Round(admpiw.positionTotals.pAndLDay, 2);
+
+                            UpdateCell(rowIdx, (int)OPTION_LIVE_ADM_DATA_COLUMNS.PL_TRANS,
+                                dataTable, Math.Round(admpiw.positionTotals.pAndLDayOrders, 2).ToString());
+                            //rowToUpdate[(int)OPTION_LIVE_ADM_DATA_COLUMNS.PL_TRANS] =
+                            //        Math.Round(admpiw.positionTotals.pAndLDayOrders, 2);
+
+                            UpdateCell(rowIdx, (int)OPTION_LIVE_ADM_DATA_COLUMNS.DELTA,
+                                dataTable, Math.Round(admpiw.positionTotals.delta, 2).ToString());
+                            //rowToUpdate[(int)OPTION_LIVE_ADM_DATA_COLUMNS.DELTA] =
+                            //        Math.Round(admpiw.positionTotals.delta, 2);
 
 
                         }
+
+                        //*********************************
+
+
+                        rowIdx++;
+
+                        //rowIdx += liveADMStrategyInfoList[stratCounter].admLegInfo.Count + 1;
+
+
+
                     }
                 }
 
-                //updateColorOfADMStrategyGrid();
+
+                DataRow[] result = dataTable.Select(OPTION_LIVE_ADM_DATA_COLUMNS.UPDATED.ToString() + "=false");
+
+                foreach (DataRow r in result)
+                {
+                    r.Delete();
+                }
+
+                DataCollectionLibrary.FCM_SummaryDataTable = dataTable;
+
+                int saveRow = 0;
+                int saveCol = 0;
+                if (gridLiveFCMData.Rows.Count > 0 && gridLiveFCMData.FirstDisplayedCell != null)
+                    saveRow = gridLiveFCMData.FirstDisplayedCell.RowIndex;
+
+                if (gridLiveFCMData.Columns.Count > 0 && gridLiveFCMData.FirstDisplayedCell != null)
+                    saveCol = gridLiveFCMData.FirstDisplayedCell.ColumnIndex;
+
+                gridLiveFCMData.DataSource = DataCollectionLibrary.FCM_SummaryDataTable;
+
+                if (saveRow != 0 && saveRow < gridLiveFCMData.Rows.Count)
+                    gridLiveFCMData.FirstDisplayedScrollingRowIndex = saveRow;
+
+                if (saveCol != 0 && saveCol < gridLiveFCMData.Columns.Count)
+                    gridLiveFCMData.FirstDisplayedScrollingColumnIndex = saveCol;
 
             }
             catch (Exception ex)
@@ -300,6 +331,224 @@ namespace RealtimeSpreadMonitor.FormManipulation
                 TSErrorCatch.errorCatchOut(Convert.ToString(this), ex);
             }
         }
+
+
+        //internal void _FillFCMSummary(bool fullRefresh)
+        //{
+        //    try
+        //    {
+        //        DataTable dataTable = DataCollectionLibrary.FCM_SummaryDataTable;
+
+        //        if (fullRefresh)
+        //        {
+        //            dataTable.Rows.Clear();
+        //        }
+
+        //        int rowIdx = 0;
+
+
+        //        List<ADMPositionImportWeb> admPositionImportWeb = FCM_DataImportLibrary.FCM_Import_Consolidated;
+
+
+
+        //        {
+
+        //            foreach (ADMPositionImportWeb admpiw in admPositionImportWeb)
+        //            {
+        //                //if (admPositionImportWeb[admWebPositionCounter].instrument.idinstrument 
+        //                //        == DataCollectionLibrary.instrumentList[instrumentCnt].idinstrument)
+        //                if ((admpiw.instrument.idinstrument == DataCollectionLibrary.instrumentSelectedInTreeGui
+        //                        || DataCollectionLibrary.instrumentSelectedInTreeGui == TradingSystemConstants.ALL_INSTRUMENTS_SELECTED)
+        //                        &&
+        //                        admpiw.acctGroup.visible)
+        //                {
+        //                    if (fullRefresh)
+        //                    {
+        //                        dataTable.Rows.Add();
+
+        //                        rowIdx = dataTable.Rows.Count - 1;
+
+
+        //                        admpiw.liveADMRowIdx = rowIdx;
+
+
+        //                        dataTable.Rows[rowIdx][(int)OPTION_LIVE_ADM_DATA_COLUMNS.CONTRACT] =
+        //                                    admpiw.asset.cqgsymbol;
+
+
+        //                        DateTime currentDate = DateTime.Now;
+
+
+        //                        dataTable.Rows[rowIdx][(int)OPTION_LIVE_ADM_DATA_COLUMNS.POFFIC] =
+        //                            admpiw.POFFIC;
+
+        //                        dataTable.Rows[rowIdx][(int)OPTION_LIVE_ADM_DATA_COLUMNS.PACCT] =
+        //                            admpiw.PACCT;
+
+
+        //                        dataTable.Rows[rowIdx][(int)OPTION_LIVE_ADM_DATA_COLUMNS.NET_EDITABLE] =
+        //                            admpiw.netContractsEditable;
+
+        //                        dataTable.Rows[rowIdx][(int)OPTION_LIVE_ADM_DATA_COLUMNS.NET_AT_ADM] =
+        //                            admpiw.Net;
+
+
+        //                        dataTable.Rows[rowIdx][(int)OPTION_LIVE_ADM_DATA_COLUMNS.LONG_TRANS] =
+        //                            admpiw.transNetLong;
+
+        //                        dataTable.Rows[rowIdx][(int)OPTION_LIVE_ADM_DATA_COLUMNS.SHORT_TRANS] =
+        //                            admpiw.transNetShort;
+
+
+        //                        TimeSpan span = admpiw.asset.expirationdate.Date - currentDate.Date;
+
+        //                        dataTable.Rows[rowIdx][(int)OPTION_LIVE_ADM_DATA_COLUMNS.CNTDN] =
+        //                                            span.Days;
+
+        //                        dataTable.Rows[rowIdx][(int)OPTION_LIVE_ADM_DATA_COLUMNS.EXPR] =
+        //                            new DateTime(
+        //                                                admpiw.asset.expirationdate.Year,
+        //                                                admpiw.asset.expirationdate.Month,
+        //                                                admpiw.asset.expirationdate.Day,
+        //                                                0,//admpiw.asset.optionExpirationTime.Hour,
+        //                                                0,//admpiw.asset.optionExpirationTime.Minute,
+        //                                                0
+        //                                            )
+        //                                            .ToString("yyyy-MM-dd HH:mm", DateTimeFormatInfo.InvariantInfo);
+
+        //                        dataTable.Rows[rowIdx][(int)OPTION_LIVE_ADM_DATA_COLUMNS.AVG_LONG_TRANS_PRC] =
+        //                            admpiw.transAvgLongPrice;
+
+        //                        dataTable.Rows[rowIdx][(int)OPTION_LIVE_ADM_DATA_COLUMNS.AVG_SHORT_TRANS_PRC] =
+        //                            admpiw.transAvgShortPrice;
+
+        //                        dataTable.Rows[rowIdx][(int)OPTION_LIVE_ADM_DATA_COLUMNS.STRIKE] =
+        //                            admpiw.strike;
+
+        //                        dataTable.Rows[rowIdx][(int)OPTION_LIVE_ADM_DATA_COLUMNS.DESCRIP] =
+        //                            admpiw.Description;
+
+        //                        dataTable.Rows[rowIdx][(int)OPTION_LIVE_ADM_DATA_COLUMNS.CUSIP] =
+        //                            admpiw.PCUSIP;
+
+        //                        //dataTable.Rows[rowIdx][(int)OPTION_LIVE_ADM_DATA_COLUMNS.ADMPOSWEB_IDX] =
+        //                        //    admWebPositionCounter;
+
+        //                        dataTable.Rows[rowIdx][(int)OPTION_LIVE_ADM_DATA_COLUMNS.INSTRUMENT_ID] =
+        //                            admpiw.instrument.idinstrument;
+
+        //                    }
+
+        //                    if (dataTable != null && dataTable.Rows.Count > 0 && admpiw.optionSpreadExpression != null)
+        //                    {
+        //                        UpdateCell(rowIdx, (int)OPTION_LIVE_ADM_DATA_COLUMNS.TIME,
+        //                            dataTable, admpiw.optionSpreadExpression.lastTimeUpdated.ToString("yyyy-MM-dd HH:mm", DateTimeFormatInfo.InvariantInfo));
+        //                        //dataTable.Rows[rowIdx][(int)OPTION_LIVE_ADM_DATA_COLUMNS.TIME] =
+        //                        //        admpiw.optionSpreadExpression.lastTimeUpdated.ToString("yyyy-MM-dd HH:mm", DateTimeFormatInfo.InvariantInfo);
+
+        //                        //if (admpiw.optionSpreadExpression.cqgInstrument != null)
+
+        //                        UpdateCell(rowIdx, (int)OPTION_LIVE_ADM_DATA_COLUMNS.ASK,
+        //                            dataTable, admpiw.optionSpreadExpression.ask.ToString());
+        //                        //dataTable.Rows[rowIdx][(int)OPTION_LIVE_ADM_DATA_COLUMNS.ASK] =
+        //                        //    (admpiw.optionSpreadExpression.ask);
+
+        //                        UpdateCell(rowIdx, (int)OPTION_LIVE_ADM_DATA_COLUMNS.BID,
+        //                            dataTable, admpiw.optionSpreadExpression.bid.ToString());
+        //                        //dataTable.Rows[rowIdx][(int)OPTION_LIVE_ADM_DATA_COLUMNS.BID] =
+        //                        //    (admpiw.optionSpreadExpression.bid);
+
+        //                        UpdateCell(rowIdx, (int)OPTION_LIVE_ADM_DATA_COLUMNS.LAST,
+        //                            dataTable, admpiw.optionSpreadExpression.trade.ToString());
+        //                        //dataTable.Rows[rowIdx][(int)OPTION_LIVE_ADM_DATA_COLUMNS.LAST] =
+        //                        //    (admpiw.optionSpreadExpression.trade);
+
+        //                        UpdateCell(rowIdx, (int)OPTION_LIVE_ADM_DATA_COLUMNS.DFLT_PRICE,
+        //                            dataTable, admpiw.optionSpreadExpression.defaultPrice.ToString());
+        //                        //dataTable.Rows[rowIdx][(int)OPTION_LIVE_ADM_DATA_COLUMNS.DFLT_PRICE] =
+        //                        //    (admpiw.optionSpreadExpression.defaultPrice);
+
+        //                        UpdateCell(rowIdx, (int)OPTION_LIVE_ADM_DATA_COLUMNS.STTLE,
+        //                            dataTable, admpiw.optionSpreadExpression.settlement.ToString());
+        //                        //dataTable.Rows[rowIdx][(int)OPTION_LIVE_ADM_DATA_COLUMNS.STTLE] =
+        //                        //    (admpiw.optionSpreadExpression.settlement);
+
+        //                        UpdateCell(rowIdx, (int)OPTION_LIVE_ADM_DATA_COLUMNS.THEOR_PRICE,
+        //                            dataTable, admpiw.optionSpreadExpression.theoreticalOptionPrice.ToString());
+        //                        //dataTable.Rows[rowIdx][(int)OPTION_LIVE_ADM_DATA_COLUMNS.THEOR_PRICE] =
+        //                        //    (admpiw.optionSpreadExpression.theoreticalOptionPrice);
+
+        //                        UpdateCell(rowIdx, (int)OPTION_LIVE_ADM_DATA_COLUMNS.SETL_TIME,
+        //                            dataTable, admpiw.optionSpreadExpression.settlementDateTime.ToString("yyyy-MM-dd HH:mm", DateTimeFormatInfo.InvariantInfo));
+        //                        //dataTable.Rows[rowIdx][(int)OPTION_LIVE_ADM_DATA_COLUMNS.SETL_TIME] =
+        //                        //        admpiw.optionSpreadExpression.settlementDateTime.ToString("yyyy-MM-dd HH:mm", DateTimeFormatInfo.InvariantInfo);
+
+        //                        UpdateCell(rowIdx, (int)OPTION_LIVE_ADM_DATA_COLUMNS.YEST_STTLE,
+        //                            dataTable, admpiw.optionSpreadExpression.yesterdaySettlementDateTime.ToString("yyyy-MM-dd HH:mm", DateTimeFormatInfo.InvariantInfo));
+        //                        //dataTable.Rows[rowIdx][(int)OPTION_LIVE_ADM_DATA_COLUMNS.YEST_STTLE] =
+        //                        //        admpiw.optionSpreadExpression.yesterdaySettlementDateTime.ToString("yyyy-MM-dd HH:mm", DateTimeFormatInfo.InvariantInfo);
+
+        //                        UpdateCell(rowIdx, (int)OPTION_LIVE_ADM_DATA_COLUMNS.IMPL_VOL,
+        //                            dataTable, Math.Round(admpiw.optionSpreadExpression.impliedVol, 2).ToString());
+        //                        //dataTable.Rows[rowIdx][(int)OPTION_LIVE_ADM_DATA_COLUMNS.IMPL_VOL] =
+        //                        //        Math.Round(admpiw.optionSpreadExpression.impliedVol, 2);
+
+        //                        UpdateCell(rowIdx, (int)OPTION_LIVE_ADM_DATA_COLUMNS.SPAN_IMPL_VOL,
+        //                            dataTable, Math.Round(admpiw.optionSpreadExpression.impliedVolFromSpan, 2).ToString());
+        //                        //dataTable.Rows[rowIdx][(int)OPTION_LIVE_ADM_DATA_COLUMNS.SPAN_IMPL_VOL] =
+        //                        //        Math.Round(admpiw.optionSpreadExpression.impliedVolFromSpan, 2);
+
+        //                        UpdateCell(rowIdx, (int)OPTION_LIVE_ADM_DATA_COLUMNS.SETL_IMPL_VOL,
+        //                            dataTable, Math.Round(admpiw.optionSpreadExpression.settlementImpliedVol, 2).ToString());
+        //                        //dataTable.Rows[rowIdx][(int)OPTION_LIVE_ADM_DATA_COLUMNS.SETL_IMPL_VOL] =
+        //                        //        Math.Round(admpiw.optionSpreadExpression.settlementImpliedVol, 2);
+
+        //                        UpdateCell(rowIdx, (int)OPTION_LIVE_ADM_DATA_COLUMNS.RFR,
+        //                            dataTable, admpiw.optionSpreadExpression.riskFreeRate.ToString());
+        //                        //dataTable.Rows[rowIdx][(int)OPTION_LIVE_ADM_DATA_COLUMNS.RFR] =
+        //                        //        admpiw.optionSpreadExpression.riskFreeRate;
+
+        //                        UpdateCell(rowIdx, (int)OPTION_LIVE_ADM_DATA_COLUMNS.PL_DAY_CHG,
+        //                            dataTable, Math.Round(admpiw.positionTotals.pAndLDay, 2).ToString());
+        //                        //dataTable.Rows[rowIdx][(int)OPTION_LIVE_ADM_DATA_COLUMNS.PL_DAY_CHG] =
+        //                        //        Math.Round(admpiw.positionTotals.pAndLDay, 2);
+
+        //                        UpdateCell(rowIdx, (int)OPTION_LIVE_ADM_DATA_COLUMNS.PL_TRANS,
+        //                            dataTable, Math.Round(admpiw.positionTotals.pAndLDayOrders, 2).ToString());
+        //                        //dataTable.Rows[rowIdx][(int)OPTION_LIVE_ADM_DATA_COLUMNS.PL_TRANS] =
+        //                        //        Math.Round(admpiw.positionTotals.pAndLDayOrders, 2);
+
+        //                        UpdateCell(rowIdx, (int)OPTION_LIVE_ADM_DATA_COLUMNS.DELTA,
+        //                            dataTable, Math.Round(admpiw.positionTotals.delta, 2).ToString());
+        //                        //dataTable.Rows[rowIdx][(int)OPTION_LIVE_ADM_DATA_COLUMNS.DELTA] =
+        //                        //        Math.Round(admpiw.positionTotals.delta, 2);
+
+
+        //                    }
+
+        //                    //*********************************
+
+
+        //                    rowIdx++;
+
+        //                    //rowIdx += liveADMStrategyInfoList[stratCounter].admLegInfo.Count + 1;
+
+
+
+        //                }
+        //            }
+        //        }
+
+        //        //updateColorOfADMStrategyGrid();
+
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        TSErrorCatch.errorCatchOut(Convert.ToString(this), ex);
+        //    }
+
+        //    //return liveLegRowIdexes;
+        //}
 
         //internal void setupGridLiveADMDataXXX(OptionRealtimeMonitor optionRealtimeMonitor)
         //{

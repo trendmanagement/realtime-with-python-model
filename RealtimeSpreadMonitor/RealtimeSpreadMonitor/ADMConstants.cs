@@ -174,5 +174,7 @@ namespace RealtimeSpreadMonitor
         CUSIP,
         //ADMPOSWEB_IDX,
         INSTRUMENT_ID,
+        ID,
+        UPDATED
     };
 }

@@ -120,7 +120,7 @@ namespace RealtimeSpreadMonitor.Model
         /// used for the updating of data in the contract summary
         /// </summary>
         internal static DataTable contractSummaryDataTable = new DataTable();
-        internal static bool performFullContractRefresh = true;
+        //internal static bool performFullContractRefresh = true;
 
         /// <summary>
         /// used for the updating of data in the FCM summary

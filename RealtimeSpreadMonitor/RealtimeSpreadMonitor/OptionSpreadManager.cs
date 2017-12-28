@@ -587,17 +587,13 @@ namespace RealtimeSpreadMonitor
 
         internal void RefreshAccountInfo()
         {
-            //DataCollectionLibrary.accountPositionsList = MongoDBConnectionAndSetup.GetAccountPositionsInfoFromMongo(DataCollectionLibrary.accountNameList);
-
-            //AdjustQtyBasedOnDate();
-
             FillAccountPosition(false);
 
             FillProductCodeInPositionsFromModel();
 
             AppendTo_optionSpreadExpressionHashTable();
 
-            DataCollectionLibrary.performFullContractRefresh = true;
+           // DataCollectionLibrary.performFullContractRefresh = true;
         }
 
 
@@ -613,12 +609,25 @@ namespace RealtimeSpreadMonitor
             public DateTime stopTime;
         }
 
+        internal void RefreshData_CallsForAccountAndFutures(Object obj)
+        {
+            if ((bool)obj)
+            {
+                RefreshAccountInfo();
+            }
+
+            RefreshFuturesData();
+        }
+
         internal void RefreshFuturesData()
         {
             //DataCollectionLibrary.accountPositionsList = MongoDBConnectionAndSetup.GetAccountPositionsInfoFromMongo(DataCollectionLibrary.accountNameList);
 
             //AdjustQtyBasedOnDate();
+
             
+
+
 
             List<IdAndBarTime> idcontractDecisionTimeList = new List<IdAndBarTime>();
             List<IdAndBarTime> idcontractTransactionTimeList = new List<IdAndBarTime>();
@@ -633,18 +642,18 @@ namespace RealtimeSpreadMonitor
             {
                 if (ose.callPutOrFuture == OPTION_SPREAD_CONTRACT_TYPE.FUTURE)
                 {
-                    if (!ose.decisionPriceFilled
+                    if (!ose.decisionPriceTimePassed
                                 && currentTime.CompareTo(ose.todayDecisionTime) > 0)
                     {
-                        ose.decisionPriceFilled = true;                        
+                        ose.decisionPriceTimePassed = true;                        
 
                         idcontractDecisionTimeList.Add(new IdAndBarTime(ose.asset.idcontract, ose.todayDecisionTime));
                     }
 
-                    if (!ose.transactionPriceFilled
+                    if (!ose.transactionPriceTimePassed
                                 && currentTime.CompareTo(ose.todayTransactionTimeBoundary) > 0)
                     {
-                        ose.transactionPriceFilled = true;
+                        ose.transactionPriceTimePassed = true;
 
                         idcontractTransactionTimeList.Add(new IdAndBarTime(ose.asset.idcontract, ose.todayDecisionTime));
                     }
@@ -663,8 +672,8 @@ namespace RealtimeSpreadMonitor
                     Futures_Contract_Minutebars futuresContractMinutebars =
                         MongoDBConnectionAndSetup.GetFuturesContractDecisionTransactionMinutebars(
                             idBarTime.idcontract, barqueryStartDate, idBarTime.stopTime);
-
-                    dataManagement.fillFutureDecisionTransactionDataAfterRealtimeMongoRequest(futuresContractMinutebars, true);
+                    if(futuresContractMinutebars != null)
+                        dataManagement.fillFutureDecisionTransactionDataAfterRealtimeMongoRequest(futuresContractMinutebars, true);
                 }
             }
 
@@ -677,7 +686,8 @@ namespace RealtimeSpreadMonitor
                         MongoDBConnectionAndSetup.GetFuturesContractDecisionTransactionMinutebars(
                             idBarTime.idcontract, barqueryStartDate, idBarTime.stopTime);
 
-                    dataManagement.fillFutureDecisionTransactionDataAfterRealtimeMongoRequest(futuresContractMinutebars, false);
+                    if (futuresContractMinutebars != null)
+                        dataManagement.fillFutureDecisionTransactionDataAfterRealtimeMongoRequest(futuresContractMinutebars, false);
                 }
             }
 
@@ -960,6 +970,10 @@ namespace RealtimeSpreadMonitor
                             mose.yesterdaySettlement = fcs.settlement;
                             mose.yesterdaySettlementDateTime = fcs.date;
                             mose.yesterdaySettlementFilled = true;
+
+                            mose.defaultPrice = fcs.settlement;
+
+                            mose.lastTimeUpdated = fcs.date;
                         }
                     }
                     else if (mose.asset._type.CompareTo(ASSET_TYPE_MONGO.opt.ToString()) == 0)
@@ -974,6 +988,10 @@ namespace RealtimeSpreadMonitor
                             mose.yesterdaySettlementDateTime = od.datetime;
                             mose.impliedVolFromSpan = od.impliedvol;
                             mose.yesterdaySettlementFilled = true;
+
+                            mose.defaultPrice = mose.yesterdaySettlement;
+
+                            mose.lastTimeUpdated = od.datetime;
                         }
 
                         //mose.asset.optionExpirationTime = 

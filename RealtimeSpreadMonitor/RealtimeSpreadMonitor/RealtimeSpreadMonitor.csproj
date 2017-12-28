@@ -257,7 +257,6 @@
     <Compile Include="Mongo\MongoObjectsForRealtime.cs" />
     <Compile Include="OptionCalcs.cs" />
     <Compile Include="DataManagement .cs" />
-    <Compile Include="OptionCQGDataManagement.cs" />
     <Compile Include="OptionSpreadManager.cs" />
     <Compile Include="OrderSummaryStructures.cs" />
     <Compile Include="RealtimeSpreadObjects.cs" />
@@ -265,10 +264,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SaveOutputFile.cs" />
     <Compile Include="Tests\UnitTest1.cs" />
-    <Compile Include="TMLAzureDBConnection.cs" />
-    <Compile Include="TMLModelDBConnection.cs" />
-    <Compile Include="TMLAzureModelDBQueries.cs" />
-    <Compile Include="TMLModelDBQueries.cs" />
     <Compile Include="TradingSystemConstants.cs" />
     <Compile Include="TSErrorCatch.cs" />
     <EmbeddedResource Include="Forms\FCM_ReportSummaryForm.resx">
@@ -345,17 +340,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <COMReference Include="CQG">
-      <Guid>{51F35562-AEB4-4AB3-99E8-AC9666344B64}</Guid>
-      <VersionMajor>4</VersionMajor>
-      <VersionMinor>0</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>tlbimp</WrapperTool>
-      <Isolated>False</Isolated>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-    </COMReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="RealtimeSpreadMonitor_TemporaryKey.pfx" />

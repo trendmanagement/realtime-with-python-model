@@ -121,9 +121,7 @@
             this.toolStripTextBoxTickDisplay = new System.Windows.Forms.ToolStripTextBox();
             this.dataGridViewExpressionList = new System.Windows.Forms.DataGridView();
             this.statusStripOptionMonitor = new System.Windows.Forms.StatusStrip();
-            this.statusOfUpdatedInstruments = new System.Windows.Forms.ToolStripStatusLabel();
-            this.StatusSubscribeData = new System.Windows.Forms.ToolStripStatusLabel();
-            this.ConnectionStatus = new System.Windows.Forms.ToolStripStatusLabel();
+            this.StatusOrderData = new System.Windows.Forms.ToolStripStatusLabel();
             this.DataStatus = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripFixConnectionStatus = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusEODSettlement = new System.Windows.Forms.ToolStripStatusLabel();
@@ -1259,9 +1257,7 @@
             this.statusStripOptionMonitor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.statusStripOptionMonitor.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.statusStripOptionMonitor.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.statusOfUpdatedInstruments,
-            this.StatusSubscribeData,
-            this.ConnectionStatus,
+            this.StatusOrderData,
             this.DataStatus,
             this.toolStripFixConnectionStatus,
             this.statusEODSettlement,
@@ -1274,28 +1270,11 @@
             this.statusStripOptionMonitor.TabIndex = 5;
             this.statusStripOptionMonitor.Text = "statusStrip1";
             // 
-            // statusOfUpdatedInstruments
+            // StatusOrderData
             // 
-            this.statusOfUpdatedInstruments.Name = "statusOfUpdatedInstruments";
-            this.statusOfUpdatedInstruments.Size = new System.Drawing.Size(89, 20);
-            this.statusOfUpdatedInstruments.Text = "Status of Update";
-            // 
-            // StatusSubscribeData
-            // 
-            this.StatusSubscribeData.BackColor = System.Drawing.Color.White;
-            this.StatusSubscribeData.Name = "StatusSubscribeData";
-            this.StatusSubscribeData.Size = new System.Drawing.Size(0, 20);
-            // 
-            // ConnectionStatus
-            // 
-            this.ConnectionStatus.BackColor = System.Drawing.Color.Black;
-            this.ConnectionStatus.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ConnectionStatus.ForeColor = System.Drawing.Color.White;
-            this.ConnectionStatus.Image = ((System.Drawing.Image)(resources.GetObject("ConnectionStatus.Image")));
-            this.ConnectionStatus.Name = "ConnectionStatus";
-            this.ConnectionStatus.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
-            this.ConnectionStatus.Size = new System.Drawing.Size(114, 20);
-            this.ConnectionStatus.Text = "CQG:WAITING";
+            this.StatusOrderData.BackColor = System.Drawing.Color.White;
+            this.StatusOrderData.Name = "StatusOrderData";
+            this.StatusOrderData.Size = new System.Drawing.Size(0, 20);
             // 
             // DataStatus
             // 
@@ -1649,7 +1628,6 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator23;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator13;
         private System.Windows.Forms.StatusStrip statusStripOptionMonitor;
-        private System.Windows.Forms.ToolStripStatusLabel statusOfUpdatedInstruments;
         private System.Windows.Forms.ToolStripStatusLabel DataStatus;
         private System.Windows.Forms.ToolStripStatusLabel toolStripFixConnectionStatus;
         private System.Windows.Forms.ToolStripStatusLabel statusEODSettlement;
@@ -1718,8 +1696,7 @@
         private System.Windows.Forms.ToolStripMenuItem refreshToolStripMenuItem;
         private System.Windows.Forms.DataGridView portfolioSummaryGrid;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator19;
-        private System.Windows.Forms.ToolStripStatusLabel ConnectionStatus;
-        private System.Windows.Forms.ToolStripStatusLabel StatusSubscribeData;
+        private System.Windows.Forms.ToolStripStatusLabel StatusOrderData;
         private System.Windows.Forms.DataGridView gridLiveFCMData;
     }
 }

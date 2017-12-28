@@ -1,5 +1,4 @@
-﻿using CQG;
-using RealtimeSpreadMonitor.FormManipulation;
+﻿using RealtimeSpreadMonitor.FormManipulation;
 using RealtimeSpreadMonitor.Model;
 using RealtimeSpreadMonitor.Mongo;
 using System;
@@ -34,33 +33,11 @@ namespace RealtimeSpreadMonitor.Forms
         delegate void ThreadSafeFillLiveDataPageDelegate(int row, int col, String displayValue,
             bool updateColor, double value);
 
-
-
-        //delegate void ThreadSafeMarkAsConnectedDelegate(DataGridView gridView, int row, int col, bool connected, Color backgroundColor);
-
         delegate void ThreadSafeFillGridViewValueAsStringAndColorDelegate(int rowToUpdate, int col, string displayValue, Color color);
-
-        //delegate void ThreadSafeUpdateStatusStripOptionMonitorDelegate();
-
-        //delegate void ThreadSafeUpdateStatusSubscribeData(String subcriptionMessage);
-
-
 
         delegate void ThreadSafeUpdateInstrumentSummaryDelegate(int row, int col, double val);
 
-        //delegate void ThreadSafeUpdateListViewDelegate(ListView listView, int row, int col, String val);
-
-        //delegate void ThreadSafeUpdateBackColorListViewDelegate(ListView listView, int row, Color backColor);
-
-        //delegate void ThreadSafeAddItemToListView(ListView listView, ListViewItem listViewItem);
-
-        //delegate void ThreadSafeRemoveItemFromListView(ListView listView, int itemRow);
-
         delegate void ThreadSafeUpdateButtonText(ToolStripButton toolStripBtn, string buttonText);
-
-        //delegate void ThreadSafeFillGridModelADMComparison();
-
-        //delegate void ThreadSafeBeginEndUpdateList(bool begin);
 
         delegate void ThreadSafeGenericDelegateWithoutParams();
 
@@ -73,13 +50,6 @@ namespace RealtimeSpreadMonitor.Forms
         private DataTable portfolioSummaryDataTable = new DataTable();
         private DataTable portfolioSummarySettlementDataTable = new DataTable();
 
-        //private DataTable contractSummaryLiveDataTable = new DataTable();
-
-        //private LiveSpreadTotals[] instrumentSpreadTotals;
-        //private LiveSpreadTotals portfolioSpreadTotals;
-
-        //private LiveSpreadTotals[,] instrumentADMSpreadTotals;
-        //private LiveSpreadTotals[] portfolioADMSpreadTotals;
 
         private OptionArrayTypes optionArrayTypes;
 
@@ -87,16 +57,7 @@ namespace RealtimeSpreadMonitor.Forms
 
         public Settings settings;
 
-        //private ChartForm orderChartForm = null;
-        //private bool orderChartInstantiated = false;
-
         private FileLoadList fileLoadListForm = null;
-
-
-
-        //private List<int> contractSummaryExpressionListIdx;  // = new List<int>();
-
-
 
         private bool hideUnhideInstrumentsInSummaryPL = true;
 
@@ -104,10 +65,6 @@ namespace RealtimeSpreadMonitor.Forms
         {
             get { return gridViewContractSummary; }
         }
-
-        //private GridViewFCMPostionManipulation gridViewFCMPostionManipulation;
-
-        //private ModelADMCompareCalculationAndDisplay modelADMCompareCalculationAndDisplay;
 
         internal DataGridView getGridLiveFCMData
         {
@@ -251,43 +208,6 @@ namespace RealtimeSpreadMonitor.Forms
             }
         }
 
-        public void updateStatusDataFilling()
-        {
-            int subscribedCount = 0;
-
-            int subCnt = 0;
-
-            while (subCnt < optionSpreadExpressionList.Count)
-            {
-                if (optionSpreadExpressionList[subCnt].setSubscriptionLevel)
-                {
-                    subscribedCount++;
-                }
-
-                subCnt++;
-            }
-
-            StringBuilder sb = new StringBuilder();
-            sb.Append(subscribedCount);
-            sb.Append(" OF ");
-            sb.Append(optionSpreadExpressionList.Count);
-
-            if (subscribedCount < optionSpreadExpressionList.Count)
-            {
-                AsyncTaskListener.StatusUpdateAsync(sb.ToString(),
-                    STATUS_FORMAT.CAUTION, STATUS_TYPE.DATA_FILLING_COUNT);
-            }
-            else
-            {
-                AsyncTaskListener.StatusUpdateAsync(sb.ToString(),
-                    STATUS_FORMAT.DEFAULT, STATUS_TYPE.DATA_FILLING_COUNT);
-            }
-
-
-        }
-
-
-
 
         //used for running the reconnect to CQG timers
         //private System.Threading.Timer timer1SetupTimeForCQGData;
@@ -347,14 +267,6 @@ namespace RealtimeSpreadMonitor.Forms
 
         }
 
-        private void resetConnectionToCQGAtTimeInvoke(object StateObj)
-        {
-
-        }
-
-
-
-
 
         private bool updateOptionRealtimeMonitorGUI = true;
 
@@ -375,10 +287,6 @@ namespace RealtimeSpreadMonitor.Forms
                     backgroundWorkerOptionRealtimeMonitor.ReportProgress(0);
                 }
 
-
-
-
-
             }
 
 
@@ -387,30 +295,48 @@ namespace RealtimeSpreadMonitor.Forms
         }
 
 
-
-
-
         public void backgroundWorkerOptionSummaryRealtime_ProgressChanged(object sender,
             ProgressChangedEventArgs e)
         {
 
             if (continueUpdating)
             {
-                DateTime current = DateTime.Now;
-                TimeSpan timeToGo = TimerThreadInfo.refreshMongoOrders - DateTime.Now.TimeOfDay;
-                if (timeToGo < TimeSpan.Zero)
-                {
-                    optionSpreadManager.RefreshAccountInfo();
+                //DateTime current = DateTime.Now;
+                //TimeSpan timeToGo = TimerThreadInfo.refreshMongoOrders - DateTime.Now.TimeOfDay;
+                //if (timeToGo < TimeSpan.Zero)
+                //{
+                //    //optionSpreadManager.RefreshAccountInfo();
 
-                    TimerThreadInfo.refreshMongoOrders = DateTime.Now.AddSeconds(30).TimeOfDay;
-                }
+                //    //TimerThreadInfo.refreshMongoOrders = DateTime.Now.AddSeconds(30).TimeOfDay;
+                //}
 
                 TimeSpan timeToGo_data = TimerThreadInfo.refreshFuturesData - DateTime.Now.TimeOfDay;
                 if (timeToGo_data < TimeSpan.Zero)
                 {
-                    optionSpreadManager.RefreshFuturesData();
+                    AsyncTaskListener.StatusUpdateAsync("",
+                    STATUS_FORMAT.DEFAULT, STATUS_TYPE.ORDER_DATA_STATUS);
 
-                    TimerThreadInfo.refreshFuturesData = DateTime.Now.AddSeconds(30).TimeOfDay;
+                    bool refreshAccountInfo = false;
+                    TimeSpan timeToGoAccountInfo = TimerThreadInfo.refreshMongoOrders - DateTime.Now.TimeOfDay;
+                    if (timeToGoAccountInfo < TimeSpan.Zero)
+                    {
+                        refreshAccountInfo = true;
+                        TimerThreadInfo.refreshMongoOrders = DateTime.Now.AddSeconds(30).TimeOfDay;
+
+                        AsyncTaskListener.StatusUpdateAsync("Orders Called",
+                        STATUS_FORMAT.DEFAULT, STATUS_TYPE.ORDER_DATA_STATUS);
+                    }
+
+                    Thread RefreshData_CallsForAccountAndFuturesThread = new Thread(new ParameterizedThreadStart(optionSpreadManager.RefreshData_CallsForAccountAndFutures));
+                    RefreshData_CallsForAccountAndFuturesThread.IsBackground = true;
+                    RefreshData_CallsForAccountAndFuturesThread.Start(refreshAccountInfo);
+
+                    //optionSpreadManager.RefreshFuturesData();
+
+                    TimerThreadInfo.refreshFuturesData = DateTime.Now.AddSeconds(15).TimeOfDay;
+
+                    AsyncTaskListener.StatusUpdateAsync("Futures Called",
+                    STATUS_FORMAT.DEFAULT, STATUS_TYPE.DATA_STATUS);
                 }
 
                 if (DataCollectionLibrary._fxceConnected)
@@ -442,24 +368,24 @@ namespace RealtimeSpreadMonitor.Forms
                 fillOrderSummaryList();
                 //*******************
 
-                int saveRow = 0;
-                if (gridViewContractSummary.Rows.Count > 0 && gridViewContractSummary.FirstDisplayedCell != null)
-                    saveRow = gridViewContractSummary.FirstDisplayedCell.RowIndex;
+                //int saveRow = 0;
+                //if (gridViewContractSummary.Rows.Count > 0 && gridViewContractSummary.FirstDisplayedCell != null)
+                //    saveRow = gridViewContractSummary.FirstDisplayedCell.RowIndex;
 
                 ContractsModel_Library.gridViewContractSummaryManipulation.FillContractSummary();
 
-                if (saveRow != 0 && saveRow < gridViewContractSummary.Rows.Count)
-                    gridViewContractSummary.FirstDisplayedScrollingRowIndex = saveRow;
+                //if (saveRow != 0 && saveRow < gridViewContractSummary.Rows.Count)
+                //    gridViewContractSummary.FirstDisplayedScrollingRowIndex = saveRow;
 
 
-                saveRow = 0;
-                if (gridLiveFCMData.Rows.Count > 0 && gridLiveFCMData.FirstDisplayedCell != null)
-                    saveRow = gridLiveFCMData.FirstDisplayedCell.RowIndex;
+                //saveRow = 0;
+                //if (gridLiveFCMData.Rows.Count > 0 && gridLiveFCMData.FirstDisplayedCell != null)
+                //    saveRow = gridLiveFCMData.FirstDisplayedCell.RowIndex;
 
                 ContractsModel_Library.gridViewFCMPostionManipulation.Fill_FCM_ContractSummary();
 
-                if (saveRow != 0 && saveRow < gridLiveFCMData.Rows.Count)
-                    gridLiveFCMData.FirstDisplayedScrollingRowIndex = saveRow;
+                //if (saveRow != 0 && saveRow < gridLiveFCMData.Rows.Count)
+                //    gridLiveFCMData.FirstDisplayedScrollingRowIndex = saveRow;
 
 
                 updateLiveDataPage(null);
@@ -478,6 +404,10 @@ namespace RealtimeSpreadMonitor.Forms
                 //Thread.Sleep(7000);
                 //updateLiveDataPage(null);
 
+                //AsyncTaskListener.StatusUpdateAsync("",
+                //        STATUS_FORMAT.DEFAULT, STATUS_TYPE.ORDER_DATA_STATUS);
+                //AsyncTaskListener.StatusUpdateAsync("",
+                //    STATUS_FORMAT.DEFAULT, STATUS_TYPE.DATA_STATUS);
             }
 
         }
@@ -489,16 +419,9 @@ namespace RealtimeSpreadMonitor.Forms
             //if (setupLiveGrid)
             {
 
-
-
-
-
-
-
-
                 optionSpreadManager.modelADMCompareCalculationAndDisplay.fillGridModelADMComparison(this);
 
-                updateStatusDataFilling();
+                //updateStatusDataFilling();
 
                 sendUpdateToExpressionListGrid();
             }
@@ -1059,127 +982,6 @@ namespace RealtimeSpreadMonitor.Forms
             }
         }
 
-//        public void setupPreviousPLAnalysis(DataGridView dataGridViewPriceCompare, DataGridView dataGridViewPL,
-//             bool model)
-//        {
-//#if DEBUG
-//            try
-//#endif
-//            {
-//                Type previousPriceGridRowTypes = typeof(PREVIOUS_PRICE_COMPARE_ANALYSIS);
-//                Array previousPriceGridRowTypesArray = Enum.GetNames(previousPriceGridRowTypes);
-
-//                dataGridViewPriceCompare.ColumnCount = previousPriceGridRowTypesArray.Length;
-
-//                dataGridViewPriceCompare.EnableHeadersVisualStyles = false;
-
-//                DataGridViewCellStyle colTotalPortStyle = dataGridViewPriceCompare.ColumnHeadersDefaultCellStyle;
-//                colTotalPortStyle.BackColor = Color.Black;
-//                colTotalPortStyle.ForeColor = Color.White;
-
-//                DataGridViewCellStyle rowTotalPortStyle = dataGridViewPriceCompare.RowHeadersDefaultCellStyle;
-//                rowTotalPortStyle.BackColor = Color.Black;
-//                rowTotalPortStyle.ForeColor = Color.White;
-
-
-//                dataGridViewPriceCompare.Columns[0].Frozen = true;
-
-//                for (int i = 0; i < dataGridViewPriceCompare.ColumnCount; i++)
-//                {
-//                    dataGridViewPriceCompare.Columns[i].SortMode = DataGridViewColumnSortMode.NotSortable;
-//                }
-
-//                StringBuilder sb = new StringBuilder();
-
-//                for (int i = 0; i < previousPriceGridRowTypesArray.Length; i++)
-//                {
-//                    sb.Clear();
-
-//                    sb.Append(previousPriceGridRowTypesArray.GetValue(i).ToString());
-
-//                    dataGridViewPriceCompare
-//                        .Columns[i]
-//                        .HeaderCell.Value = sb.ToString().Replace('_', ' ');
-
-//                    dataGridViewPriceCompare.Columns[i].Width = 60;
-//                }
-
-//                if (model)
-//                {
-//                    dataGridViewPriceCompare.TopLeftHeaderCell.Value = "MODEL";
-//                }
-//                else
-//                {
-//                    dataGridViewPriceCompare.TopLeftHeaderCell.Value = "FCM";
-//                }
-
-//                dataGridViewPriceCompare.RowCount = 0;
-
-
-
-
-
-
-//                Type previousPLGridRowTypes = typeof(PREVIOUS_PL_COMPARE_ANALYSIS);
-//                Array previousPLGridRowTypesArray = Enum.GetNames(previousPLGridRowTypes);
-
-//                dataGridViewPL.ColumnCount = previousPLGridRowTypesArray.Length;
-
-//                dataGridViewPL.EnableHeadersVisualStyles = false;
-
-//                colTotalPortStyle = dataGridViewPL.ColumnHeadersDefaultCellStyle;
-//                colTotalPortStyle.BackColor = Color.Black;
-//                colTotalPortStyle.ForeColor = Color.White;
-
-//                rowTotalPortStyle = dataGridViewPL.RowHeadersDefaultCellStyle;
-//                rowTotalPortStyle.BackColor = Color.Black;
-//                rowTotalPortStyle.ForeColor = Color.White;
-
-
-//                dataGridViewPL.Columns[0].Frozen = true;
-
-//                for (int i = 0; i < dataGridViewPL.ColumnCount; i++)
-//                {
-//                    dataGridViewPL.Columns[i].SortMode = DataGridViewColumnSortMode.NotSortable;
-//                }
-
-//                //StringBuilder sb = new StringBuilder();
-
-//                for (int i = 0; i < previousPLGridRowTypesArray.Length; i++)
-//                {
-//                    sb.Clear();
-
-//                    sb.Append(previousPLGridRowTypesArray.GetValue(i).ToString());
-
-//                    dataGridViewPL
-//                        .Columns[i]
-//                        .HeaderCell.Value = sb.ToString().Replace('_', ' ');
-
-//                    dataGridViewPL.Columns[i].Width = 80;
-//                }
-
-//                if (model)
-//                {
-//                    dataGridViewPL.TopLeftHeaderCell.Value = "MODEL";
-//                }
-//                else
-//                {
-//                    dataGridViewPL.TopLeftHeaderCell.Value = "FCM";
-//                }
-
-//                dataGridViewPL.RowCount = instruments.Count() + 1;
-
-//            }
-//#if DEBUG
-//            catch (Exception ex)
-//            {
-//                TSErrorCatch.errorCatchOut(Convert.ToString(this), ex);
-//            }
-//#endif
-//        }
-
-
-
 
         public void setupOrderSummaryList()
         {
@@ -1198,7 +1000,8 @@ namespace RealtimeSpreadMonitor.Forms
             DataCollectionLibrary.orderSummaryDataTable.Columns.Add(ORDER_SUMMARY_COLUMNS.ACCT.ToString());
             DataCollectionLibrary.orderSummaryDataTable.Columns.Add(ORDER_SUMMARY_COLUMNS.FCM_OFFICE.ToString());
             DataCollectionLibrary.orderSummaryDataTable.Columns.Add(ORDER_SUMMARY_COLUMNS.FCM_ACCT.ToString());
-
+            DataCollectionLibrary.orderSummaryDataTable.Columns.Add(ORDER_SUMMARY_COLUMNS.ID.ToString());
+            DataCollectionLibrary.orderSummaryDataTable.Columns.Add(ORDER_SUMMARY_COLUMNS.UPDATED.ToString());
         }
 
 
@@ -1206,47 +1009,54 @@ namespace RealtimeSpreadMonitor.Forms
         public void fillOrderSummaryList()
         {
 
-            //foreach(OrderSummary_AccountPosition os_ap in DataCollectionLibrary.orderSummaryList)
-            //{
-            //    os_ap.tested = false;
-            //}
-
             int saveRow = 0;
             if (orderSummaryGrid.Rows.Count > 0 && orderSummaryGrid.FirstDisplayedCell != null)
                 saveRow = orderSummaryGrid.FirstDisplayedCell.RowIndex;
 
-            //dataGridView1.DataSource = dataTable1;
+            DataTable dataTable = DataCollectionLibrary.orderSummaryDataTable.Copy();
 
-
-
-            DataCollectionLibrary.orderSummaryDataTable.Clear(); // .Rows.Clear();
-
-            //if (test)
+            foreach (DataRow r in dataTable.Rows)
             {
+                r[(int)ORDER_SUMMARY_COLUMNS.UPDATED] = false;
+            }
 
-                foreach (AccountPosition ap in DataCollectionLibrary.accountPositionsList)
+
+            foreach (AccountPosition ap in DataCollectionLibrary.accountPositionsList)
+            {
+                foreach (Position p in ap.positions)
                 {
-                    foreach (Position p in ap.positions)
+                    if (p.asset.idinstrument == DataCollectionLibrary.instrumentSelectedInTreeGui
+                        || DataCollectionLibrary.instrumentSelectedInTreeGui == TradingSystemConstants.ALL_INSTRUMENTS_SELECTED)
                     {
-                        //TODO ENABLE THIS FOR PROPER ORDER QUANTITY
-                        if (p.qty != p.prev_qty)
-                        {
-                            if (p.asset.idinstrument == DataCollectionLibrary.instrumentSelectedInTreeGui
-                                || DataCollectionLibrary.instrumentSelectedInTreeGui == TradingSystemConstants.ALL_INSTRUMENTS_SELECTED)
-                            {
-                                AccountAllocation ac =
-                                    DataCollectionLibrary.portfolioAllocation.accountAllocation_KeyAccountname[ap.name];
 
-                                if (ac.visible)
+                        if (DataCollectionLibrary.portfolioAllocation.accountAllocation_KeyAccountname.ContainsKey(ap.name))
+                        {
+                            AccountAllocation ac =
+                                DataCollectionLibrary.portfolioAllocation.accountAllocation_KeyAccountname[ap.name];
+                            if (ac.visible)
+                            {
+                                if (p.qty != p.prev_qty)
                                 {
                                     enterExpressionsIntoOrderSummary(
-                                        ap, p);
+                                        ap, p, dataTable);
                                 }
                             }
                         }
                     }
                 }
+                
             }
+
+            DataRow[] result = dataTable.Select(ORDER_SUMMARY_COLUMNS.UPDATED.ToString() + "=false");
+
+            foreach (DataRow r in result)
+            {
+                r.Delete();
+            }
+
+            DataCollectionLibrary.orderSummaryDataTable = dataTable;
+
+            orderSummaryGrid.DataSource = DataCollectionLibrary.orderSummaryDataTable;
 
             if (saveRow != 0 && saveRow < orderSummaryGrid.Rows.Count)
                 orderSummaryGrid.FirstDisplayedScrollingRowIndex = saveRow;
@@ -1255,12 +1065,10 @@ namespace RealtimeSpreadMonitor.Forms
 
 
 
-        private void enterExpressionsIntoOrderSummary(AccountPosition ap, Position p)
+        private void enterExpressionsIntoOrderSummary(AccountPosition ap, Position p, DataTable dataTable)
         {
 
-            DataTable dataTable = DataCollectionLibrary.orderSummaryDataTable;
-
-
+            //DataTable dataTable = DataCollectionLibrary.orderSummaryDataTable;
 
             Instrument_mongo im = DataCollectionLibrary.instrumentHashTable_keyinstrumentid[p.asset.idinstrument];
 
@@ -1270,53 +1078,69 @@ namespace RealtimeSpreadMonitor.Forms
                 im.customdayboundarytime.AddMinutes(-im.decisionoffsetminutes).Hour,
                 im.customdayboundarytime.AddMinutes(-im.decisionoffsetminutes).Minute, 0);
 
-            dataTable.Rows.Add();
-            dataTable.Rows[dataTable.Rows.Count - 1][(int)ORDER_SUMMARY_COLUMNS.RFRSH_TIME]
-                = ap.date_now.ToString("MM-dd HH:mm", DateTimeFormatInfo.InvariantInfo); ;
-            dataTable.Rows[dataTable.Rows.Count - 1][(int)ORDER_SUMMARY_COLUMNS.INST] = im.cqgsymbol;
-            dataTable.Rows[dataTable.Rows.Count - 1][(int)ORDER_SUMMARY_COLUMNS.CONTRACT] = p.asset.cqgsymbol;
-            dataTable.Rows[dataTable.Rows.Count - 1][(int)ORDER_SUMMARY_COLUMNS.QTY] = p.qty - p.prev_qty;
+            DataRow[] orderSummary_resultId = dataTable.Select(ORDER_SUMMARY_COLUMNS.ID.ToString() + "='" + p.asset._id + ap.name + "'");
 
-            dataTable.Rows[dataTable.Rows.Count - 1][(int)ORDER_SUMMARY_COLUMNS.DECS_T] =
+            DataRow rowToUpdate;
+            if (orderSummary_resultId.Count() > 0)
+            {
+                rowToUpdate = orderSummary_resultId[0];
+            }
+            else
+            {
+                dataTable.Rows.Add();
+                rowToUpdate = dataTable.Rows[dataTable.Rows.Count - 1];
+
+                rowToUpdate[(int)ORDER_SUMMARY_COLUMNS.ID] = p.asset._id + ap.name;
+            }
+
+
+
+            rowToUpdate[(int)ORDER_SUMMARY_COLUMNS.UPDATED] = true;
+
+            rowToUpdate[(int)ORDER_SUMMARY_COLUMNS.RFRSH_TIME]
+                = ap.date_now.ToString("MM-dd HH:mm", DateTimeFormatInfo.InvariantInfo); ;
+            rowToUpdate[(int)ORDER_SUMMARY_COLUMNS.INST] = im.cqgsymbol;
+            rowToUpdate[(int)ORDER_SUMMARY_COLUMNS.CONTRACT] = p.asset.cqgsymbol;
+            rowToUpdate[(int)ORDER_SUMMARY_COLUMNS.QTY] = p.qty - p.prev_qty;
+
+            rowToUpdate[(int)ORDER_SUMMARY_COLUMNS.DECS_T] =
                 decisionTime.ToString("HH:mm", DateTimeFormatInfo.InvariantInfo);
-            dataTable.Rows[dataTable.Rows.Count - 1][(int)ORDER_SUMMARY_COLUMNS.TRANS_T] =
+            rowToUpdate[(int)ORDER_SUMMARY_COLUMNS.TRANS_T] =
                 im.customdayboundarytime.ToString("HH:mm", DateTimeFormatInfo.InvariantInfo);
 
             if (p.mose.decisionPriceFilled)
             {
-                dataTable.Rows[dataTable.Rows.Count - 1][(int)ORDER_SUMMARY_COLUMNS.DECS_P] =
+                rowToUpdate[(int)ORDER_SUMMARY_COLUMNS.DECS_P] =
                     p.mose.decisionPrice;
             }
             else
             {
-                dataTable.Rows[dataTable.Rows.Count - 1][(int)ORDER_SUMMARY_COLUMNS.DECS_P] = " ";
+                rowToUpdate[(int)ORDER_SUMMARY_COLUMNS.DECS_P] = " ";
             }
 
             if (p.mose.transactionPriceFilled)
             {
-                dataTable.Rows[dataTable.Rows.Count - 1][(int)ORDER_SUMMARY_COLUMNS.TRANS_P] =
+                rowToUpdate[(int)ORDER_SUMMARY_COLUMNS.TRANS_P] =
                     p.mose.transactionPrice;
             }
             else
             {
-                dataTable.Rows[dataTable.Rows.Count - 1][(int)ORDER_SUMMARY_COLUMNS.TRANS_P] = " ";
+                rowToUpdate[(int)ORDER_SUMMARY_COLUMNS.TRANS_P] = " ";
             }
 
-            dataTable.Rows[dataTable.Rows.Count - 1][(int)ORDER_SUMMARY_COLUMNS.DECS_FILL] =
+            rowToUpdate[(int)ORDER_SUMMARY_COLUMNS.DECS_FILL] =
                 ap.date_now.CompareTo(decisionTime) >= 0;
-            //p.mose.reachedBarAfterDecisionBar;
 
-            dataTable.Rows[dataTable.Rows.Count - 1][(int)ORDER_SUMMARY_COLUMNS.INSID] = im.idinstrument;
+            rowToUpdate[(int)ORDER_SUMMARY_COLUMNS.INSID] = im.idinstrument;
 
-            dataTable.Rows[dataTable.Rows.Count - 1][(int)ORDER_SUMMARY_COLUMNS.ACCT] = ap.name;
+            rowToUpdate[(int)ORDER_SUMMARY_COLUMNS.ACCT] = ap.name;
 
             AccountAllocation ac =
-                        DataCollectionLibrary.portfolioAllocation.accountAllocation_KeyAccountname[ap.name];
+                DataCollectionLibrary.portfolioAllocation.accountAllocation_KeyAccountname[ap.name];
 
-            dataTable.Rows[dataTable.Rows.Count - 1][(int)ORDER_SUMMARY_COLUMNS.FCM_OFFICE] = ac.FCM_OFFICE;
+            rowToUpdate[(int)ORDER_SUMMARY_COLUMNS.FCM_OFFICE] = ac.FCM_OFFICE;
 
-            dataTable.Rows[dataTable.Rows.Count - 1][(int)ORDER_SUMMARY_COLUMNS.FCM_ACCT] = ac.FCM_ACCT;
-
+            rowToUpdate[(int)ORDER_SUMMARY_COLUMNS.FCM_ACCT] = ac.FCM_ACCT;
 
         }
 
@@ -2250,16 +2074,16 @@ namespace RealtimeSpreadMonitor.Forms
                         = Convert.ToInt32(DataCollectionLibrary.instrumentList[x.Index].idinstrument);
                 }
 
-                updateSelectedInstrumentFromTree();
+                updateSelectedInstrumentFromTree(null);
             }
         }
 
-        private void updateSelectedInstrumentFromTree()
+
+
+        private void updateSelectedInstrumentFromTree(Object obj)
         {
             fillOrderSummaryList();
-
-            DataCollectionLibrary.performFullContractRefresh = true;
-
+            
             ContractsModel_Library.gridViewContractSummaryManipulation.FillContractSummary();
 
             DataCollectionLibrary.performFull_FCMSummary_Refresh = true;
@@ -2272,188 +2096,107 @@ namespace RealtimeSpreadMonitor.Forms
             }
 
 
-
-            //if (x != null)
+            if (DataCollectionLibrary.instrumentSelectedInTreeGui == TradingSystemConstants.ALL_INSTRUMENTS_SELECTED)
             {
-                //contractSummaryInstrumentSelectedIdx = x.Index;
 
-                if (DataCollectionLibrary.instrumentSelectedInTreeGui == TradingSystemConstants.ALL_INSTRUMENTS_SELECTED)
+                try
                 {
-
-                    try
+                    for (int liveADMDataCntRow = 0; liveADMDataCntRow < gridLiveFCMData.RowCount; liveADMDataCntRow++)
                     {
-                        for (int liveADMDataCntRow = 0; liveADMDataCntRow < gridLiveFCMData.RowCount; liveADMDataCntRow++)
-                        {
-                            var key = Tuple.Create(
-                                gridLiveFCMData.Rows[liveADMDataCntRow].Cells[(int)OPTION_LIVE_ADM_DATA_COLUMNS.POFFIC].Value.ToString(),
-                                gridLiveFCMData.Rows[liveADMDataCntRow].Cells[(int)OPTION_LIVE_ADM_DATA_COLUMNS.PACCT].Value.ToString());
-
-                            if (DataCollectionLibrary.portfolioAllocation.accountAllocation_KeyOfficAcct.ContainsKey(key))
-                            {
-                                AccountAllocation ac =
-                                    DataCollectionLibrary.portfolioAllocation.accountAllocation_KeyOfficAcct[key];
-
-                                if (ac.visible)
-                                {
-                                    HideUnhideSummaryData(gridLiveFCMData, liveADMDataCntRow, true);
-                                }
-                                else
-                                {
-                                    HideUnhideSummaryData(gridLiveFCMData, liveADMDataCntRow, false);
-                                }
-                            }
-                            else
-                            {
-                                HideUnhideSummaryData(gridLiveFCMData, liveADMDataCntRow, true);
-                            }
-                        }
-                    }
-                    catch
-                    { }
-
-                    for (int dataGridViewExpressionListCount = 0; dataGridViewExpressionListCount < dataGridViewExpressionList.RowCount;
-                        dataGridViewExpressionListCount++)
-                    {
-                        HideUnhideSummaryData(dataGridViewExpressionList, dataGridViewExpressionListCount, true);
-                    }
-                }
-                else
-                {
-                    ///
-                    ///THIS IS WHERE NOT ALL INSTRUMENTS ARE SELECTED
-                    ///
-
-                    for (int aDMCompareCntRow = 0;
-                        aDMCompareCntRow < gridLiveFCMData.RowCount; aDMCompareCntRow++)
-                    {
-                        int instrumentId
-                            = Convert.ToInt32(gridLiveFCMData.Rows[aDMCompareCntRow].Cells[(int)OPTION_LIVE_ADM_DATA_COLUMNS.INSTRUMENT_ID].Value);
-
                         var key = Tuple.Create(
-                            gridLiveFCMData.Rows[aDMCompareCntRow].Cells[(int)OPTION_LIVE_ADM_DATA_COLUMNS.POFFIC].Value.ToString(),
-                            gridLiveFCMData.Rows[aDMCompareCntRow].Cells[(int)OPTION_LIVE_ADM_DATA_COLUMNS.PACCT].Value.ToString());
+                            gridLiveFCMData.Rows[liveADMDataCntRow].Cells[(int)OPTION_LIVE_ADM_DATA_COLUMNS.POFFIC].Value.ToString(),
+                            gridLiveFCMData.Rows[liveADMDataCntRow].Cells[(int)OPTION_LIVE_ADM_DATA_COLUMNS.PACCT].Value.ToString());
 
-                        bool acctVisible = true;
                         if (DataCollectionLibrary.portfolioAllocation.accountAllocation_KeyOfficAcct.ContainsKey(key))
                         {
                             AccountAllocation ac =
                                 DataCollectionLibrary.portfolioAllocation.accountAllocation_KeyOfficAcct[key];
 
-                            acctVisible = ac.visible;
-                        }
-
-                        if (Convert.ToInt32(gridLiveFCMData.Rows[aDMCompareCntRow].Cells[(int)OPTION_LIVE_ADM_DATA_COLUMNS.INSTRUMENT_ID].Value)
-                            == DataCollectionLibrary.instrumentSelectedInTreeGui
-                            && acctVisible)
-                        {
-                            HideUnhideSummaryData(gridLiveFCMData, aDMCompareCntRow, true);
-                        }
-                        else
-                        {
-                            HideUnhideSummaryData(gridLiveFCMData, aDMCompareCntRow, false);
-                        }
-                    }
-
-                    for (int dataGridViewExpressionListCount = 0;
-                        dataGridViewExpressionListCount < dataGridViewExpressionList.RowCount; dataGridViewExpressionListCount++)
-                    {
-                        int instrumentId = Convert.ToInt16(dataGridViewExpressionList.Rows[dataGridViewExpressionListCount].Cells[(int)EXPRESSION_LIST_VIEW.INSTRUMENT_ID].Value);
-
-                        if (DataCollectionLibrary.instrumentSelectedInTreeGui == instrumentId)
-                        {
-                            HideUnhideSummaryData(dataGridViewExpressionList, dataGridViewExpressionListCount, true);
+                            if (ac.visible)
+                            {
+                                HideUnhideSummaryData(gridLiveFCMData, liveADMDataCntRow, true);
+                            }
+                            else
+                            {
+                                HideUnhideSummaryData(gridLiveFCMData, liveADMDataCntRow, false);
+                            }
                         }
                         else
                         {
-                            HideUnhideSummaryData(dataGridViewExpressionList, dataGridViewExpressionListCount, false);
+                            HideUnhideSummaryData(gridLiveFCMData, liveADMDataCntRow, true);
                         }
                     }
                 }
+                catch
+                { }
 
+                for (int dataGridViewExpressionListCount = 0; dataGridViewExpressionListCount < dataGridViewExpressionList.RowCount;
+                    dataGridViewExpressionListCount++)
+                {
+                    HideUnhideSummaryData(dataGridViewExpressionList, dataGridViewExpressionListCount, true);
+                }
+            }
+            else
+            {
+                ///
+                ///THIS IS WHERE NOT ALL INSTRUMENTS ARE SELECTED
+                ///
 
-                updateModelADMCompareViewable();
+                for (int aDMCompareCntRow = 0;
+                    aDMCompareCntRow < gridLiveFCMData.RowCount; aDMCompareCntRow++)
+                {
+                    int instrumentId
+                        = Convert.ToInt32(gridLiveFCMData.Rows[aDMCompareCntRow].Cells[(int)OPTION_LIVE_ADM_DATA_COLUMNS.INSTRUMENT_ID].Value);
 
+                    var key = Tuple.Create(
+                        gridLiveFCMData.Rows[aDMCompareCntRow].Cells[(int)OPTION_LIVE_ADM_DATA_COLUMNS.POFFIC].Value.ToString(),
+                        gridLiveFCMData.Rows[aDMCompareCntRow].Cells[(int)OPTION_LIVE_ADM_DATA_COLUMNS.PACCT].Value.ToString());
+
+                    bool acctVisible = true;
+                    if (DataCollectionLibrary.portfolioAllocation.accountAllocation_KeyOfficAcct.ContainsKey(key))
+                    {
+                        AccountAllocation ac =
+                            DataCollectionLibrary.portfolioAllocation.accountAllocation_KeyOfficAcct[key];
+
+                        acctVisible = ac.visible;
+                    }
+
+                    if (Convert.ToInt32(gridLiveFCMData.Rows[aDMCompareCntRow].Cells[(int)OPTION_LIVE_ADM_DATA_COLUMNS.INSTRUMENT_ID].Value)
+                        == DataCollectionLibrary.instrumentSelectedInTreeGui
+                        && acctVisible)
+                    {
+                        HideUnhideSummaryData(gridLiveFCMData, aDMCompareCntRow, true);
+                    }
+                    else
+                    {
+                        HideUnhideSummaryData(gridLiveFCMData, aDMCompareCntRow, false);
+                    }
+                }
+
+                for (int dataGridViewExpressionListCount = 0;
+                    dataGridViewExpressionListCount < dataGridViewExpressionList.RowCount; dataGridViewExpressionListCount++)
+                {
+                    int instrumentId = Convert.ToInt16(dataGridViewExpressionList.Rows[dataGridViewExpressionListCount].Cells[(int)EXPRESSION_LIST_VIEW.INSTRUMENT_ID].Value);
+
+                    if (DataCollectionLibrary.instrumentSelectedInTreeGui == instrumentId)
+                    {
+                        HideUnhideSummaryData(dataGridViewExpressionList, dataGridViewExpressionListCount, true);
+                    }
+                    else
+                    {
+                        HideUnhideSummaryData(dataGridViewExpressionList, dataGridViewExpressionListCount, false);
+                    }
+                }
             }
 
 
-
+            updateModelADMCompareViewable();
 
         }
 
         internal void updateModelADMCompareViewable()
         {
 
-
-
-            //if (DataCollectionLibrary.instrumentSelectedInTreeGui == TradingSystemConstants.ALL_INSTRUMENTS_SELECTED)
-            //{
-
-            //    for (int modelADMCompareCntRow = 0;
-            //                    modelADMCompareCntRow < gridViewModelADMCompare.RowCount; modelADMCompareCntRow++)
-            //    {
-            //        bool accountGroupDisplay = true;
-
-            //        if (!(DataCollectionLibrary.portfolioAllocation.brokerAccountChosen == DataCollectionLibrary.portfolioAllocation.accountAllocation.Count))
-            //        {
-            //            int acctGrpIdx = Convert.ToInt16(gridViewModelADMCompare.Rows[modelADMCompareCntRow]
-            //                .Cells[(int)ADM_MODEL_POSITION_COMPARE_FIELDS_DISPLAYED.ACCT_GROUP_IDX].Value);
-
-            //            if (DataCollectionLibrary.brokerAccountChosen == acctGrpIdx)
-            //            {
-            //                accountGroupDisplay = true;
-            //            }
-            //            else
-            //            {
-            //                accountGroupDisplay = false;
-            //            }
-            //        }
-
-            //        if (accountGroupDisplay)
-            //        {
-            //            HideUnhideSummaryData(gridViewModelADMCompare, modelADMCompareCntRow, true);
-            //        }
-            //        else
-            //        {
-            //            HideUnhideSummaryData(gridViewModelADMCompare, modelADMCompareCntRow, false);
-            //        }
-            //    }
-            //}
-            //else
-            //{
-            //    for (int modelADMCompareCntRow = 0;
-            //            modelADMCompareCntRow < gridViewModelADMCompare.RowCount; modelADMCompareCntRow++)
-            //    {
-            //        int instrumentId = Convert.ToInt16(gridViewModelADMCompare.Rows[modelADMCompareCntRow].Cells[(int)ADM_MODEL_POSITION_COMPARE_FIELDS_DISPLAYED.INSTRUMENT_ID].Value);
-
-            //        bool accountGroupDisplay = true;
-
-            //        if (!(DataCollectionLibrary.brokerAccountChosen == DataCollectionLibrary.portfolioAllocation.accountAllocation.Count))
-            //        {
-            //            int acctGrpIdx = Convert.ToInt16(gridViewModelADMCompare.Rows[modelADMCompareCntRow]
-            //                .Cells[(int)ADM_MODEL_POSITION_COMPARE_FIELDS_DISPLAYED.ACCT_GROUP_IDX].Value);
-
-            //            if (DataCollectionLibrary.brokerAccountChosen == acctGrpIdx)
-            //            {
-            //                accountGroupDisplay = true;
-            //            }
-            //            else
-            //            {
-            //                accountGroupDisplay = false;
-            //            }
-            //        }
-
-            //        if (DataCollectionLibrary.instrumentSelectedInTreeGui == instrumentId
-            //            && accountGroupDisplay)
-            //        {
-            //            HideUnhideSummaryData(gridViewModelADMCompare, modelADMCompareCntRow, true);
-            //        }
-            //        else
-            //        {
-            //            HideUnhideSummaryData(gridViewModelADMCompare, modelADMCompareCntRow, false);
-            //        }
-
-            //    }
-            //}
         }
 
 
@@ -2462,44 +2205,10 @@ namespace RealtimeSpreadMonitor.Forms
             if (DataCollectionLibrary.instrumentSelectedInTreeGui != TradingSystemConstants.ALL_INSTRUMENTS_SELECTED)
             {
 
-                //OptionPLChart scPrice = new OptionPLChart(optionArrayTypes, optionSpreadManager);
                 OptionPayoffChart scPrice = new OptionPayoffChart();
                 scPrice.optionPLChartUserForm1.startupChart(optionArrayTypes, optionSpreadManager);
 
-                //List<ContractList> contractListOfRollovers = new List<ContractList>();
 
-
-                //foreach (var cl in
-                //    optionSpreadManager.instrumentRollIntoSummary[DataCollectionLibrary.contractSummaryInstrumentSelectedIdx]
-                //        .contractHashTable)
-                //{
-                //    // cl.Value.cqgsymbol\
-                //    //TSErrorCatch.debugWriteOut(cl.Value.cqgsymbol);
-                //    if (cl.Value.currentlyRollingContract
-                //        && cl.Value.numberOfContracts != 0)
-                //    {
-                //        contractListOfRollovers.Add(cl.Value);
-                //    }
-                //}
-
-                //contractSummaryExpressionListIdx,
-                //    optionSpreadExpressionList, instruments[contractSummaryInstrumentSelectedIdx],
-
-                //List<int> contractsInOrders = new List<int>();
-
-                //for (int contractSummaryCnt = 0; contractSummaryCnt < contractSummaryExpressionListIdx.Count; contractSummaryCnt++)
-                //{
-                //    contractsInOrders.Add(contractSummaryExpressionListIdx[contractSummaryCnt]);
-                //}
-
-                //for (int expressionCount = 0; expressionCount < optionSpreadExpressionList.Count; expressionCount++)
-                //{
-                //    if (DataCollectionLibrary.orderSummaryList.Contains(optionSpreadExpressionList[expressionCount].cqgsymbol)
-                //        && !contractsInOrders.Contains(expressionCount))
-                //    {
-                //        contractsInOrders.Add(expressionCount);
-                //    }
-                //}
 
                 Instrument_mongo im =
                     DataCollectionLibrary
@@ -2525,37 +2234,10 @@ namespace RealtimeSpreadMonitor.Forms
             if (DataCollectionLibrary.instrumentSelectedInTreeGui != TradingSystemConstants.ALL_INSTRUMENTS_SELECTED)
             {
 
-
-                //List<ContractList> contractListOfRollovers = new List<ContractList>();
-
-
-                //foreach (var cl in
-                //    optionSpreadManager.instrumentRollIntoSummary[DataCollectionLibrary.contractSummaryInstrumentSelectedIdx]
-                //        .contractHashTable)
-                //{
-                //    // cl.Value.cqgsymbol\
-                //    //TSErrorCatch.debugWriteOut(cl.Value.cqgsymbol);
-                //    if (cl.Value.currentlyRollingContract
-                //        && cl.Value.numberOfContracts != 0)
-                //    {
-                //        contractListOfRollovers.Add(cl.Value);
-                //    }
-                //}
-
-
-                //OptionPLChart scPrice = new OptionPLChart(optionArrayTypes, optionSpreadManager);
                 OptionPayoffChart scPrice = new OptionPayoffChart();
                 scPrice.optionPLChartUserForm1.startupChart(optionArrayTypes, optionSpreadManager);
 
                 List<int> contractsInOrders = new List<int>();
-
-                //for (int expressionCount = 0; expressionCount < optionSpreadExpressionList.Count; expressionCount++)
-                //{
-                //    if (DataCollectionLibrary.orderSummaryList.Contains(optionSpreadExpressionList[expressionCount].cqgsymbol))
-                //    {
-                //        contractsInOrders.Add(expressionCount);
-                //    }
-                //}
 
                 Instrument_mongo im =
                     DataCollectionLibrary
@@ -3710,13 +3392,7 @@ namespace RealtimeSpreadMonitor.Forms
         delegate void ThreadSafeUpdateCQGReconnectBtn(bool enabled);
 
 
-        public void threadSafeUpdateCQGConnectionStatus(String connectStatus, Color connColor,
-            String connectShortStringStatus)
-        {
-            this.ConnectionStatus.Text = connectShortStringStatus;
-            this.ConnectionStatus.ToolTipText = connectStatus;
-            this.ConnectionStatus.ForeColor = connColor;
-        }
+        
 
 
 
@@ -3755,21 +3431,18 @@ namespace RealtimeSpreadMonitor.Forms
                     }
                 }
 
-
-                //resetPortfolioGroupFcmOfficeAcctChosenHashSet();
-
                 sendUpdateToPortfolioTotalGrid();
-
-                //if (optionSpreadManager.realtimeMonitorSettings.eodAnalysis)
 
                 sendUpdateToPortfolioTotalSettlementGrid();
 
 
-                //optionSpreadManager.gridViewContractSummaryManipulation.fillContractSummary();
 
-                //fillOrderSummaryList();
+                //Thread updateSelectedInstrumentFromTreeThread = new Thread(new ParameterizedThreadStart(updateSelectedInstrumentFromTree));
+                //updateSelectedInstrumentFromTreeThread.IsBackground = true;
+                //updateSelectedInstrumentFromTreeThread.Start();
 
-                updateSelectedInstrumentFromTree();
+                updateSelectedInstrumentFromTree(null);
+
             }
         }
 
@@ -4481,17 +4154,17 @@ namespace RealtimeSpreadMonitor.Forms
 
                     switch (connStatus)
                     {
-                        case STATUS_TYPE.DATA_FILLING_COUNT:
-                            statusOfUpdatedInstruments.Text = msg;
-                            statusOfUpdatedInstruments.ForeColor = ForeColor;
-                            statusOfUpdatedInstruments.BackColor = backColor;
-                            break;
+                        //case STATUS_TYPE.DATA_FILLING_COUNT:
+                        //    statusOfUpdatedInstruments.Text = msg;
+                        //    statusOfUpdatedInstruments.ForeColor = ForeColor;
+                        //    statusOfUpdatedInstruments.BackColor = backColor;
+                        //    break;
 
-                        case STATUS_TYPE.CQG_CONNECTION_STATUS:
-                            ConnectionStatus.Text = msg;
-                            ConnectionStatus.ForeColor = ForeColor;
-                            ConnectionStatus.BackColor = backColor;
-                            break;
+                        //case STATUS_TYPE.CQG_CONNECTION_STATUS:
+                        //    ConnectionStatus.Text = msg;
+                        //    ConnectionStatus.ForeColor = ForeColor;
+                        //    ConnectionStatus.BackColor = backColor;
+                        //    break;
 
                         case STATUS_TYPE.DATA_STATUS:
                             DataStatus.Text = msg;
@@ -4499,10 +4172,10 @@ namespace RealtimeSpreadMonitor.Forms
                             DataStatus.BackColor = backColor;
                             break;
 
-                        case STATUS_TYPE.DATA_SUBSCRIPTION_STATUS:
-                            StatusSubscribeData.Text = msg;
-                            StatusSubscribeData.ForeColor = ForeColor;
-                            StatusSubscribeData.BackColor = backColor;
+                        case STATUS_TYPE.ORDER_DATA_STATUS:
+                            StatusOrderData.Text = msg;
+                            StatusOrderData.ForeColor = ForeColor;
+                            StatusOrderData.BackColor = backColor;
                             break;
 
                         case STATUS_TYPE.TT_FIX_CONNECTION:

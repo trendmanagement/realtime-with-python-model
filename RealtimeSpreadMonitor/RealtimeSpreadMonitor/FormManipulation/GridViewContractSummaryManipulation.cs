@@ -10,6 +10,8 @@ namespace RealtimeSpreadMonitor.FormManipulation
 {
     internal class GridViewContractSummaryManipulation
     {
+        DataGridView gridViewContractSummary;
+
         internal GridViewContractSummaryManipulation()
         {
 
@@ -20,7 +22,7 @@ namespace RealtimeSpreadMonitor.FormManipulation
         public void setupContractSummaryLiveData(OptionRealtimeMonitor optionRealtimeMonitor)
         {
 
-            DataGridView gridViewContractSummary = optionRealtimeMonitor.getGridViewContractSummary;
+            gridViewContractSummary = optionRealtimeMonitor.getGridViewContractSummary;
 
             gridViewContractSummary.DataSource = DataCollectionLibrary.contractSummaryDataTable;
 
@@ -49,27 +51,13 @@ namespace RealtimeSpreadMonitor.FormManipulation
 
         public void FillContractSummary()
         {
-            if (DataCollectionLibrary.performFullContractRefresh)
-            {
-                DataCollectionLibrary.performFullContractRefresh = false;
-                _FillContractSummary(true);
-            }
-            else
-            {
-                _FillContractSummary(false);
-            }
-        }
 
-        private void _FillContractSummary(bool fullRefresh)
-        {
-            DataTable dataTable = DataCollectionLibrary.contractSummaryDataTable;
+            DataTable dataTable = DataCollectionLibrary.contractSummaryDataTable.Copy();
 
-            if (fullRefresh)
+            foreach (DataRow r in dataTable.Rows)
             {
-                dataTable.Rows.Clear();
+                r[(int)CONTRACTSUMMARY_DATA_COLUMNS.UPDATED] = false;
             }
-
-            int rowCount = 0;
 
             foreach (AccountPosition ap in DataCollectionLibrary.accountPositionsList)
             {
@@ -91,134 +79,161 @@ namespace RealtimeSpreadMonitor.FormManipulation
                                 Instrument_mongo im = DataCollectionLibrary.instrumentHashTable_keyinstrumentid[p.asset.idinstrument];
 
 
+                                DataRow[] contractSummary_resultId = dataTable.Select(CONTRACTSUMMARY_DATA_COLUMNS.ID.ToString() + "='" + p.asset._id + ap.name + "'");
 
-                                if (fullRefresh)
+                                DataRow rowToUpdate;
+                                if (contractSummary_resultId.Length > 0)
+                                {
+                                    rowToUpdate = contractSummary_resultId[0];
+                                }
+                                else
                                 {
                                     dataTable.Rows.Add();
+                                    rowToUpdate = dataTable.Rows[dataTable.Rows.Count - 1];
 
-                                    rowCount = dataTable.Rows.Count - 1;
+                                    rowToUpdate[(int)CONTRACTSUMMARY_DATA_COLUMNS.ID] = p.asset._id + ap.name;
 
-                                    dataTable.Rows[rowCount][(int)CONTRACTSUMMARY_DATA_COLUMNS.CONTRACT] = p.asset.cqgsymbol;
+                                    rowToUpdate[(int)CONTRACTSUMMARY_DATA_COLUMNS.CONTRACT] = p.asset.cqgsymbol;
 
-                                    dataTable.Rows[rowCount][(int)CONTRACTSUMMARY_DATA_COLUMNS.QTY] = p.qty;
+                                    rowToUpdate[(int)CONTRACTSUMMARY_DATA_COLUMNS.QTY] = p.qty;
 
-                                    dataTable.Rows[rowCount][(int)CONTRACTSUMMARY_DATA_COLUMNS.PREV_QTY] = p.prev_qty;
+                                    rowToUpdate[(int)CONTRACTSUMMARY_DATA_COLUMNS.PREV_QTY] = p.prev_qty;
 
-                                    dataTable.Rows[rowCount][(int)CONTRACTSUMMARY_DATA_COLUMNS.ORDER_QTY] = p.qty - p.prev_qty;
+                                    rowToUpdate[(int)CONTRACTSUMMARY_DATA_COLUMNS.ORDER_QTY] = p.qty - p.prev_qty;
 
-                                    dataTable.Rows[rowCount][(int)CONTRACTSUMMARY_DATA_COLUMNS.INSTRUMENT_ID] = im.idinstrument;
+                                    rowToUpdate[(int)CONTRACTSUMMARY_DATA_COLUMNS.INSTRUMENT_ID] = im.idinstrument;
 
-                                    dataTable.Rows[rowCount][(int)CONTRACTSUMMARY_DATA_COLUMNS.ACCOUNT] = ap.name;
+                                    rowToUpdate[(int)CONTRACTSUMMARY_DATA_COLUMNS.ACCOUNT] = ap.name;
 
-                                    dataTable.Rows[rowCount][(int)CONTRACTSUMMARY_DATA_COLUMNS.FCM_OFFICE] = ac.FCM_OFFICE;
+                                    rowToUpdate[(int)CONTRACTSUMMARY_DATA_COLUMNS.FCM_OFFICE] = ac.FCM_OFFICE;
 
-                                    dataTable.Rows[rowCount][(int)CONTRACTSUMMARY_DATA_COLUMNS.FCM_ACCT] = ac.FCM_ACCT;
+                                    rowToUpdate[(int)CONTRACTSUMMARY_DATA_COLUMNS.FCM_ACCT] = ac.FCM_ACCT;
 
-                                    dataTable.Rows[rowCount][(int)CONTRACTSUMMARY_DATA_COLUMNS.STRIKE_PRICE] = p.asset.strikeprice;
+                                    rowToUpdate[(int)CONTRACTSUMMARY_DATA_COLUMNS.STRIKE_PRICE] = p.asset.strikeprice;
                                 }
 
-                                if(p.mose.asset.idcontract == 4838)
-                                {
-                                    TSErrorCatch.debugWriteOut("test");
-                                }
 
-                                UpdateCell(rowCount, (int)CONTRACTSUMMARY_DATA_COLUMNS.RFRSH_TIME,
-                                    dataTable, ap.date_now.ToString("MM-dd HH:mm", DateTimeFormatInfo.InvariantInfo));
-                                //dataTable.Rows[rowCount][(int)CONTRACTSUMMARY_DATA_COLUMNS.RFRSH_TIME]
+                                rowToUpdate[(int)CONTRACTSUMMARY_DATA_COLUMNS.UPDATED] = true;
+
+                                UpdateCell((int)CONTRACTSUMMARY_DATA_COLUMNS.RFRSH_TIME,
+                                    rowToUpdate, ap.date_now.ToString("MM-dd HH:mm", DateTimeFormatInfo.InvariantInfo));
+                                //rowToUpdate[(int)CONTRACTSUMMARY_DATA_COLUMNS.RFRSH_TIME]
                                 //    = ap.date_now.ToString("MM-dd HH:mm", DateTimeFormatInfo.InvariantInfo);
 
-                                UpdateCell(rowCount, (int)CONTRACTSUMMARY_DATA_COLUMNS.TIME,
-                                    dataTable, p.mose.lastTimeUpdated.ToString("MM-dd HH:mm", DateTimeFormatInfo.InvariantInfo));
-                                //dataTable.Rows[rowCount][(int)CONTRACTSUMMARY_DATA_COLUMNS.TIME]
+                                UpdateCell((int)CONTRACTSUMMARY_DATA_COLUMNS.TIME,
+                                    rowToUpdate, p.mose.lastTimeUpdated.ToString("MM-dd HH:mm", DateTimeFormatInfo.InvariantInfo));
+                                //rowToUpdate[(int)CONTRACTSUMMARY_DATA_COLUMNS.TIME]
                                 //    = p.mose.lastTimeUpdated.ToString("MM-dd HH:mm", DateTimeFormatInfo.InvariantInfo);
 
-                                UpdateCell(rowCount, (int)CONTRACTSUMMARY_DATA_COLUMNS.PL_DAY_CHG,
-                                    dataTable, Math.Round(p.positionTotals.pAndLDay, 2).ToString());
-                                //dataTable.Rows[rowCount][(int)CONTRACTSUMMARY_DATA_COLUMNS.PL_DAY_CHG]
+                                UpdateCell((int)CONTRACTSUMMARY_DATA_COLUMNS.PL_DAY_CHG,
+                                    rowToUpdate, Math.Round(p.positionTotals.pAndLDay, 2).ToString());
+                                //rowToUpdate[(int)CONTRACTSUMMARY_DATA_COLUMNS.PL_DAY_CHG]
                                 //    = Math.Round(p.positionTotals.pAndLDay,2);
 
-                                UpdateCell(rowCount, (int)CONTRACTSUMMARY_DATA_COLUMNS.ORDER_PL_CHG,
-                                    dataTable, Math.Round(p.positionTotals.pAndLDayOrders, 2).ToString());
-                                //dataTable.Rows[rowCount][(int)CONTRACTSUMMARY_DATA_COLUMNS.ORDER_PL_CHG]
+                                UpdateCell((int)CONTRACTSUMMARY_DATA_COLUMNS.ORDER_PL_CHG,
+                                    rowToUpdate, Math.Round(p.positionTotals.pAndLDayOrders, 2).ToString());
+                                //rowToUpdate[(int)CONTRACTSUMMARY_DATA_COLUMNS.ORDER_PL_CHG]
                                 //    = Math.Round(p.positionTotals.pAndLDayOrders,2);
 
-                                UpdateCell(rowCount, (int)CONTRACTSUMMARY_DATA_COLUMNS.DELTA,
-                                    dataTable, Math.Round(p.positionTotals.delta, 2).ToString());
-                                //dataTable.Rows[rowCount][(int)CONTRACTSUMMARY_DATA_COLUMNS.DELTA]
+                                UpdateCell((int)CONTRACTSUMMARY_DATA_COLUMNS.DELTA,
+                                    rowToUpdate, Math.Round(p.positionTotals.delta, 2).ToString());
+                                //rowToUpdate[(int)CONTRACTSUMMARY_DATA_COLUMNS.DELTA]
                                 //    = Math.Round(p.positionTotals.delta, 2);
 
-                                UpdateCell(rowCount, (int)CONTRACTSUMMARY_DATA_COLUMNS.DFLT_PRICE,
-                                    dataTable, p.mose.defaultPrice.ToString());
-                                //dataTable.Rows[rowCount][(int)CONTRACTSUMMARY_DATA_COLUMNS.DFLT_PRICE]
+                                UpdateCell((int)CONTRACTSUMMARY_DATA_COLUMNS.DFLT_PRICE,
+                                    rowToUpdate, p.mose.defaultPrice.ToString());
+                                //rowToUpdate[(int)CONTRACTSUMMARY_DATA_COLUMNS.DFLT_PRICE]
                                 //    = p.mose.defaultPrice;
 
-                                UpdateCell(rowCount, (int)CONTRACTSUMMARY_DATA_COLUMNS.THEOR_PRICE,
-                                    dataTable, p.mose.theoreticalOptionPrice.ToString());
-                                //dataTable.Rows[rowCount][(int)CONTRACTSUMMARY_DATA_COLUMNS.THEOR_PRICE]
+                                UpdateCell((int)CONTRACTSUMMARY_DATA_COLUMNS.THEOR_PRICE,
+                                    rowToUpdate, p.mose.theoreticalOptionPrice.ToString());
+                                //rowToUpdate[(int)CONTRACTSUMMARY_DATA_COLUMNS.THEOR_PRICE]
                                 //    = p.mose.theoreticalOptionPrice;
 
-                                UpdateCell(rowCount, (int)CONTRACTSUMMARY_DATA_COLUMNS.SPAN_IMPL_VOL,
-                                    dataTable, Math.Round(p.mose.impliedVolFromSpan, 2).ToString());
-                                //dataTable.Rows[rowCount][(int)CONTRACTSUMMARY_DATA_COLUMNS.SPAN_IMPL_VOL]
+                                UpdateCell((int)CONTRACTSUMMARY_DATA_COLUMNS.SPAN_IMPL_VOL,
+                                    rowToUpdate, Math.Round(p.mose.impliedVolFromSpan, 2).ToString());
+                                //rowToUpdate[(int)CONTRACTSUMMARY_DATA_COLUMNS.SPAN_IMPL_VOL]
                                 //    = Math.Round(p.mose.impliedVolFromSpan,2);
 
-                                UpdateCell(rowCount, (int)CONTRACTSUMMARY_DATA_COLUMNS.SETL_IMPL_VOL,
-                                    dataTable, Math.Round(p.mose.settlementImpliedVol, 2).ToString());
-                                //dataTable.Rows[rowCount][(int)CONTRACTSUMMARY_DATA_COLUMNS.SETL_IMPL_VOL]
+                                UpdateCell((int)CONTRACTSUMMARY_DATA_COLUMNS.SETL_IMPL_VOL,
+                                    rowToUpdate, Math.Round(p.mose.settlementImpliedVol, 2).ToString());
+                                //rowToUpdate[(int)CONTRACTSUMMARY_DATA_COLUMNS.SETL_IMPL_VOL]
                                 //    = Math.Round(p.mose.settlementImpliedVol,2);
 
-                                UpdateCell(rowCount, (int)CONTRACTSUMMARY_DATA_COLUMNS.IMPL_VOL,
-                                    dataTable, Math.Round(p.mose.impliedVol, 2).ToString());
-                                //dataTable.Rows[rowCount][(int)CONTRACTSUMMARY_DATA_COLUMNS.IMPL_VOL]
+                                UpdateCell((int)CONTRACTSUMMARY_DATA_COLUMNS.IMPL_VOL,
+                                    rowToUpdate, Math.Round(p.mose.impliedVol, 2).ToString());
+                                //rowToUpdate[(int)CONTRACTSUMMARY_DATA_COLUMNS.IMPL_VOL]
                                 //    = Math.Round(p.mose.impliedVol,2);
 
-                                UpdateCell(rowCount, (int)CONTRACTSUMMARY_DATA_COLUMNS.BID,
-                                    dataTable, p.mose.bid.ToString());
-                                //dataTable.Rows[rowCount][(int)CONTRACTSUMMARY_DATA_COLUMNS.BID]
+                                UpdateCell((int)CONTRACTSUMMARY_DATA_COLUMNS.BID,
+                                    rowToUpdate, p.mose.bid.ToString());
+                                //rowToUpdate[(int)CONTRACTSUMMARY_DATA_COLUMNS.BID]
                                 //    = p.mose.bid;
 
-                                UpdateCell(rowCount, (int)CONTRACTSUMMARY_DATA_COLUMNS.ASK,
-                                    dataTable, p.mose.ask.ToString());
-                                //dataTable.Rows[rowCount][(int)CONTRACTSUMMARY_DATA_COLUMNS.ASK]
+                                UpdateCell((int)CONTRACTSUMMARY_DATA_COLUMNS.ASK,
+                                    rowToUpdate, p.mose.ask.ToString());
+                                //rowToUpdate[(int)CONTRACTSUMMARY_DATA_COLUMNS.ASK]
                                 //    = p.mose.ask;
 
-                                UpdateCell(rowCount, (int)CONTRACTSUMMARY_DATA_COLUMNS.LAST,
-                                    dataTable, p.mose.trade.ToString());
-                                //dataTable.Rows[rowCount][(int)CONTRACTSUMMARY_DATA_COLUMNS.LAST]
+                                UpdateCell((int)CONTRACTSUMMARY_DATA_COLUMNS.LAST,
+                                    rowToUpdate, p.mose.trade.ToString());
+                                //rowToUpdate[(int)CONTRACTSUMMARY_DATA_COLUMNS.LAST]
                                 //    = p.mose.trade;
 
-                                UpdateCell(rowCount, (int)CONTRACTSUMMARY_DATA_COLUMNS.STTLE,
-                                    dataTable, p.mose.settlement.ToString());
-                                //dataTable.Rows[rowCount][(int)CONTRACTSUMMARY_DATA_COLUMNS.STTLE]
+                                UpdateCell((int)CONTRACTSUMMARY_DATA_COLUMNS.STTLE,
+                                    rowToUpdate, p.mose.settlement.ToString());
+                                //rowToUpdate[(int)CONTRACTSUMMARY_DATA_COLUMNS.STTLE]
                                 //    = p.mose.settlement;
 
-                                UpdateCell(rowCount, (int)CONTRACTSUMMARY_DATA_COLUMNS.SETL_TIME,
-                                    dataTable, p.mose.settlementDateTime.ToString("MM-dd HH:mm", DateTimeFormatInfo.InvariantInfo));
-                                //dataTable.Rows[rowCount][(int)CONTRACTSUMMARY_DATA_COLUMNS.SETL_TIME]
+                                UpdateCell((int)CONTRACTSUMMARY_DATA_COLUMNS.SETL_TIME,
+                                    rowToUpdate, p.mose.settlementDateTime.ToString("MM-dd HH:mm", DateTimeFormatInfo.InvariantInfo));
+                                //rowToUpdate[(int)CONTRACTSUMMARY_DATA_COLUMNS.SETL_TIME]
                                 //    = p.mose.settlementDateTime.ToString("MM-dd HH:mm", DateTimeFormatInfo.InvariantInfo);
 
-                                UpdateCell(rowCount, (int)CONTRACTSUMMARY_DATA_COLUMNS.YEST_STTLE,
-                                    dataTable, p.mose.yesterdaySettlement.ToString());
-                                //dataTable.Rows[rowCount][(int)CONTRACTSUMMARY_DATA_COLUMNS.YEST_STTLE]
+                                UpdateCell((int)CONTRACTSUMMARY_DATA_COLUMNS.YEST_STTLE,
+                                    rowToUpdate, p.mose.yesterdaySettlement.ToString());
+                                //rowToUpdate[(int)CONTRACTSUMMARY_DATA_COLUMNS.YEST_STTLE]
                                 //    = p.mose.yesterdaySettlement;
 
-
-                                rowCount++;
                             }
                         }
                     }
-
-
                 }
             }
+
+            DataRow[] result = dataTable
+                .Select(CONTRACTSUMMARY_DATA_COLUMNS.UPDATED.ToString() + "=false");
+
+            foreach (DataRow r in result)
+            {
+                r.Delete();
+            }
+
+            DataCollectionLibrary.contractSummaryDataTable = dataTable;
+
+            int saveRow = 0;
+            int saveCol = 0;
+            if (gridViewContractSummary.Rows.Count > 0 && gridViewContractSummary.FirstDisplayedCell != null)
+                saveRow = gridViewContractSummary.FirstDisplayedCell.RowIndex;
+
+            if (gridViewContractSummary.Columns.Count > 0 && gridViewContractSummary.FirstDisplayedCell != null)
+                saveCol = gridViewContractSummary.FirstDisplayedCell.ColumnIndex;
+
+            gridViewContractSummary.DataSource = DataCollectionLibrary.contractSummaryDataTable;
+
+            if (saveRow != 0 && saveRow < gridViewContractSummary.Rows.Count)
+                gridViewContractSummary.FirstDisplayedScrollingRowIndex = saveRow;
+
+            if (saveCol != 0 && saveCol < gridViewContractSummary.Columns.Count)
+                gridViewContractSummary.FirstDisplayedScrollingColumnIndex = saveCol;
         }
 
-        private void UpdateCell(int row, int col, DataTable dataTable, string displayValue)
+        private void UpdateCell(int col, DataRow dataTable, string displayValue)
         {
-            if (dataTable.Rows[row][col] == null
-                || dataTable.Rows[row][col].ToString().CompareTo(displayValue) != 0)
+            if (dataTable[col] == null
+                || dataTable[col].ToString().CompareTo(displayValue) != 0)
             {
-                dataTable.Rows[row][col] = displayValue;
+                dataTable[col] = displayValue;
             }
         }
 
