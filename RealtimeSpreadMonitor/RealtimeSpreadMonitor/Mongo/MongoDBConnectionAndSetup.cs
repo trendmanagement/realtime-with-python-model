@@ -55,10 +55,10 @@ namespace RealtimeSpreadMonitor.Mongo
             _database = _client.GetDatabase(System.Configuration.ConfigurationManager.AppSettings["MongoDbName"]);
 
 
-            _client_live_futures = new MongoClient(
-                System.Configuration.ConfigurationManager.ConnectionStrings["MongoConnection_Live"].ConnectionString);
+            //_client_live_futures = new MongoClient(
+            //    System.Configuration.ConfigurationManager.ConnectionStrings["MongoConnection_Live"].ConnectionString);
 
-            _database_live_futures = _client_live_futures.GetDatabase(System.Configuration.ConfigurationManager.AppSettings["MongoDbName_V1_LIVE"]);
+            //_database_live_futures = _client_live_futures.GetDatabase(System.Configuration.ConfigurationManager.AppSettings["MongoDbName_V1_LIVE"]);
 
 
             _instrumentCollection = _database.GetCollection<Instrument_mongo>(
@@ -110,7 +110,7 @@ namespace RealtimeSpreadMonitor.Mongo
             //_portfolioCollectionQuery = _database.GetCollection<PortfolioAllocation>(
             //    System.Configuration.ConfigurationManager.AppSettings["MongoAccountsPortfolio"]);
 
-            _futures_live_data = _database_live_futures.GetCollection<Futures_Contract_Minutebars>(
+            _futures_live_data = _database.GetCollection<Futures_Contract_Minutebars>(
                 System.Configuration.ConfigurationManager.AppSettings["Mongo_live_contract_minute_bars_collection"]);
         }
 
@@ -457,7 +457,7 @@ namespace RealtimeSpreadMonitor.Mongo
 
                 FilterDefinition<Futures_Contract_Minutebars> filterOptionInputSymbol
                     = builder.And(
-                        builder.Gte("bartime", start),
+                        builder.Gte("datetime", start),
                         builder.In("idcontract", contractId_List));
 
                 
@@ -465,9 +465,9 @@ namespace RealtimeSpreadMonitor.Mongo
                 var group = new BsonDocument
                  {
                     {"_id", "$idcontract"},
-                    {"bartime",new BsonDocument{
+                    {"datetime",new BsonDocument{
 
-                                {"$last", "$bartime"}
+                                {"$last", "$datetime"}
 
                         }
                     },
@@ -479,7 +479,7 @@ namespace RealtimeSpreadMonitor.Mongo
                     }
                  };
 
-                var sort_1 = new BsonDocument { { "bartime", 1 } };
+                var sort_1 = new BsonDocument { { "datetime", 1 } };
                 var sort_2 = new BsonDocument { { "idcontract", 1 } };
 
                 var aggregate = _futures_live_data.Aggregate().Match(filterOptionInputSymbol).Sort(sort_1)
@@ -507,12 +507,12 @@ namespace RealtimeSpreadMonitor.Mongo
 
                 FilterDefinition<Futures_Contract_Minutebars> filterOptionInputSymbol
                     = builder.And(
-                        builder.Gte("bartime", start),
-                        builder.Lte("bartime", stop),
+                        builder.Gte("datetime", start),
+                        builder.Lte("datetime", stop),
                         builder.Eq("idcontract", contractId));
 
                 var x = _futures_live_data.Find(filterOptionInputSymbol)
-                    .Sort(Builders<Futures_Contract_Minutebars>.Sort.Descending("bartime")).ToListAsync();
+                    .Sort(Builders<Futures_Contract_Minutebars>.Sort.Descending("datetime")).ToListAsync();
 
                 if (x.Result.Count > 0)
                 {

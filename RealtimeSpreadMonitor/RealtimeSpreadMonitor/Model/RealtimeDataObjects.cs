@@ -574,7 +574,7 @@ namespace RealtimeSpreadMonitor.Model
 
         public long idcontract { get; set; }
 
-        public DateTime bartime { get; set; }
+        public DateTime datetime { get; set; }
 
         public long volume { get; set; }
 

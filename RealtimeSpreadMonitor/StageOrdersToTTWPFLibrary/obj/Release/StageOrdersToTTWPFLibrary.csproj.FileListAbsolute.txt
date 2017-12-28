@@ -85,6 +85,7 @@ C:\Users\Steve Pickering\Desktop\MAIN TMQR FRAMEWORK\RealtimeMonitor_Iqfeed\real
 C:\Users\Steve Pickering\Desktop\MAIN TMQR FRAMEWORK\RealtimeMonitor_Iqfeed\realtime-with-python-model\RealtimeSpreadMonitor\StageOrdersToTTWPFLibrary\bin\Release\QuickFix.dll
 C:\Users\Steve Pickering\Desktop\MAIN TMQR FRAMEWORK\RealtimeMonitor_Iqfeed\realtime-with-python-model\RealtimeSpreadMonitor\StageOrdersToTTWPFLibrary\bin\Release\MongoDB.Bson.xml
 C:\Users\Steve Pickering\Desktop\MAIN TMQR FRAMEWORK\RealtimeMonitor_Iqfeed\realtime-with-python-model\RealtimeSpreadMonitor\StageOrdersToTTWPFLibrary\bin\Release\MongoDB.Driver.xml
+C:\Users\Steve Pickering\Desktop\MAIN TMQR FRAMEWORK\RealtimeMonitor_Iqfeed\realtime-with-python-model\RealtimeSpreadMonitor\StageOrdersToTTWPFLibrary\obj\Release\StageOrdersToTTWPFLibrary.csprojResolveAssemblyReference.cache
 C:\Users\Steve Pickering\Desktop\MAIN TMQR FRAMEWORK\RealtimeMonitor_Iqfeed\realtime-with-python-model\RealtimeSpreadMonitor\StageOrdersToTTWPFLibrary\obj\Release\View\ExecutionView.baml
 C:\Users\Steve Pickering\Desktop\MAIN TMQR FRAMEWORK\RealtimeMonitor_Iqfeed\realtime-with-python-model\RealtimeSpreadMonitor\StageOrdersToTTWPFLibrary\obj\Release\View\FIXMessageView.baml
 C:\Users\Steve Pickering\Desktop\MAIN TMQR FRAMEWORK\RealtimeMonitor_Iqfeed\realtime-with-python-model\RealtimeSpreadMonitor\StageOrdersToTTWPFLibrary\obj\Release\View\OrderView.baml
@@ -103,4 +104,3 @@ C:\Users\Steve Pickering\Desktop\MAIN TMQR FRAMEWORK\RealtimeMonitor_Iqfeed\real
 C:\Users\Steve Pickering\Desktop\MAIN TMQR FRAMEWORK\RealtimeMonitor_Iqfeed\realtime-with-python-model\RealtimeSpreadMonitor\StageOrdersToTTWPFLibrary\obj\Release\StageOrdersToTTWPFLibrary.csproj.GenerateResource.Cache
 C:\Users\Steve Pickering\Desktop\MAIN TMQR FRAMEWORK\RealtimeMonitor_Iqfeed\realtime-with-python-model\RealtimeSpreadMonitor\StageOrdersToTTWPFLibrary\obj\Release\StageOrdersToTTWPFLibrary.dll
 C:\Users\Steve Pickering\Desktop\MAIN TMQR FRAMEWORK\RealtimeMonitor_Iqfeed\realtime-with-python-model\RealtimeSpreadMonitor\StageOrdersToTTWPFLibrary\obj\Release\StageOrdersToTTWPFLibrary.pdb
-C:\Users\Steve Pickering\Desktop\MAIN TMQR FRAMEWORK\RealtimeMonitor_Iqfeed\realtime-with-python-model\RealtimeSpreadMonitor\StageOrdersToTTWPFLibrary\obj\Release\StageOrdersToTTWPFLibrary.csprojResolveAssemblyReference.cache
