@@ -129,17 +129,17 @@ namespace RealtimeSpreadMonitor.Mongo
 
         public bool lastBarAnalyzed = false;
 
-        public DateTime todayDecisionTime;
+        public DateTime todayDecisionTime = new DateTime(3000, 1, 1);
         public double decisionPrice;
         public DateTime decisionPriceTime;
-        public bool decisionPriceTimePassed = false;
+        //public bool decisionPriceTimePassed = false;
         public bool decisionPriceFilled = false;
 
 
-        public DateTime todayTransactionTimeBoundary;
+        public DateTime todayTransactionTimeBoundary = new DateTime(3000,1,1);
         public double transactionPrice;
         public DateTime transactionPriceTime;
-        public bool transactionPriceTimePassed = false;
+        //public bool transactionPriceTimePassed = false;
         public bool transactionPriceFilled = false;
 
         //public bool filledAfterTransactionTimeBoundary = false;

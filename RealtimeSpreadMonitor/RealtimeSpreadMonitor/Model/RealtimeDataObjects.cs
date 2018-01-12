@@ -585,20 +585,21 @@ namespace RealtimeSpreadMonitor.Model
     }
 
     [BsonIgnoreExtraElements]
-    public class OptionInputData
+    public class RiskFreeRateData
     {
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
         public ObjectId _id { get; set; }
+        public double last_rfr { get; set; }
 
-        public long idoptioninputsymbol { get; set; }
+        //public long idoptioninputsymbol { get; set; }
 
-        public DateTime optioninputdatetime { get; set; }
+        //public DateTime optioninputdatetime { get; set; }
 
-        public double optioninputopen { get; set; }
-        public double optioninputhigh { get; set; }
-        public double optioninputlow { get; set; }
-        public double optioninputclose { get; set; }
+        //public double optioninputopen { get; set; }
+        //public double optioninputhigh { get; set; }
+        //public double optioninputlow { get; set; }
+        //public double optioninputclose { get; set; }
     }
 
     public class InitializationParms

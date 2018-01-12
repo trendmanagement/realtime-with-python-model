@@ -13,8 +13,8 @@ namespace RealtimeSpreadMonitor.Mongo
         protected static IMongoClient _client;
         protected static IMongoDatabase _database;
 
-        protected static IMongoClient _client_live_futures;
-        protected static IMongoDatabase _database_live_futures;
+        protected static IMongoClient _client_framework2;
+        protected static IMongoDatabase _database_framework2;
 
         private static IMongoCollection<Instrument_mongo> _instrumentCollection;
 
@@ -38,9 +38,11 @@ namespace RealtimeSpreadMonitor.Mongo
 
         private static IMongoCollection<Options_Data> _option_data;
 
-        private static IMongoCollection<OptionInputData> _option_input_data;
+        private static IMongoCollection<RiskFreeRateData> _risk_free_rate_data;
 
         private static IMongoCollection<Futures_Contract_Minutebars> _futures_live_data;
+
+        private static IMongoCollection<BsonDocument> _smart_campaigns;
 
         //private static IMongoCollection<PortfolioAllocation> _portfolioCollectionQuery;
 
@@ -55,10 +57,10 @@ namespace RealtimeSpreadMonitor.Mongo
             _database = _client.GetDatabase(System.Configuration.ConfigurationManager.AppSettings["MongoDbName"]);
 
 
-            //_client_live_futures = new MongoClient(
-            //    System.Configuration.ConfigurationManager.ConnectionStrings["MongoConnection_Live"].ConnectionString);
+            _client_framework2 = new MongoClient(
+                System.Configuration.ConfigurationManager.ConnectionStrings["MongoConnection_Framework2"].ConnectionString);
 
-            //_database_live_futures = _client_live_futures.GetDatabase(System.Configuration.ConfigurationManager.AppSettings["MongoDbName_V1_LIVE"]);
+            _database_framework2 = _client_framework2.GetDatabase("tmqr2");
 
 
             _instrumentCollection = _database.GetCollection<Instrument_mongo>(
@@ -104,14 +106,18 @@ namespace RealtimeSpreadMonitor.Mongo
             _option_data = _database.GetCollection<Options_Data>(
                 System.Configuration.ConfigurationManager.AppSettings["MongoOptionsDataCollection"]);
 
-            _option_input_data = _database.GetCollection<OptionInputData>(
-                System.Configuration.ConfigurationManager.AppSettings["MongoOptionsInputDataCollection"]);
+            //_option_input_data = _database.GetCollection<OptionInputData>(
+            //    System.Configuration.ConfigurationManager.AppSettings["MongoOptionsInputDataCollection"]);
 
             //_portfolioCollectionQuery = _database.GetCollection<PortfolioAllocation>(
             //    System.Configuration.ConfigurationManager.AppSettings["MongoAccountsPortfolio"]);
 
             _futures_live_data = _database.GetCollection<Futures_Contract_Minutebars>(
                 System.Configuration.ConfigurationManager.AppSettings["Mongo_live_contract_minute_bars_collection"]);
+
+            _smart_campaigns = _database.GetCollection<BsonDocument>("campaigns_smart");
+
+            _risk_free_rate_data = _database_framework2.GetCollection<RiskFreeRateData>("quotes_riskfreerate");
         }
 
         internal static List<Account> GetAccountInfoFromMongo(List<string> accountList)
@@ -126,6 +132,39 @@ namespace RealtimeSpreadMonitor.Mongo
             catch
             {
                 return new List<Account>();
+            }
+        }
+
+        internal static HashSet<string> GetInstrumentListFromSmartCampaignsFromMongo(List<string> campaignList)
+        {
+            HashSet<string> productHashSet = new HashSet<string>();
+
+            try
+            {
+                var builder = Builders<BsonDocument>.Filter;
+                var filter = builder.In("name", campaignList);
+
+                var cursor = _smart_campaigns.Find(filter).ToListAsync().Result;
+
+                
+
+                foreach (var doc in cursor)
+                {
+                    //Console.WriteLine(doc);
+                    foreach(var alpha in doc["alphas"].AsBsonDocument)
+                    {
+                        //Console.WriteLine(alpha.Value["product"].AsString);
+                        productHashSet.Add(alpha.Value["product"].AsString);
+                    }
+                }
+
+                //productHashSet
+                
+                return productHashSet;
+            }
+            catch
+            {
+                return productHashSet;
             }
         }
 
@@ -164,6 +203,22 @@ namespace RealtimeSpreadMonitor.Mongo
             catch
             {
                 return null;
+            }
+        }
+
+        internal static List<Instrument_mongo> GetInstrumentListFromMongo(HashSet<string> instrument_exchangesymbol_hashset)//List<long> instrumentIdList)
+        {
+            try
+            {
+                var builder = Builders<Instrument_mongo>.Filter;
+                var filter = builder.In(x => x.exchangesymbol, instrument_exchangesymbol_hashset);
+                //var filter = builder.In(x => x.exchangesymbol, instrumentExchangeSymbolList);
+
+                return _instrumentCollection.Find(filter).ToList();
+            }
+            catch
+            {
+                return new List<Instrument_mongo>();
             }
         }
 
@@ -422,28 +477,29 @@ namespace RealtimeSpreadMonitor.Mongo
             return optionSettlements;
         }
 
-        public static OptionInputData GetRiskFreeRate(long idoptioninputsymbol)
+        public static double GetRiskFreeRate()
         {
-            OptionInputData riskFreeRate = null;
+            //RiskFreeRateData riskFreeRate = null;
 
             try
             {
-                var builder = Builders<OptionInputData>.Filter;
+                //var builder = Builders<RiskFreeRateData>.Filter;
 
-                FilterDefinition<OptionInputData> filterOptionInputSymbol
-                    = builder.Eq("idoptioninputsymbol", idoptioninputsymbol);
+                //FilterDefinition<RiskFreeRateData> filterOptionInputSymbol
+                //    = builder.Eq("idoptioninputsymbol", idoptioninputsymbol);
 
 
-                riskFreeRate = _option_input_data.Find(filterOptionInputSymbol)
-                    .Sort(Builders<OptionInputData>.Sort.Descending("optioninputdatetime")).First();
+                var risk = _risk_free_rate_data.Find(_ => true).First<RiskFreeRateData>();
+                //.Sort(Builders<RiskFreeRateData>.Sort.Descending("optioninputdatetime")).First();
+                return risk.last_rfr;
 
             }
-            catch (InvalidOperationException)
+            catch (InvalidOperationException e)
             {
-                TSErrorCatch.debugWriteOut("Error");
+                TSErrorCatch.debugWriteOut("Error" + e);
             }
 
-            return riskFreeRate;
+            return 0.01;
         }
 
         public static List<BsonDocument> GetFuturesContractMinutebars(List<long> contractId_List, DateTime start)

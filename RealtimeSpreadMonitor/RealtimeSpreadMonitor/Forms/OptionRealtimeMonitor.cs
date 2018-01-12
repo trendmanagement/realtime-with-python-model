@@ -300,115 +300,120 @@ namespace RealtimeSpreadMonitor.Forms
         {
 
             if (continueUpdating)
-            {
-                //DateTime current = DateTime.Now;
-                //TimeSpan timeToGo = TimerThreadInfo.refreshMongoOrders - DateTime.Now.TimeOfDay;
-                //if (timeToGo < TimeSpan.Zero)
-                //{
-                //    //optionSpreadManager.RefreshAccountInfo();
-
-                //    //TimerThreadInfo.refreshMongoOrders = DateTime.Now.AddSeconds(30).TimeOfDay;
-                //}
-
-                TimeSpan timeToGo_data = TimerThreadInfo.refreshFuturesData - DateTime.Now.TimeOfDay;
-                if (timeToGo_data < TimeSpan.Zero)
+                try
                 {
-                    AsyncTaskListener.StatusUpdateAsync("",
-                    STATUS_FORMAT.DEFAULT, STATUS_TYPE.ORDER_DATA_STATUS);
+                    //DateTime current = DateTime.Now;
+                    //TimeSpan timeToGo = TimerThreadInfo.refreshMongoOrders - DateTime.Now.TimeOfDay;
+                    //if (timeToGo < TimeSpan.Zero)
+                    //{
+                    //    //optionSpreadManager.RefreshAccountInfo();
 
-                    bool refreshAccountInfo = false;
-                    TimeSpan timeToGoAccountInfo = TimerThreadInfo.refreshMongoOrders - DateTime.Now.TimeOfDay;
-                    if (timeToGoAccountInfo < TimeSpan.Zero)
+                    //    //TimerThreadInfo.refreshMongoOrders = DateTime.Now.AddSeconds(30).TimeOfDay;
+                    //}
+
+                    TimeSpan timeToGo_data = TimerThreadInfo.refreshFuturesData - DateTime.Now.TimeOfDay;
+                    if (timeToGo_data < TimeSpan.Zero)
                     {
-                        refreshAccountInfo = true;
-                        TimerThreadInfo.refreshMongoOrders = DateTime.Now.AddSeconds(30).TimeOfDay;
-
-                        AsyncTaskListener.StatusUpdateAsync("Orders Called",
+                        AsyncTaskListener.StatusUpdateAsync("",
                         STATUS_FORMAT.DEFAULT, STATUS_TYPE.ORDER_DATA_STATUS);
+
+                        bool refreshAccountInfo = false;
+                        TimeSpan timeToGoAccountInfo = TimerThreadInfo.refreshMongoOrders - DateTime.Now.TimeOfDay;
+                        if (timeToGoAccountInfo < TimeSpan.Zero)
+                        {
+                            refreshAccountInfo = true;
+                            TimerThreadInfo.refreshMongoOrders = DateTime.Now.AddSeconds(30).TimeOfDay;
+
+                            AsyncTaskListener.StatusUpdateAsync("Orders Called",
+                            STATUS_FORMAT.DEFAULT, STATUS_TYPE.ORDER_DATA_STATUS);
+                        }
+
+                        Thread RefreshData_CallsForAccountAndFuturesThread = new Thread(new ParameterizedThreadStart(optionSpreadManager.RefreshData_CallsForAccountAndFutures));
+                        RefreshData_CallsForAccountAndFuturesThread.IsBackground = true;
+                        RefreshData_CallsForAccountAndFuturesThread.Start(refreshAccountInfo);
+
+                        //optionSpreadManager.RefreshFuturesData();
+
+                        TimerThreadInfo.refreshFuturesData = DateTime.Now.AddSeconds(15).TimeOfDay;
+
+                        AsyncTaskListener.StatusUpdateAsync("Futures Called",
+                        STATUS_FORMAT.DEFAULT, STATUS_TYPE.DATA_STATUS);
                     }
 
-                    Thread RefreshData_CallsForAccountAndFuturesThread = new Thread(new ParameterizedThreadStart(optionSpreadManager.RefreshData_CallsForAccountAndFutures));
-                    RefreshData_CallsForAccountAndFuturesThread.IsBackground = true;
-                    RefreshData_CallsForAccountAndFuturesThread.Start(refreshAccountInfo);
+                    if (DataCollectionLibrary._fxceConnected)
+                    {
+                        AsyncTaskListener.StatusUpdateAsync("TTFIX UP",
+                            STATUS_FORMAT.DEFAULT, STATUS_TYPE.TT_FIX_CONNECTION);
+                    }
+                    else
+                    {
+                        AsyncTaskListener.StatusUpdateAsync("TTFIX DN",
+                            STATUS_FORMAT.ALARM, STATUS_TYPE.TT_FIX_CONNECTION);
+                    }
 
-                    //optionSpreadManager.RefreshFuturesData();
+                    optionSpreadManager.RunSpreadTotalCalculations();
 
-                    TimerThreadInfo.refreshFuturesData = DateTime.Now.AddSeconds(15).TimeOfDay;
+                    optionSpreadManager.RunADMSpreadTotalCalculations();
 
-                    AsyncTaskListener.StatusUpdateAsync("Futures Called",
-                    STATUS_FORMAT.DEFAULT, STATUS_TYPE.DATA_STATUS);
+
+
+
+                    //*******************
+                    //update without new thread datatable
+                    sendUpdateToPortfolioTotalGrid();
+
+
+                    sendUpdateToPortfolioTotalSettlementGrid();
+
+
+                    fillOrderSummaryList();
+                    //*******************
+
+                    //int saveRow = 0;
+                    //if (gridViewContractSummary.Rows.Count > 0 && gridViewContractSummary.FirstDisplayedCell != null)
+                    //    saveRow = gridViewContractSummary.FirstDisplayedCell.RowIndex;
+
+                    ContractsModel_Library.gridViewContractSummaryManipulation.FillContractSummary();
+
+                    //if (saveRow != 0 && saveRow < gridViewContractSummary.Rows.Count)
+                    //    gridViewContractSummary.FirstDisplayedScrollingRowIndex = saveRow;
+
+
+                    //saveRow = 0;
+                    //if (gridLiveFCMData.Rows.Count > 0 && gridLiveFCMData.FirstDisplayedCell != null)
+                    //    saveRow = gridLiveFCMData.FirstDisplayedCell.RowIndex;
+
+                    ContractsModel_Library.gridViewFCMPostionManipulation.Fill_FCM_ContractSummary();
+
+                    //if (saveRow != 0 && saveRow < gridLiveFCMData.Rows.Count)
+                    //    gridLiveFCMData.FirstDisplayedScrollingRowIndex = saveRow;
+
+
+                    updateLiveDataPage(null);
+                    //Thread callUpdateLivePage = new Thread(new ParameterizedThreadStart(updateLiveDataPage));
+                    //callUpdateLivePage.IsBackground = true;
+                    //callUpdateLivePage.Start();
+
+                    //updateLiveDataPage(null);
+
+                    //DateTime ct = DateTime.Now;
+                    //TSErrorCatch.debugWriteOut(ct.ToString("HH:mm:ss", DateTimeFormatInfo.InvariantInfo));
+
+                    updateOptionRealtimeMonitorGUI = true;
+
+
+                    //Thread.Sleep(7000);
+                    //updateLiveDataPage(null);
+
+                    //AsyncTaskListener.StatusUpdateAsync("",
+                    //        STATUS_FORMAT.DEFAULT, STATUS_TYPE.ORDER_DATA_STATUS);
+                    //AsyncTaskListener.StatusUpdateAsync("",
+                    //    STATUS_FORMAT.DEFAULT, STATUS_TYPE.DATA_STATUS);
                 }
-
-                if (DataCollectionLibrary._fxceConnected)
+                catch (Exception ex)
                 {
-                    AsyncTaskListener.StatusUpdateAsync("TTFIX UP",
-                        STATUS_FORMAT.DEFAULT, STATUS_TYPE.TT_FIX_CONNECTION);
+                    TSErrorCatch.errorCatchOut(Convert.ToString(this), ex);
                 }
-                else
-                {
-                    AsyncTaskListener.StatusUpdateAsync("TTFIX DN",
-                        STATUS_FORMAT.ALARM, STATUS_TYPE.TT_FIX_CONNECTION);
-                }
-
-                optionSpreadManager.RunSpreadTotalCalculations();
-
-                optionSpreadManager.RunADMSpreadTotalCalculations();
-
-
-
-
-                //*******************
-                //update without new thread datatable
-                sendUpdateToPortfolioTotalGrid();
-
-
-                sendUpdateToPortfolioTotalSettlementGrid();
-
-
-                fillOrderSummaryList();
-                //*******************
-
-                //int saveRow = 0;
-                //if (gridViewContractSummary.Rows.Count > 0 && gridViewContractSummary.FirstDisplayedCell != null)
-                //    saveRow = gridViewContractSummary.FirstDisplayedCell.RowIndex;
-
-                ContractsModel_Library.gridViewContractSummaryManipulation.FillContractSummary();
-
-                //if (saveRow != 0 && saveRow < gridViewContractSummary.Rows.Count)
-                //    gridViewContractSummary.FirstDisplayedScrollingRowIndex = saveRow;
-
-
-                //saveRow = 0;
-                //if (gridLiveFCMData.Rows.Count > 0 && gridLiveFCMData.FirstDisplayedCell != null)
-                //    saveRow = gridLiveFCMData.FirstDisplayedCell.RowIndex;
-
-                ContractsModel_Library.gridViewFCMPostionManipulation.Fill_FCM_ContractSummary();
-
-                //if (saveRow != 0 && saveRow < gridLiveFCMData.Rows.Count)
-                //    gridLiveFCMData.FirstDisplayedScrollingRowIndex = saveRow;
-
-
-                updateLiveDataPage(null);
-                //Thread callUpdateLivePage = new Thread(new ParameterizedThreadStart(updateLiveDataPage));
-                //callUpdateLivePage.IsBackground = true;
-                //callUpdateLivePage.Start();
-
-                //updateLiveDataPage(null);
-
-                //DateTime ct = DateTime.Now;
-                //TSErrorCatch.debugWriteOut(ct.ToString("HH:mm:ss", DateTimeFormatInfo.InvariantInfo));
-
-                updateOptionRealtimeMonitorGUI = true;
-
-
-                //Thread.Sleep(7000);
-                //updateLiveDataPage(null);
-
-                //AsyncTaskListener.StatusUpdateAsync("",
-                //        STATUS_FORMAT.DEFAULT, STATUS_TYPE.ORDER_DATA_STATUS);
-                //AsyncTaskListener.StatusUpdateAsync("",
-                //    STATUS_FORMAT.DEFAULT, STATUS_TYPE.DATA_STATUS);
-            }
 
         }
 
@@ -1044,7 +1049,7 @@ namespace RealtimeSpreadMonitor.Forms
                         }
                     }
                 }
-                
+
             }
 
             DataRow[] result = dataTable.Select(ORDER_SUMMARY_COLUMNS.UPDATED.ToString() + "=false");
@@ -2083,7 +2088,7 @@ namespace RealtimeSpreadMonitor.Forms
         private void updateSelectedInstrumentFromTree(Object obj)
         {
             fillOrderSummaryList();
-            
+
             ContractsModel_Library.gridViewContractSummaryManipulation.FillContractSummary();
 
             DataCollectionLibrary.performFull_FCMSummary_Refresh = true;
@@ -3392,7 +3397,7 @@ namespace RealtimeSpreadMonitor.Forms
         delegate void ThreadSafeUpdateCQGReconnectBtn(bool enabled);
 
 
-        
+
 
 
 

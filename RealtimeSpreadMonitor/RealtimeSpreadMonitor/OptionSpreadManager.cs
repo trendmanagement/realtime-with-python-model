@@ -263,6 +263,26 @@ namespace RealtimeSpreadMonitor
             //    ac.accountFromMongo = accountListDictionary[ac.account];
             //}
 
+            List<string> smartCampaignList = new List<string>();
+            foreach(Account account in DataCollectionLibrary.accountList)
+            {
+                smartCampaignList.Add(account.campaign_name);
+            }
+
+            HashSet<string> productHashSet = MongoDBConnectionAndSetup.GetInstrumentListFromSmartCampaignsFromMongo(smartCampaignList);
+
+            DataCollectionLibrary.instrumentList = MongoDBConnectionAndSetup.GetInstrumentListFromMongo(productHashSet);
+
+            List<long> instrumentIdList = new List<long>();
+            foreach(Instrument_mongo inst in DataCollectionLibrary.instrumentList)
+            {
+                instrumentIdList.Add(inst.idinstrument);
+            }
+
+            //List<long> instrumentIdList = GetAllInstrumentIds();
+
+
+
             fillPortfolioAllocation(portfolioAllocation_Mongo, accountListDictionary);
 
 
@@ -276,11 +296,14 @@ namespace RealtimeSpreadMonitor
             /// fill instrument list
             /// </summary>
             /// 
-            List<long> instrumentIdList = GetAllInstrumentIds();
+            
+
+
+
             //List<long> instrumentIdList = new List<long> { 2, 11, 21, 23, 31, 32, 33 };
 
 
-            DataCollectionLibrary.instrumentList = MongoDBConnectionAndSetup.GetInstrumentListFromMongo(instrumentIdList);
+            //DataCollectionLibrary.instrumentList = MongoDBConnectionAndSetup.GetInstrumentListFromMongo(instrumentIdList);
 
             DataCollectionLibrary.instrumentHashTable_keyinstrumentid = DataCollectionLibrary.instrumentList.ToDictionary(x => x.idinstrument, x => x);
 
@@ -629,67 +652,99 @@ namespace RealtimeSpreadMonitor
 
 
 
-            List<IdAndBarTime> idcontractDecisionTimeList = new List<IdAndBarTime>();
-            List<IdAndBarTime> idcontractTransactionTimeList = new List<IdAndBarTime>();
+            //List<IdAndBarTime> idcontractDecisionTimeList = new List<IdAndBarTime>();
+            //List<IdAndBarTime> idcontractTransactionTimeList = new List<IdAndBarTime>();
 
             List<long> idcontractList = new List<long>();
             //idcontractList.Add(4722);
             //idcontractList.Add(4723);
 
-            DateTime currentTime = DateTime.Now;
+            DateTime currentTime = DateTime.Now.AddMinutes(-10);
+
+            DateTime barqueryStartDate = currentTime.Date.AddDays(-1);
 
             foreach (MongoDB_OptionSpreadExpression ose in DataCollectionLibrary.optionSpreadExpressionList)
             {
                 if (ose.callPutOrFuture == OPTION_SPREAD_CONTRACT_TYPE.FUTURE)
                 {
-                    if (!ose.decisionPriceTimePassed
-                                && currentTime.CompareTo(ose.todayDecisionTime) > 0)
+                    if (!ose.decisionPriceFilled
+                    //   && currentTime.CompareTo(new DateTime(2018,1,3,18,50,0)) > 0)
+                    && currentTime.CompareTo(ose.todayDecisionTime) > 0)
                     {
-                        ose.decisionPriceTimePassed = true;                        
+                        
 
-                        idcontractDecisionTimeList.Add(new IdAndBarTime(ose.asset.idcontract, ose.todayDecisionTime));
+                        //idcontractDecisionTimeList.Add(new IdAndBarTime(ose.asset.idcontract, ose.todayDecisionTime));
+
+                        Futures_Contract_Minutebars futuresContractMinutebars =
+                            MongoDBConnectionAndSetup.GetFuturesContractDecisionTransactionMinutebars(
+                                ose.asset.idcontract, barqueryStartDate, ose.todayDecisionTime);
+
+                        if (futuresContractMinutebars != null)
+                        {
+                            dataManagement.FillFutureDecision(futuresContractMinutebars, ose);
+                        }
                     }
 
-                    if (!ose.transactionPriceTimePassed
+                    if (ose.decisionPriceFilled)
+                    {
+                        dataManagement.FillOptionDecision(ose);
+                    }
+
+                    if (!ose.transactionPriceFilled
+                                //&& currentTime.CompareTo(new DateTime(2018, 1, 3, 18, 50, 0)) > 0)
                                 && currentTime.CompareTo(ose.todayTransactionTimeBoundary) > 0)
                     {
-                        ose.transactionPriceTimePassed = true;
+                        Futures_Contract_Minutebars futuresContractMinutebars =
+                            MongoDBConnectionAndSetup.GetFuturesContractDecisionTransactionMinutebars(
+                                ose.asset.idcontract, barqueryStartDate, ose.todayTransactionTimeBoundary);
 
-                        idcontractTransactionTimeList.Add(new IdAndBarTime(ose.asset.idcontract, ose.todayDecisionTime));
+                        //ose.transactionPriceTimePassed = true;
+
+                        //idcontractTransactionTimeList.Add(new IdAndBarTime(ose.asset.idcontract, ose.todayDecisionTime));
+
+                        if (futuresContractMinutebars != null)
+                        {
+                            dataManagement.FillFutureTransaction(futuresContractMinutebars, ose);
+                        }
+                    }
+
+                    if (ose.transactionPriceFilled)
+                    {
+                        dataManagement.FillOptionTransaction(ose);
                     }
 
                     idcontractList.Add(ose.asset.idcontract);
                 }
             }
 
-            DateTime barqueryStartDate = currentTime.Date.AddDays(-1);
+            //DateTime barqueryStartDate = currentTime.Date.AddDays(-1);
 
-            if (idcontractDecisionTimeList.Count > 0)
-            {
-                foreach (IdAndBarTime idBarTime in idcontractDecisionTimeList)
-                {
+            //if (idcontractDecisionTimeList.Count > 0)
+            //{
+            //    foreach (IdAndBarTime idBarTime in idcontractDecisionTimeList)
+            //    {
 
-                    Futures_Contract_Minutebars futuresContractMinutebars =
-                        MongoDBConnectionAndSetup.GetFuturesContractDecisionTransactionMinutebars(
-                            idBarTime.idcontract, barqueryStartDate, idBarTime.stopTime);
-                    if(futuresContractMinutebars != null)
-                        dataManagement.fillFutureDecisionTransactionDataAfterRealtimeMongoRequest(futuresContractMinutebars, true);
-                }
-            }
+            //        Futures_Contract_Minutebars futuresContractMinutebars =
+            //            MongoDBConnectionAndSetup.GetFuturesContractDecisionTransactionMinutebars(
+            //                idBarTime.idcontract, barqueryStartDate, idBarTime.stopTime);
+            //        if(futuresContractMinutebars != null)
+            //            dataManagement.fillFutureDecisionTransactionDataAfterRealtimeMongoRequest(futuresContractMinutebars, true);
+            //    }
+            //}
 
-            if (idcontractTransactionTimeList.Count > 0)
-            {
-                foreach (IdAndBarTime idBarTime in idcontractTransactionTimeList)
-                {
+            //if (idcontractTransactionTimeList.Count > 0)
+            //{
+            //    foreach (IdAndBarTime idBarTime in idcontractTransactionTimeList)
+            //    {
 
-                    Futures_Contract_Minutebars futuresContractMinutebars =
-                        MongoDBConnectionAndSetup.GetFuturesContractDecisionTransactionMinutebars(
-                            idBarTime.idcontract, barqueryStartDate, idBarTime.stopTime);
+            //        Futures_Contract_Minutebars futuresContractMinutebars =
+            //            MongoDBConnectionAndSetup.GetFuturesContractDecisionTransactionMinutebars(
+            //                idBarTime.idcontract, barqueryStartDate, idBarTime.stopTime);
 
-                    if (futuresContractMinutebars != null)
-                        dataManagement.fillFutureDecisionTransactionDataAfterRealtimeMongoRequest(futuresContractMinutebars, false);
-                }
-            }
+            //        if (futuresContractMinutebars != null)
+            //            dataManagement.fillFutureDecisionTransactionDataAfterRealtimeMongoRequest(futuresContractMinutebars, false);
+            //    }
+            //}
 
             dataManagement.fillFutureDataAfterRealtimeMongoRequest(MongoDBConnectionAndSetup.GetFuturesContractMinutebars(idcontractList, barqueryStartDate));
 
@@ -1188,16 +1243,18 @@ namespace RealtimeSpreadMonitor
             //btdb.queryOptionInputSymbols(-1,
             //(int)OPTION_FORMULA_INPUT_TYPES.OPTION_RISK_FREE_RATE);
 
-            OptionInputData ois = MongoDBConnectionAndSetup.GetRiskFreeRate(15);
+            //RiskFreeRateData ois = MongoDBConnectionAndSetup.GetRiskFreeRate(15);
 
-            if (ois != null)
-            {
-                expLstRiskFreeRate.riskFreeRate = ois.optioninputclose / 100;
-            }
-            else
-            {
-                expLstRiskFreeRate.riskFreeRate = 0.01;
-            }
+            //if (ois != null)
+            //{
+            //    expLstRiskFreeRate.riskFreeRate = ois.optioninputclose / 100;
+            //}
+            //else
+            //{
+            //    expLstRiskFreeRate.riskFreeRate = 0.01;
+            //}
+
+            expLstRiskFreeRate.riskFreeRate = MongoDBConnectionAndSetup.GetRiskFreeRate();
 
             expLstRiskFreeRate.riskFreeRateFilled = true;
 
@@ -1523,140 +1580,146 @@ namespace RealtimeSpreadMonitor
 
         public void RunSpreadTotalCalculations()
         {
-
-            for (int accountCnt = 0; accountCnt <= DataCollectionLibrary.portfolioAllocation.accountAllocation.Count; accountCnt++)
+            try
             {
+                for (int accountCnt = 0; accountCnt <= DataCollectionLibrary.portfolioAllocation.accountAllocation.Count; accountCnt++)
+                {
+                    foreach (Instrument_mongo im in DataCollectionLibrary.instrumentList)
+                    {
+                        im.instrumentModelCalcTotals_ByAccount[accountCnt].pAndLDay = 0;
+
+                        im.instrumentModelCalcTotals_ByAccount[accountCnt].pAndLDaySettlementToSettlement = 0;
+
+                        im.instrumentModelCalcTotals_ByAccount[accountCnt].delta = 0;
+                    }
+
+                    DataTotalLibrary.portfolioSpreadCalcTotals[accountCnt].pAndLDay = 0;
+
+                    DataTotalLibrary.portfolioSpreadCalcTotals[accountCnt].pAndLDaySettlementToSettlement = 0;
+
+                    DataTotalLibrary.portfolioSpreadCalcTotals[accountCnt].delta = 0;
+                }
+
+
+                //int accountCnt2 = 0;
+                foreach (AccountPosition ap in DataCollectionLibrary.accountPositionsList)
+                {
+                    foreach (Position p in ap.positions)
+                    {
+                        //double priceChange = p.mose.defaultPrice - p.mose.yesterdaySettlement;
+                        Instrument_mongo im = DataCollectionLibrary.instrumentHashTable_keyinstrumentid[p.asset.idinstrument];
+
+                        double ticksize = 1;
+                        double tickvalue = 1;
+
+                        if (p.asset._type.CompareTo(ASSET_TYPE_MONGO.fut.ToString()) == 0)
+                        {
+                            ticksize = im.ticksize;
+                            tickvalue = im.tickvalue;
+                        }
+                        else
+                        {
+                            ticksize = im.optionticksize;
+                            tickvalue = im.optiontickvalue;
+                        }
+
+                        p.positionTotals.pAndLDay = (p.mose.defaultPrice - p.mose.yesterdaySettlement) / ticksize * tickvalue * p.prev_qty;
+
+                        p.positionTotals.pAndLDaySettlementToSettlement = (p.mose.settlement - p.mose.yesterdaySettlement) / ticksize * tickvalue * p.prev_qty;
+
+                        p.positionTotals.delta = p.mose.delta * p.prev_qty;
+
+                        if (p.qty != p.prev_qty && p.mose.transactionPriceFilled)
+                        {
+                            double orderQty = p.qty - p.prev_qty;
+
+                            p.positionTotals.pAndLDayOrders = (p.mose.defaultPrice - p.mose.transactionPrice) / ticksize * tickvalue * orderQty;
+
+                            p.positionTotals.pAndLDaySettleOrders = (p.mose.settlement - p.mose.transactionPrice) / ticksize * tickvalue * orderQty;
+
+                            p.positionTotals.delta += p.mose.delta * orderQty;
+                        }
+
+                        //Get acct group
+                        im.instrumentModelCalcTotals_ByAccount[ap.accountAllocation.acctIndex_UsedForTotals_Visibility].pAndLDay += p.positionTotals.pAndLDay + p.positionTotals.pAndLDayOrders;
+
+                        im.instrumentModelCalcTotals_ByAccount[ap.accountAllocation.acctIndex_UsedForTotals_Visibility].pAndLDaySettlementToSettlement
+                            += p.positionTotals.pAndLDaySettlementToSettlement + p.positionTotals.pAndLDaySettleOrders;
+
+                        im.instrumentModelCalcTotals_ByAccount[ap.accountAllocation.acctIndex_UsedForTotals_Visibility].delta += p.positionTotals.delta;
+
+                    }
+
+                    //accountCnt2++;
+                }
+
                 foreach (Instrument_mongo im in DataCollectionLibrary.instrumentList)
                 {
-                    im.instrumentModelCalcTotals_ByAccount[accountCnt].pAndLDay = 0;
+                    LiveSpreadTotals lst = new LiveSpreadTotals();
 
-                    im.instrumentModelCalcTotals_ByAccount[accountCnt].pAndLDaySettlementToSettlement = 0;
+                    int accountCnt3 = 0;
 
-                    im.instrumentModelCalcTotals_ByAccount[accountCnt].delta = 0;
+                    while (accountCnt3 < DataCollectionLibrary.portfolioAllocation.accountAllocation.Count)
+                    {
+                        lst.pAndLDay += im.instrumentModelCalcTotals_ByAccount[accountCnt3].pAndLDay;
+
+                        lst.pAndLDaySettlementToSettlement += im.instrumentModelCalcTotals_ByAccount[accountCnt3].pAndLDaySettlementToSettlement;
+
+                        lst.delta += im.instrumentModelCalcTotals_ByAccount[accountCnt3].delta;
+
+                        //im.instrumentSpreadTotals_ByAccount[accountCnt3].pAndLDay = im.instrumentModelCalcTotals_ByAccount[accountCnt3].pAndLDay;
+
+                        //im.instrumentSpreadTotals_ByAccount[accountCnt3].pAndLDaySettlementToSettlement
+                        //    = im.instrumentModelCalcTotals_ByAccount[accountCnt3].pAndLDaySettlementToSettlement;
+
+                        //im.instrumentSpreadTotals_ByAccount[accountCnt3].delta = im.instrumentModelCalcTotals_ByAccount[accountCnt3].delta;
+
+
+                        DataTotalLibrary.portfolioSpreadCalcTotals[accountCnt3].pAndLDay += im.instrumentModelCalcTotals_ByAccount[accountCnt3].pAndLDay;
+
+                        DataTotalLibrary.portfolioSpreadCalcTotals[accountCnt3].pAndLDaySettlementToSettlement
+                            += im.instrumentModelCalcTotals_ByAccount[accountCnt3].pAndLDaySettlementToSettlement;
+
+                        DataTotalLibrary.portfolioSpreadCalcTotals[accountCnt3].delta += im.instrumentModelCalcTotals_ByAccount[accountCnt3].delta;
+
+
+                        accountCnt3++;
+                    }
+
+                    im.instrumentModelCalcTotals_ByAccount[accountCnt3].pAndLDay = lst.pAndLDay;
+
+                    im.instrumentModelCalcTotals_ByAccount[accountCnt3].pAndLDaySettlementToSettlement = lst.pAndLDaySettlementToSettlement;
+
+                    im.instrumentModelCalcTotals_ByAccount[accountCnt3].delta = lst.delta;
                 }
 
-                DataTotalLibrary.portfolioSpreadCalcTotals[accountCnt].pAndLDay = 0;
+                LiveSpreadTotals lst_final = new LiveSpreadTotals();
 
-                DataTotalLibrary.portfolioSpreadCalcTotals[accountCnt].pAndLDaySettlementToSettlement = 0;
-
-                DataTotalLibrary.portfolioSpreadCalcTotals[accountCnt].delta = 0;
-            }
-
-
-            //int accountCnt2 = 0;
-            foreach (AccountPosition ap in DataCollectionLibrary.accountPositionsList)
-            {
-                foreach (Position p in ap.positions)
+                int accountCnt4 = 0;
+                while (accountCnt4 < DataCollectionLibrary.portfolioAllocation.accountAllocation.Count)
                 {
-                    //double priceChange = p.mose.defaultPrice - p.mose.yesterdaySettlement;
-                    Instrument_mongo im = DataCollectionLibrary.instrumentHashTable_keyinstrumentid[p.asset.idinstrument];
+                    lst_final.pAndLDay += DataTotalLibrary.portfolioSpreadCalcTotals[accountCnt4].pAndLDay;
+                    lst_final.pAndLDaySettlementToSettlement += DataTotalLibrary.portfolioSpreadCalcTotals[accountCnt4].pAndLDaySettlementToSettlement;
+                    lst_final.delta += DataTotalLibrary.portfolioSpreadCalcTotals[accountCnt4].delta;
 
-                    double ticksize = 1;
-                    double tickvalue = 1;
+                    //DataTotalLibrary.portfolioSpreadTotals[accountCnt4].pAndLDay = DataTotalLibrary.portfolioSpreadCalcTotals[accountCnt4].pAndLDay;
+                    //DataTotalLibrary.portfolioSpreadTotals[accountCnt4].pAndLDaySettlementToSettlement
+                    //    = DataTotalLibrary.portfolioSpreadCalcTotals[accountCnt4].pAndLDaySettlementToSettlement;
+                    //DataTotalLibrary.portfolioSpreadTotals[accountCnt4].delta = DataTotalLibrary.portfolioSpreadCalcTotals[accountCnt4].delta;
 
-                    if (p.asset._type.CompareTo(ASSET_TYPE_MONGO.fut.ToString()) == 0)
-                    {
-                        ticksize = im.ticksize;
-                        tickvalue = im.tickvalue;
-                    }
-                    else
-                    {
-                        ticksize = im.optionticksize;
-                        tickvalue = im.optiontickvalue;
-                    }
-
-                    p.positionTotals.pAndLDay = (p.mose.defaultPrice - p.mose.yesterdaySettlement) / ticksize * tickvalue * p.prev_qty;
-
-                    p.positionTotals.pAndLDaySettlementToSettlement = (p.mose.settlement - p.mose.yesterdaySettlement) / ticksize * tickvalue * p.prev_qty;
-                    
-                    p.positionTotals.delta = p.mose.delta * p.prev_qty;
-
-                    if (p.qty != p.prev_qty && p.mose.transactionPriceFilled)
-                    {
-                        double orderQty = p.qty - p.prev_qty;
-
-                        p.positionTotals.pAndLDayOrders = (p.mose.defaultPrice - p.mose.transactionPrice) / ticksize * tickvalue * orderQty;
-
-                        p.positionTotals.pAndLDaySettleOrders = (p.mose.settlement - p.mose.transactionPrice) / ticksize * tickvalue * orderQty;
-
-                        p.positionTotals.delta += p.mose.delta * orderQty;
-                    }
-
-                    //Get acct group
-                    im.instrumentModelCalcTotals_ByAccount[ap.accountAllocation.acctIndex_UsedForTotals_Visibility].pAndLDay += p.positionTotals.pAndLDay + p.positionTotals.pAndLDayOrders;
-
-                    im.instrumentModelCalcTotals_ByAccount[ap.accountAllocation.acctIndex_UsedForTotals_Visibility].pAndLDaySettlementToSettlement
-                        += p.positionTotals.pAndLDaySettlementToSettlement + p.positionTotals.pAndLDaySettleOrders;
-
-                    im.instrumentModelCalcTotals_ByAccount[ap.accountAllocation.acctIndex_UsedForTotals_Visibility].delta += p.positionTotals.delta;
-
+                    accountCnt4++;
                 }
 
-                //accountCnt2++;
-            }
+                DataTotalLibrary.portfolioSpreadCalcTotals[accountCnt4].pAndLDay = lst_final.pAndLDay;
 
-            foreach (Instrument_mongo im in DataCollectionLibrary.instrumentList)
+                DataTotalLibrary.portfolioSpreadCalcTotals[accountCnt4].pAndLDaySettlementToSettlement = lst_final.pAndLDaySettlementToSettlement;
+
+                DataTotalLibrary.portfolioSpreadCalcTotals[accountCnt4].delta = lst_final.delta;
+            }
+            catch (Exception ex)
             {
-                LiveSpreadTotals lst = new LiveSpreadTotals();
-
-                int accountCnt3 = 0;
-
-                while (accountCnt3 < DataCollectionLibrary.portfolioAllocation.accountAllocation.Count)
-                {
-                    lst.pAndLDay += im.instrumentModelCalcTotals_ByAccount[accountCnt3].pAndLDay;
-
-                    lst.pAndLDaySettlementToSettlement += im.instrumentModelCalcTotals_ByAccount[accountCnt3].pAndLDaySettlementToSettlement;
-
-                    lst.delta += im.instrumentModelCalcTotals_ByAccount[accountCnt3].delta;
-
-                    //im.instrumentSpreadTotals_ByAccount[accountCnt3].pAndLDay = im.instrumentModelCalcTotals_ByAccount[accountCnt3].pAndLDay;
-
-                    //im.instrumentSpreadTotals_ByAccount[accountCnt3].pAndLDaySettlementToSettlement
-                    //    = im.instrumentModelCalcTotals_ByAccount[accountCnt3].pAndLDaySettlementToSettlement;
-
-                    //im.instrumentSpreadTotals_ByAccount[accountCnt3].delta = im.instrumentModelCalcTotals_ByAccount[accountCnt3].delta;
-
-
-                    DataTotalLibrary.portfolioSpreadCalcTotals[accountCnt3].pAndLDay += im.instrumentModelCalcTotals_ByAccount[accountCnt3].pAndLDay;
-
-                    DataTotalLibrary.portfolioSpreadCalcTotals[accountCnt3].pAndLDaySettlementToSettlement
-                        += im.instrumentModelCalcTotals_ByAccount[accountCnt3].pAndLDaySettlementToSettlement;
-
-                    DataTotalLibrary.portfolioSpreadCalcTotals[accountCnt3].delta += im.instrumentModelCalcTotals_ByAccount[accountCnt3].delta;
-
-
-                    accountCnt3++;
-                }
-
-                im.instrumentModelCalcTotals_ByAccount[accountCnt3].pAndLDay = lst.pAndLDay;
-
-                im.instrumentModelCalcTotals_ByAccount[accountCnt3].pAndLDaySettlementToSettlement = lst.pAndLDaySettlementToSettlement;
-
-                im.instrumentModelCalcTotals_ByAccount[accountCnt3].delta = lst.delta;
+                TSErrorCatch.errorCatchOut(Convert.ToString(this), ex);
             }
-
-            LiveSpreadTotals lst_final = new LiveSpreadTotals();
-
-            int accountCnt4 = 0;
-            while (accountCnt4 < DataCollectionLibrary.portfolioAllocation.accountAllocation.Count)
-            {
-                lst_final.pAndLDay += DataTotalLibrary.portfolioSpreadCalcTotals[accountCnt4].pAndLDay;
-                lst_final.pAndLDaySettlementToSettlement += DataTotalLibrary.portfolioSpreadCalcTotals[accountCnt4].pAndLDaySettlementToSettlement;
-                lst_final.delta += DataTotalLibrary.portfolioSpreadCalcTotals[accountCnt4].delta;
-
-                //DataTotalLibrary.portfolioSpreadTotals[accountCnt4].pAndLDay = DataTotalLibrary.portfolioSpreadCalcTotals[accountCnt4].pAndLDay;
-                //DataTotalLibrary.portfolioSpreadTotals[accountCnt4].pAndLDaySettlementToSettlement
-                //    = DataTotalLibrary.portfolioSpreadCalcTotals[accountCnt4].pAndLDaySettlementToSettlement;
-                //DataTotalLibrary.portfolioSpreadTotals[accountCnt4].delta = DataTotalLibrary.portfolioSpreadCalcTotals[accountCnt4].delta;
-
-                accountCnt4++;
-            }
-
-            DataTotalLibrary.portfolioSpreadCalcTotals[accountCnt4].pAndLDay = lst_final.pAndLDay;
-
-            DataTotalLibrary.portfolioSpreadCalcTotals[accountCnt4].pAndLDaySettlementToSettlement = lst_final.pAndLDaySettlementToSettlement;
-
-            DataTotalLibrary.portfolioSpreadCalcTotals[accountCnt4].delta = lst_final.delta;
 
         }
 
