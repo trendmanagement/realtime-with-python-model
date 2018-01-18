@@ -51,6 +51,11 @@ namespace RealtimeSpreadMonitor.Mongo
         /// </summary>
         static MongoDBConnectionAndSetup()
         {
+            SetupMongoDBConnection();
+        }
+
+        internal static void SetupMongoDBConnection()
+        {
             _client = new MongoClient(
                 System.Configuration.ConfigurationManager.ConnectionStrings["DefaultMongoConnection"].ConnectionString);
 
@@ -129,8 +134,9 @@ namespace RealtimeSpreadMonitor.Mongo
 
                 return _accountCollection.Find(filter).ToList();
             }
-            catch
+            catch(Exception e)
             {
+                TSErrorCatch.debugWriteOut(e.ToString());
                 return new List<Account>();
             }
         }
@@ -162,8 +168,9 @@ namespace RealtimeSpreadMonitor.Mongo
                 
                 return productHashSet;
             }
-            catch
+            catch (Exception e)
             {
+                TSErrorCatch.debugWriteOut(e.ToString());
                 return productHashSet;
             }
         }
@@ -177,8 +184,9 @@ namespace RealtimeSpreadMonitor.Mongo
 
                 return _accountPositionCollection.Find(filter).ToList();
             }
-            catch
+            catch (Exception e)
             {
+                TSErrorCatch.debugWriteOut(e.ToString());
                 return new List<AccountPosition>();
             }
         }
@@ -200,8 +208,9 @@ namespace RealtimeSpreadMonitor.Mongo
                 return _accountPositionArchiveCollection.Find(filter)
                     .Sort(Builders<AccountPosition>.Sort.Descending("date_now")).Limit(1).First();
             }
-            catch
+            catch (Exception e)
             {
+                TSErrorCatch.debugWriteOut(e.ToString());
                 return null;
             }
         }
@@ -216,8 +225,9 @@ namespace RealtimeSpreadMonitor.Mongo
 
                 return _instrumentCollection.Find(filter).ToList();
             }
-            catch
+            catch (Exception e)
             {
+                TSErrorCatch.debugWriteOut(e.ToString());
                 return new List<Instrument_mongo>();
             }
         }
@@ -232,8 +242,9 @@ namespace RealtimeSpreadMonitor.Mongo
 
                 return _instrumentCollection.Find(filter).ToList();
             }
-            catch
+            catch (Exception e)
             {
+                TSErrorCatch.debugWriteOut(e.ToString());
                 return new List<Instrument_mongo>();
             }
         }
@@ -247,8 +258,9 @@ namespace RealtimeSpreadMonitor.Mongo
 
                 return _instrumentInfoCollection.Find(filter).ToList();
             }
-            catch
+            catch (Exception e)
             {
+                TSErrorCatch.debugWriteOut(e.ToString());
                 return new List<Instrument_Info>();
             }
         }
@@ -262,8 +274,9 @@ namespace RealtimeSpreadMonitor.Mongo
 
                 return _exchangeCollection.Find(filter).ToList();
             }
-            catch
+            catch (Exception e)
             {
+                TSErrorCatch.debugWriteOut(e.ToString());
                 return new List<Exchange_mongo>();
             }
         }
@@ -315,8 +328,12 @@ namespace RealtimeSpreadMonitor.Mongo
                 }
 
             }
-            catch (InvalidOperationException)
+            //catch (InvalidOperationException e)
+            catch (Exception e)
             {
+                TSErrorCatch.debugWriteOut(e.ToString());
+
+                SetupMongoDBConnection();
             }
 
             return contractQuery;
@@ -338,8 +355,12 @@ namespace RealtimeSpreadMonitor.Mongo
                 contractQuery = _contractCollection.Find(filterForContracts).First();
 
             }
-            catch (InvalidOperationException)
+            //catch (InvalidOperationException e)
+            catch (Exception e)
             {
+                TSErrorCatch.debugWriteOut(e.ToString());
+
+                SetupMongoDBConnection();
             }
 
             return contractQuery;
@@ -380,9 +401,12 @@ namespace RealtimeSpreadMonitor.Mongo
 
 
             }
-            catch (InvalidOperationException)
+            //catch (InvalidOperationException e)
+            catch (Exception e)
             {
-                TSErrorCatch.debugWriteOut("Error");
+                TSErrorCatch.debugWriteOut(e.ToString());
+
+                SetupMongoDBConnection();
             }
 
             return optionQuery;
@@ -410,8 +434,9 @@ namespace RealtimeSpreadMonitor.Mongo
             }
             catch (Exception e)
             {
-                MessageBox.Show("MongoDB error " + e.Message);
-                Console.Write(e.Message);
+                TSErrorCatch.debugWriteOut(e.ToString());
+
+                SetupMongoDBConnection();
             }
 
             return portfolioAllocation;
@@ -423,9 +448,11 @@ namespace RealtimeSpreadMonitor.Mongo
             {
                 _portfolioCollection.InsertOne(portfolioAllocation_Mongo);
             }
-            catch (Exception)
+            catch (Exception e)
             {
+                TSErrorCatch.debugWriteOut(e.ToString());
 
+                SetupMongoDBConnection();
             }
         }
 
@@ -445,9 +472,12 @@ namespace RealtimeSpreadMonitor.Mongo
                     .Sort(Builders<Futures_Contract_Settlements>.Sort.Descending("date")).First();
 
             }
-            catch (InvalidOperationException)
+            //catch (InvalidOperationException e)
+            catch (Exception e)
             {
-                TSErrorCatch.debugWriteOut("Error");
+                TSErrorCatch.debugWriteOut(e.ToString());
+
+                SetupMongoDBConnection();
             }
 
             return contractSettlement;
@@ -469,9 +499,12 @@ namespace RealtimeSpreadMonitor.Mongo
                     .Sort(Builders<Options_Data>.Sort.Descending("datetime")).First();
 
             }
-            catch (InvalidOperationException)
+            //catch (InvalidOperationException)
+            catch (Exception e)
             {
-                TSErrorCatch.debugWriteOut("Error");
+                TSErrorCatch.debugWriteOut(e.ToString());
+
+                SetupMongoDBConnection();
             }
 
             return optionSettlements;
@@ -494,9 +527,12 @@ namespace RealtimeSpreadMonitor.Mongo
                 return risk.last_rfr;
 
             }
-            catch (InvalidOperationException e)
+            //catch (InvalidOperationException e)
+            catch (Exception e)
             {
-                TSErrorCatch.debugWriteOut("Error" + e);
+                TSErrorCatch.debugWriteOut(e.ToString());
+
+                SetupMongoDBConnection();
             }
 
             return 0.01;
@@ -544,9 +580,11 @@ namespace RealtimeSpreadMonitor.Mongo
                 return aggregate.ToListAsync().Result;
                 
             }
-            catch (Exception error)
+            catch (Exception e)
             {
-                TSErrorCatch.debugWriteOut(error.ToString());
+                TSErrorCatch.debugWriteOut(e.ToString());
+
+                SetupMongoDBConnection();
             }
 
             return null;
@@ -579,9 +617,11 @@ namespace RealtimeSpreadMonitor.Mongo
                 //    .Sort(Builders<Futures_Contract_Minutebars>.Sort.Descending("bartime")).First();
 
             }
-            catch (Exception error)
+            catch (Exception e)
             {
-                TSErrorCatch.debugWriteOut(error.ToString());
+                TSErrorCatch.debugWriteOut(e.ToString());
+
+                SetupMongoDBConnection();
             }
 
             return null;

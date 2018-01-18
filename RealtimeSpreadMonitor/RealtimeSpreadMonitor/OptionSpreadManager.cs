@@ -23,7 +23,7 @@ namespace RealtimeSpreadMonitor
 
     public class OptionSpreadManager
     {
-        
+
 
         private OptionArrayTypes optionArrayTypes = new OptionArrayTypes();
 
@@ -90,7 +90,7 @@ namespace RealtimeSpreadMonitor
         {
             get { return _fxce; }
             set { _fxce = value; }
-        }        
+        }
 
         private ModelADMCompareCalculationAndDisplay sModelADMCompareCalculationAndDisplay;
         internal ModelADMCompareCalculationAndDisplay modelADMCompareCalculationAndDisplay
@@ -126,7 +126,7 @@ namespace RealtimeSpreadMonitor
             fillStaticObjectsFromMongo();
 
 
-            
+
 
             readADMExludeContractFile();
 
@@ -235,226 +235,232 @@ namespace RealtimeSpreadMonitor
             /// fill account and position information
             /// </summary>
             ///
-            
-
-            //int idportfoliogroup = 1;
-
-            PortfolioAllocation_Mongo portfolioAllocation_Mongo =
-                    MongoDBConnectionAndSetup.GetAccountsPortfolio(DataCollectionLibrary.initializationParms.idPortfolioGroup);
-
-            //foreach (AccountAllocation ac in DataCollectionLibrary.portfolioAllocation.accountAllocation)
-            foreach (AccountAllocation_Mongo ac in portfolioAllocation_Mongo.accountAllocation)
+            try
             {
-                DataCollectionLibrary.accountNameList.Add(ac.account);
-            }
 
+                //int idportfoliogroup = 1;
 
+                PortfolioAllocation_Mongo portfolioAllocation_Mongo =
+                        MongoDBConnectionAndSetup.GetAccountsPortfolio(DataCollectionLibrary.initializationParms.idPortfolioGroup);
 
-            DataCollectionLibrary.accountList = MongoDBConnectionAndSetup.GetAccountInfoFromMongo(DataCollectionLibrary.accountNameList);
-
-            Dictionary<string, Account> accountListDictionary = DataCollectionLibrary.accountList.ToDictionary(x => x.name, x => x);
-
-            ///
-            /// this adds the Account to the accountAllocation
-            ///
-            //foreach (AccountAllocation ac in DataCollectionLibrary.portfolioAllocation.accountAllocation)
-            //foreach (AccountAllocation ac in portfolioAllocation_Mongo.accountAllocation)
-            //{
-            //    ac.accountFromMongo = accountListDictionary[ac.account];
-            //}
-
-            List<string> smartCampaignList = new List<string>();
-            foreach(Account account in DataCollectionLibrary.accountList)
-            {
-                smartCampaignList.Add(account.campaign_name);
-            }
-
-            HashSet<string> productHashSet = MongoDBConnectionAndSetup.GetInstrumentListFromSmartCampaignsFromMongo(smartCampaignList);
-
-            DataCollectionLibrary.instrumentList = MongoDBConnectionAndSetup.GetInstrumentListFromMongo(productHashSet);
-
-            List<long> instrumentIdList = new List<long>();
-            foreach(Instrument_mongo inst in DataCollectionLibrary.instrumentList)
-            {
-                instrumentIdList.Add(inst.idinstrument);
-            }
-
-            //List<long> instrumentIdList = GetAllInstrumentIds();
-
-
-
-            fillPortfolioAllocation(portfolioAllocation_Mongo, accountListDictionary);
-
-
-            //AdjustQtyBasedOnDate();
-
-            FillAccountPosition(true);
-
-
-
-            /// <summary>
-            /// fill instrument list
-            /// </summary>
-            /// 
-            
-
-
-
-            //List<long> instrumentIdList = new List<long> { 2, 11, 21, 23, 31, 32, 33 };
-
-
-            //DataCollectionLibrary.instrumentList = MongoDBConnectionAndSetup.GetInstrumentListFromMongo(instrumentIdList);
-
-            DataCollectionLibrary.instrumentHashTable_keyinstrumentid = DataCollectionLibrary.instrumentList.ToDictionary(x => x.idinstrument, x => x);
-
-            DataCollectionLibrary.instrumentHashTable_keyadmcode = DataCollectionLibrary.instrumentList.ToDictionary(x => x.admcode, x => x);
-
-            //sets up breakdown of instrument info
-            DataCollectionLibrary.instrumentInfoList = MongoDBConnectionAndSetup.
-                GetInstrumentInfoListFromMongo(instrumentIdList);
-
-            foreach (Instrument_Info ii in DataCollectionLibrary.instrumentInfoList)
-            {
-                ii.product_codes_dictionary_optcodkey = ii.product_codes_list.ToDictionary(x => x.optcod, x => x);
-
-                ii.product_codes_dictionary_pfckey = ii.product_codes_list.ToDictionary(x => x.pfc, x => x);
-            }
-
-            DataCollectionLibrary.instrumentInfoTable_keyinstrumentid 
-                = DataCollectionLibrary.instrumentInfoList.ToDictionary(x => x.idinstrument, x => x);
-
-            foreach(Instrument_mongo instrument in DataCollectionLibrary.instrumentList)
-            {
-                if (DataCollectionLibrary.instrumentInfoTable_keyinstrumentid.ContainsKey(instrument.idinstrument))
+                //foreach (AccountAllocation ac in DataCollectionLibrary.portfolioAllocation.accountAllocation)
+                foreach (AccountAllocation_Mongo ac in portfolioAllocation_Mongo.accountAllocation)
                 {
-                    instrument.span_cqg_codes_dictionary = 
-                        DataCollectionLibrary.instrumentInfoTable_keyinstrumentid[instrument.idinstrument].product_codes_dictionary_optcodkey;
-
-                    instrument.product_codes_dictionary_pfckey =
-                        DataCollectionLibrary.instrumentInfoTable_keyinstrumentid[instrument.idinstrument].product_codes_dictionary_pfckey;
+                    DataCollectionLibrary.accountNameList.Add(ac.account);
+                }
 
 
-                    // get the span cqg pfc(the fcm symbol) from the instrument info and add it as a key to the 
-                    // instrumentHashTable_keyadmcode dictionary
-                    List<ProductCodes> span_cqg_codes =
-                        DataCollectionLibrary.instrumentInfoTable_keyinstrumentid[instrument.idinstrument].product_codes_list;
 
-                    foreach(ProductCodes ecsc in span_cqg_codes)
+                DataCollectionLibrary.accountList = MongoDBConnectionAndSetup.GetAccountInfoFromMongo(DataCollectionLibrary.accountNameList);
+
+                Dictionary<string, Account> accountListDictionary = DataCollectionLibrary.accountList.ToDictionary(x => x.name, x => x);
+
+                ///
+                /// this adds the Account to the accountAllocation
+                ///
+                //foreach (AccountAllocation ac in DataCollectionLibrary.portfolioAllocation.accountAllocation)
+                //foreach (AccountAllocation ac in portfolioAllocation_Mongo.accountAllocation)
+                //{
+                //    ac.accountFromMongo = accountListDictionary[ac.account];
+                //}
+
+                List<string> smartCampaignList = new List<string>();
+                foreach (Account account in DataCollectionLibrary.accountList)
+                {
+                    smartCampaignList.Add(account.campaign_name);
+                }
+
+                HashSet<string> productHashSet = MongoDBConnectionAndSetup.GetInstrumentListFromSmartCampaignsFromMongo(smartCampaignList);
+
+                DataCollectionLibrary.instrumentList = MongoDBConnectionAndSetup.GetInstrumentListFromMongo(productHashSet);
+
+                List<long> instrumentIdList = new List<long>();
+                foreach (Instrument_mongo inst in DataCollectionLibrary.instrumentList)
+                {
+                    instrumentIdList.Add(inst.idinstrument);
+                }
+
+                //List<long> instrumentIdList = GetAllInstrumentIds();
+
+
+
+                fillPortfolioAllocation(portfolioAllocation_Mongo, accountListDictionary);
+
+
+                //AdjustQtyBasedOnDate();
+
+                FillAccountPosition(true);
+
+
+
+                /// <summary>
+                /// fill instrument list
+                /// </summary>
+                /// 
+
+
+
+
+                //List<long> instrumentIdList = new List<long> { 2, 11, 21, 23, 31, 32, 33 };
+
+
+                //DataCollectionLibrary.instrumentList = MongoDBConnectionAndSetup.GetInstrumentListFromMongo(instrumentIdList);
+
+                DataCollectionLibrary.instrumentHashTable_keyinstrumentid = DataCollectionLibrary.instrumentList.ToDictionary(x => x.idinstrument, x => x);
+
+                DataCollectionLibrary.instrumentHashTable_keyadmcode = DataCollectionLibrary.instrumentList.ToDictionary(x => x.admcode, x => x);
+
+                //sets up breakdown of instrument info
+                DataCollectionLibrary.instrumentInfoList = MongoDBConnectionAndSetup.
+                    GetInstrumentInfoListFromMongo(instrumentIdList);
+
+                foreach (Instrument_Info ii in DataCollectionLibrary.instrumentInfoList)
+                {
+                    ii.product_codes_dictionary_optcodkey = ii.product_codes_list.ToDictionary(x => x.optcod, x => x);
+
+                    ii.product_codes_dictionary_pfckey = ii.product_codes_list.ToDictionary(x => x.pfc, x => x);
+                }
+
+                DataCollectionLibrary.instrumentInfoTable_keyinstrumentid
+                    = DataCollectionLibrary.instrumentInfoList.ToDictionary(x => x.idinstrument, x => x);
+
+                foreach (Instrument_mongo instrument in DataCollectionLibrary.instrumentList)
+                {
+                    if (DataCollectionLibrary.instrumentInfoTable_keyinstrumentid.ContainsKey(instrument.idinstrument))
                     {
-                        if (!DataCollectionLibrary.instrumentHashTable_keyadmcode.ContainsKey(ecsc.pfc))
+                        instrument.span_cqg_codes_dictionary =
+                            DataCollectionLibrary.instrumentInfoTable_keyinstrumentid[instrument.idinstrument].product_codes_dictionary_optcodkey;
+
+                        instrument.product_codes_dictionary_pfckey =
+                            DataCollectionLibrary.instrumentInfoTable_keyinstrumentid[instrument.idinstrument].product_codes_dictionary_pfckey;
+
+
+                        // get the span cqg pfc(the fcm symbol) from the instrument info and add it as a key to the 
+                        // instrumentHashTable_keyadmcode dictionary
+                        List<ProductCodes> span_cqg_codes =
+                            DataCollectionLibrary.instrumentInfoTable_keyinstrumentid[instrument.idinstrument].product_codes_list;
+
+                        foreach (ProductCodes ecsc in span_cqg_codes)
                         {
-                            DataCollectionLibrary.instrumentHashTable_keyadmcode.Add(ecsc.pfc, instrument);
+                            if (!DataCollectionLibrary.instrumentHashTable_keyadmcode.ContainsKey(ecsc.pfc))
+                            {
+                                DataCollectionLibrary.instrumentHashTable_keyadmcode.Add(ecsc.pfc, instrument);
+                            }
                         }
                     }
-                }                
-            }
-
-            
-
-            //this is called after the instruments are set up
-            FillProductCodeInPositionsFromModel();
+                }
 
 
-            SetupInstrumentSummaryList();
 
-            /// <summary>
-            /// fill exchange list
-            /// </summary>
-            /// 
-            List<long> exchangeIdList = new List<long>();
+                //this is called after the instruments are set up
+                FillProductCodeInPositionsFromModel();
 
-            foreach (Instrument_mongo instrument in DataCollectionLibrary.instrumentList)
-            {
-                if (!exchangeIdList.Contains(instrument.idexchange))
+
+                SetupInstrumentSummaryList();
+
+                /// <summary>
+                /// fill exchange list
+                /// </summary>
+                /// 
+                List<long> exchangeIdList = new List<long>();
+
+                foreach (Instrument_mongo instrument in DataCollectionLibrary.instrumentList)
                 {
-                    exchangeIdList.Add(instrument.idexchange);
+                    if (!exchangeIdList.Contains(instrument.idexchange))
+                    {
+                        exchangeIdList.Add(instrument.idexchange);
+                    }
+                }
+
+                DataCollectionLibrary.exchangeList = MongoDBConnectionAndSetup.GetExchangeListFromMongo(exchangeIdList);
+
+                DataCollectionLibrary.exchangeHashTable_keyidexchange = DataCollectionLibrary.exchangeList.ToDictionary(x => x.idexchange, x => x);
+
+                foreach (Instrument_mongo instrument in DataCollectionLibrary.instrumentList)
+                {
+                    instrument.exchange = DataCollectionLibrary.exchangeHashTable_keyidexchange[instrument.idexchange];
+                }
+
+                /// <summary>
+                /// filled out initial futures contracts to have minimum for instruments
+                /// fills DataCollectionLibrary.optionSpreadExpressionList
+                /// </summary>
+                ///
+
+
+                foreach (Instrument_mongo instrument in DataCollectionLibrary.instrumentList)
+                {
+                    List<Contract_mongo> contractQuery =
+                        MongoDBConnectionAndSetup.GetContracts(DateTime.Now.Date, instrument.idinstrument);
+
+                    Mapper.Initialize(cfg => cfg.CreateMap<Contract_mongo, Asset>());
+
+                    foreach (Contract_mongo contract in contractQuery)
+                    {
+                        //Console.WriteLine(contract.idcontract + " " + contract.idinstrument + " " + contract.contractname
+                        //    + " " + contract.expirationdate);
+
+                        Asset asset = Mapper.Map<Asset>(contract);
+
+                        asset._type = ASSET_TYPE_MONGO.fut.ToString();
+
+                        asset.yearFraction =
+                            calcYearFrac(asset.expirationdate, DateTime.Now.Date);
+
+                        MongoDB_OptionSpreadExpression mose = new MongoDB_OptionSpreadExpression(
+                            OPTION_SPREAD_CONTRACT_TYPE.FUTURE,
+                                OPTION_EXPRESSION_TYPES.SPREAD_LEG_PRICE);
+
+                        mose.asset = asset;
+
+                        mose.instrument = instrument;
+
+                        DataCollectionLibrary.optionSpreadExpressionList.Add(mose);
+
+                        var key = Tuple.Create(asset.idcontract, asset._type);
+
+                        DataCollectionLibrary.optionSpreadExpressionHashTable_key_Id_Type
+                            .TryAdd(key, mose);
+
+                        DataCollectionLibrary.optionSpreadExpressionHashTable_cqgSymbol.TryAdd(mose.asset.cqgsymbol, mose);
+
+                    }
+                }
+
+
+
+                AppendTo_optionSpreadExpressionHashTable();
+
+
+                //set transaction time and decision time
+                foreach (MongoDB_OptionSpreadExpression ose in DataCollectionLibrary.optionSpreadExpressionList)
+                {
+                    if (ose.callPutOrFuture == OPTION_SPREAD_CONTRACT_TYPE.FUTURE)
+                    {
+                        ose.todayTransactionTimeBoundary
+                                                = DataCollectionLibrary.initializationParms.modelDateTime.Date
+                                            //.AddHours(15)
+                                            //.AddMinutes(11);
+                                            .AddHours(
+                                                ose.instrument.customdayboundarytime.Hour)
+                                            .AddMinutes(
+                                                ose.instrument.customdayboundarytime.Minute);
+
+                        ose.todayDecisionTime
+                            = DataCollectionLibrary.initializationParms.modelDateTime.Date
+                        //.AddHours(15)
+                        //.AddMinutes(11);
+                        .AddHours(
+                                ose.instrument.customdayboundarytime.Hour)
+                            .AddMinutes(
+                                ose.instrument.customdayboundarytime.Minute
+                                - ose.instrument.decisionoffsetminutes);
+                    }
                 }
             }
-
-            DataCollectionLibrary.exchangeList = MongoDBConnectionAndSetup.GetExchangeListFromMongo(exchangeIdList);
-
-            DataCollectionLibrary.exchangeHashTable_keyidexchange = DataCollectionLibrary.exchangeList.ToDictionary(x => x.idexchange, x => x);
-
-            foreach (Instrument_mongo instrument in DataCollectionLibrary.instrumentList)
+            catch (Exception e)
             {
-                instrument.exchange = DataCollectionLibrary.exchangeHashTable_keyidexchange[instrument.idexchange];
-            }
-
-            /// <summary>
-            /// filled out initial futures contracts to have minimum for instruments
-            /// fills DataCollectionLibrary.optionSpreadExpressionList
-            /// </summary>
-            ///
-
-
-            foreach (Instrument_mongo instrument in DataCollectionLibrary.instrumentList)
-            {
-                List<Contract_mongo> contractQuery =
-                    MongoDBConnectionAndSetup.GetContracts(DateTime.Now.Date, instrument.idinstrument);
-
-                Mapper.Initialize(cfg => cfg.CreateMap<Contract_mongo, Asset>());
-
-                foreach (Contract_mongo contract in contractQuery)
-                {
-                    //Console.WriteLine(contract.idcontract + " " + contract.idinstrument + " " + contract.contractname
-                    //    + " " + contract.expirationdate);
-
-                    Asset asset = Mapper.Map<Asset>(contract);
-
-                    asset._type = ASSET_TYPE_MONGO.fut.ToString();
-
-                    asset.yearFraction =
-                        calcYearFrac(asset.expirationdate, DateTime.Now.Date);
-
-                    MongoDB_OptionSpreadExpression mose = new MongoDB_OptionSpreadExpression(
-                        OPTION_SPREAD_CONTRACT_TYPE.FUTURE,
-                            OPTION_EXPRESSION_TYPES.SPREAD_LEG_PRICE);
-
-                    mose.asset = asset;
-
-                    mose.instrument = instrument;
-
-                    DataCollectionLibrary.optionSpreadExpressionList.Add(mose);
-
-                    var key = Tuple.Create(asset.idcontract, asset._type);
-
-                    DataCollectionLibrary.optionSpreadExpressionHashTable_key_Id_Type
-                        .TryAdd(key, mose);
-
-                    DataCollectionLibrary.optionSpreadExpressionHashTable_cqgSymbol.TryAdd(mose.asset.cqgsymbol, mose);
-
-                }
-            }
-
-
-
-            AppendTo_optionSpreadExpressionHashTable();
-
-
-            //set transaction time and decision time
-            foreach (MongoDB_OptionSpreadExpression ose in DataCollectionLibrary.optionSpreadExpressionList)
-            {
-                if (ose.callPutOrFuture == OPTION_SPREAD_CONTRACT_TYPE.FUTURE)
-                {
-                    ose.todayTransactionTimeBoundary
-                                            = DataCollectionLibrary.initializationParms.modelDateTime.Date
-                                        //.AddHours(15)
-                                        //.AddMinutes(11);
-                                        .AddHours(
-                                            ose.instrument.customdayboundarytime.Hour)
-                                        .AddMinutes(
-                                            ose.instrument.customdayboundarytime.Minute);
-
-                    ose.todayDecisionTime
-                        = DataCollectionLibrary.initializationParms.modelDateTime.Date
-                    //.AddHours(15)
-                    //.AddMinutes(11);
-                    .AddHours(
-                            ose.instrument.customdayboundarytime.Hour)
-                        .AddMinutes(
-                            ose.instrument.customdayboundarytime.Minute
-                            - ose.instrument.decisionoffsetminutes);
-                }
+                TSErrorCatch.debugWriteOut(e.ToString());
             }
         }
 
@@ -469,46 +475,46 @@ namespace RealtimeSpreadMonitor
                     AccountPosition archive = MongoDBConnectionAndSetup.GetAccountArchivePositionsInfoFromMongo(accountName);
 
                     //int acctCnt = 0;
-                    if(archive != null)
+                    if (archive != null)
                     {
                         //if(archive[acctCnt].date_now.DayOfWeek != DayOfWeek.Saturday
                         //    && archive[acctCnt].date_now.DayOfWeek != DayOfWeek.Sunday)
                         //{
-                            //move the values to the prev_qty variable in the archive of positions
-                            //foreach (Position p_archive in archive[acctCnt].positions)
+                        //move the values to the prev_qty variable in the archive of positions
+                        //foreach (Position p_archive in archive[acctCnt].positions)
 
-                        
 
-                            foreach (Position p_archive in archive.positions)
-                            {                               
-                                p_archive.prev_qty = p_archive.qty;
 
-                                p_archive.qty = 0;
+                        foreach (Position p_archive in archive.positions)
+                        {
+                            p_archive.prev_qty = p_archive.qty;
 
-                                if (!archive.compare_pos_dictionary_assetnamekey.ContainsKey(p_archive.asset.name))
-                                {
-                                    archive.compare_pos_dictionary_assetnamekey.Add(p_archive.asset.name, p_archive);
-                                }
+                            p_archive.qty = 0;
+
+                            if (!archive.compare_pos_dictionary_assetnamekey.ContainsKey(p_archive.asset.name))
+                            {
+                                archive.compare_pos_dictionary_assetnamekey.Add(p_archive.asset.name, p_archive);
                             }
+                        }
 
-                            DataCollectionLibrary.accountPositionsArchiveList.Add(archive);
+                        DataCollectionLibrary.accountPositionsArchiveList.Add(archive);
 
-                        
 
-                            DataCollectionLibrary.archive_pos_dictionary.Add(archive.name, archive);
-                            //
+
+                        DataCollectionLibrary.archive_pos_dictionary.Add(archive.name, archive);
+                        //
 
                         //break;
                         //}
 
                         //acctCnt++;
-                    }                    
+                    }
                 }
 
-                
+
             }
 
-//            Dictionary<string, AccountPosition> archive_pos_dictionary = DataCollectionLibrary.accountPositionsArchiveList.ToDictionary(x => x.name, x => x);
+            //            Dictionary<string, AccountPosition> archive_pos_dictionary = DataCollectionLibrary.accountPositionsArchiveList.ToDictionary(x => x.name, x => x);
 
 
             List<AccountPosition> new_pos = MongoDBConnectionAndSetup.GetAccountPositionsInfoFromMongo(DataCollectionLibrary.accountNameList);
@@ -560,7 +566,7 @@ namespace RealtimeSpreadMonitor
                     }
                 }*/
 
-                
+
             }
 
 
@@ -616,7 +622,7 @@ namespace RealtimeSpreadMonitor
 
             AppendTo_optionSpreadExpressionHashTable();
 
-           // DataCollectionLibrary.performFullContractRefresh = true;
+            // DataCollectionLibrary.performFullContractRefresh = true;
         }
 
 
@@ -648,7 +654,7 @@ namespace RealtimeSpreadMonitor
 
             //AdjustQtyBasedOnDate();
 
-            
+
 
 
 
@@ -671,7 +677,7 @@ namespace RealtimeSpreadMonitor
                     //   && currentTime.CompareTo(new DateTime(2018,1,3,18,50,0)) > 0)
                     && currentTime.CompareTo(ose.todayDecisionTime) > 0)
                     {
-                        
+
 
                         //idcontractDecisionTimeList.Add(new IdAndBarTime(ose.asset.idcontract, ose.todayDecisionTime));
 
@@ -757,7 +763,7 @@ namespace RealtimeSpreadMonitor
             //DataCollectionLibrary.performFullContractRefresh = true;
         }
 
-        
+
 
         private void AdjustQtyBasedOnDate()
         {
@@ -840,7 +846,7 @@ namespace RealtimeSpreadMonitor
                     asset.productcode = instMongo.optionexchangesymbolTT;
                 }
             }
-                        
+
         }
 
 
@@ -947,7 +953,7 @@ namespace RealtimeSpreadMonitor
                         mose.instrument = DataCollectionLibrary.instrumentHashTable_keyinstrumentid[p.asset.idinstrument];
 
 
-                        
+
 
                         p.mose = mose;
 
@@ -1020,7 +1026,7 @@ namespace RealtimeSpreadMonitor
                         Futures_Contract_Settlements fcs
                             = MongoDBConnectionAndSetup.GetContractLatestSettlement(mose.asset.idcontract);
 
-                        if(fcs != null)
+                        if (fcs != null)
                         {
                             mose.yesterdaySettlement = fcs.settlement;
                             mose.yesterdaySettlementDateTime = fcs.date;
@@ -1056,25 +1062,25 @@ namespace RealtimeSpreadMonitor
             }
         }
 
-//        private void createCQGconnection()
-//        {
-//#if DEBUG
-//            try
-//#endif
-//            {
-//                optionCQGDataManagement = new OptionCQGDataManagement(this,
-//                    optionRealtimeStartup);
-//                //optionRealtimeStartup, dataErrorCheck, optionSpreadExpressionList,
-//                //currentDateContractListMainIdx, optionBuildCommonMethods);
-//                //optionCQGDataManagement.initializeCQGAndCallbacks();
-//            }
-//#if DEBUG
-//            catch (Exception ex)
-//            {
-//                TSErrorCatch.errorCatchOut(Convert.ToString(this), ex);
-//            }
-//#endif
-//        }
+        //        private void createCQGconnection()
+        //        {
+        //#if DEBUG
+        //            try
+        //#endif
+        //            {
+        //                optionCQGDataManagement = new OptionCQGDataManagement(this,
+        //                    optionRealtimeStartup);
+        //                //optionRealtimeStartup, dataErrorCheck, optionSpreadExpressionList,
+        //                //currentDateContractListMainIdx, optionBuildCommonMethods);
+        //                //optionCQGDataManagement.initializeCQGAndCallbacks();
+        //            }
+        //#if DEBUG
+        //            catch (Exception ex)
+        //            {
+        //                TSErrorCatch.errorCatchOut(Convert.ToString(this), ex);
+        //            }
+        //#endif
+        //        }
 
 
 
@@ -1406,7 +1412,7 @@ namespace RealtimeSpreadMonitor
                         {
                             var futurekey = Tuple.Create(mose_new.asset.idcontract, ASSET_TYPE_MONGO.fut.ToString());
 
-                            if(DataCollectionLibrary.optionSpreadExpressionHashTable_key_Id_Type.ContainsKey(futurekey))
+                            if (DataCollectionLibrary.optionSpreadExpressionHashTable_key_Id_Type.ContainsKey(futurekey))
                             {
                                 MongoDB_OptionSpreadExpression future_mose = DataCollectionLibrary.optionSpreadExpressionHashTable_key_Id_Type[futurekey];
 
@@ -1416,9 +1422,9 @@ namespace RealtimeSpreadMonitor
                                 mose_new.underlyingFutureExpression = future_mose;
                             }
 
-                            
 
-                            
+
+
                         }
 
 
@@ -1481,7 +1487,7 @@ namespace RealtimeSpreadMonitor
             return yearFrac;
         }
 
-        
+
 
 
         public void fullReConnectCQG()
@@ -2021,9 +2027,9 @@ namespace RealtimeSpreadMonitor
 
         }
 
-        
 
-        
+
+
 
         public void shutDownOptionSpreadRealtime()
         {
@@ -2374,7 +2380,7 @@ namespace RealtimeSpreadMonitor
                 }
             }
 
-            
+
 
             //for (int i = 0; i < FCM_DataImportLibrary.FCM_Import_Consolidated.Count; i++)
             //{
@@ -2423,7 +2429,7 @@ namespace RealtimeSpreadMonitor
             //if (admPositionImportWeb.POFFIC.CompareTo("369") == 0
             //            && admPositionImportWeb.MODEL_OFFICE_ACCT.CompareTo("369:17003;") == 0)
             //{
-                //TSErrorCatch.debugWriteOut("test");
+            //TSErrorCatch.debugWriteOut("test");
             //}
 
             if (consolidateFromPositionImportWeb.RecordType.Trim().CompareTo("Position") == 0)
@@ -2525,8 +2531,8 @@ namespace RealtimeSpreadMonitor
                 FCM_DatatImportedRow_Local.asset = asset;
 
                 //this fills the optioncode, idinstrument and product code in the Asset object
-                
-                
+
+
                 if (FCM_DatatImportedRow_Local.callPutOrFuture != OPTION_SPREAD_CONTRACT_TYPE.FUTURE)
                 {
 
@@ -2550,7 +2556,7 @@ namespace RealtimeSpreadMonitor
                             FCM_DatatImportedRow_Local.instrument.idinstrument,
                             FCM_DatatImportedRow_Local.PSUBTY, FCM_DatatImportedRow_Local.strikeInDecimal,
                             FCM_DatatImportedRow_Local.asset.optioncode.Trim(),
-                            FCM_DatatImportedRow_Local.asset.optioncode.Trim().Length == 0?false:true);
+                            FCM_DatatImportedRow_Local.asset.optioncode.Trim().Length == 0 ? false : true);
 
                     }
                     else
@@ -2587,7 +2593,7 @@ namespace RealtimeSpreadMonitor
                     FCM_DatatImportedRow_Local.asset.optioncode = option_mongo.optioncode;
                     //FCM_DatatImportedRow_Local.asset.productcode = option_mongo.productcode;
 
-                    
+
 
                     FCM_DatatImportedRow_Local.asset.name = option_mongo.optionname;
 
@@ -2800,6 +2806,6 @@ namespace RealtimeSpreadMonitor
             return acct;
         }
 
-        
+
     }
 }

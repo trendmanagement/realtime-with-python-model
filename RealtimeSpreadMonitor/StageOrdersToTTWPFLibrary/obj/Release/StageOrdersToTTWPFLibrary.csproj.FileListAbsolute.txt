@@ -103,4 +103,3 @@ C:\Users\Steve Pickering\Desktop\MAIN TMQR FRAMEWORK\RealtimeMonitor_Iqfeed\real
 C:\Users\Steve Pickering\Desktop\MAIN TMQR FRAMEWORK\RealtimeMonitor_Iqfeed\realtime-with-python-model\RealtimeSpreadMonitor\StageOrdersToTTWPFLibrary\obj\Release\StageOrdersToTTWPFLibrary.csproj.GenerateResource.Cache
 C:\Users\Steve Pickering\Desktop\MAIN TMQR FRAMEWORK\RealtimeMonitor_Iqfeed\realtime-with-python-model\RealtimeSpreadMonitor\StageOrdersToTTWPFLibrary\obj\Release\StageOrdersToTTWPFLibrary.dll
 C:\Users\Steve Pickering\Desktop\MAIN TMQR FRAMEWORK\RealtimeMonitor_Iqfeed\realtime-with-python-model\RealtimeSpreadMonitor\StageOrdersToTTWPFLibrary\obj\Release\StageOrdersToTTWPFLibrary.pdb
-C:\Users\Steve Pickering\Desktop\MAIN TMQR FRAMEWORK\RealtimeMonitor_Iqfeed\realtime-with-python-model\RealtimeSpreadMonitor\StageOrdersToTTWPFLibrary\obj\Release\StageOrdersToTTWPFLibrary.csprojResolveAssemblyReference.cache

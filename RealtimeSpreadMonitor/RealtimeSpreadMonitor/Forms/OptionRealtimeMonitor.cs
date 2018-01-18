@@ -1152,73 +1152,79 @@ namespace RealtimeSpreadMonitor.Forms
 
         public void sendUpdateToPortfolioTotalGrid()
         {
-
-            int instrumentCnt = 0;
-
-            foreach (Instrument_mongo im in DataCollectionLibrary.instrumentList)
+            try
             {
-                UpdateCell((int)PORTFOLIO_SUMMARY_GRID_ROWS.PL_CHG, instrumentCnt,
-                                portfolioSummaryDataTable, Math.Round(im.instrumentModelCalcTotals_ByAccount[
-                            DataCollectionLibrary.portfolioAllocation.brokerAccountChosen].pAndLDay, 2).ToString());
-                //portfolioSummaryDataTable.Rows[(int)PORTFOLIO_SUMMARY_GRID_ROWS.PL_CHG][instrumentCnt]
-                //    = Math.Round(im.instrumentModelCalcTotals_ByAccount[
-                //            DataCollectionLibrary.portfolioAllocation.brokerAccountChosen].pAndLDay, 2);
 
-                UpdateCell((int)PORTFOLIO_SUMMARY_GRID_ROWS.TOTAL_DELTA, instrumentCnt,
-                                portfolioSummaryDataTable, Math.Round(im.instrumentModelCalcTotals_ByAccount[
-                            DataCollectionLibrary.portfolioAllocation.brokerAccountChosen].delta, 2).ToString());
-                //portfolioSummaryDataTable.Rows[(int)PORTFOLIO_SUMMARY_GRID_ROWS.TOTAL_DELTA][instrumentCnt]
-                //    = Math.Round(im.instrumentModelCalcTotals_ByAccount[
-                //            DataCollectionLibrary.portfolioAllocation.brokerAccountChosen].delta, 2);
+                int instrumentCnt = 0;
 
-                UpdateCell((int)PORTFOLIO_SUMMARY_GRID_ROWS.FCM_PL_CHG, instrumentCnt,
-                                portfolioSummaryDataTable, Math.Round(im.instrumentADMCalcTotalsByAccount[
-                            DataCollectionLibrary.portfolioAllocation.brokerAccountChosen].pAndLDay, 2).ToString());
-                //portfolioSummaryDataTable.Rows[(int)PORTFOLIO_SUMMARY_GRID_ROWS.FCM_PL_CHG][instrumentCnt]
-                //    = Math.Round(im.instrumentADMCalcTotalsByAccount[
-                //            DataCollectionLibrary.portfolioAllocation.brokerAccountChosen].pAndLDay, 2);
+                foreach (Instrument_mongo im in DataCollectionLibrary.instrumentList)
+                {
+                    UpdateCell((int)PORTFOLIO_SUMMARY_GRID_ROWS.PL_CHG, instrumentCnt,
+                                    portfolioSummaryDataTable, Math.Round(im.instrumentModelCalcTotals_ByAccount[
+                                DataCollectionLibrary.portfolioAllocation.brokerAccountChosen].pAndLDay, 2).ToString());
+                    //portfolioSummaryDataTable.Rows[(int)PORTFOLIO_SUMMARY_GRID_ROWS.PL_CHG][instrumentCnt]
+                    //    = Math.Round(im.instrumentModelCalcTotals_ByAccount[
+                    //            DataCollectionLibrary.portfolioAllocation.brokerAccountChosen].pAndLDay, 2);
 
-                UpdateCell((int)PORTFOLIO_SUMMARY_GRID_ROWS.FCM_TOTAL_DELTA, instrumentCnt,
-                                portfolioSummaryDataTable, Math.Round(im.instrumentADMCalcTotalsByAccount[
-                            DataCollectionLibrary.portfolioAllocation.brokerAccountChosen].delta, 2).ToString());
-                //portfolioSummaryDataTable.Rows[(int)PORTFOLIO_SUMMARY_GRID_ROWS.FCM_TOTAL_DELTA][instrumentCnt]
-                //    = Math.Round(im.instrumentADMCalcTotalsByAccount[
+                    UpdateCell((int)PORTFOLIO_SUMMARY_GRID_ROWS.TOTAL_DELTA, instrumentCnt,
+                                    portfolioSummaryDataTable, Math.Round(im.instrumentModelCalcTotals_ByAccount[
+                                DataCollectionLibrary.portfolioAllocation.brokerAccountChosen].delta, 2).ToString());
+                    //portfolioSummaryDataTable.Rows[(int)PORTFOLIO_SUMMARY_GRID_ROWS.TOTAL_DELTA][instrumentCnt]
+                    //    = Math.Round(im.instrumentModelCalcTotals_ByAccount[
+                    //            DataCollectionLibrary.portfolioAllocation.brokerAccountChosen].delta, 2);
+
+                    UpdateCell((int)PORTFOLIO_SUMMARY_GRID_ROWS.FCM_PL_CHG, instrumentCnt,
+                                    portfolioSummaryDataTable, Math.Round(im.instrumentADMCalcTotalsByAccount[
+                                DataCollectionLibrary.portfolioAllocation.brokerAccountChosen].pAndLDay, 2).ToString());
+                    //portfolioSummaryDataTable.Rows[(int)PORTFOLIO_SUMMARY_GRID_ROWS.FCM_PL_CHG][instrumentCnt]
+                    //    = Math.Round(im.instrumentADMCalcTotalsByAccount[
+                    //            DataCollectionLibrary.portfolioAllocation.brokerAccountChosen].pAndLDay, 2);
+
+                    UpdateCell((int)PORTFOLIO_SUMMARY_GRID_ROWS.FCM_TOTAL_DELTA, instrumentCnt,
+                                    portfolioSummaryDataTable, Math.Round(im.instrumentADMCalcTotalsByAccount[
+                                DataCollectionLibrary.portfolioAllocation.brokerAccountChosen].delta, 2).ToString());
+                    //portfolioSummaryDataTable.Rows[(int)PORTFOLIO_SUMMARY_GRID_ROWS.FCM_TOTAL_DELTA][instrumentCnt]
+                    //    = Math.Round(im.instrumentADMCalcTotalsByAccount[
+                    //        DataCollectionLibrary.portfolioAllocation.brokerAccountChosen].delta, 2);
+
+                    instrumentCnt++;
+
+
+                }
+
+                UpdateCell((int)PORTFOLIO_SUMMARY_GRID_ROWS.PL_CHG, DataCollectionLibrary.instrumentList.Count,
+                        portfolioSummaryDataTable, Math.Round(DataTotalLibrary.portfolioSpreadCalcTotals[
+                        DataCollectionLibrary.portfolioAllocation.brokerAccountChosen].pAndLDay, 2).ToString());
+                //portfolioSummaryDataTable.Rows[(int)PORTFOLIO_SUMMARY_GRID_ROWS.PL_CHG][DataCollectionLibrary.instrumentList.Count]
+                //        = Math.Round(DataTotalLibrary.portfolioSpreadCalcTotals[
+                //        DataCollectionLibrary.portfolioAllocation.brokerAccountChosen].pAndLDay, 2);
+
+                UpdateCell((int)PORTFOLIO_SUMMARY_GRID_ROWS.TOTAL_DELTA, DataCollectionLibrary.instrumentList.Count,
+                        portfolioSummaryDataTable, Math.Round(DataTotalLibrary.portfolioSpreadCalcTotals[
+                        DataCollectionLibrary.portfolioAllocation.brokerAccountChosen].delta, 2).ToString());
+                //portfolioSummaryDataTable.Rows[(int)PORTFOLIO_SUMMARY_GRID_ROWS.TOTAL_DELTA][DataCollectionLibrary.instrumentList.Count]
+                //    = Math.Round(DataTotalLibrary.portfolioSpreadCalcTotals[
                 //        DataCollectionLibrary.portfolioAllocation.brokerAccountChosen].delta, 2);
 
-                instrumentCnt++;
+                UpdateCell((int)PORTFOLIO_SUMMARY_GRID_ROWS.FCM_PL_CHG, DataCollectionLibrary.instrumentList.Count,
+                        portfolioSummaryDataTable, Math.Round(DataTotalLibrary.portfolioADMSpreadCalcTotals[
+                        DataCollectionLibrary.portfolioAllocation.brokerAccountChosen].pAndLDay, 2).ToString());
+                //portfolioSummaryDataTable.Rows[(int)PORTFOLIO_SUMMARY_GRID_ROWS.FCM_PL_CHG][DataCollectionLibrary.instrumentList.Count]
+                //    = Math.Round(DataTotalLibrary.portfolioADMSpreadCalcTotals[
+                //        DataCollectionLibrary.portfolioAllocation.brokerAccountChosen].pAndLDay, 2);
 
+                UpdateCell((int)PORTFOLIO_SUMMARY_GRID_ROWS.FCM_TOTAL_DELTA, DataCollectionLibrary.instrumentList.Count,
+                        portfolioSummaryDataTable, Math.Round(DataTotalLibrary.portfolioADMSpreadCalcTotals[
+                        DataCollectionLibrary.portfolioAllocation.brokerAccountChosen].delta, 2).ToString());
+                //portfolioSummaryDataTable.Rows[(int)PORTFOLIO_SUMMARY_GRID_ROWS.FCM_TOTAL_DELTA][DataCollectionLibrary.instrumentList.Count]
+                //    = Math.Round(DataTotalLibrary.portfolioADMSpreadCalcTotals[
+                //        DataCollectionLibrary.portfolioAllocation.brokerAccountChosen].delta, 2);
 
             }
-
-            UpdateCell((int)PORTFOLIO_SUMMARY_GRID_ROWS.PL_CHG, DataCollectionLibrary.instrumentList.Count,
-                    portfolioSummaryDataTable, Math.Round(DataTotalLibrary.portfolioSpreadCalcTotals[
-                    DataCollectionLibrary.portfolioAllocation.brokerAccountChosen].pAndLDay, 2).ToString());
-            //portfolioSummaryDataTable.Rows[(int)PORTFOLIO_SUMMARY_GRID_ROWS.PL_CHG][DataCollectionLibrary.instrumentList.Count]
-            //        = Math.Round(DataTotalLibrary.portfolioSpreadCalcTotals[
-            //        DataCollectionLibrary.portfolioAllocation.brokerAccountChosen].pAndLDay, 2);
-
-            UpdateCell((int)PORTFOLIO_SUMMARY_GRID_ROWS.TOTAL_DELTA, DataCollectionLibrary.instrumentList.Count,
-                    portfolioSummaryDataTable, Math.Round(DataTotalLibrary.portfolioSpreadCalcTotals[
-                    DataCollectionLibrary.portfolioAllocation.brokerAccountChosen].delta, 2).ToString());
-            //portfolioSummaryDataTable.Rows[(int)PORTFOLIO_SUMMARY_GRID_ROWS.TOTAL_DELTA][DataCollectionLibrary.instrumentList.Count]
-            //    = Math.Round(DataTotalLibrary.portfolioSpreadCalcTotals[
-            //        DataCollectionLibrary.portfolioAllocation.brokerAccountChosen].delta, 2);
-
-            UpdateCell((int)PORTFOLIO_SUMMARY_GRID_ROWS.FCM_PL_CHG, DataCollectionLibrary.instrumentList.Count,
-                    portfolioSummaryDataTable, Math.Round(DataTotalLibrary.portfolioADMSpreadCalcTotals[
-                    DataCollectionLibrary.portfolioAllocation.brokerAccountChosen].pAndLDay, 2).ToString());
-            //portfolioSummaryDataTable.Rows[(int)PORTFOLIO_SUMMARY_GRID_ROWS.FCM_PL_CHG][DataCollectionLibrary.instrumentList.Count]
-            //    = Math.Round(DataTotalLibrary.portfolioADMSpreadCalcTotals[
-            //        DataCollectionLibrary.portfolioAllocation.brokerAccountChosen].pAndLDay, 2);
-
-            UpdateCell((int)PORTFOLIO_SUMMARY_GRID_ROWS.FCM_TOTAL_DELTA, DataCollectionLibrary.instrumentList.Count,
-                    portfolioSummaryDataTable, Math.Round(DataTotalLibrary.portfolioADMSpreadCalcTotals[
-                    DataCollectionLibrary.portfolioAllocation.brokerAccountChosen].delta, 2).ToString());
-            //portfolioSummaryDataTable.Rows[(int)PORTFOLIO_SUMMARY_GRID_ROWS.FCM_TOTAL_DELTA][DataCollectionLibrary.instrumentList.Count]
-            //    = Math.Round(DataTotalLibrary.portfolioADMSpreadCalcTotals[
-            //        DataCollectionLibrary.portfolioAllocation.brokerAccountChosen].delta, 2);
-
-
+            catch (Exception e)
+            {
+                TSErrorCatch.debugWriteOut(e.ToString());
+            }
         }
 
         private void UpdateCell(int row, int col, DataTable dataTable, string displayValue)
@@ -1234,41 +1240,46 @@ namespace RealtimeSpreadMonitor.Forms
         public void sendUpdateToPortfolioTotalSettlementGrid()
         {
             //for (int instrumentCnt = 0; instrumentCnt < DataTotalLibrary.instrumentSpreadTotals.Length; instrumentCnt++)
-
-            int instrumentCnt = 0;
-            foreach (Instrument_mongo im in DataCollectionLibrary.instrumentList)
+            try
             {
-                UpdateCell((int)PORTFOLIO_SETTLEMENT_SUMMARY_GRID_ROWS.TOTAL_MODEL_SETTLEMENT_PL_CHG, instrumentCnt,
-                    portfolioSummarySettlementDataTable, Math.Round(im.instrumentModelCalcTotals_ByAccount[
-                        DataCollectionLibrary.portfolioAllocation.brokerAccountChosen].pAndLDaySettlementToSettlement, 2).ToString());
-                //portfolioSummarySettlementDataTable.Rows[(int)PORTFOLIO_SETTLEMENT_SUMMARY_GRID_ROWS.TOTAL_MODEL_SETTLEMENT_PL_CHG][instrumentCnt] =
-                //    Math.Round(im.instrumentModelCalcTotals_ByAccount[
+                int instrumentCnt = 0;
+                foreach (Instrument_mongo im in DataCollectionLibrary.instrumentList)
+                {
+                    UpdateCell((int)PORTFOLIO_SETTLEMENT_SUMMARY_GRID_ROWS.TOTAL_MODEL_SETTLEMENT_PL_CHG, instrumentCnt,
+                        portfolioSummarySettlementDataTable, Math.Round(im.instrumentModelCalcTotals_ByAccount[
+                            DataCollectionLibrary.portfolioAllocation.brokerAccountChosen].pAndLDaySettlementToSettlement, 2).ToString());
+                    //portfolioSummarySettlementDataTable.Rows[(int)PORTFOLIO_SETTLEMENT_SUMMARY_GRID_ROWS.TOTAL_MODEL_SETTLEMENT_PL_CHG][instrumentCnt] =
+                    //    Math.Round(im.instrumentModelCalcTotals_ByAccount[
+                    //        DataCollectionLibrary.portfolioAllocation.brokerAccountChosen].pAndLDaySettlementToSettlement, 2);
+
+                    UpdateCell((int)PORTFOLIO_SETTLEMENT_SUMMARY_GRID_ROWS.TOTAL_ADM_SETTLEMENT_PL_CHG, instrumentCnt,
+                        portfolioSummarySettlementDataTable, Math.Round(im.instrumentADMCalcTotalsByAccount[
+                            DataCollectionLibrary.portfolioAllocation.brokerAccountChosen].pAndLDaySettlementToSettlement, 2).ToString());
+                    //portfolioSummarySettlementDataTable.Rows[(int)PORTFOLIO_SETTLEMENT_SUMMARY_GRID_ROWS.TOTAL_ADM_SETTLEMENT_PL_CHG][instrumentCnt] =
+                    //    Math.Round(im.instrumentADMCalcTotalsByAccount[
+                    //        DataCollectionLibrary.portfolioAllocation.brokerAccountChosen].pAndLDaySettlementToSettlement, 2);
+
+                }
+
+                UpdateCell((int)PORTFOLIO_SETTLEMENT_SUMMARY_GRID_ROWS.TOTAL_MODEL_SETTLEMENT_PL_CHG, DataCollectionLibrary.instrumentList.Count,
+                        portfolioSummarySettlementDataTable, Math.Round(DataTotalLibrary.portfolioSpreadCalcTotals[
+                            DataCollectionLibrary.portfolioAllocation.brokerAccountChosen].pAndLDaySettlementToSettlement, 2).ToString());
+                //portfolioSummarySettlementDataTable.Rows[(int)PORTFOLIO_SETTLEMENT_SUMMARY_GRID_ROWS.TOTAL_MODEL_SETTLEMENT_PL_CHG][DataCollectionLibrary.instrumentList.Count] =
+                //        Math.Round(DataTotalLibrary.portfolioSpreadCalcTotals[
                 //        DataCollectionLibrary.portfolioAllocation.brokerAccountChosen].pAndLDaySettlementToSettlement, 2);
 
-                UpdateCell((int)PORTFOLIO_SETTLEMENT_SUMMARY_GRID_ROWS.TOTAL_ADM_SETTLEMENT_PL_CHG, instrumentCnt,
-                    portfolioSummarySettlementDataTable, Math.Round(im.instrumentADMCalcTotalsByAccount[
-                        DataCollectionLibrary.portfolioAllocation.brokerAccountChosen].pAndLDaySettlementToSettlement, 2).ToString());
-                //portfolioSummarySettlementDataTable.Rows[(int)PORTFOLIO_SETTLEMENT_SUMMARY_GRID_ROWS.TOTAL_ADM_SETTLEMENT_PL_CHG][instrumentCnt] =
-                //    Math.Round(im.instrumentADMCalcTotalsByAccount[
+                UpdateCell((int)PORTFOLIO_SETTLEMENT_SUMMARY_GRID_ROWS.TOTAL_ADM_SETTLEMENT_PL_CHG, DataCollectionLibrary.instrumentList.Count,
+                        portfolioSummarySettlementDataTable, Math.Round(DataTotalLibrary.portfolioADMSpreadCalcTotals[
+                            DataCollectionLibrary.portfolioAllocation.brokerAccountChosen].pAndLDaySettlementToSettlement, 2).ToString());
+                //portfolioSummarySettlementDataTable.Rows[(int)PORTFOLIO_SETTLEMENT_SUMMARY_GRID_ROWS.TOTAL_ADM_SETTLEMENT_PL_CHG][DataCollectionLibrary.instrumentList.Count] =
+                //    Math.Round(DataTotalLibrary.portfolioADMSpreadCalcTotals[
                 //        DataCollectionLibrary.portfolioAllocation.brokerAccountChosen].pAndLDaySettlementToSettlement, 2);
 
             }
-
-            UpdateCell((int)PORTFOLIO_SETTLEMENT_SUMMARY_GRID_ROWS.TOTAL_MODEL_SETTLEMENT_PL_CHG, DataCollectionLibrary.instrumentList.Count,
-                    portfolioSummarySettlementDataTable, Math.Round(DataTotalLibrary.portfolioSpreadCalcTotals[
-                        DataCollectionLibrary.portfolioAllocation.brokerAccountChosen].pAndLDaySettlementToSettlement, 2).ToString());
-            //portfolioSummarySettlementDataTable.Rows[(int)PORTFOLIO_SETTLEMENT_SUMMARY_GRID_ROWS.TOTAL_MODEL_SETTLEMENT_PL_CHG][DataCollectionLibrary.instrumentList.Count] =
-            //        Math.Round(DataTotalLibrary.portfolioSpreadCalcTotals[
-            //        DataCollectionLibrary.portfolioAllocation.brokerAccountChosen].pAndLDaySettlementToSettlement, 2);
-
-            UpdateCell((int)PORTFOLIO_SETTLEMENT_SUMMARY_GRID_ROWS.TOTAL_ADM_SETTLEMENT_PL_CHG, DataCollectionLibrary.instrumentList.Count,
-                    portfolioSummarySettlementDataTable, Math.Round(DataTotalLibrary.portfolioADMSpreadCalcTotals[
-                        DataCollectionLibrary.portfolioAllocation.brokerAccountChosen].pAndLDaySettlementToSettlement, 2).ToString());
-            //portfolioSummarySettlementDataTable.Rows[(int)PORTFOLIO_SETTLEMENT_SUMMARY_GRID_ROWS.TOTAL_ADM_SETTLEMENT_PL_CHG][DataCollectionLibrary.instrumentList.Count] =
-            //    Math.Round(DataTotalLibrary.portfolioADMSpreadCalcTotals[
-            //        DataCollectionLibrary.portfolioAllocation.brokerAccountChosen].pAndLDaySettlementToSettlement, 2);
-
-
+            catch (Exception e)
+            {
+                TSErrorCatch.debugWriteOut(e.ToString());
+            }
         }
 
         public void sendUpdateToExpressionListGrid()  //*eQuoteType cqgQuoteType,*/ int spreadExpressionIdx /*int colIdx*/)
@@ -1516,84 +1527,6 @@ namespace RealtimeSpreadMonitor.Forms
                 TSErrorCatch.errorCatchOut(Convert.ToString(this), ex);
             }
         }
-
-
-        //public void fillLiveADMDataPage(int row, int col, String displayValue,
-        //    bool updateColor, double value)
-        //{
-        //    try
-        //    {
-        //        if (this.InvokeRequired)
-        //        {
-        //            ThreadSafeFillLiveDataPageDelegate d = new ThreadSafeFillLiveDataPageDelegate(threadSafeFillLiveADMDataPage);
-
-        //            this.Invoke(d, row, col, displayValue, updateColor, value);
-        //        }
-        //        else
-        //        {
-        //            threadSafeFillLiveADMDataPage(row, col, displayValue, updateColor, value);
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        TSErrorCatch.errorCatchOut(Convert.ToString(this), ex);
-        //    }
-        //}
-
-        //public void threadSafeFillLiveADMDataPage(int row, int col, String displayValue,
-        //    bool updateColor, double value)
-        //{
-        //    try
-        //    {
-        //        int rowToUpdate = row;
-
-        //        if (gridLiveFCMData.Rows[rowToUpdate].Cells[col].Value == null
-        //            ||
-        //            gridLiveFCMData.Rows[rowToUpdate].Cells[col].Value.ToString().CompareTo(displayValue) != 0
-        //            )
-        //        {
-        //            gridLiveFCMData.Rows[rowToUpdate].Cells[col].Value = displayValue;
-
-        //            if (updateColor)
-        //            {
-        //                gridLiveFCMData.Rows[rowToUpdate].Cells[col].Style.BackColor = plUpDownColor(value);
-        //            }
-        //        }
-
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        TSErrorCatch.errorCatchOut(Convert.ToString(this), ex);
-        //    }
-        //}
-
-
-
-        //public void threadSafeFillPortfolioSummary(DataGridView gridView, int row, int col, String displayValue,
-        //    bool updateColor, double value)
-        //{
-        //    try
-        //    {
-        //        if (gridView.Rows[row].Cells[col].Value == null
-        //            ||
-        //            gridView.Rows[row].Cells[col].Value.ToString().CompareTo(displayValue) != 0
-        //            )
-        //        {
-        //            gridView.Rows[row].Cells[col].Value = displayValue;
-
-        //            if (updateColor)
-        //            {
-        //                gridView.Rows[row].Cells[col].Style.BackColor = plUpDownColor(value);
-        //                //portfolioSummaryGrid.Rows[row].Cells[col].Style.ForeColor = Color.Black;
-        //            }
-        //        }
-
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        TSErrorCatch.errorCatchOut(Convert.ToString(this), ex);
-        //    }
-        //}
 
 
         private Color plUpDownColor(double value)
